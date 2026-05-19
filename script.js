@@ -185,8 +185,8 @@ class I18n {
   renderSkills() {
     const grid = document.getElementById('skills-grid');
     if (!grid) return;
-    grid.innerHTML = SKILL_CONFIG.map(s => `
-      <article class="skill-card reveal">
+    grid.innerHTML = SKILL_CONFIG.map((s, i) => `
+      <article class="skill-card reveal reveal-stagger" style="--delay: ${i * 60}ms">
         <div class="skill-card-header">
           <i class="${s.icon}" aria-hidden="true"></i>
           <h3>${this.t(`skillItems.${s.key}`)}</h3>
@@ -205,8 +205,8 @@ class I18n {
   renderServices() {
     const grid = document.getElementById('services-grid');
     if (!grid) return;
-    grid.innerHTML = SERVICE_CONFIG.map(s => `
-      <div class="service-card reveal">
+    grid.innerHTML = SERVICE_CONFIG.map((s, i) => `
+      <div class="service-card reveal reveal-stagger" style="--delay: ${i * 50}ms">
         <div class="service-icon"><i class="${s.icon}"></i></div>
         <h3>${this.t(`serviceItems.${s.key}.title`)}</h3>
         <p>${this.t(`serviceItems.${s.key}.desc`)}</p>
@@ -260,7 +260,7 @@ class I18n {
     const dots = document.getElementById('testimonial-dots');
     if (!slider || !dots) return;
     slider.innerHTML = TESTIMONIAL_CONFIG.map((t, i) => `
-      <div class="testimonial-card ${i === 0 ? 'active' : ''}" data-index="${i}" style="${i === 0 ? '' : 'display:none'}">
+      <div class="testimonial-card ${i === 0 ? 'active' : 'is-hidden'}" data-index="${i}">
         <p>${this.t(`testimonialItems.${t.key}.text`)}</p>
         <div class="testimonial-author">
           <div class="testimonial-avatar">${t.initials}</div>
@@ -302,6 +302,8 @@ class PortfolioApp {
     this.initLoader();
     this.initHeader();
     this.initNav();
+    this.initScrollProgress();
+    this.initBackToTop();
     this.initTheme();
     this.initLangSwitcher();
     this.initTyping();
@@ -330,30 +332,55 @@ class PortfolioApp {
   initNav() {
     const toggle = document.getElementById('nav-toggle');
     const menu = document.getElementById('nav-menu');
-    toggle?.addEventListener('click', () => {
-      const open = menu?.classList.toggle('open');
-      toggle.classList.toggle('active', !!open);
-      toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
-    });
+    const overlay = document.getElementById('nav-overlay');
+
+    const setMenuOpen = (open) => {
+      menu?.classList.toggle('open', open);
+      toggle?.classList.toggle('active', open);
+      overlay?.classList.toggle('visible', open);
+      document.body.classList.toggle('nav-open', open);
+      toggle?.setAttribute('aria-expanded', open ? 'true' : 'false');
+    };
+
+    toggle?.addEventListener('click', () => setMenuOpen(!menu?.classList.contains('open')));
+    overlay?.addEventListener('click', () => setMenuOpen(false));
+
     document.querySelectorAll('.nav-link').forEach(link => {
-      link.addEventListener('click', () => {
-        toggle?.classList.remove('active');
-        menu?.classList.remove('open');
-        toggle?.setAttribute('aria-expanded', 'false');
-      });
+      link.addEventListener('click', () => setMenuOpen(false));
     });
+
     const sections = document.querySelectorAll('section[id]');
     window.addEventListener('scroll', () => {
-      const scrollY = window.scrollY + 120;
+      const scrollY = window.scrollY + 140;
+      let current = 'home';
       sections.forEach(section => {
-        const id = section.getAttribute('id');
-        const link = document.querySelector(`.nav-link[href="#${id}"]`);
-        if (section.offsetTop <= scrollY && section.offsetTop + section.offsetHeight > scrollY) {
-          document.querySelectorAll('.nav-link').forEach(l => l.classList.remove('active'));
-          link?.classList.add('active');
-        }
+        if (section.offsetTop <= scrollY) current = section.getAttribute('id');
+      });
+      document.querySelectorAll('.nav-link').forEach(l => {
+        const href = l.getAttribute('href')?.slice(1);
+        l.classList.toggle('active', href === current);
       });
     }, { passive: true });
+  }
+
+  initScrollProgress() {
+    const bar = document.getElementById('scroll-progress');
+    if (!bar) return;
+    window.addEventListener('scroll', () => {
+      const h = document.documentElement.scrollHeight - window.innerHeight;
+      if (h > 0) bar.style.width = `${(window.scrollY / h) * 100}%`;
+    }, { passive: true });
+  }
+
+  initBackToTop() {
+    const btn = document.getElementById('back-to-top');
+    if (!btn) return;
+    window.addEventListener('scroll', () => {
+      btn.classList.toggle('visible', window.scrollY > 500);
+    }, { passive: true });
+    btn.addEventListener('click', () => {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
   }
 
   initTheme() {
@@ -361,6 +388,8 @@ class PortfolioApp {
     const saved = localStorage.getItem('portfolio_theme') || 'dark';
     document.documentElement.setAttribute('data-theme', saved);
     this.updateThemeIcon(saved);
+    const meta = document.querySelector('meta[name="theme-color"]');
+    if (meta) meta.content = saved === 'dark' ? '#0b1120' : '#f8fafc';
 
     btn?.addEventListener('click', () => {
       const current = document.documentElement.getAttribute('data-theme');
@@ -368,6 +397,8 @@ class PortfolioApp {
       document.documentElement.setAttribute('data-theme', next);
       localStorage.setItem('portfolio_theme', next);
       this.updateThemeIcon(next);
+      const meta = document.querySelector('meta[name="theme-color"]');
+      if (meta) meta.content = next === 'dark' ? '#0b1120' : '#f8fafc';
     });
   }
 
@@ -518,8 +549,9 @@ class PortfolioApp {
         btn.classList.add('active');
         const filter = btn.dataset.filter;
         document.querySelectorAll('.project-card').forEach(card => {
-          const show = filter === 'all' || card.dataset.category === filter;
-          card.classList.toggle('hidden', !show);
+          const visible = filter === 'all' || card.dataset.category === filter;
+          card.classList.toggle('hidden', !visible);
+          if (visible) card.classList.add('reveal', 'visible');
         });
       });
     });
@@ -533,7 +565,8 @@ class PortfolioApp {
 
     const show = (index) => {
       cards.forEach((c, i) => {
-        c.style.display = i === index ? 'block' : 'none';
+        c.classList.toggle('is-hidden', i !== index);
+        c.classList.toggle('active', i === index);
       });
       dots.forEach((d, i) => d.classList.toggle('active', i === index));
       this.testimonialIndex = index;

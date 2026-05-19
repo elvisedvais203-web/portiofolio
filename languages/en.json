@@ -7,6 +7,10 @@
     "ogDescription": "Software development, artificial intelligence and digital solutions for businesses."
   },
   "loader": { "text": "Loading…" },
+  "a11y": {
+    "skip": "Skip to main content",
+    "backTop": "Back to top"
+  },
   "nav": {
     "home": "Home", "about": "About", "skills": "Skills", "services": "Services",
     "projects": "Projects", "experience": "Experience", "testimonials": "Testimonials", "contact": "Contact"

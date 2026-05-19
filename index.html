@@ -8,6 +8,7 @@
   <meta name="author" content="KADIEBWE MAKINA EDVAIS">
   <meta property="og:title" content="KADIEBWE MAKINA EDVAIS | Portfolio" data-i18n-attr="content:meta.ogTitle">
   <meta property="og:description" content="Ingénieur IT, développeur IA & Full Stack" data-i18n-attr="content:meta.ogDescription">
+  <meta name="theme-color" content="#0b1120">
   <title data-i18n="meta.title">KADIEBWE MAKINA EDVAIS | Portfolio</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -17,6 +18,8 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js" crossorigin="anonymous"></script>
 </head>
 <body>
+  <a href="#home" class="skip-link" data-i18n="a11y.skip">Aller au contenu</a>
+  <div class="scroll-progress" id="scroll-progress" aria-hidden="true"></div>
   <div id="loader" class="loader" aria-hidden="true">
     <div class="loader-inner">
       <div class="loader-spinner"></div>
@@ -73,6 +76,7 @@
 
   <main>
     <section class="hero section" id="home">
+      <div class="hero-bg" aria-hidden="true"></div>
       <div class="container hero-grid">
         <div class="hero-content reveal">
           <p class="eyebrow" data-i18n="hero.eyebrow">Ingénieur IT · Développeur Full Stack · Expert IA</p>
@@ -130,7 +134,7 @@
       </div>
     </section>
 
-    <section class="about section" id="about">
+    <section class="about section section-alt" id="about">
       <div class="container">
         <header class="section-header reveal">
           <span class="section-label" data-i18n="about.tag">À propos</span>
@@ -173,7 +177,7 @@
       </div>
     </section>
 
-    <section class="services section" id="services">
+    <section class="services section section-alt" id="services">
       <div class="container">
         <header class="section-header reveal">
           <span class="section-label" data-i18n="services.tag">Services</span>
@@ -200,7 +204,7 @@
       </div>
     </section>
 
-    <section class="experience section" id="experience">
+    <section class="experience section section-alt" id="experience">
       <div class="container">
         <header class="section-header reveal">
           <span class="section-label" data-i18n="experience.tag">Parcours</span>
@@ -221,7 +225,7 @@
       </div>
     </section>
 
-    <section class="contact section" id="contact">
+    <section class="contact section section-contact" id="contact">
       <div class="container">
         <header class="section-header reveal">
           <span class="section-label" data-i18n="contact.tag">Contact</span>
@@ -304,7 +308,11 @@
     </div>
   </footer>
 
+  <button type="button" class="back-to-top" id="back-to-top" aria-label="Retour en haut" data-i18n-attr="aria-label:a11y.backTop">
+    <i class="fas fa-arrow-up" aria-hidden="true"></i>
+  </button>
   <a href="https://wa.me/message/U5VBQ5ZPUAS6A1" class="fab-whatsapp" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+  <div class="nav-overlay" id="nav-overlay" aria-hidden="true"></div>
   <div class="toast" id="toast" role="status"></div>
   <script src="script.js"></script>
 </body>

@@ -7,6 +7,10 @@
     "ogDescription": "Développement logiciel, intelligence artificielle et solutions digitales pour entreprises."
   },
   "loader": { "text": "Chargement…" },
+  "a11y": {
+    "skip": "Aller au contenu principal",
+    "backTop": "Retour en haut de page"
+  },
   "nav": {
     "home": "Accueil",
     "about": "À propos",
