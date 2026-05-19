@@ -19,45 +19,26 @@ const STORAGE_KEY = 'portfolio_lang';
 const EMAIL_PRIMARY = 'elvisedvais203@gmail.com';
 const EMAIL_ICLOUD = 'elvisedvais203@icloud.com';
 
+/** Compétences fusionnées par domaine */
 const SKILL_CONFIG = [
-  { key: 'html', icon: 'fab fa-html5', level: 95 },
-  { key: 'css', icon: 'fab fa-css3-alt', level: 92 },
-  { key: 'javascript', icon: 'fab fa-js', level: 90 },
-  { key: 'python', icon: 'fab fa-python', level: 88 },
-  { key: 'csharp', icon: 'fas fa-code', level: 85 },
-  { key: 'java', icon: 'fab fa-java', level: 84 },
-  { key: 'php', icon: 'fab fa-php', level: 82 },
-  { key: 'sql', icon: 'fas fa-database', level: 90 },
-  { key: 'flask', icon: 'fas fa-flask', level: 86 },
-  { key: 'unity', icon: 'fab fa-unity', level: 80 },
+  { key: 'frontend', icon: 'fas fa-code', level: 93 },
+  { key: 'backend', icon: 'fas fa-server', level: 90 },
+  { key: 'databases', icon: 'fas fa-database', level: 90 },
   { key: 'ai', icon: 'fas fa-brain', level: 88 },
-  { key: 'networking', icon: 'fas fa-network-wired', level: 87 },
+  { key: 'infrastructure', icon: 'fas fa-network-wired', level: 87 },
   { key: 'cybersecurity', icon: 'fas fa-shield-halved', level: 85 },
-  { key: 'database', icon: 'fas fa-server', level: 88 },
-  { key: 'frontend', icon: 'fas fa-palette', level: 92 },
-  { key: 'backend', icon: 'fas fa-cogs', level: 90 },
-  { key: 'uiux', icon: 'fas fa-pen-ruler', level: 86 },
-  { key: 'sysadmin', icon: 'fas fa-desktop', level: 87 },
-  { key: 'linux', icon: 'fab fa-linux', level: 85 },
-  { key: 'arduino', icon: 'fas fa-microchip', level: 83 },
-  { key: 'api', icon: 'fas fa-plug', level: 89 },
-  { key: 'sqlite', icon: 'fas fa-database', level: 88 },
-  { key: 'git', icon: 'fab fa-git-alt', level: 90 }
+  { key: 'iot', icon: 'fas fa-microchip', level: 83 },
+  { key: 'devops', icon: 'fab fa-git-alt', level: 90 }
 ];
 
+/** Services fusionnés par offre */
 const SERVICE_CONFIG = [
-  { key: 'web', icon: 'fas fa-globe' },
-  { key: 'mobile', icon: 'fas fa-mobile-screen' },
+  { key: 'development', icon: 'fas fa-laptop-code' },
   { key: 'ai', icon: 'fas fa-robot' },
-  { key: 'network', icon: 'fas fa-network-wired' },
-  { key: 'database', icon: 'fas fa-database' },
-  { key: 'smart', icon: 'fas fa-microchip' },
-  { key: 'cyber', icon: 'fas fa-shield-halved' },
-  { key: 'software', icon: 'fas fa-code' },
-  { key: 'consulting', icon: 'fas fa-lightbulb' },
-  { key: 'maintenance', icon: 'fas fa-tools' },
-  { key: 'embedded', icon: 'fas fa-memory' },
-  { key: 'automation', icon: 'fas fa-gears' }
+  { key: 'infrastructure', icon: 'fas fa-shield-halved' },
+  { key: 'dataSystems', icon: 'fas fa-database' },
+  { key: 'embedded', icon: 'fas fa-microchip' },
+  { key: 'consulting', icon: 'fas fa-lightbulb' }
 ];
 
 const PROJECT_CONFIG = [
@@ -86,21 +67,6 @@ const TESTIMONIAL_CONFIG = [
   { key: 't2', initials: 'AK' },
   { key: 't3', initials: 'PL' }
 ];
-
-/** Niveaux de mystère pour les compétences */
-const SKILL_VAULT_TIERS = {
-  ai: 'vault',
-  cybersecurity: 'vault',
-  csharp: 'vault',
-  unity: 'vault',
-  networking: 'classified',
-  flask: 'classified',
-  sysadmin: 'classified',
-  api: 'classified',
-  java: 'classified'
-};
-
-const GATE_STORAGE_KEY = 'portfolio_gate_seen';
 
 /* ===== i18n System ===== */
 class I18n {
@@ -220,18 +186,20 @@ class I18n {
     const grid = document.getElementById('skills-grid');
     if (!grid) return;
     grid.innerHTML = SKILL_CONFIG.map(s => `
-      <article class="cipher-card reveal" data-tier="${SKILL_VAULT_TIERS[s.key] || 'public'}" data-skill="${s.key}" tabindex="0" role="button">
-        <span class="cipher-tier">${this.t(`vault.tier.${SKILL_VAULT_TIERS[s.key] || 'public'}`)}</span>
-        <span class="cipher-mask">${'••••••'.slice(0, 5)}</span>
-        <i class="${s.icon}"></i>
-        <h4 class="cipher-name">${this.t(`skillItems.${s.key}`)}</h4>
+      <article class="skill-card reveal">
+        <div class="skill-card-header">
+          <i class="${s.icon}" aria-hidden="true"></i>
+          <h3>${this.t(`skillItems.${s.key}`)}</h3>
+        </div>
+        <p class="skill-stack">${this.t(`skillStacks.${s.key}`)}</p>
+        <div class="skill-level-row">
+          <span>${this.t('skills.levelLabel')}</span>
+          <span>${s.level}%</span>
+        </div>
         <div class="skill-bar"><div class="skill-bar-fill" data-level="${s.level}"></div></div>
       </article>
     `).join('');
-    if (window.portfolioApp) {
-      window.portfolioApp.observeReveals();
-      window.portfolioApp.initVault();
-    }
+    if (window.portfolioApp) window.portfolioApp.observeReveals();
   }
 
   renderServices() {
@@ -277,7 +245,7 @@ class I18n {
     timeline.innerHTML = EXPERIENCE_CONFIG.map(e => `
       <div class="timeline-item reveal">
         <div class="timeline-dot"></div>
-        <div class="panel">
+        <div class="timeline-card">
           <span class="timeline-date">${e.year}</span>
           <h3>${this.t(`experienceItems.${e.key}.title`)}</h3>
           <p>${this.t(`experienceItems.${e.key}.desc`)}</p>
@@ -332,13 +300,8 @@ class PortfolioApp {
     window.portfolioApp = this;
     await this.i18n.init();
     this.initLoader();
-    this.initMysteryGate();
-    this.initParticles();
     this.initHeader();
-    this.initChapterNav();
-    this.initNavPortal();
-    this.initScrollProgress();
-    this.initCursorGlow();
+    this.initNav();
     this.initTheme();
     this.initLangSwitcher();
     this.initTyping();
@@ -353,190 +316,44 @@ class PortfolioApp {
     window.addEventListener('load', () => {
       setTimeout(() => {
         document.getElementById('loader')?.classList.add('hidden');
-      }, 1500);
+      }, 800);
     });
-  }
-
-  initParticles() {
-    const canvas = document.getElementById('particles');
-    if (!canvas) return;
-    const ctx = canvas.getContext('2d');
-    let particles = [];
-    const resize = () => {
-      canvas.width = window.innerWidth;
-      canvas.height = window.innerHeight;
-    };
-    resize();
-    window.addEventListener('resize', resize);
-
-    const count = Math.min(80, Math.floor(window.innerWidth / 15));
-    for (let i = 0; i < count; i++) {
-      particles.push({
-        x: Math.random() * canvas.width,
-        y: Math.random() * canvas.height,
-        vx: (Math.random() - 0.5) * 0.5,
-        vy: (Math.random() - 0.5) * 0.5,
-        r: Math.random() * 2 + 0.5,
-        opacity: Math.random() * 0.5 + 0.2
-      });
-    }
-
-    const animate = () => {
-      ctx.clearRect(0, 0, canvas.width, canvas.height);
-      particles.forEach((p, i) => {
-        p.x += p.vx;
-        p.y += p.vy;
-        if (p.x < 0 || p.x > canvas.width) p.vx *= -1;
-        if (p.y < 0 || p.y > canvas.height) p.vy *= -1;
-        ctx.beginPath();
-        ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
-        ctx.fillStyle = `rgba(201, 162, 39, ${p.opacity * 0.6})`;
-        ctx.fill();
-        particles.slice(i + 1).forEach(p2 => {
-          const dx = p.x - p2.x;
-          const dy = p.y - p2.y;
-          const dist = Math.sqrt(dx * dx + dy * dy);
-          if (dist < 100) {
-            ctx.beginPath();
-            ctx.moveTo(p.x, p.y);
-            ctx.lineTo(p2.x, p2.y);
-            ctx.strokeStyle = `rgba(201, 162, 39, ${0.08 * (1 - dist / 100)})`;
-            ctx.stroke();
-          }
-        });
-      });
-      requestAnimationFrame(animate);
-    };
-    animate();
   }
 
   initHeader() {
     const header = document.getElementById('header');
     window.addEventListener('scroll', () => {
-      header?.classList.toggle('scrolled', window.scrollY > 50);
-    });
+      header?.classList.toggle('scrolled', window.scrollY > 24);
+    }, { passive: true });
   }
 
-  initChapterNav() {
-    const links = document.querySelectorAll('.chapter-link');
-    const line = document.getElementById('chapter-line');
-    const sections = ['home', 'about', 'skills', 'projects', 'contact'];
-
-    const setActive = (id) => {
-      links.forEach(l => l.classList.toggle('active', l.dataset.section === id));
-      const active = document.querySelector(`.chapter-link[data-section="${id}"]`);
-      if (active && line) {
-        const nav = document.getElementById('chapter-nav');
-        const navRect = nav?.getBoundingClientRect();
-        const linkRect = active.getBoundingClientRect();
-        if (navRect) line.style.top = `${linkRect.top - navRect.top + linkRect.height / 2 - 12}px`;
-      }
-    };
-
-    window.addEventListener('scroll', () => {
-      const y = window.scrollY + window.innerHeight * 0.35;
-      let current = 'home';
-      sections.forEach(id => {
-        const el = document.getElementById(id);
-        if (el && el.offsetTop <= y) current = id;
+  initNav() {
+    const toggle = document.getElementById('nav-toggle');
+    const menu = document.getElementById('nav-menu');
+    toggle?.addEventListener('click', () => {
+      const open = menu?.classList.toggle('open');
+      toggle.classList.toggle('active', !!open);
+      toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+    });
+    document.querySelectorAll('.nav-link').forEach(link => {
+      link.addEventListener('click', () => {
+        toggle?.classList.remove('active');
+        menu?.classList.remove('open');
+        toggle?.setAttribute('aria-expanded', 'false');
       });
-      setActive(current);
-    }, { passive: true });
-    setActive('home');
-  }
-
-  initNavPortal() {
-    const btn = document.getElementById('nav-portal-btn');
-    const portal = document.getElementById('nav-portal');
-    const backdrop = document.getElementById('portal-backdrop');
-    const close = () => {
-      portal?.classList.remove('open');
-      btn?.setAttribute('aria-expanded', 'false');
-      document.body.style.overflow = '';
-    };
-    btn?.addEventListener('click', () => {
-      const open = portal?.classList.toggle('open');
-      btn.setAttribute('aria-expanded', open ? 'true' : 'false');
-      document.body.style.overflow = open ? 'hidden' : '';
     });
-    backdrop?.addEventListener('click', close);
-    portal?.querySelectorAll('.portal-link').forEach(link => {
-      link.addEventListener('click', close);
-    });
-    document.addEventListener('keydown', e => { if (e.key === 'Escape') close(); });
-  }
-
-  initMysteryGate() {
-    const gate = document.getElementById('mystery-gate');
-    const enter = document.getElementById('gate-enter');
-    if (!gate) return;
-    if (sessionStorage.getItem(GATE_STORAGE_KEY)) {
-      gate.classList.add('dismissed');
-      document.body.classList.remove('gate-open');
-    } else {
-      document.body.classList.add('gate-open');
-    }
-    const dismiss = () => {
-      gate.classList.add('dismissed');
-      document.body.classList.remove('gate-open');
-      sessionStorage.setItem(GATE_STORAGE_KEY, '1');
-    };
-    enter?.addEventListener('click', dismiss);
-  }
-
-  initScrollProgress() {
-    const bar = document.getElementById('scroll-progress');
+    const sections = document.querySelectorAll('section[id]');
     window.addEventListener('scroll', () => {
-      const h = document.documentElement.scrollHeight - window.innerHeight;
-      if (bar && h > 0) bar.style.width = `${(window.scrollY / h) * 100}%`;
-    }, { passive: true });
-  }
-
-  initCursorGlow() {
-    const glow = document.getElementById('cursor-glow');
-    if (!glow || window.matchMedia('(max-width: 768px)').matches) return;
-    window.addEventListener('mousemove', e => {
-      glow.style.left = `${e.clientX}px`;
-      glow.style.top = `${e.clientY}px`;
-    }, { passive: true });
-  }
-
-  initVault() {
-    const grid = document.getElementById('skills-grid');
-    const counter = document.getElementById('vault-counter');
-    const revealAll = document.getElementById('vault-reveal-all');
-    if (!grid) return;
-
-    const updateCounter = () => {
-      const total = grid.querySelectorAll('.cipher-card').length;
-      const revealed = grid.querySelectorAll('.cipher-card.revealed').length;
-      if (counter) counter.textContent = `${revealed} / ${total}`;
-    };
-
-    const revealCard = (card) => {
-      if (card.classList.contains('revealed')) return;
-      card.classList.add('revealed');
-      card.setAttribute('aria-pressed', 'true');
-      const bar = card.querySelector('.skill-bar-fill');
-      if (bar) bar.style.width = `${bar.dataset.level}%`;
-      updateCounter();
-    };
-
-    grid.querySelectorAll('.cipher-card').forEach(card => {
-      card.addEventListener('click', () => revealCard(card));
-      card.addEventListener('keydown', e => {
-        if (e.key === 'Enter' || e.key === ' ') {
-          e.preventDefault();
-          revealCard(card);
+      const scrollY = window.scrollY + 120;
+      sections.forEach(section => {
+        const id = section.getAttribute('id');
+        const link = document.querySelector(`.nav-link[href="#${id}"]`);
+        if (section.offsetTop <= scrollY && section.offsetTop + section.offsetHeight > scrollY) {
+          document.querySelectorAll('.nav-link').forEach(l => l.classList.remove('active'));
+          link?.classList.add('active');
         }
       });
-    });
-
-    revealAll?.addEventListener('click', () => {
-      grid.querySelectorAll('.cipher-card').forEach(revealCard);
-    });
-
-    updateCounter();
+    }, { passive: true });
   }
 
   initTheme() {
@@ -651,7 +468,7 @@ class PortfolioApp {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
           entry.target.classList.add('visible');
-          entry.target.querySelectorAll('.cipher-card.revealed .skill-bar-fill').forEach(bar => {
+          entry.target.querySelectorAll('.skill-bar-fill').forEach(bar => {
             bar.style.width = bar.dataset.level + '%';
           });
         }
@@ -690,14 +507,14 @@ class PortfolioApp {
   }
 
   initProjectFilters() {
-    const buttons = document.querySelectorAll('.filter-btn');
+    const buttons = document.querySelectorAll('.btn-filter');
     const cards = document.querySelectorAll('.project-card');
     buttons.forEach(btn => {
       btn.replaceWith(btn.cloneNode(true));
     });
-    document.querySelectorAll('.filter-btn').forEach(btn => {
+    document.querySelectorAll('.btn-filter').forEach(btn => {
       btn.addEventListener('click', () => {
-        document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+        document.querySelectorAll('.btn-filter').forEach(b => b.classList.remove('active'));
         btn.classList.add('active');
         const filter = btn.dataset.filter;
         document.querySelectorAll('.project-card').forEach(card => {

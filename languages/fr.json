@@ -1,18 +1,12 @@
 {
   "meta": {
-    "title": "KADIEBWE MAKINA EDVAIS | Archive personnelle",
-    "description": "Portfolio de KADIEBWE MAKINA EDVAIS — Ingénieur IT, IA & Full Stack. Une présence discrète, une expertise profonde.",
-    "keywords": "Ingénieur IT, développeur logiciel, IA, Full Stack, Congo, Lubumbashi, cybersécurité",
-    "ogTitle": "KADIEBWE MAKINA EDVAIS | L'ingénieur que vous cherchez peut-être",
-    "ogDescription": "Développement logiciel, intelligence artificielle et solutions digitales — sur rendez-vous."
+    "title": "KADIEBWE MAKINA EDVAIS | Ingénieur IT & Développeur Full Stack",
+    "description": "Portfolio professionnel de KADIEBWE MAKINA EDVAIS — Ingénieur IT, expert IA et développeur Full Stack à Lubumbashi, RDC.",
+    "keywords": "Ingénieur IT, développeur, IA, Full Stack, Lubumbashi, Congo, cybersécurité",
+    "ogTitle": "KADIEBWE MAKINA EDVAIS | Ingénieur IT International",
+    "ogDescription": "Développement logiciel, intelligence artificielle et solutions digitales pour entreprises."
   },
-  "gate": {
-    "eyebrow": "Archive privée — accès restreint",
-    "title": "Vous êtes sur le seuil.",
-    "text": "Derrière cette porte : une partie de mon univers technique. Le reste ne se révèle qu'à ceux qui osent frapper.",
-    "enter": "Entrer dans l'archive"
-  },
-  "loader": { "text": "Ouverture de l'archive…" },
+  "loader": { "text": "Chargement…" },
   "nav": {
     "home": "Accueil",
     "about": "À propos",
@@ -21,116 +15,119 @@
     "projects": "Projets",
     "experience": "Expérience",
     "testimonials": "Témoignages",
-    "contact": "Contact",
-    "portal": "Parcours",
-    "portalEyebrow": "Choisissez un chapitre"
-  },
-  "navChapters": {
-    "home": "Entrée",
-    "about": "Portrait",
-    "skills": "Savoirs",
-    "projects": "Œuvres",
-    "contact": "Me joindre"
+    "contact": "Contact"
   },
   "hero": {
-    "eyebrow": "Ingénieur · Créateur · Voix discrète du digital",
-    "greeting": "On m'appelle",
-    "description": "Je construis des systèmes intelligents. Je ne montre qu'une fraction de ce que je sais — le reste s'échange en confidence.",
-    "whisper": "« La curiosité est la meilleure clé. Si vous lisez jusqu'ici, vous méritez peut-être de me parler. »",
+    "eyebrow": "Ingénieur IT · Développeur Full Stack · Expert IA",
+    "description": "Je conçois des solutions logicielles fiables, des systèmes intelligents et des infrastructures IT adaptées aux enjeux métier de mes clients.",
     "country": "République Démocratique du Congo",
-    "ctaContact": "Ouvrir le canal",
-    "ctaCv": "Mon CV (PDF)",
-    "ctaVault": "Explorer les savoirs",
-    "badge": "Disponible pour l'exceptionnel",
-    "glyph1": "IA",
-    "glyph2": "Code",
-    "glyph3": "Réseaux",
-    "scroll": "Descendre"
+    "ctaContact": "Me contacter",
+    "ctaCv": "Télécharger le CV",
+    "ctaProjects": "Voir les projets",
+    "badge": "Disponible pour missions",
+    "pill1": "Intelligence artificielle",
+    "pill2": "Développement web & mobile",
+    "pill3": "Réseaux & cybersécurité"
   },
   "typing": {
     "titles": [
-      "Architecte du digital",
-      "Ingénieur des systèmes",
-      "Développeur IA",
-      "Full Stack — front & back",
-      "Gardien des réseaux",
-      "Stratège cybersécurité",
-      "Formateur & innovateur"
+      "Ingénieur IT",
+      "Développeur Full Stack",
+      "Expert Intelligence Artificielle",
+      "Architecte logiciel",
+      "Administrateur réseau & système",
+      "Consultant transformation digitale"
     ]
-  },
-  "mystery": {
-    "band": "Je ne vends pas du mystère pour le spectacle — je protège l'essentiel. Chaque projet commence par une question : qu'essayez-vous vraiment de résoudre ?",
-    "bandCta": "Poser la question →"
   },
   "stats": {
     "projects": "Projets réalisés",
     "experience": "Années d'expérience",
     "clients": "Clients satisfaits",
-    "tech": "Technologies maîtrisées"
+    "domains": "Domaines d'expertise"
   },
   "about": {
-    "tag": "Portrait",
-    "title": "Ce que je laisse voir",
-    "lead": "Le reste se découvre en conversation — comme il se doit.",
-    "subtitle": "Architecte du digital, formateur, stratège discret",
-    "caption": "Lubumbashi · UPL · IT & IA",
-    "p1": "Fort d'une expérience approfondie en technologies de l'information, je suis un expert en développement logiciel, intelligence artificielle, réseaux et administration système. Diplômé en Systèmes Informatiques, Génie Logiciel et IA à l'Université Protestante de Lubumbashi (UPL), je conçois des applications robustes et des systèmes intelligents qui transforment les défis techniques en solutions concrètes.",
-    "p2": "Passionné par l'innovation et la transformation digitale, j'ai créé de nombreuses applications et systèmes intelligents. Maîtrisant le frontend comme le backend, je résous des problèmes complexes avec rigueur et créativité. Formateur professionnel en informatique et programmation, je partage mon expertise pour élever les compétences numériques de la nouvelle génération.",
-    "university": "Université :",
-    "phone": "Téléphone :",
-    "langTitle": "Langues & présence",
-    "lang1": "Parle couramment le français",
-    "lang2": "Comprend et parle l'anglais",
-    "lang3": "Capable de communiquer à l'international",
-    "lang4": "Passionné par la collaboration technologique mondiale",
-    "aiTitle": "Signatures",
-    "ai1": "Ingénieur IT international",
-    "ai2": "Développeur IA & logiciels",
-    "ai3": "Professionnel technologique multilingue",
-    "ai4": "Créateur de solutions digitales modernes",
-    "ai5": "Expert en systèmes intelligents"
+    "tag": "À propos",
+    "title": "Profil professionnel",
+    "lead": "Une expertise technique complète au service de projets ambitieux et durables.",
+    "subtitle": "Ingénieur IT, développeur logiciel & formateur",
+    "p1": "Expert en développement logiciel, intelligence artificielle, réseaux et administration système. Diplômé en Systèmes Informatiques, Génie Logiciel et IA à l'Université Protestante de Lubumbashi (UPL), je conçois des applications robustes et des systèmes intelligents orientés résultats.",
+    "p2": "J'accompagne entreprises, institutions et entrepreneurs dans leur transformation digitale : conception, développement, déploiement et formation. Approche structurée, communication claire et livrables de qualité professionnelle.",
+    "university": "Formation",
+    "phone": "Téléphone",
+    "ai1": "Ingénieur IT",
+    "ai2": "Développeur IA",
+    "ai3": "Full Stack",
+    "ai4": "Formateur",
+    "ai5": "Consultant digital"
   },
-  "vault": {
-    "tag": "Archive",
-    "title": "Savoirs verrouillés",
-    "lead": "Cliquez sur une carte pour déchiffrer. Certaines compétences ne se livrent qu'à l'effort.",
-    "revealAll": "Tout dévoiler",
-    "tier": {
-      "public": "Ouvert",
-      "classified": "Classifié",
-      "vault": "Coffre"
+  "skills": {
+    "tag": "Compétences",
+    "title": "Domaines d'expertise",
+    "lead": "Compétences regroupées par spécialité pour une lecture claire du profil technique.",
+    "levelLabel": "Niveau de maîtrise"
+  },
+  "skillItems": {
+    "frontend": "Développement Frontend & UI/UX",
+    "backend": "Développement Backend & APIs",
+    "databases": "Bases de données & SQL",
+    "ai": "Intelligence artificielle & ML",
+    "infrastructure": "Réseaux, Linux & administration système",
+    "cybersecurity": "Cybersécurité",
+    "iot": "IoT, embarqué & Unity",
+    "devops": "Git, versioning & bonnes pratiques"
+  },
+  "skillStacks": {
+    "frontend": "HTML · CSS · JavaScript · UI/UX · Design responsive",
+    "backend": "Python · C# · Java · PHP · Flask · REST APIs",
+    "databases": "SQL · SQLite · Conception & optimisation BDD",
+    "ai": "Machine learning · Vision · Automatisation intelligente",
+    "infrastructure": "Réseaux · Administration système · Linux",
+    "cybersecurity": "Sécurité applicative · Protection des systèmes",
+    "iot": "Arduino · Systèmes embarqués · Unity · Prototypage",
+    "devops": "Git · GitHub · Collaboration & déploiement"
+  },
+  "services": {
+    "tag": "Services",
+    "title": "Prestations professionnelles"
+  },
+  "serviceItems": {
+    "development": {
+      "title": "Développement web & mobile",
+      "desc": "Sites, applications web et mobiles sur mesure : conception, développement, mise en production et maintenance."
+    },
+    "ai": {
+      "title": "Solutions intelligence artificielle",
+      "desc": "Systèmes intelligents, machine learning, vision par ordinateur et automatisation des processus."
+    },
+    "infrastructure": {
+      "title": "Infrastructure IT & cybersécurité",
+      "desc": "Réseaux, sécurité, maintenance préventive et support technique pour PME et institutions."
+    },
+    "dataSystems": {
+      "title": "Données & systèmes connectés",
+      "desc": "Bases de données, IoT, systèmes intelligents et tableaux de bord pour la prise de décision."
+    },
+    "embedded": {
+      "title": "Systèmes embarqués & automatisation",
+      "desc": "Arduino, microcontrôleurs, automatisation industrielle et solutions embarquées sur mesure."
+    },
+    "consulting": {
+      "title": "Conseil & ingénierie logicielle",
+      "desc": "Audit technique, accompagnement stratégique et développement logiciel adapté à votre métier."
     }
   },
-  "skills": { "tag": "Archive", "title": "Savoirs verrouillés" },
-  "skillItems": {
-    "html": "HTML", "css": "CSS", "javascript": "JavaScript", "python": "Python",
-    "csharp": "C#", "java": "Java", "php": "PHP", "sql": "SQL", "flask": "Flask",
-    "unity": "Unity", "ai": "Développement IA", "networking": "Réseaux",
-    "cybersecurity": "Cybersécurité", "database": "Conception BDD",
-    "frontend": "Développement Frontend", "backend": "Développement Backend",
-    "uiux": "Design UI/UX", "sysadmin": "Administration Système",
-    "linux": "Linux", "arduino": "Arduino", "api": "Développement API",
-    "sqlite": "SQLite", "git": "Git & GitHub"
-  },
-  "services": { "tag": "Services", "title": "Ce que je bâtis pour vous" },
-  "serviceItems": {
-    "web": { "title": "Développement Web", "desc": "Sites web modernes, responsives et performants avec les dernières technologies." },
-    "mobile": { "title": "Applications Mobiles", "desc": "Applications mobiles natives et cross-platform pour iOS et Android." },
-    "ai": { "title": "Solutions IA", "desc": "Systèmes intelligents, machine learning et automatisation par l'IA." },
-    "network": { "title": "Installation Réseau", "desc": "Infrastructure réseau professionnelle pour entreprises et institutions." },
-    "database": { "title": "Systèmes de Bases de Données", "desc": "Conception, optimisation et gestion de bases de données robustes." },
-    "smart": { "title": "Systèmes Intelligents", "desc": "Solutions IoT et systèmes connectés pour l'automatisation intelligente." },
-    "cyber": { "title": "Cybersécurité", "desc": "Protection des systèmes, audits de sécurité et solutions de défense." },
-    "software": { "title": "Ingénierie Logicielle", "desc": "Développement de logiciels sur mesure selon vos besoins métier." },
-    "consulting": { "title": "Conseil IT", "desc": "Accompagnement stratégique pour votre transformation digitale." },
-    "maintenance": { "title": "Maintenance Système", "desc": "Support technique, maintenance préventive et corrective." },
-    "embedded": { "title": "Systèmes Embarqués", "desc": "Développement de solutions embarquées avec Arduino et microcontrôleurs." },
-    "automation": { "title": "Systèmes d'Automatisation", "desc": "Automatisation industrielle et processus pour gagner en efficacité." }
-  },
   "projects": {
-    "tag": "Œuvres", "title": "Réalisations choisies",
-    "filterAll": "Tous", "filterAi": "IA", "filterWeb": "Web", "filterIot": "IoT", "filterNetwork": "Réseau",
-    "catAi": "Intelligence Artificielle", "catWeb": "Web", "catIot": "IoT", "catNetwork": "Réseau"
+    "tag": "Projets",
+    "title": "Réalisations",
+    "filterAll": "Tous",
+    "filterAi": "IA",
+    "filterWeb": "Web",
+    "filterIot": "IoT",
+    "filterNetwork": "Réseau",
+    "catAi": "Intelligence artificielle",
+    "catWeb": "Web",
+    "catIot": "IoT",
+    "catNetwork": "Réseau"
   },
   "projectItems": {
     "surveillance": { "title": "Système de Surveillance Urbaine Intelligente", "desc": "Plateforme IA pour la surveillance urbaine en temps réel avec détection d'anomalies et alertes automatiques." },
@@ -143,40 +140,44 @@
     "network": { "title": "Projets Infrastructure Réseau", "desc": "Déploiement d'infrastructures réseau pour PME et institutions avec monitoring." },
     "animation": { "title": "Projets Animation IA", "desc": "Créations animées assistées par IA pour médias, formation et communication visuelle." }
   },
-  "experience": { "tag": "Parcours", "title": "Traces laissées" },
+  "experience": {
+    "tag": "Parcours",
+    "title": "Expérience professionnelle"
+  },
   "experienceItems": {
     "projects": { "title": "Projets IT Multiples", "desc": "Réalisation de plus de 50 projets technologiques couvrant le web, l'IA, l'IoT et les réseaux." },
     "software": { "title": "Ingénierie Logicielle", "desc": "Conception et développement d'applications professionnelles full stack pour divers secteurs." },
     "ai": { "title": "Développement IA", "desc": "Création de systèmes intelligents intégrant machine learning, vision par ordinateur et automatisation." },
     "network": { "title": "Administration Réseau", "desc": "Installation, configuration et maintenance d'infrastructures réseau sécurisées." },
     "teaching": { "title": "Formation & Enseignement", "desc": "Formation professionnelle en informatique, programmation et technologies émergentes." },
-    "freelance": { "title": "Développement Freelance", "desc": "Prestations freelance pour clients locaux et internationaux avec livraison de qualité premium." }
+    "freelance": { "title": "Développement Freelance", "desc": "Prestations freelance pour clients locaux et internationaux avec livraison de qualité professionnelle." }
   },
-  "testimonials": { "tag": "Échos", "title": "Ce qu'ils murmurent" },
+  "testimonials": {
+    "tag": "Témoignages",
+    "title": "Avis clients"
+  },
   "testimonialItems": {
     "t1": { "text": "Edvais a transformé notre infrastructure IT avec une expertise remarquable. Son professionnalisme et sa capacité à résoudre des problèmes complexes sont exceptionnels.", "name": "Jean Mukendi", "role": "Directeur IT, Entreprise locale" },
     "t2": { "text": "Le système de surveillance IA développé a dépassé nos attentes. Une solution innovante, fiable et parfaitement adaptée à nos besoins.", "name": "Amina Kabongo", "role": "Responsable Sécurité" },
     "t3": { "text": "Formateur exceptionnel et développeur talentueux. Edvais allie expertise technique et pédagogie pour des résultats concrets.", "name": "Patrick Lumumba", "role": "Directeur académique" }
   },
   "contact": {
-    "tag": "Canal privé",
-    "title": "Frappez à la porte",
-    "lead": "Un message suffit. Je réponds aux projets sérieux, aux collaborations audacieuses et aux esprits curieux.",
+    "tag": "Contact",
+    "title": "Travaillons ensemble",
+    "lead": "Décrivez votre projet : je vous réponds dans les meilleurs délais.",
     "whatsapp": "WhatsApp",
-    "whatsappCta": "Ouvrir la conversation",
-    "call": "Appeler",
+    "whatsappCta": "Envoyer un message",
+    "call": "Téléphone",
     "email": "Email",
     "location": "Localisation",
-    "map": "Carte — Lubumbashi, RD Congo",
-    "formIntro": "Votre message reste entre nous jusqu'à ce que je vous réponde.",
     "formName": "Nom complet",
-    "formEmail": "Email",
+    "formEmail": "Adresse email",
     "formSubject": "Sujet",
     "formMessage": "Message",
-    "formSubmit": "Envoyer — je vous lirai"
+    "formSubmit": "Envoyer le message"
   },
   "footer": {
-    "desc": "L'ingénierie discrète. L'impact, lui, se voit.",
+    "desc": "Ingénieur IT · Développeur IA · Solutions digitales professionnelles",
     "navTitle": "Navigation",
     "socialTitle": "Réseaux",
     "rights": "Tous droits réservés."
@@ -184,9 +185,8 @@
   "notifications": {
     "langChanged": "Langue mise à jour",
     "formSent": "Message préparé — ouvrez votre client email",
-    "cvDownloaded": "CV PDF téléchargé (police Times)",
-    "cvPdfError": "Impossible de générer le PDF. Rechargez la page.",
-    "vaultRevealed": "Savoir déchiffré"
+    "cvDownloaded": "CV PDF téléchargé avec succès",
+    "cvPdfError": "Impossible de générer le PDF. Rechargez la page."
   },
   "cv": {
     "title": "INGÉNIEUR IT · DÉVELOPPEUR IA · FULL STACK",

@@ -3,89 +3,48 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="KADIEBWE MAKINA EDVAIS — Ingénieur IT, développeur Full Stack, expert IA. Portfolio personnel et mystérieux." data-i18n-attr="content:meta.description">
-  <meta name="keywords" content="IT Engineer, Software Developer, AI, Full Stack, Congo, Lubumbashi" data-i18n-attr="content:meta.keywords">
+  <meta name="description" content="KADIEBWE MAKINA EDVAIS — Ingénieur IT, développeur Full Stack et expert IA. Portfolio professionnel." data-i18n-attr="content:meta.description">
+  <meta name="keywords" content="Ingénieur IT, développeur, IA, Full Stack, Lubumbashi, Congo" data-i18n-attr="content:meta.keywords">
   <meta name="author" content="KADIEBWE MAKINA EDVAIS">
   <meta property="og:title" content="KADIEBWE MAKINA EDVAIS | Portfolio" data-i18n-attr="content:meta.ogTitle">
-  <meta property="og:description" content="Ingénieur IT international, développeur IA & logiciels" data-i18n-attr="content:meta.ogDescription">
+  <meta property="og:description" content="Ingénieur IT, développeur IA & Full Stack" data-i18n-attr="content:meta.ogDescription">
   <title data-i18n="meta.title">KADIEBWE MAKINA EDVAIS | Portfolio</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500&family=Syne:wght@500;600;700;800&family=Noto+Sans+Arabic:wght@400;600;700&family=Noto+Sans+SC:wght@400;600;700&family=Noto+Sans+JP:wght@400;600;700&family=Noto+Sans+Devanagari:wght@400;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@600;700;800&family=Noto+Sans+Arabic:wght@400;600;700&family=Noto+Sans+SC:wght@400;600;700&family=Noto+Sans+JP:wght@400;600;700&family=Noto+Sans+Devanagari:wght@400;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
   <link rel="stylesheet" href="style.css">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js" crossorigin="anonymous"></script>
 </head>
 <body>
-  <div class="cursor-glow" id="cursor-glow" aria-hidden="true"></div>
-  <div class="scroll-progress" id="scroll-progress" aria-hidden="true"></div>
-
-  <!-- Porte d'entrée mystérieuse -->
-  <div id="mystery-gate" class="mystery-gate" aria-modal="true">
-    <div class="gate-noise"></div>
-    <div class="gate-inner">
-      <p class="gate-eyebrow" data-i18n="gate.eyebrow">Archive privée — accès restreint</p>
-      <h2 class="gate-title" data-i18n="gate.title">Vous êtes sur le seuil.</h2>
-      <p class="gate-text" data-i18n="gate.text">Derrière cette porte : une partie de mon univers technique. Le reste ne se révèle qu'à ceux qui osent frapper.</p>
-      <button type="button" class="btn btn-gold" id="gate-enter" data-i18n="gate.enter">Entrer dans l'archive</button>
-    </div>
-  </div>
-
-  <!-- Loader -->
   <div id="loader" class="loader" aria-hidden="true">
     <div class="loader-inner">
-      <div class="loader-sigil"></div>
-      <div class="loader-logo">KE</div>
-      <div class="loader-text" data-i18n="loader.text">Ouverture de l'archive…</div>
+      <div class="loader-spinner"></div>
+      <p class="loader-text" data-i18n="loader.text">Chargement…</p>
     </div>
   </div>
-
-  <canvas id="particles" aria-hidden="true"></canvas>
-
-  <!-- Navigation par chapitres (desktop) -->
-  <nav class="chapter-nav" id="chapter-nav" aria-label="Chapitres">
-    <a href="#home" class="chapter-link active" data-section="home" data-i18n="navChapters.home">Entrée</a>
-    <a href="#about" class="chapter-link" data-section="about" data-i18n="navChapters.about">Portrait</a>
-    <a href="#skills" class="chapter-link" data-section="skills" data-i18n="navChapters.skills">Savoirs</a>
-    <a href="#projects" class="chapter-link" data-section="projects" data-i18n="navChapters.projects">Œuvres</a>
-    <a href="#contact" class="chapter-link chapter-link--summon" data-section="contact" data-i18n="navChapters.contact">Me joindre</a>
-    <span class="chapter-line" id="chapter-line" aria-hidden="true"></span>
-  </nav>
-
-  <!-- Menu portail plein écran -->
-  <button type="button" class="nav-portal-btn" id="nav-portal-btn" aria-expanded="false" aria-controls="nav-portal">
-    <span class="portal-ring"></span>
-    <span class="portal-label" data-i18n="nav.portal">Parcours</span>
-  </button>
-  <aside class="nav-portal" id="nav-portal" aria-hidden="true">
-    <div class="portal-backdrop" id="portal-backdrop"></div>
-    <div class="portal-panel">
-      <p class="portal-eyebrow" data-i18n="nav.portalEyebrow">Choisissez un chapitre</p>
-      <ul class="portal-links">
-        <li><a href="#home" class="portal-link" data-i18n="nav.home">Accueil</a></li>
-        <li><a href="#about" class="portal-link" data-i18n="nav.about">À propos</a></li>
-        <li><a href="#skills" class="portal-link" data-i18n="nav.skills">Compétences</a></li>
-        <li><a href="#services" class="portal-link" data-i18n="nav.services">Services</a></li>
-        <li><a href="#projects" class="portal-link" data-i18n="nav.projects">Projets</a></li>
-        <li><a href="#experience" class="portal-link" data-i18n="nav.experience">Expérience</a></li>
-        <li><a href="#testimonials" class="portal-link" data-i18n="nav.testimonials">Témoignages</a></li>
-        <li><a href="#contact" class="portal-link portal-link--gold" data-i18n="nav.contact">Contact</a></li>
-      </ul>
-    </div>
-  </aside>
 
   <header class="header" id="header">
     <nav class="nav container">
       <a href="#home" class="nav-logo">
-        <span class="logo-mark">KE</span>
-        <span class="logo-name">EDVAIS</span>
+        <span class="logo-badge">KE</span>
+        <span>KADIEBWE <strong>EDVAIS</strong></span>
       </a>
+      <ul class="nav-menu" id="nav-menu">
+        <li><a href="#home" class="nav-link active" data-i18n="nav.home">Accueil</a></li>
+        <li><a href="#about" class="nav-link" data-i18n="nav.about">À propos</a></li>
+        <li><a href="#skills" class="nav-link" data-i18n="nav.skills">Compétences</a></li>
+        <li><a href="#services" class="nav-link" data-i18n="nav.services">Services</a></li>
+        <li><a href="#projects" class="nav-link" data-i18n="nav.projects">Projets</a></li>
+        <li><a href="#experience" class="nav-link" data-i18n="nav.experience">Expérience</a></li>
+        <li><a href="#contact" class="nav-link nav-link-cta" data-i18n="nav.contact">Contact</a></li>
+      </ul>
       <div class="nav-actions">
         <div class="lang-switcher" id="lang-switcher">
-          <button class="lang-btn" id="lang-btn" aria-haspopup="listbox" aria-expanded="false">
-            <span class="lang-flag" id="current-flag">🇫🇷</span>
-            <span class="lang-code" id="current-lang">FR</span>
-            <i class="fas fa-chevron-down"></i>
+          <button type="button" class="btn btn-icon lang-btn" id="lang-btn" aria-haspopup="listbox" aria-expanded="false">
+            <span id="current-flag">🇫🇷</span>
+            <span id="current-lang">FR</span>
+            <i class="fas fa-chevron-down" aria-hidden="true"></i>
           </button>
           <ul class="lang-dropdown" id="lang-dropdown" role="listbox">
             <li data-lang="fr" role="option"><span>🇫🇷</span> Français</li>
@@ -100,294 +59,243 @@
             <li data-lang="ar" role="option"><span>🇸🇦</span> العربية</li>
           </ul>
         </div>
-        <button class="theme-toggle" id="theme-toggle" aria-label="Toggle theme">
+        <button type="button" class="btn btn-icon theme-toggle" id="theme-toggle" aria-label="Thème">
           <i class="fas fa-moon"></i>
+        </button>
+        <button type="button" class="nav-toggle" id="nav-toggle" aria-label="Menu" aria-expanded="false">
+          <span></span><span></span><span></span>
         </button>
       </div>
     </nav>
   </header>
 
-  <button class="fab-translate" id="fab-translate" aria-label="Language">
-    <i class="fas fa-globe"></i>
-  </button>
+  <button type="button" class="fab-translate" id="fab-translate" aria-label="Langue"><i class="fas fa-globe"></i></button>
 
-  <!-- Hero -->
-  <section class="hero section" id="home">
-    <div class="hero-veil"></div>
-    <div class="container hero-grid">
-      <div class="hero-content reveal">
-        <p class="hero-eyebrow" data-i18n="hero.eyebrow">Ingénieur · Créateur · Voix discrète du digital</p>
-        <p class="hero-greeting" data-i18n="hero.greeting">On m'appelle</p>
-        <h1 class="hero-name">
-          <span class="name-line">KADIEBWE MAKINA</span>
-          <span class="name-accent">EDVAIS</span>
-        </h1>
-        <p class="hero-typing"><span id="typing-text"></span><span class="cursor">▍</span></p>
-        <p class="hero-desc" data-i18n="hero.description">Je construis des systèmes intelligents. Je ne montre qu'une fraction de ce que je sais — le reste s'échange en confidence.</p>
-        <blockquote class="hero-whisper" data-i18n="hero.whisper">« La curiosité est la meilleure clé. Si vous lisez jusqu'ici, vous méritez peut-être de me parler. »</blockquote>
-        <div class="hero-location"><i class="fas fa-map-marker-alt"></i> Lubumbashi · <span data-i18n="hero.country">République Démocratique du Congo</span></div>
-        <div class="hero-buttons">
-          <a href="#contact" class="btn btn-gold" data-i18n="hero.ctaContact">Ouvrir le canal</a>
-          <a href="#" class="btn btn-ghost" id="cv-download" data-i18n="hero.ctaCv">Mon CV (PDF)</a>
-          <a href="#skills" class="btn btn-ghost" data-i18n="hero.ctaVault">Explorer les savoirs</a>
-        </div>
-        <div class="hero-social">
-          <a href="https://github.com/elvisedvais203-web" target="_blank" rel="noopener" aria-label="GitHub"><i class="fab fa-github"></i></a>
-          <a href="https://x.com/ELVISEDVAIS" target="_blank" rel="noopener" aria-label="X"><i class="fab fa-x-twitter"></i></a>
-          <a href="https://www.facebook.com/profile.php?id=61589667917467" target="_blank" rel="noopener" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
-          <a href="https://www.instagram.com/edvaismakina?igsh=MXd3c2JiajJqN3BkNA==" target="_blank" rel="noopener" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-        </div>
-      </div>
-      <div class="hero-image reveal">
-        <div class="profile-frame">
-          <div class="profile-halo"></div>
-          <img src="images/profile.png" alt="KADIEBWE MAKINA EDVAIS" class="profile-photo" width="320" height="380">
-          <div class="profile-seal" data-i18n="hero.badge">Disponible pour l'exceptionnel</div>
-        </div>
-        <ul class="hero-glyphs" aria-hidden="true">
-          <li data-i18n="hero.glyph1">IA</li>
-          <li data-i18n="hero.glyph2">Code</li>
-          <li data-i18n="hero.glyph3">Réseaux</li>
-        </ul>
-      </div>
-    </div>
-    <a href="#about" class="scroll-hint" aria-label="Scroll">
-      <span data-i18n="hero.scroll">Descendre</span>
-      <i class="fas fa-arrow-down"></i>
-    </a>
-  </section>
-
-  <!-- Bande énigme -->
-  <section class="enigma-band" id="enigma">
-    <div class="container enigma-inner reveal">
-      <span class="enigma-index">01</span>
-      <p class="enigma-text" data-i18n="mystery.band">Je ne vends pas du mystère pour le spectacle — je protège l'essentiel. Chaque projet commence par une question : <em>qu'essayez-vous vraiment de résoudre ?</em></p>
-      <a href="#contact" class="enigma-cta" data-i18n="mystery.bandCta">Poser la question →</a>
-    </div>
-  </section>
-
-  <!-- Stats -->
-  <section class="stats section" id="stats">
-    <div class="container">
-    <div class="stats-grid">
-      <div class="stat-card reveal">
-        <span class="stat-number" data-target="50">0</span><span class="stat-plus">+</span>
-        <p data-i18n="stats.projects">Projets réalisés</p>
-      </div>
-      <div class="stat-card reveal">
-        <span class="stat-number" data-target="5">0</span><span class="stat-plus">+</span>
-        <p data-i18n="stats.experience">Années d'expérience</p>
-      </div>
-      <div class="stat-card reveal">
-        <span class="stat-number" data-target="100">0</span><span class="stat-plus">+</span>
-        <p data-i18n="stats.clients">Clients satisfaits</p>
-      </div>
-      <div class="stat-card reveal">
-        <span class="stat-number" data-target="20">0</span><span class="stat-plus">+</span>
-        <p data-i18n="stats.tech">Technologies maîtrisées</p>
-      </div>
-    </div>
-    </div>
-  </section>
-
-  <!-- About -->
-  <section class="about section" id="about">
-    <div class="container">
-      <div class="section-header reveal">
-        <span class="section-tag" data-i18n="about.tag">Portrait</span>
-        <h2 class="section-title" data-i18n="about.title">Ce que je laisse voir</h2>
-        <p class="section-lead" data-i18n="about.lead">Le reste se découvre en conversation — comme il se doit.</p>
-      </div>
-      <div class="about-grid">
-        <div class="about-image reveal">
-          <div class="about-img-frame">
-            <img src="images/profile.png" alt="KADIEBWE MAKINA EDVAIS" class="about-photo" width="400" height="500">
-            <div class="about-caption" data-i18n="about.caption">Lubumbashi · UPL · IT & IA</div>
+  <main>
+    <section class="hero section" id="home">
+      <div class="container hero-grid">
+        <div class="hero-content reveal">
+          <p class="eyebrow" data-i18n="hero.eyebrow">Ingénieur IT · Développeur Full Stack · Expert IA</p>
+          <h1 class="hero-title">
+            KADIEBWE MAKINA<br>
+            <span class="text-primary">EDVAIS</span>
+          </h1>
+          <p class="hero-typing"><span id="typing-text"></span><span class="typing-cursor">|</span></p>
+          <p class="hero-desc" data-i18n="hero.description">Je conçois des solutions logicielles fiables, des systèmes intelligents et des infrastructures IT adaptées aux enjeux métier de mes clients.</p>
+          <p class="hero-location"><i class="fas fa-location-dot" aria-hidden="true"></i> Lubumbashi, <span data-i18n="hero.country">République Démocratique du Congo</span></p>
+          <div class="btn-group">
+            <a href="#contact" class="btn btn-primary" data-i18n="hero.ctaContact">Me contacter</a>
+            <a href="#" class="btn btn-secondary" id="cv-download" data-i18n="hero.ctaCv">Télécharger le CV</a>
+            <a href="#projects" class="btn btn-secondary" data-i18n="hero.ctaProjects">Voir les projets</a>
+          </div>
+          <div class="hero-social">
+            <a href="https://github.com/elvisedvais203-web" target="_blank" rel="noopener noreferrer" aria-label="GitHub"><i class="fab fa-github"></i></a>
+            <a href="https://x.com/ELVISEDVAIS" target="_blank" rel="noopener noreferrer" aria-label="X"><i class="fab fa-x-twitter"></i></a>
+            <a href="https://www.facebook.com/profile.php?id=61589667917467" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+            <a href="https://www.instagram.com/edvaismakina?igsh=MXd3c2JiajJqN3BkNA==" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
           </div>
         </div>
-        <div class="about-content reveal">
-          <h3 data-i18n="about.subtitle">Architecte du digital, formateur, stratège discret</h3>
-          <p class="about-redacted" data-i18n="about.p1">Fort d'une expérience approfondie en technologies de l'information, je suis un expert en développement logiciel, intelligence artificielle, réseaux et administration système. Diplômé en Systèmes Informatiques, Génie Logiciel et IA à l'Université Protestante de Lubumbashi (UPL), je conçois des applications robustes et des systèmes intelligents qui transforment les défis techniques en solutions concrètes.</p>
-          <p data-i18n="about.p2">Passionné par l'innovation et la transformation digitale, j'ai créé de nombreuses applications et systèmes intelligents. Maîtrisant le frontend comme le backend, je résous des problèmes complexes avec rigueur et créativité. Formateur professionnel en informatique et programmation, je partage mon expertise pour élever les compétences numériques de la nouvelle génération.</p>
-          <div class="about-info">
-            <div><i class="fas fa-graduation-cap"></i> <strong data-i18n="about.university">Université :</strong> UPL — SI, GL & IA</div>
-            <div class="about-email-row"><i class="fas fa-envelope"></i> <strong>Email :</strong>
-              <span class="email-links">
-                <a href="mailto:elvisedvais203@gmail.com">elvisedvais203@gmail.com</a>
-                <a href="mailto:elvisedvais203@icloud.com">elvisedvais203@icloud.com</a>
-              </span>
-            </div>
-            <div><i class="fas fa-phone"></i> <strong data-i18n="about.phone">Téléphone :</strong> +243 895 966 288</div>
+        <div class="hero-media reveal">
+          <div class="profile-card">
+            <img src="images/profile.png" alt="KADIEBWE MAKINA EDVAIS" class="profile-photo" width="360" height="420">
+            <span class="status-badge" data-i18n="hero.badge">Disponible pour missions</span>
           </div>
-          <div class="about-languages panel">
-            <h4 data-i18n="about.langTitle">Langues & présence</h4>
-            <ul>
-              <li data-i18n="about.lang1">Parle couramment le français</li>
-              <li data-i18n="about.lang2">Comprend et parle l'anglais</li>
-              <li data-i18n="about.lang3">Capable de communiquer à l'international</li>
-              <li data-i18n="about.lang4">Passionné par la collaboration technologique mondiale</li>
-            </ul>
+          <ul class="expertise-pills">
+            <li data-i18n="hero.pill1">Intelligence artificielle</li>
+            <li data-i18n="hero.pill2">Développement web & mobile</li>
+            <li data-i18n="hero.pill3">Réseaux & cybersécurité</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="stats section" id="stats">
+      <div class="container stats-grid">
+        <article class="stat-card reveal">
+          <p class="stat-value"><span class="stat-number" data-target="50">0</span><span>+</span></p>
+          <p class="stat-label" data-i18n="stats.projects">Projets réalisés</p>
+        </article>
+        <article class="stat-card reveal">
+          <p class="stat-value"><span class="stat-number" data-target="5">0</span><span>+</span></p>
+          <p class="stat-label" data-i18n="stats.experience">Années d'expérience</p>
+        </article>
+        <article class="stat-card reveal">
+          <p class="stat-value"><span class="stat-number" data-target="100">0</span><span>+</span></p>
+          <p class="stat-label" data-i18n="stats.clients">Clients satisfaits</p>
+        </article>
+        <article class="stat-card reveal">
+          <p class="stat-value"><span class="stat-number" data-target="8">0</span></p>
+          <p class="stat-label" data-i18n="stats.domains">Domaines d'expertise</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="about section" id="about">
+      <div class="container">
+        <header class="section-header reveal">
+          <span class="section-label" data-i18n="about.tag">À propos</span>
+          <h2 class="section-title" data-i18n="about.title">Profil professionnel</h2>
+          <p class="section-subtitle" data-i18n="about.lead">Une expertise technique complète au service de projets ambitieux et durables.</p>
+        </header>
+        <div class="about-grid">
+          <div class="about-media reveal">
+            <img src="images/profile.png" alt="KADIEBWE MAKINA EDVAIS" class="about-photo" width="420" height="520">
           </div>
-          <div class="about-tags-wrap">
-            <h4 data-i18n="about.aiTitle">Signatures</h4>
-            <div class="about-tags">
-              <span data-i18n="about.ai1">Ingénieur IT international</span>
-              <span data-i18n="about.ai2">Développeur IA & logiciels</span>
-              <span data-i18n="about.ai3">Professionnel technologique multilingue</span>
-              <span data-i18n="about.ai4">Créateur de solutions digitales modernes</span>
-              <span data-i18n="about.ai5">Expert en systèmes intelligents</span>
+          <div class="about-content reveal">
+            <h3 data-i18n="about.subtitle">Ingénieur IT, développeur logiciel & formateur</h3>
+            <p data-i18n="about.p1">Expert en développement logiciel, intelligence artificielle, réseaux et administration système. Diplômé en Systèmes Informatiques, Génie Logiciel et IA à l'Université Protestante de Lubumbashi (UPL), je conçois des applications robustes et des systèmes intelligents orientés résultats.</p>
+            <p data-i18n="about.p2">J'accompagne entreprises, institutions et entrepreneurs dans leur transformation digitale : conception, développement, déploiement et formation. Approche structurée, communication claire et livrables de qualité professionnelle.</p>
+            <dl class="info-list">
+              <div><dt data-i18n="about.university">Formation</dt><dd>UPL — SI, Génie Logiciel & IA</dd></div>
+              <div><dt>Email</dt><dd><a href="mailto:elvisedvais203@gmail.com">elvisedvais203@gmail.com</a> · <a href="mailto:elvisedvais203@icloud.com">elvisedvais203@icloud.com</a></dd></div>
+              <div><dt data-i18n="about.phone">Téléphone</dt><dd>+243 895 966 288</dd></div>
+            </dl>
+            <div class="tag-group">
+              <span data-i18n="about.ai1">Ingénieur IT</span>
+              <span data-i18n="about.ai2">Développeur IA</span>
+              <span data-i18n="about.ai3">Full Stack</span>
+              <span data-i18n="about.ai4">Formateur</span>
+              <span data-i18n="about.ai5">Consultant digital</span>
             </div>
           </div>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- Vault / Skills -->
-  <section class="vault section" id="skills">
-    <div class="container">
-      <div class="section-header reveal">
-        <span class="section-tag" data-i18n="vault.tag">Archive</span>
-        <h2 class="section-title" data-i18n="vault.title">Savoirs verrouillés</h2>
-        <p class="section-lead" data-i18n="vault.lead">Cliquez sur une carte pour déchiffrer. Certaines compétences ne se livrent qu'à l'effort.</p>
+    <section class="skills section" id="skills">
+      <div class="container">
+        <header class="section-header reveal">
+          <span class="section-label" data-i18n="skills.tag">Compétences</span>
+          <h2 class="section-title" data-i18n="skills.title">Domaines d'expertise</h2>
+          <p class="section-subtitle" data-i18n="skills.lead">Compétences regroupées par spécialité pour une lecture claire de mon profil technique.</p>
+        </header>
+        <div class="skills-grid" id="skills-grid"></div>
       </div>
-      <div class="vault-toolbar reveal">
-        <button type="button" class="btn btn-ghost btn-sm" id="vault-reveal-all" data-i18n="vault.revealAll">Tout dévoiler</button>
-        <span class="vault-counter" id="vault-counter">0 / 0</span>
-      </div>
-      <div class="skills-grid" id="skills-grid"></div>
-    </div>
-  </section>
+    </section>
 
-  <!-- Services -->
-  <section class="services section" id="services">
-    <div class="container">
-      <div class="section-header reveal">
-        <span class="section-tag" data-i18n="services.tag">Services</span>
-        <h2 class="section-title" data-i18n="services.title">Ce que je bâtis pour vous</h2>
+    <section class="services section" id="services">
+      <div class="container">
+        <header class="section-header reveal">
+          <span class="section-label" data-i18n="services.tag">Services</span>
+          <h2 class="section-title" data-i18n="services.title">Prestations professionnelles</h2>
+        </header>
+        <div class="services-grid" id="services-grid"></div>
       </div>
-      <div class="services-grid" id="services-grid"></div>
-    </div>
-  </section>
+    </section>
 
-  <!-- Projects -->
-  <section class="projects section" id="projects">
-    <div class="container">
-      <div class="section-header reveal">
-        <span class="section-tag" data-i18n="projects.tag">Œuvres</span>
-        <h2 class="section-title" data-i18n="projects.title">Réalisations choisies</h2>
-      </div>
-      <div class="project-filters reveal">
-        <button class="filter-btn active" data-filter="all" data-i18n="projects.filterAll">Tous</button>
-        <button class="filter-btn" data-filter="ai" data-i18n="projects.filterAi">IA</button>
-        <button class="filter-btn" data-filter="web" data-i18n="projects.filterWeb">Web</button>
-        <button class="filter-btn" data-filter="iot" data-i18n="projects.filterIot">IoT</button>
-        <button class="filter-btn" data-filter="network" data-i18n="projects.filterNetwork">Réseau</button>
-      </div>
-      <div class="projects-grid" id="projects-grid"></div>
-    </div>
-  </section>
-
-  <!-- Experience -->
-  <section class="experience section" id="experience">
-    <div class="container">
-      <div class="section-header reveal">
-        <span class="section-tag" data-i18n="experience.tag">Parcours</span>
-        <h2 class="section-title" data-i18n="experience.title">Traces laissées</h2>
-      </div>
-      <div class="timeline" id="timeline"></div>
-    </div>
-  </section>
-
-  <!-- Testimonials -->
-  <section class="testimonials section" id="testimonials">
-    <div class="container">
-      <div class="section-header reveal">
-        <span class="section-tag" data-i18n="testimonials.tag">Échos</span>
-        <h2 class="section-title" data-i18n="testimonials.title">Ce qu'ils murmurent</h2>
-      </div>
-      <div class="testimonials-slider reveal" id="testimonials-slider"></div>
-      <div class="testimonial-dots" id="testimonial-dots"></div>
-    </div>
-  </section>
-
-  <!-- Contact summon -->
-  <section class="contact section summon" id="contact">
-    <div class="summon-veil"></div>
-    <div class="container">
-      <div class="section-header reveal summon-header">
-        <span class="section-tag" data-i18n="contact.tag">Canal privé</span>
-        <h2 class="section-title" data-i18n="contact.title">Frappez à la porte</h2>
-        <p class="section-lead summon-lead" data-i18n="contact.lead">Un message suffit. Je réponds aux projets sérieux, aux collaborations audacieuses et aux esprits curieux.</p>
-      </div>
-      <div class="contact-grid">
-        <div class="contact-info reveal">
-          <div class="contact-card">
-            <i class="fab fa-whatsapp"></i>
-            <h4 data-i18n="contact.whatsapp">WhatsApp</h4>
-            <a href="https://wa.me/message/U5VBQ5ZPUAS6A1" target="_blank" rel="noopener" class="contact-highlight" data-i18n="contact.whatsappCta">Ouvrir la conversation</a>
-          </div>
-          <div class="contact-card">
-            <i class="fas fa-phone"></i>
-            <h4 data-i18n="contact.call">Appeler</h4>
-            <a href="tel:+243895966288">+243 895 966 288</a>
-            <a href="tel:+243976088812">+243 976 088 812</a>
-          </div>
-          <div class="contact-card">
-            <i class="fas fa-envelope"></i>
-            <h4 data-i18n="contact.email">Email</h4>
-            <a href="mailto:elvisedvais203@gmail.com">elvisedvais203@gmail.com</a>
-            <a href="mailto:elvisedvais203@icloud.com">elvisedvais203@icloud.com</a>
-          </div>
-          <div class="contact-card">
-            <i class="fas fa-location-dot"></i>
-            <h4 data-i18n="contact.location">Localisation</h4>
-            <p>Lubumbashi, RDC</p>
-          </div>
+    <section class="projects section" id="projects">
+      <div class="container">
+        <header class="section-header reveal">
+          <span class="section-label" data-i18n="projects.tag">Projets</span>
+          <h2 class="section-title" data-i18n="projects.title">Réalisations</h2>
+        </header>
+        <div class="filter-bar reveal">
+          <button type="button" class="btn btn-filter active" data-filter="all" data-i18n="projects.filterAll">Tous</button>
+          <button type="button" class="btn btn-filter" data-filter="ai" data-i18n="projects.filterAi">IA</button>
+          <button type="button" class="btn btn-filter" data-filter="web" data-i18n="projects.filterWeb">Web</button>
+          <button type="button" class="btn btn-filter" data-filter="iot" data-i18n="projects.filterIot">IoT</button>
+          <button type="button" class="btn btn-filter" data-filter="network" data-i18n="projects.filterNetwork">Réseau</button>
         </div>
-        <form class="contact-form panel reveal" id="contact-form">
-          <p class="form-intro" data-i18n="contact.formIntro">Votre message reste entre nous jusqu'à ce que je vous réponde.</p>
-          <div class="form-group">
-            <input type="text" id="name" name="name" required placeholder=" ">
-            <label for="name" data-i18n="contact.formName">Nom complet</label>
-          </div>
-          <div class="form-group">
-            <input type="email" id="email" name="email" required placeholder=" ">
-            <label for="email" data-i18n="contact.formEmail">Email</label>
-          </div>
-          <div class="form-group">
-            <input type="text" id="subject" name="subject" required placeholder=" ">
-            <label for="subject" data-i18n="contact.formSubject">Sujet</label>
-          </div>
-          <div class="form-group">
-            <textarea id="message" name="message" rows="5" required placeholder=" "></textarea>
-            <label for="message" data-i18n="contact.formMessage">Message</label>
-          </div>
-          <button type="submit" class="btn btn-gold btn-full" data-i18n="contact.formSubmit">Envoyer — je vous lirai</button>
-        </form>
+        <div class="projects-grid" id="projects-grid"></div>
       </div>
-    </div>
-  </section>
+    </section>
+
+    <section class="experience section" id="experience">
+      <div class="container">
+        <header class="section-header reveal">
+          <span class="section-label" data-i18n="experience.tag">Parcours</span>
+          <h2 class="section-title" data-i18n="experience.title">Expérience professionnelle</h2>
+        </header>
+        <div class="timeline" id="timeline"></div>
+      </div>
+    </section>
+
+    <section class="testimonials section" id="testimonials">
+      <div class="container">
+        <header class="section-header reveal">
+          <span class="section-label" data-i18n="testimonials.tag">Témoignages</span>
+          <h2 class="section-title" data-i18n="testimonials.title">Avis clients</h2>
+        </header>
+        <div class="testimonials-slider reveal" id="testimonials-slider"></div>
+        <div class="testimonial-dots" id="testimonial-dots"></div>
+      </div>
+    </section>
+
+    <section class="contact section" id="contact">
+      <div class="container">
+        <header class="section-header reveal">
+          <span class="section-label" data-i18n="contact.tag">Contact</span>
+          <h2 class="section-title" data-i18n="contact.title">Travaillons ensemble</h2>
+          <p class="section-subtitle" data-i18n="contact.lead">Décrivez votre projet : je vous réponds dans les meilleurs délais.</p>
+        </header>
+        <div class="contact-grid">
+          <div class="contact-aside reveal">
+            <article class="contact-card">
+              <i class="fab fa-whatsapp" aria-hidden="true"></i>
+              <h3 data-i18n="contact.whatsapp">WhatsApp</h3>
+              <a href="https://wa.me/message/U5VBQ5ZPUAS6A1" class="btn btn-primary btn-sm" target="_blank" rel="noopener noreferrer" data-i18n="contact.whatsappCta">Envoyer un message</a>
+            </article>
+            <article class="contact-card">
+              <i class="fas fa-phone" aria-hidden="true"></i>
+              <h3 data-i18n="contact.call">Téléphone</h3>
+              <a href="tel:+243895966288">+243 895 966 288</a>
+              <a href="tel:+243976088812">+243 976 088 812</a>
+            </article>
+            <article class="contact-card">
+              <i class="fas fa-envelope" aria-hidden="true"></i>
+              <h3 data-i18n="contact.email">Email</h3>
+              <a href="mailto:elvisedvais203@gmail.com">elvisedvais203@gmail.com</a>
+              <a href="mailto:elvisedvais203@icloud.com">elvisedvais203@icloud.com</a>
+            </article>
+            <article class="contact-card">
+              <i class="fas fa-location-dot" aria-hidden="true"></i>
+              <h3 data-i18n="contact.location">Localisation</h3>
+              <p>Lubumbashi, RDC</p>
+            </article>
+          </div>
+          <form class="card contact-form reveal" id="contact-form">
+            <div class="form-group">
+              <label for="name" data-i18n="contact.formName">Nom complet</label>
+              <input type="text" id="name" name="name" required autocomplete="name">
+            </div>
+            <div class="form-group">
+              <label for="email" data-i18n="contact.formEmail">Adresse email</label>
+              <input type="email" id="email" name="email" required autocomplete="email">
+            </div>
+            <div class="form-group">
+              <label for="subject" data-i18n="contact.formSubject">Sujet</label>
+              <input type="text" id="subject" name="subject" required>
+            </div>
+            <div class="form-group">
+              <label for="message" data-i18n="contact.formMessage">Message</label>
+              <textarea id="message" name="message" rows="5" required></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary btn-full" data-i18n="contact.formSubmit">Envoyer le message</button>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
 
   <footer class="footer">
     <div class="container footer-grid">
-      <div class="footer-brand">
-        <a href="#home" class="nav-logo"><span class="logo-mark">KE</span><span class="logo-name">EDVAIS</span></a>
-        <p data-i18n="footer.desc">L'ingénierie discrète. L'impact, lui, se voit.</p>
+      <div>
+        <a href="#home" class="nav-logo"><span class="logo-badge">KE</span><span>KADIEBWE <strong>EDVAIS</strong></span></a>
+        <p data-i18n="footer.desc">Ingénieur IT · Développeur IA · Solutions digitales professionnelles</p>
       </div>
-      <div class="footer-links">
+      <div>
         <h4 data-i18n="footer.navTitle">Navigation</h4>
         <a href="#about" data-i18n="nav.about">À propos</a>
         <a href="#projects" data-i18n="nav.projects">Projets</a>
         <a href="#contact" data-i18n="nav.contact">Contact</a>
       </div>
-      <div class="footer-social">
+      <div>
         <h4 data-i18n="footer.socialTitle">Réseaux</h4>
-        <div class="footer-social-icons">
-          <a href="https://github.com/elvisedvais203-web" target="_blank" rel="noopener" aria-label="GitHub"><i class="fab fa-github"></i></a>
-          <a href="https://x.com/ELVISEDVAIS" target="_blank" rel="noopener" aria-label="X"><i class="fab fa-x-twitter"></i></a>
-          <a href="https://www.facebook.com/profile.php?id=61589667917467" target="_blank" rel="noopener" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
-          <a href="https://www.instagram.com/edvaismakina?igsh=MXd3c2JiajJqN3BkNA==" target="_blank" rel="noopener" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+        <div class="footer-social">
+          <a href="https://github.com/elvisedvais203-web" target="_blank" rel="noopener noreferrer" aria-label="GitHub"><i class="fab fa-github"></i></a>
+          <a href="https://x.com/ELVISEDVAIS" target="_blank" rel="noopener noreferrer" aria-label="X"><i class="fab fa-x-twitter"></i></a>
+          <a href="https://www.facebook.com/profile.php?id=61589667917467" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+          <a href="https://www.instagram.com/edvaismakina?igsh=MXd3c2JiajJqN3BkNA==" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
         </div>
       </div>
     </div>
@@ -396,11 +304,8 @@
     </div>
   </footer>
 
-  <a href="https://wa.me/message/U5VBQ5ZPUAS6A1" class="fab-whatsapp" target="_blank" rel="noopener" aria-label="WhatsApp">
-    <i class="fab fa-whatsapp"></i>
-  </a>
-
-  <div class="toast" id="toast"></div>
+  <a href="https://wa.me/message/U5VBQ5ZPUAS6A1" class="fab-whatsapp" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+  <div class="toast" id="toast" role="status"></div>
   <script src="script.js"></script>
 </body>
 </html>

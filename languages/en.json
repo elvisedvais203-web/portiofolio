@@ -1,94 +1,76 @@
 {
   "meta": {
-    "title": "KADIEBWE MAKINA EDVAIS | IT Engineer & AI Portfolio",
-    "description": "Premium portfolio of KADIEBWE MAKINA EDVAIS — IT Engineer, Full Stack Developer, AI Expert in Lubumbashi, DRC.",
-    "keywords": "IT Engineer, software developer, AI, Full Stack, Congo, Lubumbashi, cybersecurity",
+    "title": "KADIEBWE MAKINA EDVAIS | IT Engineer & Full Stack Developer",
+    "description": "Professional portfolio of KADIEBWE MAKINA EDVAIS — IT Engineer, AI expert and Full Stack Developer in Lubumbashi, DRC.",
+    "keywords": "IT Engineer, developer, AI, Full Stack, Lubumbashi, Congo, cybersecurity",
     "ogTitle": "KADIEBWE MAKINA EDVAIS | International IT Engineer",
-    "ogDescription": "Expert in software development, artificial intelligence and premium digital solutions."
+    "ogDescription": "Software development, artificial intelligence and digital solutions for businesses."
   },
-  "gate": {
-    "eyebrow": "Private archive — restricted access",
-    "title": "You stand at the threshold.",
-    "text": "Beyond this door lies part of my technical world. The rest is only shared with those bold enough to knock.",
-    "enter": "Enter the archive"
-  },
-  "loader": { "text": "Opening the archive…" },
+  "loader": { "text": "Loading…" },
   "nav": {
     "home": "Home", "about": "About", "skills": "Skills", "services": "Services",
-    "projects": "Projects", "experience": "Experience", "testimonials": "Testimonials", "contact": "Contact",
-    "portal": "Journey", "portalEyebrow": "Choose a chapter"
-  },
-  "navChapters": {
-    "home": "Entry", "about": "Portrait", "skills": "Knowledge", "projects": "Works", "contact": "Reach me"
+    "projects": "Projects", "experience": "Experience", "testimonials": "Testimonials", "contact": "Contact"
   },
   "hero": {
-    "eyebrow": "Engineer · Creator · Quiet voice of digital",
-    "greeting": "They call me",
-    "description": "I build intelligent systems. I only show a fraction of what I know — the rest is exchanged in confidence.",
-    "whisper": "« Curiosity is the best key. If you read this far, perhaps you deserve to talk to me. »",
+    "eyebrow": "IT Engineer · Full Stack Developer · AI Expert",
+    "description": "I design reliable software solutions, intelligent systems and IT infrastructure tailored to my clients' business goals.",
     "country": "Democratic Republic of Congo",
-    "ctaContact": "Open the channel", "ctaCv": "My CV (PDF)", "ctaVault": "Explore knowledge",
-    "badge": "Available for the exceptional", "glyph1": "AI", "glyph2": "Code", "glyph3": "Networks",
-    "scroll": "Descend"
+    "ctaContact": "Contact me", "ctaCv": "Download CV", "ctaProjects": "View projects",
+    "badge": "Available for projects",
+    "pill1": "Artificial intelligence", "pill2": "Web & mobile development", "pill3": "Networking & cybersecurity"
   },
   "typing": {
-    "titles": ["Digital architect", "Systems engineer", "AI developer", "Full Stack — front & back", "Network guardian", "Cybersecurity strategist", "Trainer & innovator"]
-  },
-  "mystery": {
-    "band": "I don't sell mystery for show — I protect what matters. Every project starts with one question: what are you really trying to solve?",
-    "bandCta": "Ask the question →"
+    "titles": ["IT Engineer", "Full Stack Developer", "AI Expert", "Software Architect", "Network & System Administrator", "Digital Transformation Consultant"]
   },
   "stats": {
     "projects": "Completed projects", "experience": "Years of experience",
-    "clients": "Happy clients", "tech": "Technologies mastered"
-  },
-  "vault": {
-    "tag": "Archive", "title": "Locked knowledge", "lead": "Click a card to decrypt. Some skills only yield to effort.",
-    "revealAll": "Reveal all",
-    "tier": { "public": "Open", "classified": "Classified", "vault": "Vault" }
+    "clients": "Satisfied clients", "domains": "Areas of expertise"
   },
   "about": {
-    "tag": "Portrait", "title": "What I let you see", "lead": "The rest unfolds in conversation — as it should.",
-    "subtitle": "Digital architect, trainer, discreet strategist", "caption": "Lubumbashi · UPL · IT & AI",
-    "p1": "With deep experience in information technology, I am an expert in software development, artificial intelligence, networking and system administration. Graduate in Computer Systems, Software Engineering and AI at Université Protestante de Lubumbashi (UPL), I design robust applications and intelligent systems that turn technical challenges into concrete solutions.",
-    "p2": "Passionate about innovation and digital transformation, I have created numerous applications and intelligent systems. Mastering both frontend and backend, I solve complex problems with rigor and creativity. As a professional trainer in computing and programming, I share my expertise to elevate the digital skills of the new generation.",
-    "university": "University:", "phone": "Phone:",
-    "langTitle": "Language skills",
-    "lang1": "Speaks French fluently", "lang2": "Understands and speaks English",
-    "lang3": "Able to communicate internationally", "lang4": "Passionate about global technology collaboration",
-    "aiTitle": "Signatures",
-    "ai1": "International IT Engineer", "ai2": "AI & Software Developer",
-    "ai3": "Multilingual technology professional", "ai4": "Creator of modern digital solutions",
-    "ai5": "Expert in intelligent systems"
+    "tag": "About", "title": "Professional profile",
+    "lead": "Comprehensive technical expertise for ambitious, sustainable projects.",
+    "subtitle": "IT Engineer, software developer & trainer",
+    "p1": "Expert in software development, artificial intelligence, networking and system administration. Graduate in Computer Systems, Software Engineering and AI at Université Protestante de Lubumbashi (UPL), I build robust applications and intelligent systems focused on results.",
+    "p2": "I support businesses, institutions and entrepreneurs in digital transformation: design, development, deployment and training. Structured approach, clear communication and professional deliverables.",
+    "university": "Education", "phone": "Phone",
+    "ai1": "IT Engineer", "ai2": "AI Developer", "ai3": "Full Stack", "ai4": "Trainer", "ai5": "Digital consultant"
   },
-  "skills": { "tag": "Skills", "title": "Technical expertise" },
+  "skills": {
+    "tag": "Skills", "title": "Areas of expertise",
+    "lead": "Skills grouped by specialty for a clear overview of technical profile.",
+    "levelLabel": "Proficiency level"
+  },
   "skillItems": {
-    "html": "HTML", "css": "CSS", "javascript": "JavaScript", "python": "Python",
-    "csharp": "C#", "java": "Java", "php": "PHP", "sql": "SQL", "flask": "Flask",
-    "unity": "Unity", "ai": "AI Development", "networking": "Networking",
-    "cybersecurity": "Cybersecurity", "database": "Database Design",
-    "frontend": "Frontend Development", "backend": "Backend Development",
-    "uiux": "UI/UX Design", "sysadmin": "System Administration",
-    "linux": "Linux", "arduino": "Arduino", "api": "API Development",
-    "sqlite": "SQLite", "git": "Git & GitHub"
+    "frontend": "Frontend & UI/UX Development",
+    "backend": "Backend & API Development",
+    "databases": "Databases & SQL",
+    "ai": "Artificial Intelligence & ML",
+    "infrastructure": "Networking, Linux & System Administration",
+    "cybersecurity": "Cybersecurity",
+    "iot": "IoT, Embedded & Unity",
+    "devops": "Git, Version Control & Best Practices"
   },
-  "services": { "tag": "Services", "title": "Premium solutions" },
+  "skillStacks": {
+    "frontend": "HTML · CSS · JavaScript · UI/UX · Responsive design",
+    "backend": "Python · C# · Java · PHP · Flask · REST APIs",
+    "databases": "SQL · SQLite · Database design & optimization",
+    "ai": "Machine learning · Computer vision · Intelligent automation",
+    "infrastructure": "Networking · System administration · Linux",
+    "cybersecurity": "Application security · System protection",
+    "iot": "Arduino · Embedded systems · Unity · Prototyping",
+    "devops": "Git · GitHub · Collaboration & deployment"
+  },
+  "services": { "tag": "Services", "title": "Professional services" },
   "serviceItems": {
-    "web": { "title": "Website Development", "desc": "Modern, responsive and high-performance websites with the latest technologies." },
-    "mobile": { "title": "Mobile App Development", "desc": "Native and cross-platform mobile applications for iOS and Android." },
-    "ai": { "title": "AI Solutions", "desc": "Intelligent systems, machine learning and AI-powered automation." },
-    "network": { "title": "Network Installation", "desc": "Professional network infrastructure for businesses and institutions." },
-    "database": { "title": "Database Systems", "desc": "Design, optimization and management of robust databases." },
-    "smart": { "title": "Smart Systems", "desc": "IoT solutions and connected systems for intelligent automation." },
-    "cyber": { "title": "Cybersecurity Solutions", "desc": "System protection, security audits and defense solutions." },
-    "software": { "title": "Software Engineering", "desc": "Custom software development tailored to your business needs." },
-    "consulting": { "title": "IT Consulting", "desc": "Strategic guidance for your digital transformation journey." },
-    "maintenance": { "title": "System Maintenance", "desc": "Technical support, preventive and corrective maintenance." },
-    "embedded": { "title": "Embedded Systems", "desc": "Embedded solutions with Arduino and microcontrollers." },
-    "automation": { "title": "Automation Systems", "desc": "Industrial automation and process optimization." }
+    "development": { "title": "Web & mobile development", "desc": "Custom websites and apps: design, development, deployment and maintenance." },
+    "ai": { "title": "Artificial intelligence solutions", "desc": "Intelligent systems, machine learning, computer vision and process automation." },
+    "infrastructure": { "title": "IT infrastructure & cybersecurity", "desc": "Networks, security, preventive maintenance and technical support for SMEs and institutions." },
+    "dataSystems": { "title": "Data & connected systems", "desc": "Databases, IoT, smart systems and dashboards for decision-making." },
+    "embedded": { "title": "Embedded systems & automation", "desc": "Arduino, microcontrollers, industrial automation and custom embedded solutions." },
+    "consulting": { "title": "Consulting & software engineering", "desc": "Technical audits, strategic guidance and business-oriented software development." }
   },
   "projects": {
-    "tag": "Works", "title": "Selected achievements",
+    "tag": "Projects", "title": "Portfolio",
     "filterAll": "All", "filterAi": "AI", "filterWeb": "Web", "filterIot": "IoT", "filterNetwork": "Network",
     "catAi": "Artificial Intelligence", "catWeb": "Web", "catIot": "IoT", "catNetwork": "Network"
   },
@@ -103,39 +85,35 @@
     "network": { "title": "Network Infrastructure Projects", "desc": "Network infrastructure deployment for SMEs and institutions with monitoring." },
     "animation": { "title": "AI Animation Projects", "desc": "AI-assisted animated creations for media, training and visual communication." }
   },
-  "experience": { "tag": "Journey", "title": "Traces left behind" },
+  "experience": { "tag": "Journey", "title": "Professional experience" },
   "experienceItems": {
     "projects": { "title": "Multiple IT Projects", "desc": "Delivery of 50+ technology projects spanning web, AI, IoT and networking." },
     "software": { "title": "Software Engineering", "desc": "Design and development of professional full stack applications across sectors." },
     "ai": { "title": "AI Development", "desc": "Creation of intelligent systems with machine learning, computer vision and automation." },
     "network": { "title": "Network Administration", "desc": "Installation, configuration and maintenance of secure network infrastructures." },
     "teaching": { "title": "Training & Teaching", "desc": "Professional training in computing, programming and emerging technologies." },
-    "freelance": { "title": "Freelance Development", "desc": "Freelance services for local and international clients with premium quality delivery." }
+    "freelance": { "title": "Freelance Development", "desc": "Freelance services for local and international clients with professional quality delivery." }
   },
-  "testimonials": { "tag": "Echoes", "title": "What they whisper" },
+  "testimonials": { "tag": "Testimonials", "title": "Client feedback" },
   "testimonialItems": {
     "t1": { "text": "Edvais transformed our IT infrastructure with remarkable expertise. His professionalism and problem-solving skills are exceptional.", "name": "Jean Mukendi", "role": "IT Director, Local Company" },
     "t2": { "text": "The AI surveillance system exceeded our expectations. An innovative, reliable solution perfectly tailored to our needs.", "name": "Amina Kabongo", "role": "Security Manager" },
     "t3": { "text": "Exceptional trainer and talented developer. Edvais combines technical expertise and pedagogy for concrete results.", "name": "Patrick Lumumba", "role": "Academic Director" }
   },
   "contact": {
-    "tag": "Private channel", "title": "Knock on the door",
-    "lead": "One message is enough. I reply to serious projects, bold collaborations and curious minds.",
-    "whatsapp": "WhatsApp", "whatsappCta": "Open conversation", "call": "Call", "email": "Email",
-    "location": "Location", "map": "Map — Lubumbashi, DR Congo",
-    "formIntro": "Your message stays between us until I reply.",
-    "formName": "Full name", "formEmail": "Email", "formSubject": "Subject",
-    "formMessage": "Message", "formSubmit": "Send — I will read you"
+    "tag": "Contact", "title": "Let's work together",
+    "lead": "Describe your project — I will respond as soon as possible.",
+    "whatsapp": "WhatsApp", "whatsappCta": "Send a message", "call": "Phone", "email": "Email", "location": "Location",
+    "formName": "Full name", "formEmail": "Email address", "formSubject": "Subject",
+    "formMessage": "Message", "formSubmit": "Send message"
   },
   "footer": {
-    "desc": "Discreet engineering. Visible impact.",
+    "desc": "IT Engineer · AI Developer · Professional digital solutions",
     "navTitle": "Navigation", "socialTitle": "Social", "rights": "All rights reserved."
   },
   "notifications": {
-    "langChanged": "Language updated successfully",
-    "formSent": "Message prepared — open your email client",
-    "cvDownloaded": "PDF CV downloaded successfully (Times font)",
-    "cvPdfError": "Could not generate PDF. Please refresh the page."
+    "langChanged": "Language updated", "formSent": "Message prepared — open your email client",
+    "cvDownloaded": "PDF CV downloaded successfully", "cvPdfError": "Could not generate PDF. Please refresh the page."
   },
   "cv": {
     "title": "IT ENGINEER · AI DEVELOPER · FULL STACK",
