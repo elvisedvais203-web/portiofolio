@@ -1,0 +1,150 @@
+{
+  "meta": {
+    "title": "KADIEBWE MAKINA EDVAIS | IT・AIエンジニア ポートフォリオ",
+    "description": "KADIEBWE MAKINA EDVAISのプレミアムポートフォリオ — ITエンジニア、フルスタック開発者、AI専門家（ルブンバシ、コンゴ民主共和国）。",
+    "keywords": "ITエンジニア, ソフトウェア開発者, AI, フルスタック, コンゴ, ルブンバシ, サイバーセキュリティ",
+    "ogTitle": "KADIEBWE MAKINA EDVAIS | 国際ITエンジニア",
+    "ogDescription": "ソフトウェア開発、人工知能、プレミアムデジタルソリューションの専門家。"
+  },
+  "loader": { "text": "読み込み中..." },
+  "nav": {
+    "home": "ホーム",
+    "about": "概要",
+    "skills": "スキル",
+    "services": "サービス",
+    "projects": "プロジェクト",
+    "experience": "経歴",
+    "testimonials": "お客様の声",
+    "contact": "お問い合わせ"
+  },
+  "hero": {
+    "greeting": "こんにちは、私は",
+    "description": "国際ITエンジニア · AI・フルスタック開発者 · インテリジェントなデジタルソリューションの創造者",
+    "country": "コンゴ民主共和国",
+    "ctaContact": "お問い合わせ",
+    "ctaCv": "履歴書をダウンロード",
+    "ctaProjects": "プロジェクトを見る",
+    "badge": "対応可能",
+    "floatAi": "AI・ML",
+    "floatDev": "フルスタック",
+    "floatSec": "サイバーセキュリティ"
+  },
+  "typing": {
+    "titles": [
+      "ITエンジニア",
+      "ソフトウェアエンジニア",
+      "AI開発者",
+      "フルスタック開発者",
+      "ネットワーク・システムエンジニア",
+      "サイバーセキュリティ愛好家",
+      "バックエンド・フロントエンド開発者"
+    ]
+  },
+  "stats": {
+    "projects": "完了プロジェクト",
+    "experience": "経験年数",
+    "clients": "満足したクライアント",
+    "tech": "習得技術"
+  },
+  "about": {
+    "tag": "概要",
+    "title": "私について",
+    "subtitle": "エリートITエンジニア＆デジタルイノベーター",
+    "p1": "情報技術における豊富な経験を持ち、ソフトウェア開発、人工知能、ネットワーク、システム管理の専門家です。ルブンバシプロテスタント大学（UPL）でコンピュータシステム、ソフトウェア工学、AIを専攻し、技術的課題を具体的なソリューションに変える堅牢なアプリケーションとインテリジェントシステムを設計しています。",
+    "p2": "イノベーションとデジタル変革に情熱を注ぎ、数多くのアプリケーションとインテリジェントシステムを構築してきました。フロントエンドとバックエンドの両方をマスターし、厳密さと創造性で複雑な問題を解決します。コンピュータとプログラミングの専門トレーナーとして、新世代のデジタルスキル向上に貢献しています。",
+    "university": "大学：",
+    "phone": "電話：",
+    "langTitle": "言語スキル",
+    "lang1": "フランス語を流暢に話す",
+    "lang2": "英語を理解し話す",
+    "lang3": "国際的にコミュニケーション可能",
+    "lang4": "グローバルな技術協力に情熱を持つ",
+    "aiTitle": "AI・国際プロフィール",
+    "ai1": "国際ITエンジニア",
+    "ai2": "AI・ソフトウェア開発者",
+    "ai3": "多言語対応の技術専門家",
+    "ai4": "モダンなデジタルソリューションの創造者",
+    "ai5": "インテリジェントシステムの専門家"
+  },
+  "skills": { "tag": "スキル", "title": "技術的専門性" },
+  "skillItems": {
+    "html": "HTML", "css": "CSS", "javascript": "JavaScript", "python": "Python",
+    "csharp": "C#", "java": "Java", "php": "PHP", "sql": "SQL", "flask": "Flask",
+    "unity": "Unity", "ai": "AI開発", "networking": "ネットワーク",
+    "cybersecurity": "サイバーセキュリティ", "database": "DB設計",
+    "frontend": "フロントエンド開発", "backend": "バックエンド開発",
+    "uiux": "UI/UXデザイン", "sysadmin": "システム管理",
+    "linux": "Linux", "arduino": "Arduino", "api": "API開発",
+    "sqlite": "SQLite", "git": "Git & GitHub"
+  },
+  "services": { "tag": "サービス", "title": "プレミアムソリューション" },
+  "serviceItems": {
+    "web": { "title": "Web開発", "desc": "最新技術によるモダンでレスポンシブ、高性能なWebサイト。" },
+    "mobile": { "title": "モバイルアプリ", "desc": "iOS・Android向けのネイティブおよびクロスプラットフォームアプリ。" },
+    "ai": { "title": "AIソリューション", "desc": "インテリジェントシステム、機械学習、AIによる自動化。" },
+    "network": { "title": "ネットワーク構築", "desc": "企業・機関向けのプロフェッショナルなネットワークインフラ。" },
+    "database": { "title": "データベースシステム", "desc": "堅牢なデータベースの設計、最適化、管理。" },
+    "smart": { "title": "インテリジェントシステム", "desc": "IoTソリューションと接続システムによるスマート自動化。" },
+    "cyber": { "title": "サイバーセキュリティ", "desc": "システム保護、セキュリティ監査、防御ソリューション。" },
+    "software": { "title": "ソフトウェアエンジニアリング", "desc": "ビジネスニーズに合わせたカスタムソフトウェア開発。" },
+    "consulting": { "title": "ITコンサルティング", "desc": "デジタル変革のための戦略的サポート。" },
+    "maintenance": { "title": "システムメンテナンス", "desc": "技術サポート、予防保守、是正保守。" },
+    "embedded": { "title": "組み込みシステム", "desc": "Arduinoとマイコンによる組み込みソリューション開発。" },
+    "automation": { "title": "自動化システム", "desc": "産業・プロセス自動化による効率向上。" }
+  },
+  "projects": {
+    "tag": "プロジェクト", "title": "主要な実績",
+    "filterAll": "すべて", "filterAi": "AI", "filterWeb": "Web", "filterIot": "IoT", "filterNetwork": "ネットワーク",
+    "catAi": "人工知能", "catWeb": "Web", "catIot": "IoT", "catNetwork": "ネットワーク"
+  },
+  "projectItems": {
+    "surveillance": { "title": "スマート都市監視システム", "desc": "異常検知と自動アラートによるリアルタイム都市監視のAIプラットフォーム。" },
+    "parking": { "title": "スマート駐車システム", "desc": "センサー、予約、分析ダッシュボードを備えたIoT駐車管理ソリューション。" },
+    "barrier": { "title": "自動バリアシステム", "desc": "認識機能とセキュリティシステム統合による自動アクセス制御。" },
+    "school": { "title": "学校管理システム", "desc": "登録、成績、出席、レポートの完全な学術管理アプリ。" },
+    "security": { "title": "AIセキュリティシステム", "desc": "コンピュータビジョン、顔認識、リアルタイムアラートによるインテリジェントセキュリティ。" },
+    "ecommerce": { "title": "Eコマースアプリストア", "desc": "カタログ、決済、注文管理を備えたモダンなEコマースプラットフォーム。" },
+    "arduino": { "title": "スマートArduinoプロジェクト", "desc": "センサー、ホームオートメーション、IoTプロトタイプの革新的な組み込みプロジェクト。" },
+    "network": { "title": "ネットワークインフラプロジェクト", "desc": "中小企業・機関向けの監視付きネットワークインフラ展開。" },
+    "animation": { "title": "AIアニメーションプロジェクト", "desc": "メディア、研修、ビジュアルコミュニケーション向けのAI支援アニメーション制作。" }
+  },
+  "experience": { "tag": "キャリア", "title": "職務経験" },
+  "experienceItems": {
+    "projects": { "title": "多数のITプロジェクト", "desc": "Web、AI、IoT、ネットワークを網羅する50以上の技術プロジェクトを実施。" },
+    "software": { "title": "ソフトウェアエンジニアリング", "desc": "多様な業界向けのプロフェッショナルなフルスタックアプリケーションの設計・開発。" },
+    "ai": { "title": "AI開発", "desc": "機械学習、コンピュータビジョン、自動化を統合したインテリジェントシステムの構築。" },
+    "network": { "title": "ネットワーク管理", "desc": "セキュアなネットワークインフラの設置、設定、保守。" },
+    "teaching": { "title": "研修・教育", "desc": "コンピュータ、プログラミング、新興技術の専門研修。" },
+    "freelance": { "title": "フリーランス開発", "desc": "国内外のクライアント向けにプレミアム品質のフリーランスサービスを提供。" }
+  },
+  "testimonials": { "tag": "お客様の声", "title": "お客様の評価" },
+  "testimonialItems": {
+    "t1": { "text": "Edvaisは卓越した専門性で当社のITインフラを変革しました。プロフェッショナリズムと複雑な問題解決能力は並外れています。", "name": "Jean Mukendi", "role": "ITディレクター、地元企業" },
+    "t2": { "text": "開発されたAI監視システムは期待を上回りました。革新的で信頼性が高く、ニーズに完璧に適合しています。", "name": "Amina Kabongo", "role": "セキュリティ責任者" },
+    "t3": { "text": "卓越したトレーナーであり才能ある開発者。Edvaisは技術的専門性と教育力を融合し、具体的な成果を生み出します。", "name": "Patrick Lumumba", "role": "学術ディレクター" }
+  },
+  "contact": {
+    "tag": "お問い合わせ", "title": "一緒に働きましょう",
+    "whatsapp": "WhatsApp", "whatsappCta": "メッセージを送る",
+    "call": "電話する", "email": "メール", "location": "所在地",
+    "map": "地図 — ルブンバシ、コンゴ民主共和国",
+    "formName": "氏名", "formEmail": "メール", "formSubject": "件名",
+    "formMessage": "メッセージ", "formSubmit": "メッセージを送信"
+  },
+  "footer": {
+    "desc": "ITエンジニア · AI開発者 · プレミアムデジタルソリューション",
+    "navTitle": "ナビゲーション", "socialTitle": "ソーシャル", "rights": "全著作権所有。"
+  },
+  "notifications": {
+    "langChanged": "言語が正常に更新されました",
+    "formSent": "メッセージを準備しました — メールクライアントを開いてください",
+    "cvDownloaded": "PDF履歴書のダウンロードに成功しました",
+    "cvPdfError": "PDFを生成できませんでした。ページを再読み込みしてください。"
+  },
+  "cv": {
+    "title": "ITエンジニア · AI開発者 · フルスタック",
+    "education": "学歴",
+    "profile": "プロフィール",
+    "skills": "スキル"
+  }
+}

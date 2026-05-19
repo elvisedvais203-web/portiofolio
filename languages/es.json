@@ -1,0 +1,150 @@
+{
+  "meta": {
+    "title": "KADIEBWE MAKINA EDVAIS | Portafolio Ingeniero de TI e IA",
+    "description": "Portafolio premium de KADIEBWE MAKINA EDVAIS — Ingeniero de TI, desarrollador Full Stack, experto en IA en Lubumbashi, RDC.",
+    "keywords": "Ingeniero de TI, desarrollador de software, IA, Full Stack, Congo, Lubumbashi, ciberseguridad",
+    "ogTitle": "KADIEBWE MAKINA EDVAIS | Ingeniero de TI Internacional",
+    "ogDescription": "Experto en desarrollo de software, inteligencia artificial y soluciones digitales premium."
+  },
+  "loader": { "text": "Cargando..." },
+  "nav": {
+    "home": "Inicio",
+    "about": "Acerca de",
+    "skills": "Competencias",
+    "services": "Servicios",
+    "projects": "Proyectos",
+    "experience": "Experiencia",
+    "testimonials": "Testimonios",
+    "contact": "Contacto"
+  },
+  "hero": {
+    "greeting": "Hola, soy",
+    "description": "Ingeniero de TI internacional · Desarrollador de IA y Full Stack · Creador de soluciones digitales inteligentes",
+    "country": "República Democrática del Congo",
+    "ctaContact": "Contactarme",
+    "ctaCv": "Descargar CV",
+    "ctaProjects": "Ver proyectos",
+    "badge": "Disponible",
+    "floatAi": "IA y ML",
+    "floatDev": "Full Stack",
+    "floatSec": "Ciberseguridad"
+  },
+  "typing": {
+    "titles": [
+      "Ingeniero de TI",
+      "Ingeniero de Software",
+      "Desarrollador de IA",
+      "Desarrollador Full Stack",
+      "Ingeniero de Redes y Sistemas",
+      "Apasionado de Ciberseguridad",
+      "Desarrollador Backend y Frontend"
+    ]
+  },
+  "stats": {
+    "projects": "Proyectos realizados",
+    "experience": "Años de experiencia",
+    "clients": "Clientes satisfechos",
+    "tech": "Tecnologías dominadas"
+  },
+  "about": {
+    "tag": "Acerca de",
+    "title": "¿Quién soy?",
+    "subtitle": "Ingeniero de TI de élite e innovador digital",
+    "p1": "Con amplia experiencia en tecnologías de la información, soy experto en desarrollo de software, inteligencia artificial, redes y administración de sistemas. Graduado en Sistemas Informáticos, Ingeniería de Software e IA en la Universidad Protestante de Lubumbashi (UPL), diseño aplicaciones robustas y sistemas inteligentes que transforman desafíos técnicos en soluciones concretas.",
+    "p2": "Apasionado por la innovación y la transformación digital, he creado numerosas aplicaciones y sistemas inteligentes. Dominando el frontend y el backend, resuelvo problemas complejos con rigor y creatividad. Formador profesional en informática y programación, comparto mi experiencia para elevar las competencias digitales de la nueva generación.",
+    "university": "Universidad:",
+    "phone": "Teléfono:",
+    "langTitle": "Competencias lingüísticas",
+    "lang1": "Habla francés con fluidez",
+    "lang2": "Comprende y habla inglés",
+    "lang3": "Capaz de comunicarse internacionalmente",
+    "lang4": "Apasionado por la colaboración tecnológica global",
+    "aiTitle": "Perfil de IA e Internacional",
+    "ai1": "Ingeniero de TI internacional",
+    "ai2": "Desarrollador de IA y software",
+    "ai3": "Profesional tecnológico multilingüe",
+    "ai4": "Creador de soluciones digitales modernas",
+    "ai5": "Experto en sistemas inteligentes"
+  },
+  "skills": { "tag": "Competencias", "title": "Experiencia técnica" },
+  "skillItems": {
+    "html": "HTML", "css": "CSS", "javascript": "JavaScript", "python": "Python",
+    "csharp": "C#", "java": "Java", "php": "PHP", "sql": "SQL", "flask": "Flask",
+    "unity": "Unity", "ai": "Desarrollo de IA", "networking": "Redes",
+    "cybersecurity": "Ciberseguridad", "database": "Diseño de BDD",
+    "frontend": "Desarrollo Frontend", "backend": "Desarrollo Backend",
+    "uiux": "Diseño UI/UX", "sysadmin": "Administración de Sistemas",
+    "linux": "Linux", "arduino": "Arduino", "api": "Desarrollo de API",
+    "sqlite": "SQLite", "git": "Git & GitHub"
+  },
+  "services": { "tag": "Servicios", "title": "Soluciones premium" },
+  "serviceItems": {
+    "web": { "title": "Desarrollo Web", "desc": "Sitios web modernos, responsivos y de alto rendimiento con las últimas tecnologías." },
+    "mobile": { "title": "Aplicaciones Móviles", "desc": "Aplicaciones móviles nativas y multiplataforma para iOS y Android." },
+    "ai": { "title": "Soluciones de IA", "desc": "Sistemas inteligentes, machine learning y automatización mediante IA." },
+    "network": { "title": "Instalación de Redes", "desc": "Infraestructura de red profesional para empresas e instituciones." },
+    "database": { "title": "Sistemas de Bases de Datos", "desc": "Diseño, optimización y gestión de bases de datos robustas." },
+    "smart": { "title": "Sistemas Inteligentes", "desc": "Soluciones IoT y sistemas conectados para automatización inteligente." },
+    "cyber": { "title": "Ciberseguridad", "desc": "Protección de sistemas, auditorías de seguridad y soluciones de defensa." },
+    "software": { "title": "Ingeniería de Software", "desc": "Desarrollo de software a medida según sus necesidades empresariales." },
+    "consulting": { "title": "Consultoría de TI", "desc": "Acompañamiento estratégico para su transformación digital." },
+    "maintenance": { "title": "Mantenimiento de Sistemas", "desc": "Soporte técnico, mantenimiento preventivo y correctivo." },
+    "embedded": { "title": "Sistemas Embebidos", "desc": "Desarrollo de soluciones embebidas con Arduino y microcontroladores." },
+    "automation": { "title": "Sistemas de Automatización", "desc": "Automatización industrial y de procesos para mayor eficiencia." }
+  },
+  "projects": {
+    "tag": "Proyectos", "title": "Logros principales",
+    "filterAll": "Todos", "filterAi": "IA", "filterWeb": "Web", "filterIot": "IoT", "filterNetwork": "Red",
+    "catAi": "Inteligencia Artificial", "catWeb": "Web", "catIot": "IoT", "catNetwork": "Red"
+  },
+  "projectItems": {
+    "surveillance": { "title": "Sistema de Vigilancia Urbana Inteligente", "desc": "Plataforma de IA para vigilancia urbana en tiempo real con detección de anomalías y alertas automáticas." },
+    "parking": { "title": "Sistema de Estacionamiento Inteligente", "desc": "Solución IoT de gestión de estacionamiento con sensores, reservas y panel analítico." },
+    "barrier": { "title": "Sistema de Barrera Automática", "desc": "Control de acceso automatizado con reconocimiento e integración con sistema de seguridad." },
+    "school": { "title": "Sistema de Gestión Escolar", "desc": "Aplicación completa de gestión académica: inscripciones, calificaciones, asistencia e informes." },
+    "security": { "title": "Sistema de Seguridad con IA", "desc": "Seguridad inteligente con visión por computadora, reconocimiento facial y alertas en tiempo real." },
+    "ecommerce": { "title": "Tienda E-commerce", "desc": "Plataforma e-commerce moderna con catálogo, pago y gestión de pedidos." },
+    "arduino": { "title": "Proyectos Arduino Inteligentes", "desc": "Proyectos embebidos innovadores: sensores, automatización doméstica y prototipos IoT." },
+    "network": { "title": "Proyectos de Infraestructura de Red", "desc": "Implementación de infraestructuras de red para PYME e instituciones con monitoreo." },
+    "animation": { "title": "Proyectos de Animación con IA", "desc": "Creaciones animadas asistidas por IA para medios, formación y comunicación visual." }
+  },
+  "experience": { "tag": "Trayectoria", "title": "Experiencia profesional" },
+  "experienceItems": {
+    "projects": { "title": "Múltiples Proyectos de TI", "desc": "Realización de más de 50 proyectos tecnológicos abarcando web, IA, IoT y redes." },
+    "software": { "title": "Ingeniería de Software", "desc": "Diseño y desarrollo de aplicaciones profesionales full stack para diversos sectores." },
+    "ai": { "title": "Desarrollo de IA", "desc": "Creación de sistemas inteligentes integrando machine learning, visión por computadora y automatización." },
+    "network": { "title": "Administración de Redes", "desc": "Instalación, configuración y mantenimiento de infraestructuras de red seguras." },
+    "teaching": { "title": "Formación y Enseñanza", "desc": "Formación profesional en informática, programación y tecnologías emergentes." },
+    "freelance": { "title": "Desarrollo Freelance", "desc": "Servicios freelance para clientes locales e internacionales con entrega de calidad premium." }
+  },
+  "testimonials": { "tag": "Testimonios", "title": "Lo que dicen" },
+  "testimonialItems": {
+    "t1": { "text": "Edvais transformó nuestra infraestructura de TI con una competencia notable. Su profesionalismo y capacidad para resolver problemas complejos son excepcionales.", "name": "Jean Mukendi", "role": "Director de TI, Empresa local" },
+    "t2": { "text": "El sistema de vigilancia con IA desarrollado superó nuestras expectativas. Una solución innovadora, fiable y perfectamente adaptada a nuestras necesidades.", "name": "Amina Kabongo", "role": "Responsable de Seguridad" },
+    "t3": { "text": "Formador excepcional y desarrollador talentoso. Edvais combina competencia técnica y pedagogía para resultados concretos.", "name": "Patrick Lumumba", "role": "Director académico" }
+  },
+  "contact": {
+    "tag": "Contacto", "title": "Trabajemos juntos",
+    "whatsapp": "WhatsApp", "whatsappCta": "Enviar mensaje",
+    "call": "Llamar", "email": "Email", "location": "Ubicación",
+    "map": "Mapa — Lubumbashi, RD Congo",
+    "formName": "Nombre completo", "formEmail": "Email", "formSubject": "Asunto",
+    "formMessage": "Mensaje", "formSubmit": "Enviar mensaje"
+  },
+  "footer": {
+    "desc": "Ingeniero de TI · Desarrollador de IA · Soluciones digitales premium",
+    "navTitle": "Navegación", "socialTitle": "Redes", "rights": "Todos los derechos reservados."
+  },
+  "notifications": {
+    "langChanged": "Idioma actualizado con éxito",
+    "formSent": "Mensaje preparado — abra su cliente de correo",
+    "cvDownloaded": "CV PDF descargado con éxito",
+    "cvPdfError": "No se pudo generar el PDF. Recargue la página."
+  },
+  "cv": {
+    "title": "INGENIERO DE TI · DESARROLLADOR DE IA · FULL STACK",
+    "education": "FORMACIÓN",
+    "profile": "PERFIL",
+    "skills": "COMPETENCIAS"
+  }
+}
