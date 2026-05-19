@@ -6,35 +6,57 @@
     "ogTitle": "KADIEBWE MAKINA EDVAIS | International IT Engineer",
     "ogDescription": "Expert in software development, artificial intelligence and premium digital solutions."
   },
-  "loader": { "text": "Loading..." },
+  "gate": {
+    "eyebrow": "Private archive — restricted access",
+    "title": "You stand at the threshold.",
+    "text": "Beyond this door lies part of my technical world. The rest is only shared with those bold enough to knock.",
+    "enter": "Enter the archive"
+  },
+  "loader": { "text": "Opening the archive…" },
   "nav": {
     "home": "Home", "about": "About", "skills": "Skills", "services": "Services",
-    "projects": "Projects", "experience": "Experience", "testimonials": "Testimonials", "contact": "Contact"
+    "projects": "Projects", "experience": "Experience", "testimonials": "Testimonials", "contact": "Contact",
+    "portal": "Journey", "portalEyebrow": "Choose a chapter"
+  },
+  "navChapters": {
+    "home": "Entry", "about": "Portrait", "skills": "Knowledge", "projects": "Works", "contact": "Reach me"
   },
   "hero": {
-    "greeting": "Hello, I am",
-    "description": "International IT Engineer · AI & Full Stack Developer · Creator of intelligent digital solutions",
+    "eyebrow": "Engineer · Creator · Quiet voice of digital",
+    "greeting": "They call me",
+    "description": "I build intelligent systems. I only show a fraction of what I know — the rest is exchanged in confidence.",
+    "whisper": "« Curiosity is the best key. If you read this far, perhaps you deserve to talk to me. »",
     "country": "Democratic Republic of Congo",
-    "ctaContact": "Contact me", "ctaCv": "Download CV", "ctaProjects": "View projects",
-    "badge": "Available", "floatAi": "AI & ML", "floatDev": "Full Stack", "floatSec": "Cybersecurity"
+    "ctaContact": "Open the channel", "ctaCv": "My CV (PDF)", "ctaVault": "Explore knowledge",
+    "badge": "Available for the exceptional", "glyph1": "AI", "glyph2": "Code", "glyph3": "Networks",
+    "scroll": "Descend"
   },
   "typing": {
-    "titles": ["IT Engineer", "Software Engineer", "AI Developer", "Full Stack Developer", "Network & System Engineer", "Cybersecurity Enthusiast", "Backend & Frontend Developer"]
+    "titles": ["Digital architect", "Systems engineer", "AI developer", "Full Stack — front & back", "Network guardian", "Cybersecurity strategist", "Trainer & innovator"]
+  },
+  "mystery": {
+    "band": "I don't sell mystery for show — I protect what matters. Every project starts with one question: what are you really trying to solve?",
+    "bandCta": "Ask the question →"
   },
   "stats": {
     "projects": "Completed projects", "experience": "Years of experience",
     "clients": "Happy clients", "tech": "Technologies mastered"
   },
+  "vault": {
+    "tag": "Archive", "title": "Locked knowledge", "lead": "Click a card to decrypt. Some skills only yield to effort.",
+    "revealAll": "Reveal all",
+    "tier": { "public": "Open", "classified": "Classified", "vault": "Vault" }
+  },
   "about": {
-    "tag": "About", "title": "Who am I?",
-    "subtitle": "Elite IT Engineer & Digital Innovator",
+    "tag": "Portrait", "title": "What I let you see", "lead": "The rest unfolds in conversation — as it should.",
+    "subtitle": "Digital architect, trainer, discreet strategist", "caption": "Lubumbashi · UPL · IT & AI",
     "p1": "With deep experience in information technology, I am an expert in software development, artificial intelligence, networking and system administration. Graduate in Computer Systems, Software Engineering and AI at Université Protestante de Lubumbashi (UPL), I design robust applications and intelligent systems that turn technical challenges into concrete solutions.",
     "p2": "Passionate about innovation and digital transformation, I have created numerous applications and intelligent systems. Mastering both frontend and backend, I solve complex problems with rigor and creativity. As a professional trainer in computing and programming, I share my expertise to elevate the digital skills of the new generation.",
     "university": "University:", "phone": "Phone:",
     "langTitle": "Language skills",
     "lang1": "Speaks French fluently", "lang2": "Understands and speaks English",
     "lang3": "Able to communicate internationally", "lang4": "Passionate about global technology collaboration",
-    "aiTitle": "AI & International Profile",
+    "aiTitle": "Signatures",
     "ai1": "International IT Engineer", "ai2": "AI & Software Developer",
     "ai3": "Multilingual technology professional", "ai4": "Creator of modern digital solutions",
     "ai5": "Expert in intelligent systems"
@@ -66,7 +88,7 @@
     "automation": { "title": "Automation Systems", "desc": "Industrial automation and process optimization." }
   },
   "projects": {
-    "tag": "Projects", "title": "Major achievements",
+    "tag": "Works", "title": "Selected achievements",
     "filterAll": "All", "filterAi": "AI", "filterWeb": "Web", "filterIot": "IoT", "filterNetwork": "Network",
     "catAi": "Artificial Intelligence", "catWeb": "Web", "catIot": "IoT", "catNetwork": "Network"
   },
@@ -81,7 +103,7 @@
     "network": { "title": "Network Infrastructure Projects", "desc": "Network infrastructure deployment for SMEs and institutions with monitoring." },
     "animation": { "title": "AI Animation Projects", "desc": "AI-assisted animated creations for media, training and visual communication." }
   },
-  "experience": { "tag": "Journey", "title": "Professional experience" },
+  "experience": { "tag": "Journey", "title": "Traces left behind" },
   "experienceItems": {
     "projects": { "title": "Multiple IT Projects", "desc": "Delivery of 50+ technology projects spanning web, AI, IoT and networking." },
     "software": { "title": "Software Engineering", "desc": "Design and development of professional full stack applications across sectors." },
@@ -90,21 +112,23 @@
     "teaching": { "title": "Training & Teaching", "desc": "Professional training in computing, programming and emerging technologies." },
     "freelance": { "title": "Freelance Development", "desc": "Freelance services for local and international clients with premium quality delivery." }
   },
-  "testimonials": { "tag": "Testimonials", "title": "What they say" },
+  "testimonials": { "tag": "Echoes", "title": "What they whisper" },
   "testimonialItems": {
     "t1": { "text": "Edvais transformed our IT infrastructure with remarkable expertise. His professionalism and problem-solving skills are exceptional.", "name": "Jean Mukendi", "role": "IT Director, Local Company" },
     "t2": { "text": "The AI surveillance system exceeded our expectations. An innovative, reliable solution perfectly tailored to our needs.", "name": "Amina Kabongo", "role": "Security Manager" },
     "t3": { "text": "Exceptional trainer and talented developer. Edvais combines technical expertise and pedagogy for concrete results.", "name": "Patrick Lumumba", "role": "Academic Director" }
   },
   "contact": {
-    "tag": "Contact", "title": "Let's work together",
-    "whatsapp": "WhatsApp", "whatsappCta": "Send a message", "call": "Call", "email": "Email",
+    "tag": "Private channel", "title": "Knock on the door",
+    "lead": "One message is enough. I reply to serious projects, bold collaborations and curious minds.",
+    "whatsapp": "WhatsApp", "whatsappCta": "Open conversation", "call": "Call", "email": "Email",
     "location": "Location", "map": "Map — Lubumbashi, DR Congo",
+    "formIntro": "Your message stays between us until I reply.",
     "formName": "Full name", "formEmail": "Email", "formSubject": "Subject",
-    "formMessage": "Message", "formSubmit": "Send message"
+    "formMessage": "Message", "formSubmit": "Send — I will read you"
   },
   "footer": {
-    "desc": "IT Engineer · AI Developer · Premium digital solutions",
+    "desc": "Discreet engineering. Visible impact.",
     "navTitle": "Navigation", "socialTitle": "Social", "rights": "All rights reserved."
   },
   "notifications": {
