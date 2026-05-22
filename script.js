@@ -41,17 +41,77 @@ const SERVICE_CONFIG = [
   { key: 'consulting', icon: 'fas fa-lightbulb' }
 ];
 
+/** Projets réels — captures locales (images/projects/) */
 const PROJECT_CONFIG = [
-  { key: 'surveillance', category: 'ai', image: 'https://images.unsplash.com/photo-1557597774-9d273605dfa9?w=600&q=80' },
-  { key: 'parking', category: 'iot', image: 'https://images.unsplash.com/photo-1506521781263-d8422e82f27a?w=600&q=80' },
-  { key: 'barrier', category: 'iot', image: 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&q=80' },
-  { key: 'school', category: 'web', image: 'https://images.unsplash.com/photo-1523050854058-8df90110c9f1?w=600&q=80' },
-  { key: 'security', category: 'ai', image: 'https://images.unsplash.com/photo-1563986768609-322da13575f3?w=600&q=80' },
-  { key: 'ecommerce', category: 'web', image: 'https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=600&q=80' },
-  { key: 'arduino', category: 'iot', image: 'https://images.unsplash.com/photo-1518770660439-4636190af475?w=600&q=80' },
-  { key: 'network', category: 'network', image: 'https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=600&q=80' },
-  { key: 'animation', category: 'ai', image: 'https://images.unsplash.com/photo-1611162616305-c69b3fa7fbe0?w=600&q=80' }
+  {
+    key: 'nextalk',
+    category: 'web',
+    image: 'images/projects/nextalk.png',
+    gallery: ['images/projects/nextalk.png'],
+    stack: ['React Native', 'Node.js', 'Messagerie temps réel'],
+    demo: '',
+    repo: 'https://github.com/elvisedvais203-web'
+  },
+  {
+    key: 'congolove',
+    category: 'web',
+    image: 'images/projects/congolove-home.png',
+    gallery: [
+      'images/projects/congolove-home.png',
+      'images/projects/congolove-profile.png',
+      'images/projects/congolove-brand.png',
+      'images/projects/auth-ui.png',
+      'images/projects/congolove-infra.png'
+    ],
+    stack: ['Node.js', 'PostgreSQL', 'Redis', 'IA Match', 'Vérification identité'],
+    demo: '',
+    repo: 'https://github.com/elvisedvais203-web'
+  },
+  {
+    key: 'netcontrol',
+    category: 'network',
+    image: 'images/projects/netcontrol.png',
+    gallery: ['images/projects/netcontrol.png'],
+    stack: ['Dashboard', 'Monitoring réseau', 'Contrôle à distance', 'Sécurité'],
+    demo: '',
+    repo: 'https://github.com/elvisedvais203-web'
+  },
+  {
+    key: 'edvaselve',
+    category: 'web',
+    image: 'images/projects/edvaselve.png',
+    gallery: ['images/projects/edvaselve.png'],
+    stack: ['E-commerce', 'Multivendeur', 'Lubumbashi RDC', 'WhatsApp Commerce'],
+    demo: '',
+    repo: 'https://github.com/elvisedvais203-web'
+  },
+  {
+    key: 'solola',
+    category: 'web',
+    image: 'images/projects/solola-brand.png',
+    gallery: ['images/projects/solola-brand.png', 'images/projects/solola-deploy.png'],
+    stack: ['Node.js', 'Render', 'Web Service'],
+    demo: 'https://solola.onrender.com',
+    repo: 'https://github.com/elvisedvais203-web/SOLOLA'
+  },
+  {
+    key: 'congoloveStack',
+    category: 'devops',
+    image: 'images/projects/congolove-deploy.png',
+    gallery: ['images/projects/congolove-deploy.png', 'images/projects/congolove-infra.png'],
+    stack: ['Railway', 'PostgreSQL', 'Valkey', 'Resend', 'Node.js'],
+    demo: '',
+    repo: 'https://github.com/elvisedvais203-web'
+  }
 ];
+
+const PROJECT_CATEGORY_KEYS = {
+  web: 'projects.catWeb',
+  network: 'projects.catNetwork',
+  devops: 'projects.catDevops'
+};
+
+const ARCHIVE_INTRO_KEY = 'portfolio_archive_intro_seen';
 
 const EXPERIENCE_CONFIG = [
   { key: 'projects', year: '2020 — 2026' },
@@ -217,25 +277,40 @@ class I18n {
 
   renderProjects() {
     const grid = document.getElementById('projects-grid');
+    const strip = document.getElementById('archive-strip');
     if (!grid) return;
-    const cats = { ai: 'projects.catAi', web: 'projects.catWeb', iot: 'projects.catIot', network: 'projects.catNetwork' };
-    grid.innerHTML = PROJECT_CONFIG.map(p => `
-      <article class="project-card reveal" data-category="${p.category}">
+    grid.innerHTML = PROJECT_CONFIG.map((p, i) => `
+      <article class="project-card project-card--sealed reveal reveal-stagger" style="--delay: ${i * 70}ms"
+        data-category="${p.category}" data-project-key="${p.key}" tabindex="0" role="button"
+        aria-label="${this.t(`projectItems.${p.key}.title`)} — ${this.t('projects.revealCta')}">
         <div class="project-img">
-          <img src="${p.image}" alt="${this.t(`projectItems.${p.key}.title`)}" loading="lazy">
+          <img class="project-thumb" src="${p.image}" alt="" loading="lazy" decoding="async">
+          <div class="project-seal" aria-hidden="true">
+            <span class="project-seal-icon"><i class="fas fa-lock"></i></span>
+            <span class="project-seal-text" data-i18n="projects.sealedLabel">Dossier classifié</span>
+          </div>
           <div class="project-overlay">
-            <span class="project-tag">${this.t(cats[p.category] || 'projects.catWeb')}</span>
+            <span class="project-tag">${this.t(PROJECT_CATEGORY_KEYS[p.category] || 'projects.catWeb')}</span>
+            <span class="project-reveal-hint"><i class="fas fa-eye"></i> ${this.t('projects.revealCta')}</span>
           </div>
         </div>
         <div class="project-body">
           <h3>${this.t(`projectItems.${p.key}.title`)}</h3>
           <p>${this.t(`projectItems.${p.key}.desc`)}</p>
+          <ul class="project-stack-preview">${p.stack.slice(0, 3).map(s => `<li>${s}</li>`).join('')}</ul>
         </div>
       </article>
     `).join('');
+    if (strip) {
+      strip.innerHTML = PROJECT_CONFIG.map(p =>
+        `<img src="${p.image}" alt="" loading="lazy" width="120" height="68">`
+      ).join('');
+      strip.removeAttribute('aria-hidden');
+    }
     if (window.portfolioApp) {
       window.portfolioApp.observeReveals();
       window.portfolioApp.initProjectFilters();
+      window.portfolioApp.initProjectArchive();
     }
   }
 
@@ -311,6 +386,8 @@ class PortfolioApp {
     this.initStats();
     this.initContactForm();
     this.initCvDownload();
+    this.initArchiveGate();
+    this.initProjectModal();
     this.observeReveals();
   }
 
@@ -318,8 +395,121 @@ class PortfolioApp {
     window.addEventListener('load', () => {
       setTimeout(() => {
         document.getElementById('loader')?.classList.add('hidden');
+        this.maybeShowArchiveGate();
       }, 800);
     });
+  }
+
+  maybeShowArchiveGate() {
+    const gate = document.getElementById('archive-gate');
+    if (!gate || localStorage.getItem(ARCHIVE_INTRO_KEY)) return;
+    gate.hidden = false;
+    document.body.classList.add('archive-gate-open');
+    requestAnimationFrame(() => gate.classList.add('is-visible'));
+  }
+
+  initArchiveGate() {
+    const gate = document.getElementById('archive-gate');
+    const unlock = document.getElementById('archive-unlock');
+    const skip = document.getElementById('archive-skip');
+    if (!gate) return;
+
+    const closeGate = (scrollToProjects) => {
+      gate.classList.remove('is-visible');
+      document.body.classList.remove('archive-gate-open');
+      localStorage.setItem(ARCHIVE_INTRO_KEY, '1');
+      setTimeout(() => { gate.hidden = true; }, 500);
+      if (scrollToProjects) {
+        document.getElementById('projects')?.scrollIntoView({ behavior: 'smooth' });
+      }
+    };
+
+    unlock?.addEventListener('click', () => closeGate(true));
+    skip?.addEventListener('click', () => closeGate(false));
+  }
+
+  initProjectArchive() {
+    document.querySelectorAll('.project-card[data-project-key]').forEach(card => {
+      if (card.dataset.boundArchive) return;
+      card.dataset.boundArchive = '1';
+      const open = () => this.openProjectModal(card.dataset.projectKey);
+      card.addEventListener('click', open);
+      card.addEventListener('keydown', e => {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          open();
+        }
+      });
+    });
+  }
+
+  initProjectModal() {
+    const modal = document.getElementById('project-modal');
+    if (!modal) return;
+    modal.querySelectorAll('[data-close-modal]').forEach(el => {
+      el.addEventListener('click', () => this.closeProjectModal());
+    });
+    document.addEventListener('keydown', e => {
+      if (e.key === 'Escape' && modal.classList.contains('is-open')) this.closeProjectModal();
+    });
+  }
+
+  openProjectModal(key) {
+    const project = PROJECT_CONFIG.find(p => p.key === key);
+    const modal = document.getElementById('project-modal');
+    if (!project || !modal) return;
+
+    document.querySelector(`.project-card[data-project-key="${key}"]`)?.classList.add('project-card--opened');
+
+    const title = this.i18n.t(`projectItems.${key}.title`);
+    const desc = this.i18n.t(`projectItems.${key}.desc`);
+    const cat = this.i18n.t(PROJECT_CATEGORY_KEYS[project.category] || 'projects.catWeb');
+    const gallery = project.gallery?.length ? project.gallery : [project.image];
+
+    document.getElementById('project-modal-title').textContent = title;
+    document.getElementById('project-modal-desc').textContent = desc;
+    document.getElementById('project-modal-cat').textContent = cat;
+
+    const img = document.getElementById('project-modal-img');
+    img.src = gallery[0];
+    img.alt = title;
+
+    const galleryEl = document.getElementById('project-modal-gallery');
+    galleryEl.innerHTML = gallery.map((src, i) =>
+      `<button type="button" class="project-modal-thumb ${i === 0 ? 'active' : ''}" data-src="${src}">
+        <img src="${src}" alt="" loading="lazy">
+      </button>`
+    ).join('');
+    galleryEl.querySelectorAll('.project-modal-thumb').forEach(btn => {
+      btn.addEventListener('click', () => {
+        galleryEl.querySelectorAll('.project-modal-thumb').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        img.src = btn.dataset.src;
+      });
+    });
+
+    const stackEl = document.getElementById('project-modal-stack');
+    stackEl.innerHTML = project.stack.map(s => `<li>${s}</li>`).join('');
+
+    const actions = document.getElementById('project-modal-actions');
+    const demoLabel = this.i18n.t('projects.demo');
+    const repoLabel = this.i18n.t('projects.repo');
+    actions.innerHTML = [
+      project.demo ? `<a href="${project.demo}" class="btn btn-primary" target="_blank" rel="noopener noreferrer">${demoLabel}</a>` : '',
+      project.repo ? `<a href="${project.repo}" class="btn btn-secondary" target="_blank" rel="noopener noreferrer">${repoLabel}</a>` : ''
+    ].filter(Boolean).join('');
+
+    modal.classList.add('is-open');
+    modal.setAttribute('aria-hidden', 'false');
+    document.body.classList.add('modal-open');
+  }
+
+  closeProjectModal() {
+    const modal = document.getElementById('project-modal');
+    if (!modal) return;
+    modal.classList.remove('is-open');
+    modal.setAttribute('aria-hidden', 'true');
+    document.body.classList.remove('modal-open');
   }
 
   initHeader() {

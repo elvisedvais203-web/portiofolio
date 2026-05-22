@@ -27,7 +27,7 @@
     "country": "République Démocratique du Congo",
     "ctaContact": "Me contacter",
     "ctaCv": "Télécharger le CV",
-    "ctaProjects": "Voir les projets",
+    "ctaProjects": "Explorer l'archive",
     "badge": "Disponible pour missions",
     "pill1": "Intelligence artificielle",
     "pill2": "Développement web & mobile",
@@ -120,29 +120,55 @@
       "desc": "Audit technique, accompagnement stratégique et développement logiciel adapté à votre métier."
     }
   },
+  "archive": {
+    "code": "ARCHIVE · EM-2026",
+    "title": "Dossiers confidentiels",
+    "lead": "Applications réelles en production. Chaque projet reste masqué jusqu'à ce que vous choisissiez de l'ouvrir.",
+    "unlock": "Déverrouiller l'archive",
+    "skip": "Entrer directement",
+    "hint": "Faites défiler ou cliquez sur un dossier pour révéler"
+  },
   "projects": {
     "tag": "Projets",
     "title": "Réalisations",
+    "lead": "Captures authentiques de mes applications — survolez, puis cliquez pour révéler le dossier complet.",
     "filterAll": "Tous",
-    "filterAi": "IA",
-    "filterWeb": "Web",
-    "filterIot": "IoT",
+    "filterWeb": "Web & mobile",
     "filterNetwork": "Réseau",
-    "catAi": "Intelligence artificielle",
-    "catWeb": "Web",
-    "catIot": "IoT",
-    "catNetwork": "Réseau"
+    "filterDevops": "Infrastructure",
+    "catWeb": "Web & mobile",
+    "catNetwork": "Réseau & monitoring",
+    "catDevops": "Infrastructure & déploiement",
+    "sealedLabel": "Dossier classifié",
+    "revealCta": "Révéler le dossier",
+    "demo": "Démo live",
+    "repo": "Code source"
   },
   "projectItems": {
-    "surveillance": { "title": "Système de Surveillance Urbaine Intelligente", "desc": "Plateforme IA pour la surveillance urbaine en temps réel avec détection d'anomalies et alertes automatiques." },
-    "parking": { "title": "Système de Parking Intelligent", "desc": "Solution IoT de gestion de parking avec capteurs, réservation et tableau de bord analytique." },
-    "barrier": { "title": "Système de Barrière Automatique", "desc": "Contrôle d'accès automatisé avec reconnaissance et intégration système de sécurité." },
-    "school": { "title": "Système de Gestion Scolaire", "desc": "Application complète de gestion académique : inscriptions, notes, présences et rapports." },
-    "security": { "title": "Système de Sécurité IA", "desc": "Sécurité intelligente avec vision par ordinateur, reconnaissance faciale et alertes en temps réel." },
-    "ecommerce": { "title": "AppStore E-commerce", "desc": "Plateforme e-commerce moderne avec catalogue, paiement et gestion des commandes." },
-    "arduino": { "title": "Projets Arduino Intelligents", "desc": "Projets embarqués innovants : capteurs, automatisation domestique et prototypes IoT." },
-    "network": { "title": "Projets Infrastructure Réseau", "desc": "Déploiement d'infrastructures réseau pour PME et institutions avec monitoring." },
-    "animation": { "title": "Projets Animation IA", "desc": "Créations animées assistées par IA pour médias, formation et communication visuelle." }
+    "nextalk": {
+      "title": "NexTalk",
+      "desc": "Application de messagerie moderne : chat, appels, stories, groupes et canaux — identité visuelle premium et UX fluide."
+    },
+    "congolove": {
+      "title": "CongoLove",
+      "desc": "Plateforme de rencontres pour la diaspora congolaise : tableau de bord, profils, vérification vidéo, IA Match et réseau social intégré."
+    },
+    "netcontrol": {
+      "title": "NetControl",
+      "desc": "Suite de supervision réseau : tableau de bord temps réel, statistiques, contrôle des postes, bureau à distance et alertes sécurité."
+    },
+    "edvaselve": {
+      "title": "Edvaselve Marketplace",
+      "desc": "Marketplace multivendeur à Lubumbashi : boutiques indépendantes, commande en ligne et paiement via WhatsApp."
+    },
+    "solola": {
+      "title": "SOLOLA",
+      "desc": "Service web de communication déployé en production sur Render — branding Solola et pipeline Node.js."
+    },
+    "congoloveStack": {
+      "title": "Stack production CongoLove",
+      "desc": "Infrastructure cloud : PostgreSQL, Valkey, services Node.js, domaine email Resend et déploiement Railway/Render."
+    }
   },
   "experience": {
     "tag": "Parcours",

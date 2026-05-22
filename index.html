@@ -27,6 +27,20 @@
     </div>
   </div>
 
+  <div id="archive-gate" class="archive-gate" role="dialog" aria-modal="true" aria-labelledby="archive-gate-title" hidden>
+    <div class="archive-gate-bg" aria-hidden="true"></div>
+    <div class="archive-gate-panel">
+      <p class="archive-gate-code" data-i18n="archive.code">ARCHIVE · EM-2026</p>
+      <h2 id="archive-gate-title" data-i18n="archive.title">Dossiers confidentiels</h2>
+      <p class="archive-gate-lead" data-i18n="archive.lead">Applications réelles en production. Chaque projet reste masqué jusqu'à ce que vous choisissiez de l'ouvrir.</p>
+      <div class="archive-gate-actions">
+        <button type="button" class="btn btn-primary" id="archive-unlock" data-i18n="archive.unlock">Déverrouiller l'archive</button>
+        <button type="button" class="btn btn-secondary" id="archive-skip" data-i18n="archive.skip">Entrer directement</button>
+      </div>
+      <p class="archive-gate-hint" data-i18n="archive.hint"><i class="fas fa-fingerprint" aria-hidden="true"></i> Faites défiler ou cliquez sur un dossier pour révéler</p>
+    </div>
+  </div>
+
   <header class="header" id="header">
     <nav class="nav container">
       <a href="#home" class="nav-logo">
@@ -187,18 +201,19 @@
       </div>
     </section>
 
-    <section class="projects section" id="projects">
+    <section class="projects section section-archive" id="projects">
       <div class="container">
         <header class="section-header reveal">
           <span class="section-label" data-i18n="projects.tag">Projets</span>
           <h2 class="section-title" data-i18n="projects.title">Réalisations</h2>
+          <p class="section-lead" data-i18n="projects.lead">Captures authentiques de mes applications — survolez, puis cliquez pour révéler le dossier complet.</p>
         </header>
+        <div class="archive-strip reveal" id="archive-strip" aria-hidden="true"></div>
         <div class="filter-bar reveal">
           <button type="button" class="btn btn-filter active" data-filter="all" data-i18n="projects.filterAll">Tous</button>
-          <button type="button" class="btn btn-filter" data-filter="ai" data-i18n="projects.filterAi">IA</button>
-          <button type="button" class="btn btn-filter" data-filter="web" data-i18n="projects.filterWeb">Web</button>
-          <button type="button" class="btn btn-filter" data-filter="iot" data-i18n="projects.filterIot">IoT</button>
+          <button type="button" class="btn btn-filter" data-filter="web" data-i18n="projects.filterWeb">Web & mobile</button>
           <button type="button" class="btn btn-filter" data-filter="network" data-i18n="projects.filterNetwork">Réseau</button>
+          <button type="button" class="btn btn-filter" data-filter="devops" data-i18n="projects.filterDevops">Infrastructure</button>
         </div>
         <div class="projects-grid" id="projects-grid"></div>
       </div>
@@ -313,6 +328,25 @@
   </button>
   <a href="https://wa.me/message/U5VBQ5ZPUAS6A1" class="fab-whatsapp" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
   <div class="nav-overlay" id="nav-overlay" aria-hidden="true"></div>
+
+  <div id="project-modal" class="project-modal" role="dialog" aria-modal="true" aria-hidden="true" aria-labelledby="project-modal-title">
+    <div class="project-modal-backdrop" data-close-modal></div>
+    <div class="project-modal-panel">
+      <button type="button" class="project-modal-close" data-close-modal aria-label="Fermer"><i class="fas fa-times"></i></button>
+      <div class="project-modal-visual">
+        <img id="project-modal-img" src="" alt="">
+        <div class="project-modal-gallery" id="project-modal-gallery"></div>
+      </div>
+      <div class="project-modal-body">
+        <span class="project-modal-cat" id="project-modal-cat"></span>
+        <h3 id="project-modal-title"></h3>
+        <p id="project-modal-desc"></p>
+        <ul class="project-modal-stack" id="project-modal-stack"></ul>
+        <div class="project-modal-actions" id="project-modal-actions"></div>
+      </div>
+    </div>
+  </div>
+
   <div class="toast" id="toast" role="status"></div>
   <script src="script.js"></script>
 </body>

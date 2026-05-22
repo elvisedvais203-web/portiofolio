@@ -19,7 +19,7 @@
     "eyebrow": "IT Engineer · Full Stack Developer · AI Expert",
     "description": "I design reliable software solutions, intelligent systems and IT infrastructure tailored to my clients' business goals.",
     "country": "Democratic Republic of Congo",
-    "ctaContact": "Contact me", "ctaCv": "Download CV", "ctaProjects": "View projects",
+    "ctaContact": "Contact me", "ctaCv": "Download CV", "ctaProjects": "Explore the archive",
     "badge": "Available for projects",
     "pill1": "Artificial intelligence", "pill2": "Web & mobile development", "pill3": "Networking & cybersecurity"
   },
@@ -73,21 +73,37 @@
     "embedded": { "title": "Embedded systems & automation", "desc": "Arduino, microcontrollers, industrial automation and custom embedded solutions." },
     "consulting": { "title": "Consulting & software engineering", "desc": "Technical audits, strategic guidance and business-oriented software development." }
   },
+  "archive": {
+    "code": "ARCHIVE · EM-2026",
+    "title": "Classified dossiers",
+    "lead": "Real production applications. Each project stays hidden until you choose to open it.",
+    "unlock": "Unlock the archive",
+    "skip": "Enter directly",
+    "hint": "Scroll or click a dossier to reveal"
+  },
   "projects": {
-    "tag": "Projects", "title": "Portfolio",
-    "filterAll": "All", "filterAi": "AI", "filterWeb": "Web", "filterIot": "IoT", "filterNetwork": "Network",
-    "catAi": "Artificial Intelligence", "catWeb": "Web", "catIot": "IoT", "catNetwork": "Network"
+    "tag": "Projects",
+    "title": "Delivered work",
+    "lead": "Authentic screenshots of my apps — hover, then click to open the full dossier.",
+    "filterAll": "All",
+    "filterWeb": "Web & mobile",
+    "filterNetwork": "Network",
+    "filterDevops": "Infrastructure",
+    "catWeb": "Web & mobile",
+    "catNetwork": "Network & monitoring",
+    "catDevops": "Infrastructure & deployment",
+    "sealedLabel": "Classified dossier",
+    "revealCta": "Reveal dossier",
+    "demo": "Live demo",
+    "repo": "Source code"
   },
   "projectItems": {
-    "surveillance": { "title": "Intelligent Urban Surveillance System", "desc": "AI platform for real-time urban surveillance with anomaly detection and automatic alerts." },
-    "parking": { "title": "Smart Parking System", "desc": "IoT parking management with sensors, booking and analytics dashboard." },
-    "barrier": { "title": "Automatic Barrier System", "desc": "Automated access control with recognition and security system integration." },
-    "school": { "title": "School Management System", "desc": "Complete academic management: enrollment, grades, attendance and reports." },
-    "security": { "title": "AI Security System", "desc": "Smart security with computer vision, facial recognition and real-time alerts." },
-    "ecommerce": { "title": "E-commerce AppStore", "desc": "Modern e-commerce platform with catalog, payment and order management." },
-    "arduino": { "title": "Smart Arduino Projects", "desc": "Innovative embedded projects: sensors, home automation and IoT prototypes." },
-    "network": { "title": "Network Infrastructure Projects", "desc": "Network infrastructure deployment for SMEs and institutions with monitoring." },
-    "animation": { "title": "AI Animation Projects", "desc": "AI-assisted animated creations for media, training and visual communication." }
+    "nextalk": { "title": "NexTalk", "desc": "Modern messaging app: chat, calls, stories, groups and channels — premium branding and fluid UX." },
+    "congolove": { "title": "CongoLove", "desc": "Dating platform for the Congolese diaspora: dashboard, profiles, video verification, AI Match and social network." },
+    "netcontrol": { "title": "NetControl", "desc": "Network supervision suite: real-time dashboard, analytics, workstation control, remote desktop and security alerts." },
+    "edvaselve": { "title": "Edvaselve Marketplace", "desc": "Multi-vendor marketplace in Lubumbashi: independent shops, online orders and WhatsApp payments." },
+    "solola": { "title": "SOLOLA", "desc": "Communication web service in production on Render — Solola branding and Node.js pipeline." },
+    "congoloveStack": { "title": "CongoLove production stack", "desc": "Cloud infrastructure: PostgreSQL, Valkey, Node.js services, Resend email domain and Railway/Render deployment." }
   },
   "experience": { "tag": "Journey", "title": "Professional experience" },
   "experienceItems": {
