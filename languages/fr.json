@@ -52,10 +52,10 @@
   "about": {
     "tag": "À propos",
     "title": "Profil professionnel",
-    "lead": "Une expertise technique complète au service de projets ambitieux et durables.",
+    "lead": "Profil technique concis, orienté livrables.",
     "subtitle": "Ingénieur IT, développeur logiciel & formateur",
-    "p1": "Expert en développement logiciel, intelligence artificielle, réseaux et administration système. Diplômé en Systèmes Informatiques, Génie Logiciel et IA à l'Université Protestante de Lubumbashi (UPL), je conçois des applications robustes et des systèmes intelligents orientés résultats.",
-    "p2": "J'accompagne entreprises, institutions et entrepreneurs dans leur transformation digitale : conception, développement, déploiement et formation. Approche structurée, communication claire et livrables de qualité professionnelle.",
+    "p1": "Ingénieur IT et développeur Full Stack (UPL — SI, Génie Logiciel & IA). Applications web, mobiles et systèmes intelligents pour entreprises et institutions.",
+    "p2": "Transformation digitale : conception, développement, déploiement cloud et formation.",
     "university": "Formation",
     "phone": "Téléphone",
     "ai1": "Ingénieur IT",
@@ -123,7 +123,7 @@
   "archive": {
     "code": "ARCHIVE · EM-2026",
     "title": "Dossiers confidentiels",
-    "lead": "Applications réelles en production. Chaque projet reste masqué jusqu'à ce que vous choisissiez de l'ouvrir.",
+    "lead": "Projets réels — cliquez pour révéler.",
     "unlock": "Déverrouiller l'archive",
     "skip": "Entrer directement",
     "hint": "Faites défiler ou cliquez sur un dossier pour révéler"
@@ -147,27 +147,27 @@
   "projectItems": {
     "nextalk": {
       "title": "NexTalk",
-      "desc": "Application de messagerie moderne : chat, appels, stories, groupes et canaux — identité visuelle premium et UX fluide."
+      "desc": "Messagerie : chat, appels, stories et canaux."
     },
     "congolove": {
       "title": "CongoLove",
-      "desc": "Plateforme de rencontres pour la diaspora congolaise : tableau de bord, profils, vérification vidéo, IA Match et réseau social intégré."
+      "desc": "Rencontres RDC : profils, IA Match, vérification vidéo."
     },
     "netcontrol": {
       "title": "NetControl",
-      "desc": "Suite de supervision réseau : tableau de bord temps réel, statistiques, contrôle des postes, bureau à distance et alertes sécurité."
+      "desc": "Supervision réseau, stats et contrôle à distance."
     },
     "edvaselve": {
       "title": "Edvaselve Marketplace",
-      "desc": "Marketplace multivendeur à Lubumbashi : boutiques indépendantes, commande en ligne et paiement via WhatsApp."
+      "desc": "E-commerce multivendeur — Lubumbashi."
     },
     "solola": {
       "title": "SOLOLA",
-      "desc": "Service web de communication déployé en production sur Render — branding Solola et pipeline Node.js."
+      "desc": "App web en production sur Render (Node.js)."
     },
     "congoloveStack": {
       "title": "Stack production CongoLove",
-      "desc": "Infrastructure cloud : PostgreSQL, Valkey, services Node.js, domaine email Resend et déploiement Railway/Render."
+      "desc": "PostgreSQL, Valkey, Resend, Railway/Render."
     }
   },
   "experience": {
@@ -187,9 +187,9 @@
     "title": "Avis clients"
   },
   "testimonialItems": {
-    "t1": { "text": "Edvais a transformé notre infrastructure IT avec une expertise remarquable. Son professionnalisme et sa capacité à résoudre des problèmes complexes sont exceptionnels.", "name": "Jean Mukendi", "role": "Directeur IT, Entreprise locale" },
-    "t2": { "text": "Le système de surveillance IA développé a dépassé nos attentes. Une solution innovante, fiable et parfaitement adaptée à nos besoins.", "name": "Amina Kabongo", "role": "Responsable Sécurité" },
-    "t3": { "text": "Formateur exceptionnel et développeur talentueux. Edvais allie expertise technique et pédagogie pour des résultats concrets.", "name": "Patrick Lumumba", "role": "Directeur académique" }
+    "t1": { "text": "Infrastructure IT transformée avec professionnalisme et réactivité.", "name": "Jean Mukendi", "role": "Directeur IT" },
+    "t2": { "text": "Solution fiable, innovante et parfaitement adaptée à nos besoins.", "name": "Amina Kabongo", "role": "Responsable Sécurité" },
+    "t3": { "text": "Expertise technique et pédagogie au service de résultats concrets.", "name": "Patrick Lumumba", "role": "Directeur académique" }
   },
   "contact": {
     "tag": "Contact",

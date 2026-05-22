@@ -12,10 +12,12 @@
   <title data-i18n="meta.title">KADIEBWE MAKINA EDVAIS | Portfolio</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@600;700;800&family=Noto+Sans+Arabic:wght@400;600;700&family=Noto+Sans+SC:wght@400;600;700&family=Noto+Sans+JP:wght@400;600;700&family=Noto+Sans+Devanagari:wght@400;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="preload" href="style.css" as="style">
+  <link rel="preload" href="images/profile.png" as="image">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Plus+Jakarta+Sans:wght@600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" media="print" onload="this.media='all'">
+  <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"></noscript>
   <link rel="stylesheet" href="style.css">
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js" crossorigin="anonymous"></script>
 </head>
 <body>
   <a href="#home" class="skip-link" data-i18n="a11y.skip">Aller au contenu</a>
@@ -32,7 +34,7 @@
     <div class="archive-gate-panel">
       <p class="archive-gate-code" data-i18n="archive.code">ARCHIVE · EM-2026</p>
       <h2 id="archive-gate-title" data-i18n="archive.title">Dossiers confidentiels</h2>
-      <p class="archive-gate-lead" data-i18n="archive.lead">Applications réelles en production. Chaque projet reste masqué jusqu'à ce que vous choisissiez de l'ouvrir.</p>
+      <p class="archive-gate-lead" data-i18n="archive.lead">Projets réels — cliquez pour révéler.</p>
       <div class="archive-gate-actions">
         <button type="button" class="btn btn-primary" id="archive-unlock" data-i18n="archive.unlock">Déverrouiller l'archive</button>
         <button type="button" class="btn btn-secondary" id="archive-skip" data-i18n="archive.skip">Entrer directement</button>
@@ -88,8 +90,16 @@
 
   <button type="button" class="fab-translate" id="fab-translate" aria-label="Langue"><i class="fas fa-globe"></i></button>
 
+  <nav class="chapter-rail" id="chapter-rail" aria-label="Sections">
+    <a href="#home" class="chapter-link active" data-i18n-attr="aria-label:nav.home"><span></span></a>
+    <a href="#about" class="chapter-link" data-i18n-attr="aria-label:nav.about"><span></span></a>
+    <a href="#skills" class="chapter-link" data-i18n-attr="aria-label:nav.skills"><span></span></a>
+    <a href="#projects" class="chapter-link" data-i18n-attr="aria-label:nav.projects"><span></span></a>
+    <a href="#contact" class="chapter-link" data-i18n-attr="aria-label:nav.contact"><span></span></a>
+  </nav>
+
   <main>
-    <section class="hero section" id="home">
+    <section class="hero section hero-cinema" id="home">
       <div class="hero-bg" aria-hidden="true"></div>
       <div class="container hero-grid">
         <div class="hero-content reveal">
@@ -115,7 +125,7 @@
         </div>
         <div class="hero-media reveal">
           <div class="profile-card">
-            <img src="images/profile.png" alt="KADIEBWE MAKINA EDVAIS" class="profile-photo" width="360" height="420">
+            <img src="images/profile.png" alt="KADIEBWE MAKINA EDVAIS" class="profile-photo" width="360" height="420" fetchpriority="high" decoding="async">
             <span class="status-badge" data-i18n="hero.badge">Disponible pour missions</span>
           </div>
           <ul class="expertise-pills">
@@ -125,6 +135,7 @@
           </ul>
         </div>
       </div>
+      <div class="hero-reel" id="hero-reel" aria-hidden="true"></div>
     </section>
 
     <section class="stats section" id="stats">
@@ -157,12 +168,12 @@
         </header>
         <div class="about-grid">
           <div class="about-media reveal">
-            <img src="images/profile.png" alt="KADIEBWE MAKINA EDVAIS" class="about-photo" width="420" height="520">
+            <img src="images/profile.png" alt="KADIEBWE MAKINA EDVAIS" class="about-photo" width="280" height="340" loading="lazy" decoding="async">
           </div>
           <div class="about-content reveal">
             <h3 data-i18n="about.subtitle">Ingénieur IT, développeur logiciel & formateur</h3>
-            <p data-i18n="about.p1">Expert en développement logiciel, intelligence artificielle, réseaux et administration système. Diplômé en Systèmes Informatiques, Génie Logiciel et IA à l'Université Protestante de Lubumbashi (UPL), je conçois des applications robustes et des systèmes intelligents orientés résultats.</p>
-            <p data-i18n="about.p2">J'accompagne entreprises, institutions et entrepreneurs dans leur transformation digitale : conception, développement, déploiement et formation. Approche structurée, communication claire et livrables de qualité professionnelle.</p>
+            <p data-i18n="about.p1">Ingénieur IT et développeur Full Stack (UPL — SI, Génie Logiciel & IA). Je conçois des applications web, mobiles et des systèmes intelligents pour entreprises et institutions.</p>
+            <p class="about-p2" data-i18n="about.p2">Transformation digitale : conception, développement, déploiement cloud et formation.</p>
             <dl class="info-list">
               <div><dt data-i18n="about.university">Formation</dt><dd>UPL — SI, Génie Logiciel & IA</dd></div>
               <div><dt>Email</dt><dd><a href="mailto:elvisedvais203@gmail.com">elvisedvais203@gmail.com</a> · <a href="mailto:elvisedvais203@icloud.com">elvisedvais203@icloud.com</a></dd></div>
@@ -208,7 +219,6 @@
           <h2 class="section-title" data-i18n="projects.title">Réalisations</h2>
           <p class="section-lead" data-i18n="projects.lead">Captures authentiques de mes applications — survolez, puis cliquez pour révéler le dossier complet.</p>
         </header>
-        <div class="archive-strip reveal" id="archive-strip" aria-hidden="true"></div>
         <div class="filter-bar reveal">
           <button type="button" class="btn btn-filter active" data-filter="all" data-i18n="projects.filterAll">Tous</button>
           <button type="button" class="btn btn-filter" data-filter="web" data-i18n="projects.filterWeb">Web & mobile</button>
@@ -348,6 +358,6 @@
   </div>
 
   <div class="toast" id="toast" role="status"></div>
-  <script src="script.js"></script>
+  <script src="script.js" defer></script>
 </body>
 </html>

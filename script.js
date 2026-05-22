@@ -41,13 +41,17 @@ const SERVICE_CONFIG = [
   { key: 'consulting', icon: 'fas fa-lightbulb' }
 ];
 
-/** Projets réels — captures locales (images/projects/) */
+const thumb = (name) => `images/projects/thumbs/${name}.jpg`;
+const full = (name) => `images/projects/${name}.png`;
+
+/** Projets réels — miniatures légères, pleine résolution à l'ouverture */
 const PROJECT_CONFIG = [
   {
     key: 'nextalk',
     category: 'web',
-    image: 'images/projects/nextalk.png',
-    gallery: ['images/projects/nextalk.png'],
+    image: thumb('nextalk'),
+    full: full('nextalk'),
+    gallery: [full('nextalk')],
     stack: ['React Native', 'Node.js', 'Messagerie temps réel'],
     demo: '',
     repo: 'https://github.com/elvisedvais203-web'
@@ -55,13 +59,14 @@ const PROJECT_CONFIG = [
   {
     key: 'congolove',
     category: 'web',
-    image: 'images/projects/congolove-home.png',
+    image: thumb('congolove-home'),
+    full: full('congolove-home'),
     gallery: [
-      'images/projects/congolove-home.png',
-      'images/projects/congolove-profile.png',
-      'images/projects/congolove-brand.png',
-      'images/projects/auth-ui.png',
-      'images/projects/congolove-infra.png'
+      full('congolove-home'),
+      full('congolove-profile'),
+      full('congolove-brand'),
+      full('auth-ui'),
+      full('congolove-infra')
     ],
     stack: ['Node.js', 'PostgreSQL', 'Redis', 'IA Match', 'Vérification identité'],
     demo: '',
@@ -70,8 +75,9 @@ const PROJECT_CONFIG = [
   {
     key: 'netcontrol',
     category: 'network',
-    image: 'images/projects/netcontrol.png',
-    gallery: ['images/projects/netcontrol.png'],
+    image: thumb('netcontrol'),
+    full: full('netcontrol'),
+    gallery: [full('netcontrol')],
     stack: ['Dashboard', 'Monitoring réseau', 'Contrôle à distance', 'Sécurité'],
     demo: '',
     repo: 'https://github.com/elvisedvais203-web'
@@ -79,8 +85,9 @@ const PROJECT_CONFIG = [
   {
     key: 'edvaselve',
     category: 'web',
-    image: 'images/projects/edvaselve.png',
-    gallery: ['images/projects/edvaselve.png'],
+    image: thumb('edvaselve'),
+    full: full('edvaselve'),
+    gallery: [full('edvaselve')],
     stack: ['E-commerce', 'Multivendeur', 'Lubumbashi RDC', 'WhatsApp Commerce'],
     demo: '',
     repo: 'https://github.com/elvisedvais203-web'
@@ -88,8 +95,9 @@ const PROJECT_CONFIG = [
   {
     key: 'solola',
     category: 'web',
-    image: 'images/projects/solola-brand.png',
-    gallery: ['images/projects/solola-brand.png', 'images/projects/solola-deploy.png'],
+    image: thumb('solola-brand'),
+    full: full('solola-brand'),
+    gallery: [full('solola-brand'), full('solola-deploy')],
     stack: ['Node.js', 'Render', 'Web Service'],
     demo: 'https://solola.onrender.com',
     repo: 'https://github.com/elvisedvais203-web/SOLOLA'
@@ -97,8 +105,9 @@ const PROJECT_CONFIG = [
   {
     key: 'congoloveStack',
     category: 'devops',
-    image: 'images/projects/congolove-deploy.png',
-    gallery: ['images/projects/congolove-deploy.png', 'images/projects/congolove-infra.png'],
+    image: thumb('congolove-deploy'),
+    full: full('congolove-deploy'),
+    gallery: [full('congolove-deploy'), full('congolove-infra')],
     stack: ['Railway', 'PostgreSQL', 'Valkey', 'Resend', 'Node.js'],
     demo: '',
     repo: 'https://github.com/elvisedvais203-web'
@@ -221,6 +230,18 @@ class I18n {
     const cfg = LANG_CONFIG[this.lang];
     document.documentElement.dir = cfg.dir;
     document.documentElement.setAttribute('data-lang', this.lang);
+    const extra = { ar: 'Noto+Sans+Arabic', zh: 'Noto+Sans+SC', ja: 'Noto+Sans+JP', hi: 'Noto+Sans+Devanagari' };
+    const id = 'lang-font-extra';
+    let link = document.getElementById(id);
+    if (extra[this.lang]) {
+      if (!link) {
+        link = document.createElement('link');
+        link.id = id;
+        link.rel = 'stylesheet';
+        document.head.appendChild(link);
+      }
+      link.href = `https://fonts.googleapis.com/css2?family=${extra[this.lang]}:wght@400;600&display=swap`;
+    } else if (link) link.remove();
   }
 
   updateLangUI() {
@@ -277,14 +298,13 @@ class I18n {
 
   renderProjects() {
     const grid = document.getElementById('projects-grid');
-    const strip = document.getElementById('archive-strip');
     if (!grid) return;
     grid.innerHTML = PROJECT_CONFIG.map((p, i) => `
-      <article class="project-card project-card--sealed reveal reveal-stagger" style="--delay: ${i * 70}ms"
+      <article class="project-card project-card--sealed reveal reveal-stagger" style="--delay: ${i * 50}ms"
         data-category="${p.category}" data-project-key="${p.key}" tabindex="0" role="button"
         aria-label="${this.t(`projectItems.${p.key}.title`)} — ${this.t('projects.revealCta')}">
         <div class="project-img">
-          <img class="project-thumb" src="${p.image}" alt="" loading="lazy" decoding="async">
+          <img class="project-thumb" src="${p.image}" alt="" loading="lazy" decoding="async" width="480" height="300">
           <div class="project-seal" aria-hidden="true">
             <span class="project-seal-icon"><i class="fas fa-lock"></i></span>
             <span class="project-seal-text" data-i18n="projects.sealedLabel">Dossier classifié</span>
@@ -296,18 +316,13 @@ class I18n {
         </div>
         <div class="project-body">
           <h3>${this.t(`projectItems.${p.key}.title`)}</h3>
-          <p>${this.t(`projectItems.${p.key}.desc`)}</p>
+          <p class="project-desc-clamp">${this.t(`projectItems.${p.key}.desc`)}</p>
           <ul class="project-stack-preview">${p.stack.slice(0, 3).map(s => `<li>${s}</li>`).join('')}</ul>
         </div>
       </article>
     `).join('');
-    if (strip) {
-      strip.innerHTML = PROJECT_CONFIG.map(p =>
-        `<img src="${p.image}" alt="" loading="lazy" width="120" height="68">`
-      ).join('');
-      strip.removeAttribute('aria-hidden');
-    }
     if (window.portfolioApp) {
+      window.portfolioApp.renderHeroReel();
       window.portfolioApp.observeReveals();
       window.portfolioApp.initProjectFilters();
       window.portfolioApp.initProjectArchive();
@@ -388,16 +403,40 @@ class PortfolioApp {
     this.initCvDownload();
     this.initArchiveGate();
     this.initProjectModal();
+    this.initChapterRail();
     this.observeReveals();
   }
 
+  initChapterRail() {
+    const links = document.querySelectorAll('.chapter-link');
+    const sections = ['home', 'about', 'skills', 'projects', 'contact'];
+    window.addEventListener('scroll', () => {
+      const y = window.scrollY + 160;
+      let current = 'home';
+      sections.forEach(id => {
+        const el = document.getElementById(id);
+        if (el && el.offsetTop <= y) current = id;
+      });
+      links.forEach(l => l.classList.toggle('active', l.getAttribute('href') === `#${current}`));
+    }, { passive: true });
+  }
+
   initLoader() {
-    window.addEventListener('load', () => {
-      setTimeout(() => {
-        document.getElementById('loader')?.classList.add('hidden');
-        this.maybeShowArchiveGate();
-      }, 800);
-    });
+    const hide = () => {
+      document.getElementById('loader')?.classList.add('hidden');
+      this.maybeShowArchiveGate();
+    };
+    if (document.readyState === 'complete') hide();
+    else window.addEventListener('load', hide, { once: true });
+  }
+
+  renderHeroReel() {
+    const reel = document.getElementById('hero-reel');
+    if (!reel) return;
+    const items = PROJECT_CONFIG.map(p =>
+      `<span class="hero-reel-item"><img src="${p.image}" alt="" width="140" height="80" loading="lazy" decoding="async"></span>`
+    ).join('');
+    reel.innerHTML = `<div class="hero-reel-track">${items}${items}</div>`;
   }
 
   maybeShowArchiveGate() {
@@ -464,7 +503,10 @@ class PortfolioApp {
     const title = this.i18n.t(`projectItems.${key}.title`);
     const desc = this.i18n.t(`projectItems.${key}.desc`);
     const cat = this.i18n.t(PROJECT_CATEGORY_KEYS[project.category] || 'projects.catWeb');
-    const gallery = project.gallery?.length ? project.gallery : [project.image];
+    const gallery = project.gallery?.length ? project.gallery : [project.full || project.image];
+    const toThumb = (src) => src.includes('/projects/') && src.endsWith('.png')
+      ? src.replace('/projects/', '/projects/thumbs/').replace('.png', '.jpg')
+      : src;
 
     document.getElementById('project-modal-title').textContent = title;
     document.getElementById('project-modal-desc').textContent = desc;
@@ -477,15 +519,21 @@ class PortfolioApp {
     const galleryEl = document.getElementById('project-modal-gallery');
     galleryEl.innerHTML = gallery.map((src, i) =>
       `<button type="button" class="project-modal-thumb ${i === 0 ? 'active' : ''}" data-src="${src}">
-        <img src="${src}" alt="" loading="lazy">
+        <img src="${toThumb(src)}" alt="" loading="lazy" decoding="async">
       </button>`
     ).join('');
     galleryEl.querySelectorAll('.project-modal-thumb').forEach(btn => {
       btn.addEventListener('click', () => {
         galleryEl.querySelectorAll('.project-modal-thumb').forEach(b => b.classList.remove('active'));
         btn.classList.add('active');
-        img.src = btn.dataset.src;
+        const src = btn.dataset.src;
+        img.src = src;
+        img.loading = 'eager';
       });
+    });
+    PROJECT_CONFIG.find(p => p.key === key)?.gallery?.slice(1).forEach(src => {
+      const preload = new Image();
+      preload.src = src;
     });
 
     const stackEl = document.getElementById('project-modal-stack');
@@ -786,10 +834,24 @@ class PortfolioApp {
     });
   }
 
+  loadJsPdf() {
+    if (window.jspdf?.jsPDF) return Promise.resolve();
+    return new Promise((resolve, reject) => {
+      const s = document.createElement('script');
+      s.src = 'https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js';
+      s.crossOrigin = 'anonymous';
+      s.async = true;
+      s.onload = () => resolve();
+      s.onerror = () => reject(new Error('jsPDF load failed'));
+      document.head.appendChild(s);
+    });
+  }
+
   initCvDownload() {
-    document.getElementById('cv-download')?.addEventListener('click', (e) => {
+    document.getElementById('cv-download')?.addEventListener('click', async (e) => {
       e.preventDefault();
       try {
+        await this.loadJsPdf();
         this.generateCVPdf();
         this.showToast(this.i18n.t('notifications.cvDownloaded'));
       } catch (err) {
