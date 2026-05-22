@@ -38,7 +38,11 @@
     "country": "République démocratique du Congo",
     "ctaContact": "Me contacter",
     "ctaCv": "Télécharger le curriculum vitæ",
-    "ctaProjects": "Consulter les réalisations",
+    "ctaProjects": "Mes projets réalisés",
+    "ctaProjectsDesc": "Applications déployées & dossiers techniques",
+    "ctaSkills": "Mes compétences",
+    "ctaSkillsDesc": "SI, développement, réseaux & intelligence artificielle",
+    "scrollHint": "Explorer",
     "badge": "Disponible pour mission",
     "pill1": "Systèmes informatiques",
     "pill2": "Développement logiciel",
@@ -177,6 +181,33 @@
     "congoloveStack": {
       "title": "Infrastructure CongoLove",
       "desc": "PostgreSQL, Valkey, services Node.js, domaine mail."
+    }
+  },
+  "future": {
+    "tag": "Horizon",
+    "title": "Projets futurs",
+    "lead": "Laboratoire d'innovation — prototypes et visions en préparation.",
+    "items": {
+      "siHub": {
+        "title": "SI Analytics Hub",
+        "desc": "Tableau de bord unifié pour supervision SI, métriques et alertes en temps réel.",
+        "status": "R&D · 2026"
+      },
+      "secureCloud": {
+        "title": "SecureCloud RDC",
+        "desc": "Plateforme d'hébergement souverain avec durcissement et sauvegardes automatisées.",
+        "status": "Conception · 2026"
+      },
+      "eduAi": {
+        "title": "EduAI Campus",
+        "desc": "Assistant pédagogique IA pour établissements — parcours, évaluations et tutorat.",
+        "status": "Prototype · 2027"
+      },
+      "iotCity": {
+        "title": "Smart City Lubumbashi",
+        "desc": "Capteurs IoT & tableaux de bord pour infrastructures urbaines connectées.",
+        "status": "Vision · 2027"
+      }
     }
   },
   "experience": {

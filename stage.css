@@ -97,14 +97,278 @@ body.stage-body {
   transform: translateY(8%) scale(0.985);
 }
 
-/* Accueil : pas de défilement — les autres couches scrollent */
+/* Accueil : hero fixe plein écran + défilement vers portails & futur */
 #layer-home {
-  overflow: hidden;
+  overflow-x: hidden;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
 }
-#layer-home .layer-panel--center {
-  overflow: hidden;
-  max-height: 100vh;
+#layer-home .home-hero {
+  min-height: 100vh;
+  min-height: 100dvh;
   max-height: 100dvh;
+  overflow: hidden;
+  padding-bottom: 2rem;
+  position: relative;
+}
+#layer-home .home-hero.layer-panel--center {
+  max-height: none;
+}
+.home-scroll-cue {
+  position: absolute;
+  bottom: 0.5rem;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.2rem;
+  font-size: 0.62rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--muted);
+  animation: cueBounce 2.2s ease-in-out infinite;
+}
+.home-scroll-cue i { color: var(--bronze); font-size: 0.75rem; }
+@keyframes cueBounce {
+  0%, 100% { transform: translateX(-50%) translateY(0); opacity: 0.55; }
+  50% { transform: translateX(-50%) translateY(5px); opacity: 1; }
+}
+.home-scroll {
+  position: relative;
+  z-index: 2;
+  padding: 1.5rem 0 calc(6.5rem + env(safe-area-inset-bottom));
+}
+.portal-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+.portal-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.35rem;
+  padding: 1.25rem 1.15rem 1.15rem;
+  text-align: left;
+  border: 1px solid rgba(107, 140, 174, 0.35);
+  border-radius: 6px;
+  background: rgba(20, 24, 32, 0.65);
+  backdrop-filter: blur(12px);
+  color: var(--paper);
+  cursor: pointer;
+  overflow: hidden;
+  transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1), border-color 0.3s ease, box-shadow 0.35s ease;
+  opacity: 0;
+  transform: translateY(18px);
+}
+.portal-card.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+.portal-card--skills { animation-delay: 0ms; }
+.portal-card--projects { animation-delay: 80ms; }
+.portal-card--skills.is-visible { transition-delay: 0ms; }
+.portal-card--projects.is-visible { transition-delay: 80ms; }
+.portal-scan {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, transparent 0%, rgba(107, 140, 174, 0.12) 50%, transparent 100%);
+  transform: translateY(-100%);
+  animation: portalScan 4s linear infinite;
+  pointer-events: none;
+}
+@keyframes portalScan {
+  0% { transform: translateY(-100%); }
+  100% { transform: translateY(100%); }
+}
+.portal-glow {
+  position: absolute;
+  inset: -1px;
+  border-radius: inherit;
+  background: conic-gradient(from 0deg, transparent, var(--steel), transparent, var(--bronze), transparent);
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  z-index: -1;
+  animation: portalSpin 8s linear infinite;
+  pointer-events: none;
+}
+@keyframes portalSpin {
+  to { transform: rotate(360deg); }
+}
+.portal-card:hover .portal-glow { opacity: 0.35; }
+.portal-card:hover {
+  transform: translateY(-4px);
+  border-color: var(--steel);
+  box-shadow: 0 12px 40px rgba(107, 140, 174, 0.2);
+}
+.portal-card--projects:hover {
+  border-color: var(--bronze);
+  box-shadow: 0 12px 40px var(--bronze-glow);
+}
+.portal-icon {
+  width: 44px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: var(--steel-soft);
+  color: var(--steel);
+  font-size: 1.1rem;
+  margin-bottom: 0.25rem;
+}
+.portal-card--projects .portal-icon {
+  background: var(--bronze-soft);
+  color: var(--bronze);
+}
+.portal-label {
+  font-family: var(--font-display);
+  font-size: 1.15rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+}
+.portal-desc {
+  font-size: 0.8rem;
+  color: var(--muted);
+  line-height: 1.45;
+  max-width: 18rem;
+}
+.portal-arrow {
+  position: absolute;
+  right: 1rem;
+  bottom: 1rem;
+  font-size: 0.85rem;
+  color: var(--steel);
+  transition: transform 0.3s ease;
+}
+.portal-card:hover .portal-arrow { transform: translateX(4px); }
+
+/* Projets futurs — laboratoire */
+.future-lab {
+  position: relative;
+  padding: 1.5rem 0 0;
+}
+.future-lab::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 10%;
+  right: 10%;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--bronze), var(--steel), transparent);
+}
+.future-lab-head { margin-bottom: 1.25rem; }
+.future-lab-tag {
+  display: inline-block;
+  font-size: 0.62rem;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--bronze);
+  margin-bottom: 0.4rem;
+}
+.future-lab-head h2 {
+  font-family: var(--font-display);
+  font-size: clamp(1.4rem, 4vw, 1.85rem);
+  font-weight: 600;
+  color: var(--paper);
+  margin-bottom: 0.35rem;
+}
+.future-lab-lead {
+  font-size: 0.88rem;
+  color: var(--muted);
+  max-width: 32rem;
+  line-height: 1.55;
+}
+.future-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 0.85rem;
+}
+.future-card {
+  position: relative;
+  padding: 1rem 0.95rem;
+  border: 1px dashed rgba(166, 139, 91, 0.4);
+  border-radius: 4px;
+  background: linear-gradient(145deg, rgba(26, 32, 48, 0.9), rgba(12, 14, 18, 0.95));
+  overflow: hidden;
+  opacity: 0;
+  transform: translateY(14px) scale(0.98);
+  transition: opacity 0.55s ease, transform 0.55s ease, border-color 0.3s ease;
+}
+.future-card.is-visible {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+  transition-delay: calc(var(--fi, 0) * 90ms);
+}
+.future-card-orbit {
+  position: absolute;
+  top: -20px;
+  right: -20px;
+  width: 80px;
+  height: 80px;
+  border: 1px solid rgba(107, 140, 174, 0.2);
+  border-radius: 50%;
+  animation: orbitSpin 12s linear infinite;
+  pointer-events: none;
+}
+@keyframes orbitSpin {
+  to { transform: rotate(360deg); }
+}
+.future-card-year {
+  position: absolute;
+  top: 0.65rem;
+  right: 0.65rem;
+  font-size: 0.62rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: var(--bronze);
+}
+.future-card-icon {
+  display: flex;
+  width: 36px;
+  height: 36px;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: var(--steel-soft);
+  color: var(--steel);
+  font-size: 0.95rem;
+  margin-bottom: 0.55rem;
+}
+.future-card h3 {
+  font-size: 0.92rem;
+  font-weight: 600;
+  color: var(--paper);
+  margin-bottom: 0.3rem;
+  line-height: 1.3;
+}
+.future-card p {
+  font-size: 0.75rem;
+  color: var(--muted);
+  line-height: 1.45;
+  margin-bottom: 0.5rem;
+}
+.future-card-status {
+  font-size: 0.65rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--steel);
+}
+.future-card:hover {
+  border-color: var(--bronze);
+  border-style: solid;
+}
+
+/* Autres couches : défilement vertical complet */
+.layer:not(#layer-home).layer--active {
+  overflow-y: auto;
+  overflow-x: hidden;
 }
 
 /* Dock flottant (langue + thème) — visible sur toutes les pages */
@@ -217,7 +481,7 @@ body.stage-body {
   padding: calc(var(--stage-header-h) + 1rem) max(1rem, env(safe-area-inset-left)) calc(6rem + env(safe-area-inset-bottom)) max(1rem, env(safe-area-inset-right));
   min-height: 100%;
 }
-.layer-panel--center {
+.layer-panel--center:not(.home-hero) {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -226,6 +490,14 @@ body.stage-body {
   padding: 1.75rem 1.25rem 6.5rem;
   min-height: 100vh;
   min-height: 100dvh;
+}
+.home-hero.layer-panel--center {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 1.75rem 1.25rem 2.5rem;
 }
 
 /* —— En-tête —— */
@@ -1025,5 +1297,10 @@ body.modal-open .stage-nav { opacity: 0; pointer-events: none; }
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .layer, .stage-header, .skill-chip, .loader-line, .xp-card { transition: none !important; animation: none !important; }
+  .layer, .stage-header, .skill-chip, .loader-line, .xp-card,
+  .portal-card, .portal-scan, .portal-glow, .future-card-orbit, .home-scroll-cue {
+    transition: none !important;
+    animation: none !important;
+  }
+  .portal-card, .future-card { opacity: 1; transform: none; }
 }

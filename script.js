@@ -120,6 +120,13 @@ const PROJECT_CATEGORY_KEYS = {
   devops: 'projects.catDevops'
 };
 
+const FUTURE_PROJECTS_CONFIG = [
+  { key: 'siHub', icon: 'fas fa-diagram-project', year: '2026' },
+  { key: 'secureCloud', icon: 'fas fa-shield-halved', year: '2026' },
+  { key: 'eduAi', icon: 'fas fa-graduation-cap', year: '2027' },
+  { key: 'iotCity', icon: 'fas fa-city', year: '2027' }
+];
+
 const EXPERIENCE_CONFIG = [
   { key: 'si', from: 2022, to: null, icon: 'fas fa-sitemap' },
   { key: 'dev', from: 2022, to: null, icon: 'fas fa-code' },
@@ -252,6 +259,22 @@ class I18n {
     this.renderSkills();
     this.renderProjects();
     this.renderExperience();
+    this.renderFutureProjects();
+  }
+
+  renderFutureProjects() {
+    const grid = document.getElementById('future-grid');
+    if (!grid) return;
+    grid.innerHTML = FUTURE_PROJECTS_CONFIG.map((p, i) => `
+      <article class="future-card" style="--fi: ${i}">
+        <div class="future-card-orbit" aria-hidden="true"></div>
+        <span class="future-card-year">${p.year}</span>
+        <span class="future-card-icon"><i class="${p.icon}" aria-hidden="true"></i></span>
+        <h3>${this.t(`future.items.${p.key}.title`)}</h3>
+        <p>${this.t(`future.items.${p.key}.desc`)}</p>
+        <span class="future-card-status">${this.t(`future.items.${p.key}.status`)}</span>
+      </article>
+    `).join('');
   }
 
   renderSkills() {
@@ -371,7 +394,19 @@ class PortfolioApp {
     this.initCvDownload();
     this.initProjectModal();
     this.initProjectModalZoom();
+    this.initHomePortals();
     this.modalZoom = 1;
+  }
+
+  initHomePortals() {
+    const home = document.getElementById('layer-home');
+    if (!home || typeof IntersectionObserver === 'undefined') return;
+    const obs = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) entry.target.classList.add('is-visible');
+      });
+    }, { root: home, threshold: 0.15 });
+    document.querySelectorAll('.portal-card, .future-card').forEach((el) => obs.observe(el));
   }
 
   initLoader() {
@@ -484,7 +519,7 @@ class PortfolioApp {
     document.body.classList.toggle('stage-body', true);
 
     const active = document.getElementById(`layer-${LAYER_IDS[index]}`);
-    active?.scrollTo?.(0, 0);
+    if (active) active.scrollTop = 0;
 
     this.updateStageUI();
 
@@ -1004,27 +1039,71 @@ class PortfolioApp {
     });
   }
 
+  imageToDataUrl(img) {
+    const size = 320;
+    const canvas = document.createElement('canvas');
+    canvas.width = size;
+    canvas.height = size;
+    const ctx = canvas.getContext('2d');
+    const sw = img.naturalWidth || img.width;
+    const sh = img.naturalHeight || img.height;
+    const crop = Math.min(sw, sh) * 0.88;
+    const sx = (sw - crop) / 2;
+    const sy = Math.max(0, (sh - crop) * 0.18);
+    ctx.fillStyle = '#1a2030';
+    ctx.fillRect(0, 0, size, size);
+    ctx.drawImage(img, sx, sy, crop, crop, 0, 0, size, size);
+    return canvas.toDataURL('image/png');
+  }
+
   loadProfileImageData() {
+    const imgEl = document.getElementById('profile-photo') || document.querySelector('.welcome-photo');
+    if (imgEl?.complete && imgEl.naturalWidth > 0) {
+      return Promise.resolve(this.imageToDataUrl(imgEl));
+    }
+    const src = imgEl?.src || new URL('images/profile.png', document.baseURI).href;
     return new Promise((resolve, reject) => {
       const img = new Image();
-      img.onload = () => {
-        const size = 280;
-        const canvas = document.createElement('canvas');
-        canvas.width = size;
-        canvas.height = size;
-        const ctx = canvas.getContext('2d');
-        const sw = img.naturalWidth || img.width;
-        const sh = img.naturalHeight || img.height;
-        const crop = Math.min(sw, sh) * 0.88;
-        const sx = (sw - crop) / 2;
-        const sy = Math.max(0, (sh - crop) * 0.18);
-        ctx.fillStyle = '#1a2030';
-        ctx.fillRect(0, 0, size, size);
-        ctx.drawImage(img, sx, sy, crop, crop, 0, 0, size, size);
-        resolve(canvas.toDataURL('image/jpeg', 0.92));
+      img.onload = () => resolve(this.imageToDataUrl(img));
+      img.onerror = () => {
+        fetch(src)
+          .then((r) => {
+            if (!r.ok) throw new Error('fetch');
+            return r.blob();
+          })
+          .then((blob) => {
+            const url = URL.createObjectURL(blob);
+            const img2 = new Image();
+            img2.onload = () => {
+              URL.revokeObjectURL(url);
+              resolve(this.imageToDataUrl(img2));
+            };
+            img2.onerror = () => {
+              URL.revokeObjectURL(url);
+              reject(new Error('profile image'));
+            };
+            img2.src = url;
+          })
+          .catch(() => {
+            const alt = new URL('images/profile-alt.png', document.baseURI).href;
+            if (alt !== src) {
+              fetch(alt)
+                .then((r) => r.blob())
+                .then((blob) => {
+                  const url = URL.createObjectURL(blob);
+                  const img3 = new Image();
+                  img3.onload = () => {
+                    URL.revokeObjectURL(url);
+                    resolve(this.imageToDataUrl(img3));
+                  };
+                  img3.onerror = () => reject(new Error('profile image'));
+                  img3.src = url;
+                })
+                .catch(() => reject(new Error('profile image')));
+            } else reject(new Error('profile image'));
+          });
       };
-      img.onerror = () => reject(new Error('profile image'));
-      img.src = 'images/profile.png';
+      img.src = src;
     });
   }
 
@@ -1054,7 +1133,8 @@ class PortfolioApp {
     let y = 22;
 
     if (photoData) {
-      doc.addImage(photoData, 'JPEG', photoX, photoY, photoSize, photoSize);
+      const format = photoData.startsWith('data:image/png') ? 'PNG' : 'JPEG';
+      doc.addImage(photoData, format, photoX, photoY, photoSize, photoSize, undefined, 'FAST');
       doc.setDrawColor(166, 139, 91);
       doc.setLineWidth(0.4);
       doc.rect(photoX, photoY, photoSize, photoSize);

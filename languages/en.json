@@ -38,7 +38,11 @@
     "country": "Democratic Republic of the Congo",
     "ctaCv": "Download résumé (PDF)",
     "ctaContact": "Contact",
-    "ctaProjects": "View portfolio"
+    "ctaProjects": "My completed projects",
+    "ctaProjectsDesc": "Deployed apps & technical dossiers",
+    "ctaSkills": "My skills",
+    "ctaSkillsDesc": "IS, development, networks & AI",
+    "scrollHint": "Explore"
   },
   "typing": {
     "titles": [
@@ -161,6 +165,33 @@
     "congoloveStack": {
       "title": "CongoLove infrastructure",
       "desc": "PostgreSQL, Valkey, Node.js services, mail domain."
+    }
+  },
+  "future": {
+    "tag": "Horizon",
+    "title": "Future projects",
+    "lead": "Innovation lab — prototypes and visions in progress.",
+    "items": {
+      "siHub": {
+        "title": "IS Analytics Hub",
+        "desc": "Unified dashboard for IS monitoring, metrics and real-time alerts.",
+        "status": "R&D · 2026"
+      },
+      "secureCloud": {
+        "title": "SecureCloud DRC",
+        "desc": "Sovereign hosting platform with hardening and automated backups.",
+        "status": "Design · 2026"
+      },
+      "eduAi": {
+        "title": "EduAI Campus",
+        "desc": "AI teaching assistant for institutions — paths, assessments and tutoring.",
+        "status": "Prototype · 2027"
+      },
+      "iotCity": {
+        "title": "Smart City Lubumbashi",
+        "desc": "IoT sensors & dashboards for connected urban infrastructure.",
+        "status": "Vision · 2027"
+      }
     }
   },
   "experience": {

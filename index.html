@@ -65,10 +65,10 @@
 
       <section class="layer layer--active" id="layer-home" data-layer="0">
         <div class="layer-bg layer-bg--home" aria-hidden="true"></div>
-        <div class="layer-panel layer-panel--center">
+        <div class="home-hero layer-panel layer-panel--center">
           <div class="welcome-ornament" aria-hidden="true"><span></span></div>
           <div class="photo-frame photo-frame--hero">
-            <img src="images/profile.png" alt="Kadièbwe Makina Edvais" class="welcome-photo" width="96" height="96" fetchpriority="high" decoding="async">
+            <img src="images/profile.png" alt="Kadièbwe Makina Edvais" class="welcome-photo" id="profile-photo" width="96" height="96" fetchpriority="high" decoding="async">
           </div>
           <p class="welcome-eyebrow" data-i18n="hero.eyebrow">Ingénieur des systèmes informatiques</p>
           <h1 class="welcome-name">
@@ -87,6 +87,37 @@
             <a href="https://x.com/ELVISEDVAIS" target="_blank" rel="noopener noreferrer" aria-label="X"><i class="fab fa-x-twitter"></i></a>
             <a href="https://www.facebook.com/profile.php?id=61589667917467" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
           </div>
+          <p class="home-scroll-cue" aria-hidden="true"><i class="fas fa-chevron-down"></i><span data-i18n="hero.scrollHint">Explorer</span></p>
+        </div>
+
+        <div class="home-scroll container">
+          <div class="portal-grid" id="portal-grid">
+            <button type="button" class="portal-card portal-card--skills" data-layer-jump="2">
+              <span class="portal-scan" aria-hidden="true"></span>
+              <span class="portal-glow" aria-hidden="true"></span>
+              <span class="portal-icon"><i class="fas fa-microchip" aria-hidden="true"></i></span>
+              <span class="portal-label" data-i18n="hero.ctaSkills">Mes compétences</span>
+              <span class="portal-desc" data-i18n="hero.ctaSkillsDesc">Domaines SI, dev, réseaux & IA</span>
+              <span class="portal-arrow"><i class="fas fa-arrow-right" aria-hidden="true"></i></span>
+            </button>
+            <button type="button" class="portal-card portal-card--projects" data-layer-jump="3">
+              <span class="portal-scan" aria-hidden="true"></span>
+              <span class="portal-glow" aria-hidden="true"></span>
+              <span class="portal-icon"><i class="fas fa-rocket" aria-hidden="true"></i></span>
+              <span class="portal-label" data-i18n="hero.ctaProjects">Mes projets réalisés</span>
+              <span class="portal-desc" data-i18n="hero.ctaProjectsDesc">Applications déployées & dossiers</span>
+              <span class="portal-arrow"><i class="fas fa-arrow-right" aria-hidden="true"></i></span>
+            </button>
+          </div>
+
+          <section class="future-lab" id="future-lab" aria-labelledby="future-lab-title">
+            <header class="future-lab-head">
+              <span class="future-lab-tag" data-i18n="future.tag">Horizon</span>
+              <h2 id="future-lab-title" data-i18n="future.title">Projets futurs</h2>
+              <p class="future-lab-lead" data-i18n="future.lead">Laboratoire d'innovation — prototypes et visions en préparation.</p>
+            </header>
+            <div class="future-grid" id="future-grid"></div>
+          </section>
         </div>
       </section>
 
