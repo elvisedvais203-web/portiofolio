@@ -181,24 +181,30 @@
   },
   "experience": {
     "tag": "Parcours",
-    "title": "Expérience professionnelle"
+    "title": "Expérience professionnelle",
+    "lead": "Parcours continu depuis 2022 — missions, développement et infrastructures numériques.",
+    "present": "Aujourd'hui"
   },
   "experienceItems": {
     "si": {
-      "title": "Systèmes informatiques (SI)",
-      "desc": "Analyse des besoins, architecture, intégration et maintenance des solutions SI."
+      "title": "Ingénieur des systèmes informatiques",
+      "org": "Lubumbashi · République démocratique du Congo",
+      "desc": "Analyse des besoins, architecture, intégration et maintenance de solutions SI pour organisations et entreprises."
     },
     "dev": {
-      "title": "Développement logiciel",
-      "desc": "Applications web et mobiles, API et outils métiers au service du SI."
+      "title": "Développement web & mobile",
+      "org": "Projets clients & solutions propriétaires",
+      "desc": "Applications web et mobiles, API REST, interfaces utilisateur et outils métiers connectés au SI."
     },
     "infra": {
       "title": "Réseaux & infrastructures",
-      "desc": "Administration réseau, déploiement cloud, bases de données et supervision."
+      "org": "Déploiement cloud & serveurs",
+      "desc": "Administration réseau, bases de données, supervision, conteneurisation et hébergement (Render, VPS)."
     },
     "freelance": {
       "title": "Prestations & formation",
-      "desc": "Missions techniques, accompagnement et formation en informatique."
+      "org": "Missions indépendantes",
+      "desc": "Accompagnement technique, déploiement de solutions et formation en informatique pour structures locales."
     }
   },
   "testimonials": {

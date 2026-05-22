@@ -210,7 +210,9 @@
   },
   "experience": {
     "tag": "キャリア",
-    "title": "経歴"
+    "title": "経歴",
+    "lead": "2022年からの継続的な実務 — 案件、開発、デジタルインフラ。",
+    "present": "現在"
   },
   "experienceItems": {
     "projects": {

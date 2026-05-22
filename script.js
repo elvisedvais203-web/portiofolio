@@ -121,10 +121,10 @@ const PROJECT_CATEGORY_KEYS = {
 };
 
 const EXPERIENCE_CONFIG = [
-  { key: 'si', year: '2019 — présent' },
-  { key: 'dev', year: '2020 — présent' },
-  { key: 'infra', year: '2018 — présent' },
-  { key: 'freelance', year: '2019 — présent' }
+  { key: 'si', from: 2022, to: null, icon: 'fas fa-sitemap' },
+  { key: 'dev', from: 2022, to: null, icon: 'fas fa-code' },
+  { key: 'infra', from: 2023, to: null, icon: 'fas fa-network-wired' },
+  { key: 'freelance', from: 2022, to: null, icon: 'fas fa-handshake' }
 ];
 
 const LAYER_IDS = ['home', 'about', 'skills', 'projects', 'experience', 'contact'];
@@ -309,18 +309,35 @@ class I18n {
     }
   }
 
+  formatExperiencePeriod(from, to) {
+    let present = this.t('experience.present');
+    if (present === 'experience.present') present = 'Aujourd\'hui';
+    const end = to == null ? present : String(to);
+    return `${from} — ${end}`;
+  }
+
   renderExperience() {
     const timeline = document.getElementById('timeline');
     if (!timeline) return;
-    timeline.innerHTML = EXPERIENCE_CONFIG.map(e => `
-      <article class="xp-row">
-        <span class="xp-year">${e.year}</span>
-        <div>
+    timeline.innerHTML = EXPERIENCE_CONFIG.map((e, i) => {
+      const org = this.t(`experienceItems.${e.key}.org`);
+      const orgHtml = org && !org.startsWith('experienceItems.')
+        ? `<p class="xp-org">${org}</p>`
+        : '';
+      return `
+      <article class="xp-card" role="listitem" style="--xp-i: ${i}">
+        <div class="xp-marker" aria-hidden="true"><span class="xp-dot"></span></div>
+        <div class="xp-card-inner">
+          <div class="xp-card-head">
+            <span class="xp-icon"><i class="${e.icon}" aria-hidden="true"></i></span>
+            <time class="xp-period" datetime="${e.from}">${this.formatExperiencePeriod(e.from, e.to)}</time>
+          </div>
           <h3>${this.t(`experienceItems.${e.key}.title`)}</h3>
-          <p>${this.t(`experienceItems.${e.key}.desc`)}</p>
+          ${orgHtml}
+          <p class="xp-desc">${this.t(`experienceItems.${e.key}.desc`)}</p>
         </div>
-      </article>
-    `).join('');
+      </article>`;
+    }).join('');
   }
 
   async init() {
@@ -405,10 +422,25 @@ class PortfolioApp {
     });
 
     let touchX = 0;
-    stage.addEventListener('touchstart', e => { touchX = e.touches[0].clientX; }, { passive: true });
+    let touchY = 0;
+    stage.addEventListener('touchstart', e => {
+      touchX = e.touches[0].clientX;
+      touchY = e.touches[0].clientY;
+    }, { passive: true });
     stage.addEventListener('touchend', e => {
+      if (document.body.classList.contains('modal-open')) return;
+      if (document.getElementById('lang-switcher')?.classList.contains('open')) return;
       const dx = e.changedTouches[0].clientX - touchX;
-      if (Math.abs(dx) > 60) go(dx < 0 ? this.currentLayer + 1 : this.currentLayer - 1);
+      const dy = e.changedTouches[0].clientY - touchY;
+      if (Math.abs(dx) < 56 || Math.abs(dx) < Math.abs(dy) * 1.25) return;
+      const activeLayer = document.querySelector('.layer.layer--active');
+      if (activeLayer && activeLayer.scrollHeight > activeLayer.clientHeight + 16) {
+        const atTop = activeLayer.scrollTop <= 10;
+        const atBottom = activeLayer.scrollTop + activeLayer.clientHeight >= activeLayer.scrollHeight - 10;
+        if (dx < 0 && !atBottom) return;
+        if (dx > 0 && !atTop) return;
+      }
+      go(dx < 0 ? this.currentLayer + 1 : this.currentLayer - 1);
     }, { passive: true });
 
     document.querySelectorAll('.layer').forEach((layer, i) => {
@@ -479,10 +511,18 @@ class PortfolioApp {
 
     prev && (prev.disabled = i === 0);
     next && (next.disabled = i === max);
+    if (prev) {
+      prev.setAttribute('aria-label', this.i18n.t('stage.prev'));
+    }
     if (next) {
       const nextLabel = i === max ? this.i18n.t('stage.finish') : this.i18n.t('stage.next');
       next.querySelector('span') && (next.querySelector('span').textContent = nextLabel);
+      next.setAttribute('aria-label', nextLabel);
     }
+
+    document.querySelectorAll('.stage-dot').forEach((dot, idx) => {
+      dot.setAttribute('aria-label', this.i18n.t(LAYER_TITLE_KEYS[idx]));
+    });
 
     document.querySelectorAll('.stage-dot').forEach((dot, idx) => {
       dot.classList.toggle('active', idx === i);

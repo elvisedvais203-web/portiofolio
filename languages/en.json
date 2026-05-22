@@ -164,24 +164,30 @@
     }
   },
   "experience": {
-    "title": "Professional experience"
+    "title": "Professional experience",
+    "lead": "Continuous practice since 2022 — assignments, development and digital infrastructure.",
+    "present": "Present"
   },
   "experienceItems": {
     "si": {
-      "title": "Information systems (IS)",
-      "desc": "Requirements, architecture, integration and maintenance of IS solutions."
+      "title": "Information systems engineer",
+      "org": "Lubumbashi · Democratic Republic of the Congo",
+      "desc": "Requirements analysis, architecture, integration and maintenance of IS solutions for organizations."
     },
     "dev": {
-      "title": "Software development",
-      "desc": "Web and mobile applications, APIs and business tools supporting IS."
+      "title": "Web & mobile development",
+      "org": "Client projects & proprietary solutions",
+      "desc": "Web and mobile apps, REST APIs, user interfaces and business tools integrated with IS."
     },
     "infra": {
       "title": "Networks & infrastructure",
-      "desc": "Network administration, cloud deployment, databases and monitoring."
+      "org": "Cloud deployment & servers",
+      "desc": "Network administration, databases, monitoring, containerization and hosting (Render, VPS)."
     },
     "freelance": {
       "title": "Consulting & training",
-      "desc": "Technical assignments, support and IT training."
+      "org": "Independent assignments",
+      "desc": "Technical support, solution deployment and IT training for local organizations."
     }
   },
   "testimonials": {

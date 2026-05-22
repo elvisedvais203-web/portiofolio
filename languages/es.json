@@ -210,7 +210,9 @@
   },
   "experience": {
     "tag": "Trayectoria",
-    "title": "Trayectoria profesional"
+    "title": "Trayectoria profesional",
+    "lead": "Trayectoria continua desde 2022 — misiones, desarrollo e infraestructuras digitales.",
+    "present": "Hoy"
   },
   "experienceItems": {
     "projects": {

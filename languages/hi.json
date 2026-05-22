@@ -210,7 +210,9 @@
   },
   "experience": {
     "tag": "करियर",
-    "title": "अनुभव"
+    "title": "अनुभव",
+    "lead": "2022 से आज तक — परियोजनाएँ, विकास और डिजिटल अवसंरचना।",
+    "present": "आज तक"
   },
   "experienceItems": {
     "projects": {

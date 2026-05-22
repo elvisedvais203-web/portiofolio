@@ -210,7 +210,9 @@
   },
   "experience": {
     "tag": "历程",
-    "title": "职业经历"
+    "title": "职业经历",
+    "lead": "自2022年至今的专业历程——项目、开发与数字基础设施。",
+    "present": "至今"
   },
   "experienceItems": {
     "projects": {

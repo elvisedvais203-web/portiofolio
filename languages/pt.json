@@ -210,7 +210,9 @@
   },
   "experience": {
     "tag": "Percurso",
-    "title": "Percurso profissional"
+    "title": "Percurso profissional",
+    "lead": "Percurso contínuo desde 2022 — missões, desenvolvimento e infraestruturas digitais.",
+    "present": "Hoje"
   },
   "experienceItems": {
     "projects": {

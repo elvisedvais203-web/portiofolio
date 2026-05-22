@@ -210,7 +210,9 @@
   },
   "experience": {
     "tag": "Safari",
-    "title": "Uzoefu"
+    "title": "Uzoefu",
+    "lead": "Safari ya kitaalamu tangu 2022 — miradi, maendeleo na miundombinu ya kidijitali.",
+    "present": "Leo"
   },
   "experienceItems": {
     "projects": {
