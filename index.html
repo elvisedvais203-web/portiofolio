@@ -3,14 +3,14 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="KADIEBWE MAKINA EDVAIS — Ingénieur SI, développement & infrastructures IT. Lubumbashi, RDC." data-i18n-attr="content:meta.description">
-  <meta name="author" content="KADIEBWE MAKINA EDVAIS">
-  <meta name="theme-color" content="#0a0f1a">
-  <title data-i18n="meta.title">KADIEBWE MAKINA EDVAIS | Ingénieur SI</title>
+  <meta name="description" content="Kadièbwe Makina Edvais — Ingénieur des systèmes informatiques. Lubumbashi, RDC." data-i18n-attr="content:meta.description">
+  <meta name="author" content="Kadièbwe Makina Edvais">
+  <meta name="theme-color" content="#0c0e12">
+  <title data-i18n="meta.title">Kadièbwe Makina Edvais</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="preload" href="style.css" as="style">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Plus+Jakarta+Sans:wght@600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" media="print" onload="this.media='all'">
   <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"></noscript>
   <link rel="stylesheet" href="style.css">
@@ -21,7 +21,7 @@
 
   <div id="loader" class="loader" aria-hidden="true">
     <div class="loader-inner">
-      <div class="loader-spinner"></div>
+      <div class="loader-line" aria-hidden="true"></div>
       <p class="loader-text" data-i18n="loader.text">Chargement…</p>
     </div>
   </div>
@@ -29,8 +29,7 @@
   <header class="stage-header" id="stage-header" aria-hidden="true">
     <div class="stage-header-inner container">
       <a href="#" class="stage-logo" data-layer-jump="0">
-        <span class="logo-badge">KE</span>
-        <span class="stage-logo-name">EDVAIS</span>
+        <span class="stage-logo-text" data-i18n="brand.short">K. Makina Edvais</span>
       </a>
       <p class="stage-header-title" id="stage-header-title" data-i18n="nav.home">Accueil</p>
       <div class="stage-header-actions">
@@ -63,20 +62,22 @@
   <div id="stage" class="stage" data-current-layer="0">
     <div class="stage-stack" id="stage-stack">
 
-      <!-- Couche 0 — Accueil (masque tout le reste) -->
-      <section class="layer layer--active" id="layer-home" data-layer="0" data-i18n-attr="aria-label:nav.home">
+      <section class="layer layer--active" id="layer-home" data-layer="0">
         <div class="layer-bg layer-bg--home" aria-hidden="true"></div>
         <div class="layer-panel layer-panel--center">
-          <div class="welcome-seal" aria-hidden="true"><span>KE</span></div>
-          <img src="images/profile.png" alt="" class="welcome-photo" width="88" height="88" fetchpriority="high" decoding="async">
-          <p class="welcome-eyebrow" data-i18n="hero.eyebrow">Ingénieur · Spécialiste SI</p>
-          <h1 class="welcome-name">KADIEBWE MAKINA <span>EDVAIS</span></h1>
+          <div class="welcome-ornament" aria-hidden="true"><span></span></div>
+          <img src="images/profile.png" alt="Kadièbwe Makina Edvais" class="welcome-photo" width="80" height="80" fetchpriority="high" decoding="async">
+          <p class="welcome-eyebrow" data-i18n="hero.eyebrow">Ingénieur des systèmes informatiques</p>
+          <h1 class="welcome-name">
+            <span class="welcome-line" data-i18n="brand.line1">Kadièbwe Makina</span>
+            <span class="welcome-line welcome-line--accent" data-i18n="brand.line2">Edvais</span>
+          </h1>
           <p class="welcome-typing"><span id="typing-text"></span><span class="typing-cursor">|</span></p>
-          <p class="welcome-desc" data-i18n="hero.description">Systèmes informatiques, logiciel et infrastructures — profil polyvalent, cœur métier en SI.</p>
-          <p class="welcome-loc"><i class="fas fa-location-dot"></i> Lubumbashi, <span data-i18n="hero.country">RDC</span></p>
+          <p class="welcome-desc" data-i18n="hero.description">Je conçois, déploie et maintiens des solutions numériques fiables. Spécialisation en systèmes informatiques (SI).</p>
+          <p class="welcome-loc"><i class="fas fa-location-dot" aria-hidden="true"></i> Lubumbashi · <span data-i18n="hero.country">République démocratique du Congo</span></p>
           <div class="welcome-actions">
-            <button type="button" class="btn btn-gold" id="welcome-discover" data-i18n="stage.discover">Découvrir le profil</button>
-            <a href="#" class="btn btn-ghost" id="cv-download" data-i18n="hero.ctaCv">CV PDF</a>
+            <button type="button" class="btn btn-accent" id="welcome-discover" data-i18n="stage.discover">Parcourir le dossier professionnel</button>
+            <a href="#" class="btn btn-outline" id="cv-download" data-i18n="hero.ctaCv">Curriculum vitæ</a>
           </div>
           <div class="welcome-social">
             <a href="https://github.com/elvisedvais203-web" target="_blank" rel="noopener noreferrer" aria-label="GitHub"><i class="fab fa-github"></i></a>
@@ -86,22 +87,21 @@
         </div>
       </section>
 
-      <!-- Couche 1 — Profil -->
-      <section class="layer" id="layer-about" data-layer="1" data-i18n-attr="aria-label:nav.about">
+      <section class="layer" id="layer-about" data-layer="1">
         <div class="layer-bg" aria-hidden="true"></div>
         <div class="layer-panel container">
           <header class="layer-head">
             <span class="layer-num">01</span>
-            <h2 data-i18n="about.title">Profil</h2>
+            <h2 data-i18n="about.title">Présentation professionnelle</h2>
           </header>
           <div class="about-compact">
-            <img src="images/profile.png" alt="" class="about-mini" width="72" height="72" loading="lazy" decoding="async">
+            <img src="images/profile.png" alt="" class="about-mini" width="64" height="64" loading="lazy" decoding="async">
             <div>
-              <h3 data-i18n="about.subtitle">Spécialiste Systèmes Informatiques (SI)</h3>
-              <p data-i18n="about.p1">Diplômé UPL (SI, Génie Logiciel & IA). Je touche au développement, aux réseaux, à l’IA et au déploiement — avec une spécialisation réaliste en systèmes informatiques et architecture des solutions.</p>
-              <p class="about-note" data-i18n="about.p2">Polyvalent sur le terrain, exigeant sur la fiabilité des systèmes livrés.</p>
+              <h3 data-i18n="about.subtitle">Spécialiste en systèmes informatiques (SI)</h3>
+              <p data-i18n="about.p1">Diplômé de l’UPL en systèmes informatiques, génie logiciel et intelligence artificielle. J’interviens sur l’ensemble du cycle de vie des solutions numériques.</p>
+              <p class="about-note" data-i18n="about.p2">Approche réaliste : base technologique large, expertise affirmée en systèmes informatiques.</p>
               <dl class="about-facts">
-                <div><dt data-i18n="about.university">Formation</dt><dd>UPL — Lubumbashi</dd></div>
+                <div><dt data-i18n="about.university">Formation académique</dt><dd>UPL — Lubumbashi</dd></div>
                 <div><dt>Email</dt><dd><a href="mailto:elvisedvais203@gmail.com">elvisedvais203@gmail.com</a></dd></div>
               </dl>
             </div>
@@ -109,58 +109,54 @@
         </div>
       </section>
 
-      <!-- Couche 2 — Domaines (icône + nom) -->
-      <section class="layer" id="layer-skills" data-layer="2" data-i18n-attr="aria-label:nav.skills">
+      <section class="layer" id="layer-skills" data-layer="2">
         <div class="layer-bg" aria-hidden="true"></div>
         <div class="layer-panel container">
           <header class="layer-head">
             <span class="layer-num">02</span>
-            <h2 data-i18n="skills.title">Domaines</h2>
-            <p class="layer-sub" data-i18n="skills.lead">Pratique répartie — focus SI.</p>
+            <h2 data-i18n="skills.title">Domaines de compétence</h2>
+            <p class="layer-sub" data-i18n="skills.lead">Compétences transversales — spécialisation en SI.</p>
           </header>
           <div class="skills-chips" id="skills-grid"></div>
         </div>
       </section>
 
-      <!-- Couche 3 — Projets -->
-      <section class="layer" id="layer-projects" data-layer="3" data-i18n-attr="aria-label:nav.projects">
+      <section class="layer" id="layer-projects" data-layer="3">
         <div class="layer-bg" aria-hidden="true"></div>
         <div class="layer-panel container">
           <header class="layer-head">
             <span class="layer-num">03</span>
             <h2 data-i18n="projects.title">Réalisations</h2>
-            <p class="layer-sub" data-i18n="projects.lead">Cliquez un dossier pour l’ouvrir.</p>
+            <p class="layer-sub" data-i18n="projects.lead">Sélection de projets déployés.</p>
           </header>
           <div class="filter-bar">
             <button type="button" class="btn btn-filter active" data-filter="all" data-i18n="projects.filterAll">Tous</button>
-            <button type="button" class="btn btn-filter" data-filter="web" data-i18n="projects.filterWeb">Web</button>
+            <button type="button" class="btn btn-filter" data-filter="web" data-i18n="projects.filterWeb">Web & mobile</button>
             <button type="button" class="btn btn-filter" data-filter="network" data-i18n="projects.filterNetwork">Réseau</button>
-            <button type="button" class="btn btn-filter" data-filter="devops" data-i18n="projects.filterDevops">Infra</button>
+            <button type="button" class="btn btn-filter" data-filter="devops" data-i18n="projects.filterDevops">Infrastructure</button>
           </div>
           <div class="projects-grid" id="projects-grid"></div>
         </div>
       </section>
 
-      <!-- Couche 4 — Expérience (réduite) -->
-      <section class="layer" id="layer-experience" data-layer="4" data-i18n-attr="aria-label:nav.experience">
+      <section class="layer" id="layer-experience" data-layer="4">
         <div class="layer-bg" aria-hidden="true"></div>
         <div class="layer-panel container">
           <header class="layer-head">
             <span class="layer-num">04</span>
-            <h2 data-i18n="experience.title">Parcours</h2>
+            <h2 data-i18n="experience.title">Expérience professionnelle</h2>
           </header>
           <div class="xp-list" id="timeline"></div>
         </div>
       </section>
 
-      <!-- Couche 5 — Contact -->
-      <section class="layer" id="layer-contact" data-layer="5" data-i18n-attr="aria-label:nav.contact">
+      <section class="layer" id="layer-contact" data-layer="5">
         <div class="layer-bg" aria-hidden="true"></div>
         <div class="layer-panel container">
           <header class="layer-head">
             <span class="layer-num">05</span>
-            <h2 data-i18n="contact.title">Contact</h2>
-            <p class="layer-sub" data-i18n="contact.lead">Réponse sous 24–48 h ouvrées.</p>
+            <h2 data-i18n="contact.title">Prise de contact</h2>
+            <p class="layer-sub" data-i18n="contact.lead">Pour toute demande professionnelle.</p>
           </header>
           <div class="contact-compact">
             <div class="contact-links">
@@ -171,40 +167,40 @@
             <form class="contact-form" id="contact-form">
               <div class="form-row">
                 <div class="form-group">
-                  <label for="name" data-i18n="contact.formName">Nom</label>
+                  <label for="name" data-i18n="contact.formName">Nom et prénom</label>
                   <input type="text" id="name" name="name" required autocomplete="name">
                 </div>
                 <div class="form-group">
-                  <label for="email" data-i18n="contact.formEmail">Email</label>
+                  <label for="email" data-i18n="contact.formEmail">Adresse électronique</label>
                   <input type="email" id="email" name="email" required autocomplete="email">
                 </div>
               </div>
               <div class="form-group">
-                <label for="subject" data-i18n="contact.formSubject">Sujet</label>
+                <label for="subject" data-i18n="contact.formSubject">Objet</label>
                 <input type="text" id="subject" name="subject" required>
               </div>
               <div class="form-group">
                 <label for="message" data-i18n="contact.formMessage">Message</label>
                 <textarea id="message" name="message" rows="3" required></textarea>
               </div>
-              <button type="submit" class="btn btn-gold btn-full" data-i18n="contact.formSubmit">Envoyer</button>
+              <button type="submit" class="btn btn-accent btn-full" data-i18n="contact.formSubmit">Transmettre le message</button>
             </form>
           </div>
-          <p class="layer-footer-copy">&copy; 2026 KADIEBWE MAKINA EDVAIS</p>
+          <p class="layer-footer-copy">© 2026 <span data-i18n="brand.line1">Kadièbwe Makina</span> <span data-i18n="brand.line2">Edvais</span></p>
         </div>
       </section>
 
     </div>
 
-    <nav class="stage-nav" id="stage-nav" aria-label="Navigation des pages">
-      <button type="button" class="stage-nav-btn" id="layer-prev" disabled aria-label="Page précédente">
-        <i class="fas fa-arrow-left"></i>
+    <nav class="stage-nav" id="stage-nav" aria-label="Navigation">
+      <button type="button" class="stage-nav-btn" id="layer-prev" disabled>
+        <i class="fas fa-arrow-left" aria-hidden="true"></i>
         <span data-i18n="stage.prev">Retour</span>
       </button>
       <div class="stage-dots" id="stage-dots" role="tablist"></div>
       <button type="button" class="stage-nav-btn stage-nav-btn--next" id="layer-next">
-        <span data-i18n="stage.next">Suite</span>
-        <i class="fas fa-arrow-right"></i>
+        <span data-i18n="stage.next">Page suivante</span>
+        <i class="fas fa-arrow-right" aria-hidden="true"></i>
       </button>
     </nav>
   </div>

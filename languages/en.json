@@ -1,68 +1,78 @@
 {
   "meta": {
-    "title": "KADIEBWE MAKINA EDVAIS | IT Engineer & Full Stack Developer",
-    "description": "Professional portfolio of KADIEBWE MAKINA EDVAIS — IT Engineer, AI expert and Full Stack Developer in Lubumbashi, DRC.",
-    "keywords": "IT Engineer, developer, AI, Full Stack, Lubumbashi, Congo, cybersecurity",
-    "ogTitle": "KADIEBWE MAKINA EDVAIS | International IT Engineer",
-    "ogDescription": "Software development, artificial intelligence and digital solutions for businesses."
+    "title": "Kadièbwe Makina Edvais | Information Systems Engineer",
+    "description": "Information systems engineer — design, development and digital infrastructure. Lubumbashi, Democratic Republic of the Congo.",
+    "keywords": "IS engineer, information systems, software development, Lubumbashi, Congo",
+    "ogTitle": "Kadièbwe Makina Edvais | Information Systems Engineer",
+    "ogDescription": "Information systems and digital services for organizations and businesses."
   },
-  "loader": { "text": "Loading…" },
+  "loader": {
+    "text": "Loading…"
+  },
   "a11y": {
     "skip": "Skip to main content",
     "backTop": "Back to top"
   },
   "nav": {
-    "home": "Home", "about": "About", "skills": "Skills", "services": "Services",
-    "projects": "Projects", "experience": "Experience", "testimonials": "Testimonials", "contact": "Contact"
+    "home": "Home",
+    "about": "About",
+    "skills": "Skills",
+    "services": "Services",
+    "projects": "Projects",
+    "experience": "Experience",
+    "testimonials": "Testimonials",
+    "contact": "Contact"
   },
   "stage": {
-    "discover": "Discover profile",
-    "next": "Next page",
-    "prev": "Back",
+    "discover": "View professional profile",
+    "next": "Next section",
+    "prev": "Previous",
     "finish": "Contact"
   },
   "hero": {
-    "eyebrow": "Engineer · IS Specialist",
-    "description": "Information systems, software and infrastructure — versatile profile with a core focus on IS.",
-    "country": "Democratic Republic of Congo",
-    "ctaContact": "Contact me",
-    "ctaCv": "Download CV",
-    "ctaProjects": "View work",
-    "badge": "Available",
-    "pill1": "Information systems",
-    "pill2": "Software development",
-    "pill3": "Networks & cloud"
+    "eyebrow": "Information systems engineer",
+    "description": "I design, deploy and maintain reliable digital solutions. My practice spans development, networking and artificial intelligence, with a specialization in information systems (IS).",
+    "country": "Democratic Republic of the Congo",
+    "ctaCv": "Download résumé (PDF)",
+    "ctaContact": "Contact",
+    "ctaProjects": "View portfolio"
   },
   "typing": {
-    "titles": ["IT Engineer", "Full Stack Developer", "AI Expert", "Software Architect", "Network & System Administrator", "Digital Transformation Consultant"]
+    "titles": [
+      "Information systems engineer",
+      "IS specialist",
+      "Digital solutions architect",
+      "Web & mobile development",
+      "Network & systems administration"
+    ]
   },
   "stats": {
-    "projects": "Completed projects", "experience": "Years of experience",
-    "clients": "Satisfied clients", "domains": "Areas of expertise"
+    "projects": "Completed projects",
+    "experience": "Years of experience",
+    "clients": "Satisfied clients",
+    "domains": "Areas of expertise"
   },
   "about": {
-    "tag": "About", "title": "Professional profile",
-    "lead": "Comprehensive technical expertise for ambitious, sustainable projects.",
-    "subtitle": "IT Engineer, software developer & trainer",
-    "p1": "Expert in software development, artificial intelligence, networking and system administration. Graduate in Computer Systems, Software Engineering and AI at Université Protestante de Lubumbashi (UPL), I build robust applications and intelligent systems focused on results.",
-    "p2": "I support businesses, institutions and entrepreneurs in digital transformation: design, development, deployment and training. Structured approach, clear communication and professional deliverables.",
-    "university": "Education", "phone": "Phone",
-    "ai1": "IT Engineer", "ai2": "AI Developer", "ai3": "Full Stack", "ai4": "Trainer", "ai5": "Digital consultant"
+    "title": "Professional presentation",
+    "subtitle": "Information systems (IS) specialist",
+    "p1": "Graduate of Université Protestante de Lubumbashi (UPL) in information systems, software engineering and artificial intelligence. I work across the solution lifecycle: analysis, design, implementation, deployment and maintenance.",
+    "p2": "My approach is deliberately realistic: broad exposure to complementary technologies, with proven expertise in information systems and service quality.",
+    "university": "Academic background",
+    "lead": "A structured technical background focused on reliability and service."
   },
   "skills": {
-    "tag": "Skills", "title": "Areas of expertise",
-    "lead": "Skills grouped by specialty for a clear overview of technical profile.",
-    "levelLabel": "Proficiency level"
+    "title": "Areas of competence",
+    "lead": "Cross-functional skills — specialization in information systems."
   },
   "skillItems": {
-    "frontend": "Frontend & UI/UX Development",
-    "backend": "Backend & API Development",
-    "databases": "Databases & SQL",
-    "ai": "Artificial Intelligence & ML",
-    "infrastructure": "Networking, Linux & System Administration",
+    "frontend": "User interfaces & UX",
+    "backend": "Servers & APIs",
+    "databases": "Databases",
+    "ai": "Artificial intelligence",
+    "infrastructure": "Networks & systems",
     "cybersecurity": "Cybersecurity",
-    "iot": "IoT, Embedded & Unity",
-    "devops": "Git, Version Control & Best Practices"
+    "iot": "Embedded systems",
+    "devops": "Integration & deployment"
   },
   "skillStacks": {
     "frontend": "HTML · CSS · JavaScript · UI/UX · Responsive design",
@@ -74,14 +84,35 @@
     "iot": "Arduino · Embedded systems · Unity · Prototyping",
     "devops": "Git · GitHub · Collaboration & deployment"
   },
-  "services": { "tag": "Services", "title": "Professional services" },
+  "services": {
+    "tag": "Services",
+    "title": "Professional services"
+  },
   "serviceItems": {
-    "development": { "title": "Web & mobile development", "desc": "Custom websites and apps: design, development, deployment and maintenance." },
-    "ai": { "title": "Artificial intelligence solutions", "desc": "Intelligent systems, machine learning, computer vision and process automation." },
-    "infrastructure": { "title": "IT infrastructure & cybersecurity", "desc": "Networks, security, preventive maintenance and technical support for SMEs and institutions." },
-    "dataSystems": { "title": "Data & connected systems", "desc": "Databases, IoT, smart systems and dashboards for decision-making." },
-    "embedded": { "title": "Embedded systems & automation", "desc": "Arduino, microcontrollers, industrial automation and custom embedded solutions." },
-    "consulting": { "title": "Consulting & software engineering", "desc": "Technical audits, strategic guidance and business-oriented software development." }
+    "development": {
+      "title": "Web & mobile development",
+      "desc": "Custom websites and apps: design, development, deployment and maintenance."
+    },
+    "ai": {
+      "title": "Artificial intelligence solutions",
+      "desc": "Intelligent systems, machine learning, computer vision and process automation."
+    },
+    "infrastructure": {
+      "title": "IT infrastructure & cybersecurity",
+      "desc": "Networks, security, preventive maintenance and technical support for SMEs and institutions."
+    },
+    "dataSystems": {
+      "title": "Data & connected systems",
+      "desc": "Databases, IoT, smart systems and dashboards for decision-making."
+    },
+    "embedded": {
+      "title": "Embedded systems & automation",
+      "desc": "Arduino, microcontrollers, industrial automation and custom embedded solutions."
+    },
+    "consulting": {
+      "title": "Consulting & software engineering",
+      "desc": "Technical audits, strategic guidance and business-oriented software development."
+    }
   },
   "archive": {
     "code": "ARCHIVE · EM-2026",
@@ -92,59 +123,106 @@
     "hint": "Scroll or click a dossier to reveal"
   },
   "projects": {
-    "tag": "Projects",
-    "title": "Delivered work",
-    "lead": "Authentic screenshots of my apps — hover, then click to open the full dossier.",
-    "filterAll": "All",
-    "filterWeb": "Web & mobile",
-    "filterNetwork": "Network",
-    "filterDevops": "Infrastructure",
-    "catWeb": "Web & mobile",
-    "catNetwork": "Network & monitoring",
-    "catDevops": "Infrastructure & deployment",
-    "sealedLabel": "Classified dossier",
-    "revealCta": "Reveal dossier",
+    "title": "Portfolio",
+    "lead": "Selected deployed projects. Click to open the dossier.",
+    "sealedLabel": "Preview",
+    "revealCta": "Open dossier",
     "demo": "Live demo",
-    "repo": "Source code"
+    "repo": "Source repository"
   },
   "projectItems": {
-    "nextalk": { "title": "NexTalk", "desc": "Modern messaging app: chat, calls, stories, groups and channels — premium branding and fluid UX." },
-    "congolove": { "title": "CongoLove", "desc": "Dating platform for the Congolese diaspora: dashboard, profiles, video verification, AI Match and social network." },
-    "netcontrol": { "title": "NetControl", "desc": "Network supervision suite: real-time dashboard, analytics, workstation control, remote desktop and security alerts." },
-    "edvaselve": { "title": "Edvaselve Marketplace", "desc": "Multi-vendor marketplace in Lubumbashi: independent shops, online orders and WhatsApp payments." },
-    "solola": { "title": "SOLOLA", "desc": "Communication web service in production on Render — Solola branding and Node.js pipeline." },
-    "congoloveStack": { "title": "CongoLove production stack", "desc": "Cloud infrastructure: PostgreSQL, Valkey, Node.js services, Resend email domain and Railway/Render deployment." }
+    "nextalk": {
+      "title": "NexTalk",
+      "desc": "Communication platform: messaging, calls and channels."
+    },
+    "congolove": {
+      "title": "CongoLove",
+      "desc": "Social and dating network — profiles, verification and matching."
+    },
+    "netcontrol": {
+      "title": "NetControl",
+      "desc": "Network supervision and workstation administration."
+    },
+    "edvaselve": {
+      "title": "Edvaselve Marketplace",
+      "desc": "Multi-vendor marketplace — Lubumbashi."
+    },
+    "solola": {
+      "title": "SOLOLA",
+      "desc": "Web communication service — production on Render."
+    },
+    "congoloveStack": {
+      "title": "CongoLove infrastructure",
+      "desc": "PostgreSQL, Valkey, Node.js services, mail domain."
+    }
   },
-  "experience": { "tag": "Journey", "title": "Professional experience" },
+  "experience": {
+    "title": "Professional experience"
+  },
   "experienceItems": {
-    "si": { "title": "Information Systems (IS)", "desc": "Requirements, architecture, integration and maintenance of IS solutions for SMEs and institutions." },
-    "dev": { "title": "Software development", "desc": "Web and mobile apps, APIs and business tools supporting the IS foundation." },
-    "infra": { "title": "Networks & infrastructure", "desc": "Network administration, cloud deployment, databases and monitoring." },
-    "freelance": { "title": "Freelance & training", "desc": "Contract work, technical support and IT training." }
+    "si": {
+      "title": "Information systems (IS)",
+      "desc": "Requirements, architecture, integration and maintenance of IS solutions."
+    },
+    "dev": {
+      "title": "Software development",
+      "desc": "Web and mobile applications, APIs and business tools supporting IS."
+    },
+    "infra": {
+      "title": "Networks & infrastructure",
+      "desc": "Network administration, cloud deployment, databases and monitoring."
+    },
+    "freelance": {
+      "title": "Consulting & training",
+      "desc": "Technical assignments, support and IT training."
+    }
   },
-  "testimonials": { "tag": "Testimonials", "title": "Client feedback" },
+  "testimonials": {
+    "tag": "Testimonials",
+    "title": "Client feedback"
+  },
   "testimonialItems": {
-    "t1": { "text": "Edvais transformed our IT infrastructure with remarkable expertise. His professionalism and problem-solving skills are exceptional.", "name": "Jean Mukendi", "role": "IT Director, Local Company" },
-    "t2": { "text": "The AI surveillance system exceeded our expectations. An innovative, reliable solution perfectly tailored to our needs.", "name": "Amina Kabongo", "role": "Security Manager" },
-    "t3": { "text": "Exceptional trainer and talented developer. Edvais combines technical expertise and pedagogy for concrete results.", "name": "Patrick Lumumba", "role": "Academic Director" }
+    "t1": {
+      "text": "Edvais transformed our IT infrastructure with remarkable expertise. His professionalism and problem-solving skills are exceptional.",
+      "name": "Jean Mukendi",
+      "role": "IT Director, Local Company"
+    },
+    "t2": {
+      "text": "The AI surveillance system exceeded our expectations. An innovative, reliable solution perfectly tailored to our needs.",
+      "name": "Amina Kabongo",
+      "role": "Security Manager"
+    },
+    "t3": {
+      "text": "Exceptional trainer and talented developer. Edvais combines technical expertise and pedagogy for concrete results.",
+      "name": "Patrick Lumumba",
+      "role": "Academic Director"
+    }
   },
   "contact": {
-    "tag": "Contact", "title": "Let's work together",
-    "lead": "Describe your project — I will respond as soon as possible.",
-    "whatsapp": "WhatsApp", "whatsappCta": "Send a message", "call": "Phone", "email": "Email", "location": "Location",
-    "formName": "Full name", "formEmail": "Email address", "formSubject": "Subject",
-    "formMessage": "Message", "formSubmit": "Send message"
+    "title": "Contact",
+    "lead": "For professional inquiries, please use the form below.",
+    "formName": "Full name",
+    "formEmail": "Email address",
+    "formSubject": "Subject",
+    "formMessage": "Your message",
+    "formSubmit": "Submit message"
   },
   "footer": {
-    "desc": "IT Engineer · AI Developer · Professional digital solutions",
-    "navTitle": "Navigation", "socialTitle": "Social", "rights": "All rights reserved."
+    "desc": "Information systems engineer — digital solutions",
+    "rights": "All rights reserved."
   },
   "notifications": {
-    "langChanged": "Language updated", "formSent": "Message prepared — open your email client",
-    "cvDownloaded": "PDF CV downloaded successfully", "cvPdfError": "Could not generate PDF. Please refresh the page."
+    "langChanged": "Language updated",
+    "formSent": "Message prepared — open your email client",
+    "cvDownloaded": "PDF CV downloaded successfully",
+    "cvPdfError": "Could not generate PDF. Please refresh the page."
   },
   "cv": {
-    "title": "IT ENGINEER · AI DEVELOPER · FULL STACK",
-    "education": "EDUCATION", "profile": "PROFILE", "skills": "SKILLS"
+    "title": "INFORMATION SYSTEMS ENGINEER"
+  },
+  "brand": {
+    "short": "K. Makina Edvais",
+    "line1": "Kadièbwe Makina",
+    "line2": "Edvais"
   }
 }

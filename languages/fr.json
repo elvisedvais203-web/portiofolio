@@ -1,51 +1,53 @@
 {
   "meta": {
-    "title": "KADIEBWE MAKINA EDVAIS | Ingénieur SI",
-    "description": "KADIEBWE MAKINA EDVAIS — Spécialiste Systèmes Informatiques, développement & infrastructures. Lubumbashi, RDC.",
-    "keywords": "Ingénieur IT, développeur, IA, Full Stack, Lubumbashi, Congo, cybersécurité",
-    "ogTitle": "KADIEBWE MAKINA EDVAIS | Ingénieur IT International",
-    "ogDescription": "Développement logiciel, intelligence artificielle et solutions digitales pour entreprises."
+    "title": "Kadièbwe Makina Edvais | Ingénieur des systèmes informatiques",
+    "description": "Ingénieur des systèmes informatiques — conception, développement et infrastructures numériques. Lubumbashi, République démocratique du Congo.",
+    "keywords": "Ingénieur SI, systèmes informatiques, développement, Lubumbashi, Congo",
+    "ogTitle": "Kadièbwe Makina Edvais | Ingénieur SI",
+    "ogDescription": "Solutions de systèmes informatiques et services numériques pour organisations et entreprises."
   },
-  "loader": { "text": "Chargement…" },
+  "loader": {
+    "text": "Chargement…"
+  },
   "a11y": {
     "skip": "Aller au contenu principal",
     "backTop": "Retour en haut de page"
   },
   "nav": {
     "home": "Accueil",
-    "about": "À propos",
+    "about": "Profil",
     "skills": "Compétences",
     "services": "Services",
-    "projects": "Projets",
-    "experience": "Expérience",
+    "projects": "Réalisations",
+    "experience": "Parcours",
     "testimonials": "Témoignages",
     "contact": "Contact"
   },
   "stage": {
-    "discover": "Découvrir le profil",
+    "discover": "Parcourir le dossier professionnel",
     "next": "Page suivante",
     "prev": "Retour",
-    "finish": "Contact"
+    "finish": "Prendre contact"
   },
   "hero": {
-    "eyebrow": "Ingénieur · Spécialiste SI",
-    "description": "Systèmes informatiques, logiciel et infrastructures — profil polyvalent, cœur métier en SI.",
-    "country": "République Démocratique du Congo",
+    "eyebrow": "Ingénieur des systèmes informatiques",
+    "description": "Je conçois, déploie et maintiens des solutions numériques fiables. Ma pratique couvre le développement, les réseaux et l’intelligence artificielle, avec une spécialisation en systèmes informatiques (SI).",
+    "country": "République démocratique du Congo",
     "ctaContact": "Me contacter",
-    "ctaCv": "Télécharger le CV",
-    "ctaProjects": "Explorer l'archive",
-    "badge": "Disponible pour missions",
-    "pill1": "Intelligence artificielle",
-    "pill2": "Développement web & mobile",
-    "pill3": "Réseaux & cybersécurité"
+    "ctaCv": "Télécharger le curriculum vitæ",
+    "ctaProjects": "Consulter les réalisations",
+    "badge": "Disponible pour mission",
+    "pill1": "Systèmes informatiques",
+    "pill2": "Développement logiciel",
+    "pill3": "Réseaux & infrastructures"
   },
   "typing": {
     "titles": [
-      "Spécialiste Systèmes Informatiques",
-      "Ingénieur SI",
-      "Développeur Full Stack",
-      "Administration réseau & système",
-      "Solutions cloud & déploiement"
+      "Ingénieur des systèmes informatiques",
+      "Spécialiste SI",
+      "Architecte de solutions numériques",
+      "Développement web & mobile",
+      "Administration réseau & systèmes"
     ]
   },
   "stats": {
@@ -55,35 +57,30 @@
     "domains": "Domaines d'expertise"
   },
   "about": {
-    "tag": "À propos",
-    "title": "Profil professionnel",
-    "lead": "Profil technique concis, orienté livrables.",
-    "subtitle": "Spécialiste Systèmes Informatiques (SI)",
-    "p1": "Diplômé UPL (SI, Génie Logiciel & IA). Je touche au développement, aux réseaux, à l’IA et au déploiement — avec une spécialisation réaliste en systèmes informatiques et architecture des solutions.",
-    "p2": "Polyvalent sur le terrain, exigeant sur la fiabilité des systèmes livrés.",
-    "university": "Formation",
-    "phone": "Téléphone",
-    "ai1": "Ingénieur IT",
-    "ai2": "Développeur IA",
-    "ai3": "Full Stack",
-    "ai4": "Formateur",
-    "ai5": "Consultant digital"
+    "tag": "Profil",
+    "title": "Présentation professionnelle",
+    "lead": "Un parcours technique structuré, orienté fiabilité et service.",
+    "subtitle": "Spécialiste en systèmes informatiques (SI)",
+    "p1": "Diplômé de l’Université Protestante de Lubumbashi (UPL) en systèmes informatiques, génie logiciel et intelligence artificielle. J’interviens sur l’ensemble du cycle de vie des solutions : analyse, conception, réalisation, déploiement et maintenance.",
+    "p2": "Mon approche est volontairement réaliste : une base large en technologies complémentaires, avec une expertise affirmée en systèmes informatiques et en qualité de service.",
+    "university": "Formation académique",
+    "phone": "Téléphone"
   },
   "skills": {
     "tag": "Compétences",
-    "title": "Domaines d'expertise",
-    "lead": "Pratique répartie — focus SI.",
+    "title": "Domaines de compétence",
+    "lead": "Compétences transversales — spécialisation en systèmes informatiques.",
     "levelLabel": "Niveau de maîtrise"
   },
   "skillItems": {
-    "frontend": "Développement Frontend & UI/UX",
-    "backend": "Développement Backend & APIs",
-    "databases": "Bases de données & SQL",
-    "ai": "Intelligence artificielle & ML",
-    "infrastructure": "Réseaux, Linux & administration système",
+    "frontend": "Interfaces & expérience utilisateur",
+    "backend": "Serveurs & API",
+    "databases": "Bases de données",
+    "ai": "Intelligence artificielle",
+    "infrastructure": "Réseaux & systèmes",
     "cybersecurity": "Cybersécurité",
-    "iot": "IoT, embarqué & Unity",
-    "devops": "Git, versioning & bonnes pratiques"
+    "iot": "Systèmes embarqués",
+    "devops": "Intégration & déploiement"
   },
   "skillStacks": {
     "frontend": "HTML · CSS · JavaScript · UI/UX · Design responsive",
@@ -136,43 +133,43 @@
   "projects": {
     "tag": "Projets",
     "title": "Réalisations",
-    "lead": "Captures authentiques de mes applications — survolez, puis cliquez pour révéler le dossier complet.",
+    "lead": "Sélection de projets déployés. Cliquez pour consulter le dossier.",
     "filterAll": "Tous",
     "filterWeb": "Web & mobile",
     "filterNetwork": "Réseau",
     "filterDevops": "Infrastructure",
     "catWeb": "Web & mobile",
-    "catNetwork": "Réseau & monitoring",
+    "catNetwork": "Réseau & supervision",
     "catDevops": "Infrastructure & déploiement",
-    "sealedLabel": "Dossier classifié",
-    "revealCta": "Révéler le dossier",
-    "demo": "Démo live",
-    "repo": "Code source"
+    "sealedLabel": "Aperçu",
+    "revealCta": "Ouvrir le dossier",
+    "demo": "Démonstration",
+    "repo": "Dépôt source"
   },
   "projectItems": {
     "nextalk": {
       "title": "NexTalk",
-      "desc": "Messagerie : chat, appels, stories et canaux."
+      "desc": "Plateforme de communication : messagerie, appels et canaux."
     },
     "congolove": {
       "title": "CongoLove",
-      "desc": "Rencontres RDC : profils, IA Match, vérification vidéo."
+      "desc": "Réseau social et rencontres — profils, vérification et mise en relation."
     },
     "netcontrol": {
       "title": "NetControl",
-      "desc": "Supervision réseau, stats et contrôle à distance."
+      "desc": "Supervision réseau et administration des postes de travail."
     },
     "edvaselve": {
       "title": "Edvaselve Marketplace",
-      "desc": "E-commerce multivendeur — Lubumbashi."
+      "desc": "Place de marché multivendeur — Lubumbashi."
     },
     "solola": {
       "title": "SOLOLA",
-      "desc": "App web en production sur Render (Node.js)."
+      "desc": "Service web de communication — production Render."
     },
     "congoloveStack": {
-      "title": "Stack production CongoLove",
-      "desc": "PostgreSQL, Valkey, Resend, Railway/Render."
+      "title": "Infrastructure CongoLove",
+      "desc": "PostgreSQL, Valkey, services Node.js, domaine mail."
     }
   },
   "experience": {
@@ -180,51 +177,73 @@
     "title": "Expérience professionnelle"
   },
   "experienceItems": {
-    "si": { "title": "Systèmes Informatiques (SI)", "desc": "Analyse des besoins, architecture, intégration et maintenance de solutions SI pour PME et institutions." },
-    "dev": { "title": "Développement logiciel", "desc": "Applications web et mobiles, APIs et outils métiers — en appui au socle SI." },
-    "infra": { "title": "Réseaux & infrastructure", "desc": "Administration réseau, déploiement cloud (Railway, Render), bases de données et supervision." },
-    "freelance": { "title": "Missions & formation", "desc": "Freelance, accompagnement technique et formation en informatique." }
+    "si": {
+      "title": "Systèmes informatiques (SI)",
+      "desc": "Analyse des besoins, architecture, intégration et maintenance des solutions SI."
+    },
+    "dev": {
+      "title": "Développement logiciel",
+      "desc": "Applications web et mobiles, API et outils métiers au service du SI."
+    },
+    "infra": {
+      "title": "Réseaux & infrastructures",
+      "desc": "Administration réseau, déploiement cloud, bases de données et supervision."
+    },
+    "freelance": {
+      "title": "Prestations & formation",
+      "desc": "Missions techniques, accompagnement et formation en informatique."
+    }
   },
   "testimonials": {
     "tag": "Témoignages",
     "title": "Avis clients"
   },
   "testimonialItems": {
-    "t1": { "text": "Infrastructure IT transformée avec professionnalisme et réactivité.", "name": "Jean Mukendi", "role": "Directeur IT" },
-    "t2": { "text": "Solution fiable, innovante et parfaitement adaptée à nos besoins.", "name": "Amina Kabongo", "role": "Responsable Sécurité" },
-    "t3": { "text": "Expertise technique et pédagogie au service de résultats concrets.", "name": "Patrick Lumumba", "role": "Directeur académique" }
+    "t1": {
+      "text": "Infrastructure IT transformée avec professionnalisme et réactivité.",
+      "name": "Jean Mukendi",
+      "role": "Directeur IT"
+    },
+    "t2": {
+      "text": "Solution fiable, innovante et parfaitement adaptée à nos besoins.",
+      "name": "Amina Kabongo",
+      "role": "Responsable Sécurité"
+    },
+    "t3": {
+      "text": "Expertise technique et pédagogie au service de résultats concrets.",
+      "name": "Patrick Lumumba",
+      "role": "Directeur académique"
+    }
   },
   "contact": {
     "tag": "Contact",
-    "title": "Travaillons ensemble",
-    "lead": "Décrivez votre projet : je vous réponds dans les meilleurs délais.",
-    "whatsapp": "WhatsApp",
-    "whatsappCta": "Envoyer un message",
-    "call": "Téléphone",
-    "email": "Email",
-    "location": "Localisation",
-    "formName": "Nom complet",
-    "formEmail": "Adresse email",
-    "formSubject": "Sujet",
-    "formMessage": "Message",
-    "formSubmit": "Envoyer le message"
+    "title": "Prise de contact",
+    "lead": "Pour toute demande professionnelle, veuillez utiliser le formulaire ci-dessous.",
+    "formName": "Nom et prénom",
+    "formEmail": "Adresse électronique",
+    "formSubject": "Objet du message",
+    "formMessage": "Votre message",
+    "formSubmit": "Transmettre le message"
   },
   "footer": {
-    "desc": "Ingénieur IT · Développeur IA · Solutions digitales professionnelles",
-    "navTitle": "Navigation",
-    "socialTitle": "Réseaux",
+    "desc": "Ingénieur des systèmes informatiques — solutions numériques",
     "rights": "Tous droits réservés."
   },
   "notifications": {
-    "langChanged": "Langue mise à jour",
-    "formSent": "Message préparé — ouvrez votre client email",
-    "cvDownloaded": "CV PDF téléchargé avec succès",
-    "cvPdfError": "Impossible de générer le PDF. Rechargez la page."
+    "langChanged": "Langue actualisée",
+    "formSent": "Message préparé — merci d’ouvrir votre client de messagerie",
+    "cvDownloaded": "Curriculum vitæ téléchargé",
+    "cvPdfError": "Échec de génération du PDF. Veuillez recharger la page."
   },
   "cv": {
-    "title": "INGÉNIEUR IT · DÉVELOPPEUR IA · FULL STACK",
+    "title": "INGÉNIEUR DES SYSTÈMES INFORMATIQUES",
     "education": "FORMATION",
     "profile": "PROFIL",
     "skills": "COMPÉTENCES"
+  },
+  "brand": {
+    "short": "K. Makina Edvais",
+    "line1": "Kadièbwe Makina",
+    "line2": "Edvais"
   }
 }

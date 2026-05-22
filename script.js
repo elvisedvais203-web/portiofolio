@@ -648,7 +648,7 @@ class PortfolioApp {
     document.documentElement.setAttribute('data-theme', saved);
     this.updateThemeIcon(saved);
     const meta = document.querySelector('meta[name="theme-color"]');
-    if (meta) meta.content = saved === 'dark' ? '#0b1120' : '#f8fafc';
+    if (meta) meta.content = saved === 'dark' ? '#0c0e12' : '#f6f5f2';
 
     btn?.addEventListener('click', () => {
       const current = document.documentElement.getAttribute('data-theme');

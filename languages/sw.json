@@ -1,15 +1,17 @@
 {
   "meta": {
-    "title": "KADIEBWE MAKINA EDVAIS | Portfolio Mhandisi wa IT na AI",
-    "description": "Portfolio ya kiwango cha juu ya KADIEBWE MAKINA EDVAIS — Mhandisi wa IT, Msanidi wa Full Stack, mtaalamu wa AI huko Lubumbashi, DRC.",
+    "title": "Kadièbwe Makina Edvais | Mhandisi wa Mifumo ya Habari",
+    "description": "Mhandisi wa mifumo ya habari — maendeleo, miundombinu na suluhisho za kidijitali. Lubumbashi, DRC.",
     "keywords": "Mhandisi wa IT, msanidi wa programu, AI, Full Stack, Kongo, Lubumbashi, usalama wa mtandao",
-    "ogTitle": "KADIEBWE MAKINA EDVAIS | Mhandisi wa IT wa Kimataifa",
-    "ogDescription": "Mtaalamu katika maendeleo ya programu, akili bandia na suluhisho za kidijitali za kiwango cha juu."
+    "ogTitle": "Kadièbwe Makina Edvais",
+    "ogDescription": "Mifumo ya habari kwa mashirika."
   },
-  "loader": { "text": "Inapakia..." },
+  "loader": {
+    "text": "Inapakia…"
+  },
   "nav": {
     "home": "Nyumbani",
-    "about": "Kuhusu",
+    "about": "Wasifu",
     "skills": "Ujuzi",
     "services": "Huduma",
     "projects": "Miradi",
@@ -19,25 +21,24 @@
   },
   "hero": {
     "greeting": "Habari, mimi ni",
-    "description": "Mhandisi wa IT wa kimataifa · Msanidi wa AI na Full Stack · Mbunifu wa suluhisho za kidijitali zenye akili",
+    "description": "Nabuni, kutengeneza na kudumisha suluhisho za kidijitali za kuaminika. Nina uzoefu wa maendeleo, mitandao na AI, na utaalamu katika mifumo ya habari (SI).",
     "country": "Jamhuri ya Kidemokrasia ya Kongo",
     "ctaContact": "Wasiliana nami",
-    "ctaCv": "Pakua CV",
+    "ctaCv": "PDF CV",
     "ctaProjects": "Tazama miradi",
     "badge": "Inapatikana",
     "floatAi": "AI na ML",
     "floatDev": "Full Stack",
-    "floatSec": "Usalama wa mtandao"
+    "floatSec": "Usalama wa mtandao",
+    "eyebrow": "Mhandisi wa mifumo ya habari"
   },
   "typing": {
     "titles": [
-      "Mhandisi wa IT",
-      "Mhandisi wa Programu",
-      "Msanidi wa AI",
-      "Msanidi wa Full Stack",
-      "Mhandisi wa Mtandao na Mfumo",
-      "Mpenzi wa Usalama wa Mtandao",
-      "Msanidi wa Backend na Frontend"
+      "Mtaalamu wa Mifumo ya Habari",
+      "Mhandisi SI",
+      "Maendeleo ya programu",
+      "Usimamizi wa mitandao",
+      "Miundombinu ya wingu"
     ]
   },
   "stats": {
@@ -48,11 +49,11 @@
   },
   "about": {
     "tag": "Kuhusu",
-    "title": "Mimi ni nani?",
-    "subtitle": "Mhandisi wa IT wa kiwango cha juu na mbunifu wa kidijitali",
-    "p1": "Kwa uzoefu wa kina katika teknolojia ya habari, mimi ni mtaalamu katika maendeleo ya programu, akili bandia, mitandao na usimamizi wa mifumo. Nimehitimu katika Mifumo ya Kompyuta, Uhandisi wa Programu na AI katika Chuo Kikuu cha Kiprotestanti cha Lubumbashi (UPL), ninaunda programu imara na mifumo yenye akili inayobadilisha changamoto za kiufundi kuwa suluhisho halisi.",
-    "p2": "Nikiwa na shauku ya ubunifu na mabadiliko ya kidijitali, nimeunda programu na mifumo mingi yenye akili. Nikimiliki frontend na backend, natatua matatizo magumu kwa umakini na ubunifu. Mkufunzi wa kitaalamu katika kompyuta na programu, ninashiriki utaalamu wangu ili kuinua ujuzi wa kidijitali wa kizazi kipya.",
-    "university": "Chuo kikuu:",
+    "title": "Wasifu wa kitaaluma",
+    "subtitle": "Mtaalamu wa Mifumo ya Habari (SI)",
+    "p1": "Shahada kutoka UPL (SI, Uhandisi wa Programu na AI). Ninafanya kazi katika maendeleo, mitandao, AI na usambazaji.",
+    "p2": "Wasifu anuwai, kwa msisitizo wa uaminifu wa mifumo.",
+    "university": "Elimu",
     "phone": "Simu:",
     "langTitle": "Ujuzi wa lugha",
     "lang1": "Anazungumza Kifaransa kwa ufasaha",
@@ -66,74 +67,231 @@
     "ai4": "Mbunifu wa suluhisho za kidijitali za kisasa",
     "ai5": "Mtaalamu wa mifumo yenye akili"
   },
-  "skills": { "tag": "Ujuzi", "title": "Utaalamu wa kiufundi" },
-  "skillItems": {
-    "html": "HTML", "css": "CSS", "javascript": "JavaScript", "python": "Python",
-    "csharp": "C#", "java": "Java", "php": "PHP", "sql": "SQL", "flask": "Flask",
-    "unity": "Unity", "ai": "Maendeleo ya AI", "networking": "Mitandao",
-    "cybersecurity": "Usalama wa mtandao", "database": "Ubunifu wa hifadhidata",
-    "frontend": "Maendeleo ya Frontend", "backend": "Maendeleo ya Backend",
-    "uiux": "Ubunifu wa UI/UX", "sysadmin": "Usimamizi wa Mfumo",
-    "linux": "Linux", "arduino": "Arduino", "api": "Maendeleo ya API",
-    "sqlite": "SQLite", "git": "Git & GitHub"
+  "skills": {
+    "tag": "Ujuzi",
+    "title": "Maeneo ya utaalamu",
+    "lead": "Ujuzi mpana — lengo SI."
   },
-  "services": { "tag": "Huduma", "title": "Suluhisho za kiwango cha juu" },
+  "skillItems": {
+    "html": "HTML",
+    "css": "CSS",
+    "javascript": "JavaScript",
+    "python": "Python",
+    "csharp": "C#",
+    "java": "Java",
+    "php": "PHP",
+    "sql": "SQL",
+    "flask": "Flask",
+    "unity": "Unity",
+    "ai": "Maendeleo ya AI",
+    "networking": "Mitandao",
+    "cybersecurity": "Usalama wa mtandao",
+    "database": "Ubunifu wa hifadhidata",
+    "frontend": "Maendeleo ya Frontend",
+    "backend": "Maendeleo ya Backend",
+    "uiux": "Ubunifu wa UI/UX",
+    "sysadmin": "Usimamizi wa Mfumo",
+    "linux": "Linux",
+    "arduino": "Arduino",
+    "api": "Maendeleo ya API",
+    "sqlite": "SQLite",
+    "git": "Git & GitHub"
+  },
+  "services": {
+    "tag": "Huduma",
+    "title": "Suluhisho za kiwango cha juu"
+  },
   "serviceItems": {
-    "web": { "title": "Maendeleo ya Wavuti", "desc": "Tovuti za kisasa, zinazojibu na zenye utendaji bora kwa teknolojia za hivi karibuni." },
-    "mobile": { "title": "Programu za Simu", "desc": "Programu za simu za asili na cross-platform kwa iOS na Android." },
-    "ai": { "title": "Suluhisho za AI", "desc": "Mifumo yenye akili, machine learning na uotomatishaji kupitia AI." },
-    "network": { "title": "Usakinishaji wa Mtandao", "desc": "Miundombinu ya mtandao ya kitaalamu kwa biashara na taasisi." },
-    "database": { "title": "Mifumo ya Hifadhidata", "desc": "Ubunifu, uboreshaji na usimamizi wa hifadhidata imara." },
-    "smart": { "title": "Mifumo yenye Akili", "desc": "Suluhisho za IoT na mifumo iliyounganishwa kwa uotomatishaji wenye akili." },
-    "cyber": { "title": "Usalama wa Mtandao", "desc": "Ulinzi wa mifumo, ukaguzi wa usalama na suluhisho za ulinzi." },
-    "software": { "title": "Uhandisi wa Programu", "desc": "Maendeleo ya programu maalum kulingana na mahitaji ya biashara yako." },
-    "consulting": { "title": "Ushauri wa IT", "desc": "Msaada wa kimkakati kwa mabadiliko yako ya kidijitali." },
-    "maintenance": { "title": "Matengenezo ya Mfumo", "desc": "Msaada wa kiufundi, matengenezo ya kuzuia na ya kurekebisha." },
-    "embedded": { "title": "Mifumo Iliyoingizwa", "desc": "Maendeleo ya suluhisho zilizoingizwa kwa Arduino na microcontrollers." },
-    "automation": { "title": "Mifumo ya Uotomatishaji", "desc": "Uotomatishaji wa viwanda na michakato ili kuongeza ufanisi." }
+    "web": {
+      "title": "Maendeleo ya Wavuti",
+      "desc": "Tovuti za kisasa, zinazojibu na zenye utendaji bora kwa teknolojia za hivi karibuni."
+    },
+    "mobile": {
+      "title": "Programu za Simu",
+      "desc": "Programu za simu za asili na cross-platform kwa iOS na Android."
+    },
+    "ai": {
+      "title": "Suluhisho za AI",
+      "desc": "Mifumo yenye akili, machine learning na uotomatishaji kupitia AI."
+    },
+    "network": {
+      "title": "Usakinishaji wa Mtandao",
+      "desc": "Miundombinu ya mtandao ya kitaalamu kwa biashara na taasisi."
+    },
+    "database": {
+      "title": "Mifumo ya Hifadhidata",
+      "desc": "Ubunifu, uboreshaji na usimamizi wa hifadhidata imara."
+    },
+    "smart": {
+      "title": "Mifumo yenye Akili",
+      "desc": "Suluhisho za IoT na mifumo iliyounganishwa kwa uotomatishaji wenye akili."
+    },
+    "cyber": {
+      "title": "Usalama wa Mtandao",
+      "desc": "Ulinzi wa mifumo, ukaguzi wa usalama na suluhisho za ulinzi."
+    },
+    "software": {
+      "title": "Uhandisi wa Programu",
+      "desc": "Maendeleo ya programu maalum kulingana na mahitaji ya biashara yako."
+    },
+    "consulting": {
+      "title": "Ushauri wa IT",
+      "desc": "Msaada wa kimkakati kwa mabadiliko yako ya kidijitali."
+    },
+    "maintenance": {
+      "title": "Matengenezo ya Mfumo",
+      "desc": "Msaada wa kiufundi, matengenezo ya kuzuia na ya kurekebisha."
+    },
+    "embedded": {
+      "title": "Mifumo Iliyoingizwa",
+      "desc": "Maendeleo ya suluhisho zilizoingizwa kwa Arduino na microcontrollers."
+    },
+    "automation": {
+      "title": "Mifumo ya Uotomatishaji",
+      "desc": "Uotomatishaji wa viwanda na michakato ili kuongeza ufanisi."
+    }
   },
   "projects": {
-    "tag": "Miradi", "title": "Mafanikio makuu",
-    "filterAll": "Zote", "filterAi": "AI", "filterWeb": "Wavuti", "filterIot": "IoT", "filterNetwork": "Mtandao",
-    "catAi": "Akili Bandia", "catWeb": "Wavuti", "catIot": "IoT", "catNetwork": "Mtandao"
+    "tag": "Miradi",
+    "title": "Miradi",
+    "filterAll": "Yote",
+    "filterAi": "AI",
+    "filterWeb": "Wavuti",
+    "filterIot": "IoT",
+    "filterNetwork": "Mtandao",
+    "catAi": "Akili Bandia",
+    "catWeb": "Wavuti",
+    "catIot": "IoT",
+    "catNetwork": "Mtandao",
+    "lead": "Bofya mradi kuona maelezo.",
+    "filterDevops": "Miundombinu",
+    "sealedLabel": "Mradi",
+    "revealCta": "Fungua",
+    "demo": "Onyesho",
+    "repo": "Chanzo"
   },
   "projectItems": {
-    "surveillance": { "title": "Mfumo wa Ufuatiliaji wa Mijini wenye Akili", "desc": "Jukwaa la AI kwa ufuatiliaji wa mijini kwa wakati halisi na ugunduzi wa kasoro na arifa za kiotomatiki." },
-    "parking": { "title": "Mfumo wa Maegesho yenye Akili", "desc": "Suluhisho la IoT la usimamizi wa maegesho na vitambuzi, uhifadhi na dashibodi ya uchambuzi." },
-    "barrier": { "title": "Mfumo wa Kizuizi cha Kiotomatiki", "desc": "Udhibiti wa ufikiaji wa kiotomatiki na utambuzi na ujumuishaji wa mfumo wa usalama." },
-    "school": { "title": "Mfumo wa Usimamizi wa Shule", "desc": "Programu kamili ya usimamizi wa kitaaluma: usajili, alama, mahudhurio na ripoti." },
-    "security": { "title": "Mfumo wa Usalama wa AI", "desc": "Usalama wenye akili na maono ya kompyuta, utambuzi wa uso na arifa za wakati halisi." },
-    "ecommerce": { "title": "Duka la E-commerce", "desc": "Jukwaa la kisasa la e-commerce na katalogi, malipo na usimamizi wa maagizo." },
-    "arduino": { "title": "Miradi ya Arduino yenye Akili", "desc": "Miradi bunifu iliyoingizwa: vitambuzi, uotomatishaji wa nyumbani na mifano ya IoT." },
-    "network": { "title": "Miradi ya Miundombinu ya Mtandao", "desc": "Utekelezaji wa miundombinu ya mtandao kwa SME na taasisi na ufuatiliaji." },
-    "animation": { "title": "Miradi ya Uhuishaji wa AI", "desc": "Ubunifu wa uhuishaji unaosaidiwa na AI kwa vyombo vya habari, mafunzo na mawasiliano ya kuona." }
+    "surveillance": {
+      "title": "Mfumo wa Ufuatiliaji wa Mijini wenye Akili",
+      "desc": "Jukwaa la AI kwa ufuatiliaji wa mijini kwa wakati halisi na ugunduzi wa kasoro na arifa za kiotomatiki."
+    },
+    "parking": {
+      "title": "Mfumo wa Maegesho yenye Akili",
+      "desc": "Suluhisho la IoT la usimamizi wa maegesho na vitambuzi, uhifadhi na dashibodi ya uchambuzi."
+    },
+    "barrier": {
+      "title": "Mfumo wa Kizuizi cha Kiotomatiki",
+      "desc": "Udhibiti wa ufikiaji wa kiotomatiki na utambuzi na ujumuishaji wa mfumo wa usalama."
+    },
+    "school": {
+      "title": "Mfumo wa Usimamizi wa Shule",
+      "desc": "Programu kamili ya usimamizi wa kitaaluma: usajili, alama, mahudhurio na ripoti."
+    },
+    "security": {
+      "title": "Mfumo wa Usalama wa AI",
+      "desc": "Usalama wenye akili na maono ya kompyuta, utambuzi wa uso na arifa za wakati halisi."
+    },
+    "ecommerce": {
+      "title": "Duka la E-commerce",
+      "desc": "Jukwaa la kisasa la e-commerce na katalogi, malipo na usimamizi wa maagizo."
+    },
+    "arduino": {
+      "title": "Miradi ya Arduino yenye Akili",
+      "desc": "Miradi bunifu iliyoingizwa: vitambuzi, uotomatishaji wa nyumbani na mifano ya IoT."
+    },
+    "network": {
+      "title": "Miradi ya Miundombinu ya Mtandao",
+      "desc": "Utekelezaji wa miundombinu ya mtandao kwa SME na taasisi na ufuatiliaji."
+    },
+    "animation": {
+      "title": "Miradi ya Uhuishaji wa AI",
+      "desc": "Ubunifu wa uhuishaji unaosaidiwa na AI kwa vyombo vya habari, mafunzo na mawasiliano ya kuona."
+    }
   },
-  "experience": { "tag": "Safari", "title": "Uzoefu wa kitaalamu" },
+  "experience": {
+    "tag": "Safari",
+    "title": "Uzoefu"
+  },
   "experienceItems": {
-    "projects": { "title": "Miradi Mingi ya IT", "desc": "Utekelezaji wa zaidi ya miradi 50 ya teknolojia zinazohusisha wavuti, AI, IoT na mitandao." },
-    "software": { "title": "Uhandisi wa Programu", "desc": "Ubunifu na maendeleo ya programu za kitaalamu za full stack kwa sekta mbalimbali." },
-    "ai": { "title": "Maendeleo ya AI", "desc": "Uundaji wa mifumo yenye akili inayojumuisha machine learning, maono ya kompyuta na uotomatishaji." },
-    "network": { "title": "Usimamizi wa Mtandao", "desc": "Usakinishaji, usanidi na matengenezo ya miundombinu ya mtandao salama." },
-    "teaching": { "title": "Mafunzo na Elimu", "desc": "Mafunzo ya kitaalamu katika kompyuta, programu na teknolojia zinazochipuka." },
-    "freelance": { "title": "Maendeleo ya Freelance", "desc": "Huduma za freelance kwa wateja wa ndani na kimataifa na utoaji wa ubora wa kiwango cha juu." }
+    "projects": {
+      "title": "Miradi Mingi ya IT",
+      "desc": "Utekelezaji wa zaidi ya miradi 50 ya teknolojia zinazohusisha wavuti, AI, IoT na mitandao."
+    },
+    "software": {
+      "title": "Uhandisi wa Programu",
+      "desc": "Ubunifu na maendeleo ya programu za kitaalamu za full stack kwa sekta mbalimbali."
+    },
+    "ai": {
+      "title": "Maendeleo ya AI",
+      "desc": "Uundaji wa mifumo yenye akili inayojumuisha machine learning, maono ya kompyuta na uotomatishaji."
+    },
+    "network": {
+      "title": "Usimamizi wa Mtandao",
+      "desc": "Usakinishaji, usanidi na matengenezo ya miundombinu ya mtandao salama."
+    },
+    "teaching": {
+      "title": "Mafunzo na Elimu",
+      "desc": "Mafunzo ya kitaalamu katika kompyuta, programu na teknolojia zinazochipuka."
+    },
+    "freelance": {
+      "title": "Huduma na mafunzo",
+      "desc": "Kazi huru na mafunzo ya TEHAMA."
+    },
+    "si": {
+      "title": "Mifumo ya Habari (SI)",
+      "desc": "Uchambuzi, usanifu na matengenezo ya suluhisho SI."
+    },
+    "dev": {
+      "title": "Maendeleo ya programu",
+      "desc": "Programu za wavuti na simu, API."
+    },
+    "infra": {
+      "title": "Mitandao na miundombinu",
+      "desc": "Usimamizi wa mtandao, wingu, hifadhidata."
+    }
   },
-  "testimonials": { "tag": "Ushuhuda", "title": "Wanachosema" },
+  "testimonials": {
+    "tag": "Ushuhuda",
+    "title": "Wanachosema"
+  },
   "testimonialItems": {
-    "t1": { "text": "Edvais amebadilisha miundombinu yetu ya IT kwa utaalamu wa kipekee. Utaalamu wake na uwezo wa kutatua matatizo magumu ni wa kipekee.", "name": "Jean Mukendi", "role": "Mkurugenzi wa IT, Kampuni ya ndani" },
-    "t2": { "text": "Mfumo wa ufuatiliaji wa AI uliotengenezwa umezidi matarajio yetu. Suluhisho bunifu, ya kuaminika na inayofaa mahitaji yetu.", "name": "Amina Kabongo", "role": "Msimamizi wa Usalama" },
-    "t3": { "text": "Mkufunzi bora na msanidi wenye vipaji. Edvais anaunganisha utaalamu wa kiufundi na ufundishaji kwa matokeo halisi.", "name": "Patrick Lumumba", "role": "Mkurugenzi wa kitaaluma" }
+    "t1": {
+      "text": "Edvais amebadilisha miundombinu yetu ya IT kwa utaalamu wa kipekee. Utaalamu wake na uwezo wa kutatua matatizo magumu ni wa kipekee.",
+      "name": "Jean Mukendi",
+      "role": "Mkurugenzi wa IT, Kampuni ya ndani"
+    },
+    "t2": {
+      "text": "Mfumo wa ufuatiliaji wa AI uliotengenezwa umezidi matarajio yetu. Suluhisho bunifu, ya kuaminika na inayofaa mahitaji yetu.",
+      "name": "Amina Kabongo",
+      "role": "Msimamizi wa Usalama"
+    },
+    "t3": {
+      "text": "Mkufunzi bora na msanidi wenye vipaji. Edvais anaunganisha utaalamu wa kiufundi na ufundishaji kwa matokeo halisi.",
+      "name": "Patrick Lumumba",
+      "role": "Mkurugenzi wa kitaaluma"
+    }
   },
   "contact": {
-    "tag": "Wasiliana", "title": "Tufanye kazi pamoja",
-    "whatsapp": "WhatsApp", "whatsappCta": "Tuma ujumbe",
-    "call": "Piga simu", "email": "Barua pepe", "location": "Mahali",
+    "tag": "Wasiliana",
+    "title": "Wasiliana",
+    "whatsapp": "WhatsApp",
+    "whatsappCta": "Tuma ujumbe",
+    "call": "Piga simu",
+    "email": "Barua pepe",
+    "location": "Mahali",
     "map": "Ramani — Lubumbashi, RD Kongo",
-    "formName": "Jina kamili", "formEmail": "Barua pepe", "formSubject": "Mada",
-    "formMessage": "Ujumbe", "formSubmit": "Tuma ujumbe"
+    "formName": "Jina kamili",
+    "formEmail": "Barua pepe",
+    "formSubject": "Mada",
+    "formMessage": "Ujumbe",
+    "formSubmit": "Tuma ujumbe",
+    "lead": "Tumia fomu kwa ombi la rasmi."
   },
   "footer": {
     "desc": "Mhandisi wa IT · Msanidi wa AI · Suluhisho za kidijitali za kiwango cha juu",
-    "navTitle": "Urambazaji", "socialTitle": "Mitandao", "rights": "Haki zote zimehifadhiwa."
+    "navTitle": "Urambazaji",
+    "socialTitle": "Mitandao",
+    "rights": "Haki zote zimehifadhiwa."
   },
   "notifications": {
     "langChanged": "Lugha imesasishwa kwa mafanikio",
@@ -146,5 +304,19 @@
     "education": "ELIMU",
     "profile": "WASIFU",
     "skills": "UJUZI"
+  },
+  "stage": {
+    "discover": "Angalia wasifu",
+    "next": "Ukurasa unaofuata",
+    "prev": "Rudi",
+    "finish": "Wasiliana"
+  },
+  "brand": {
+    "short": "K. Makina Edvais",
+    "line1": "Kadièbwe Makina",
+    "line2": "Edvais"
+  },
+  "a11y": {
+    "skip": "Nenda kwenye maudhui"
   }
 }
