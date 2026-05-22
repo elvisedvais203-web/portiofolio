@@ -120,22 +120,15 @@ const PROJECT_CATEGORY_KEYS = {
   devops: 'projects.catDevops'
 };
 
-const ARCHIVE_INTRO_KEY = 'portfolio_archive_intro_seen';
-
 const EXPERIENCE_CONFIG = [
-  { key: 'projects', year: '2020 — 2026' },
-  { key: 'software', year: '2019 — 2026' },
-  { key: 'ai', year: '2021 — 2026' },
-  { key: 'network', year: '2018 — 2026' },
-  { key: 'teaching', year: '2020 — 2026' },
-  { key: 'freelance', year: '2019 — 2026' }
+  { key: 'si', year: '2019 — présent' },
+  { key: 'dev', year: '2020 — présent' },
+  { key: 'infra', year: '2018 — présent' },
+  { key: 'freelance', year: '2019 — présent' }
 ];
 
-const TESTIMONIAL_CONFIG = [
-  { key: 't1', initials: 'JM' },
-  { key: 't2', initials: 'AK' },
-  { key: 't3', initials: 'PL' }
-];
+const LAYER_IDS = ['home', 'about', 'skills', 'projects', 'experience', 'contact'];
+const LAYER_TITLE_KEYS = ['nav.home', 'nav.about', 'nav.skills', 'nav.projects', 'nav.experience', 'nav.contact'];
 
 /* ===== i18n System ===== */
 class I18n {
@@ -257,30 +250,19 @@ class I18n {
 
   renderDynamicContent() {
     this.renderSkills();
-    this.renderServices();
     this.renderProjects();
     this.renderExperience();
-    this.renderTestimonials();
   }
 
   renderSkills() {
     const grid = document.getElementById('skills-grid');
     if (!grid) return;
     grid.innerHTML = SKILL_CONFIG.map((s, i) => `
-      <article class="skill-card reveal reveal-stagger" style="--delay: ${i * 60}ms">
-        <div class="skill-card-header">
-          <i class="${s.icon}" aria-hidden="true"></i>
-          <h3>${this.t(`skillItems.${s.key}`)}</h3>
-        </div>
-        <p class="skill-stack">${this.t(`skillStacks.${s.key}`)}</p>
-        <div class="skill-level-row">
-          <span>${this.t('skills.levelLabel')}</span>
-          <span>${s.level}%</span>
-        </div>
-        <div class="skill-bar"><div class="skill-bar-fill" data-level="${s.level}"></div></div>
+      <article class="skill-chip" style="--delay: ${i * 40}ms">
+        <span class="skill-chip-icon"><i class="${s.icon}" aria-hidden="true"></i></span>
+        <span class="skill-chip-name">${this.t(`skillItems.${s.key}`)}</span>
       </article>
     `).join('');
-    if (window.portfolioApp) window.portfolioApp.observeReveals();
   }
 
   renderServices() {
@@ -300,7 +282,7 @@ class I18n {
     const grid = document.getElementById('projects-grid');
     if (!grid) return;
     grid.innerHTML = PROJECT_CONFIG.map((p, i) => `
-      <article class="project-card project-card--sealed reveal reveal-stagger" style="--delay: ${i * 50}ms"
+      <article class="project-card project-card--sealed" style="--delay: ${i * 50}ms"
         data-category="${p.category}" data-project-key="${p.key}" tabindex="0" role="button"
         aria-label="${this.t(`projectItems.${p.key}.title`)} — ${this.t('projects.revealCta')}">
         <div class="project-img">
@@ -322,8 +304,6 @@ class I18n {
       </article>
     `).join('');
     if (window.portfolioApp) {
-      window.portfolioApp.renderHeroReel();
-      window.portfolioApp.observeReveals();
       window.portfolioApp.initProjectFilters();
       window.portfolioApp.initProjectArchive();
     }
@@ -333,38 +313,14 @@ class I18n {
     const timeline = document.getElementById('timeline');
     if (!timeline) return;
     timeline.innerHTML = EXPERIENCE_CONFIG.map(e => `
-      <div class="timeline-item reveal">
-        <div class="timeline-dot"></div>
-        <div class="timeline-card">
-          <span class="timeline-date">${e.year}</span>
+      <article class="xp-row">
+        <span class="xp-year">${e.year}</span>
+        <div>
           <h3>${this.t(`experienceItems.${e.key}.title`)}</h3>
           <p>${this.t(`experienceItems.${e.key}.desc`)}</p>
         </div>
-      </div>
+      </article>
     `).join('');
-    if (window.portfolioApp) window.portfolioApp.observeReveals();
-  }
-
-  renderTestimonials() {
-    const slider = document.getElementById('testimonials-slider');
-    const dots = document.getElementById('testimonial-dots');
-    if (!slider || !dots) return;
-    slider.innerHTML = TESTIMONIAL_CONFIG.map((t, i) => `
-      <div class="testimonial-card ${i === 0 ? 'active' : 'is-hidden'}" data-index="${i}">
-        <p>${this.t(`testimonialItems.${t.key}.text`)}</p>
-        <div class="testimonial-author">
-          <div class="testimonial-avatar">${t.initials}</div>
-          <div>
-            <h4>${this.t(`testimonialItems.${t.key}.name`)}</h4>
-            <span>${this.t(`testimonialItems.${t.key}.role`)}</span>
-          </div>
-        </div>
-      </div>
-    `).join('');
-    dots.innerHTML = TESTIMONIAL_CONFIG.map((_, i) =>
-      `<button type="button" data-index="${i}" class="${i === 0 ? 'active' : ''}" aria-label="Testimonial ${i + 1}"></button>`
-    ).join('');
-    if (window.portfolioApp) window.portfolioApp.initTestimonials();
   }
 
   async init() {
@@ -382,89 +338,154 @@ class PortfolioApp {
     this.typingIndex = 0;
     this.typingCharIndex = 0;
     this.typingDeleting = false;
-    this.testimonialIndex = 0;
-    this.testimonialInterval = null;
+    this.currentLayer = 0;
+    this.layerAnimating = false;
   }
 
   async init() {
     window.portfolioApp = this;
     await this.i18n.init();
     this.initLoader();
-    this.initHeader();
-    this.initNav();
-    this.initScrollProgress();
-    this.initBackToTop();
+    this.initStage();
     this.initTheme();
     this.initLangSwitcher();
     this.initTyping();
-    this.initScrollReveal();
-    this.initStats();
     this.initContactForm();
     this.initCvDownload();
-    this.initArchiveGate();
     this.initProjectModal();
-    this.initChapterRail();
-    this.observeReveals();
-  }
-
-  initChapterRail() {
-    const links = document.querySelectorAll('.chapter-link');
-    const sections = ['home', 'about', 'skills', 'projects', 'contact'];
-    window.addEventListener('scroll', () => {
-      const y = window.scrollY + 160;
-      let current = 'home';
-      sections.forEach(id => {
-        const el = document.getElementById(id);
-        if (el && el.offsetTop <= y) current = id;
-      });
-      links.forEach(l => l.classList.toggle('active', l.getAttribute('href') === `#${current}`));
-    }, { passive: true });
   }
 
   initLoader() {
-    const hide = () => {
-      document.getElementById('loader')?.classList.add('hidden');
-      this.maybeShowArchiveGate();
-    };
+    const hide = () => document.getElementById('loader')?.classList.add('hidden');
     if (document.readyState === 'complete') hide();
     else window.addEventListener('load', hide, { once: true });
   }
 
-  renderHeroReel() {
-    const reel = document.getElementById('hero-reel');
-    if (!reel) return;
-    const items = PROJECT_CONFIG.map(p =>
-      `<span class="hero-reel-item"><img src="${p.image}" alt="" width="140" height="80" loading="lazy" decoding="async"></span>`
+  initStage() {
+    const stage = document.getElementById('stage');
+    const dotsEl = document.getElementById('stage-dots');
+    const prev = document.getElementById('layer-prev');
+    const next = document.getElementById('layer-next');
+    const discover = document.getElementById('welcome-discover');
+    if (!stage || !dotsEl) return;
+
+    dotsEl.innerHTML = LAYER_IDS.map((id, i) =>
+      `<button type="button" class="stage-dot ${i === 0 ? 'active' : ''}" data-layer="${i}" role="tab" aria-selected="${i === 0}" aria-label="${id}"></button>`
     ).join('');
-    reel.innerHTML = `<div class="hero-reel-track">${items}${items}</div>`;
-  }
 
-  maybeShowArchiveGate() {
-    const gate = document.getElementById('archive-gate');
-    if (!gate || localStorage.getItem(ARCHIVE_INTRO_KEY)) return;
-    gate.hidden = false;
-    document.body.classList.add('archive-gate-open');
-    requestAnimationFrame(() => gate.classList.add('is-visible'));
-  }
+    const go = (index) => this.goToLayer(index);
 
-  initArchiveGate() {
-    const gate = document.getElementById('archive-gate');
-    const unlock = document.getElementById('archive-unlock');
-    const skip = document.getElementById('archive-skip');
-    if (!gate) return;
+    next?.addEventListener('click', () => go(this.currentLayer + 1));
+    prev?.addEventListener('click', () => go(this.currentLayer - 1));
+    discover?.addEventListener('click', () => go(1));
 
-    const closeGate = (scrollToProjects) => {
-      gate.classList.remove('is-visible');
-      document.body.classList.remove('archive-gate-open');
-      localStorage.setItem(ARCHIVE_INTRO_KEY, '1');
-      setTimeout(() => { gate.hidden = true; }, 500);
-      if (scrollToProjects) {
-        document.getElementById('projects')?.scrollIntoView({ behavior: 'smooth' });
+    dotsEl.querySelectorAll('.stage-dot').forEach(dot => {
+      dot.addEventListener('click', () => go(+dot.dataset.layer));
+    });
+
+    document.querySelectorAll('[data-layer-jump]').forEach(el => {
+      el.addEventListener('click', e => {
+        e.preventDefault();
+        go(+el.dataset.layerJump);
+      });
+    });
+
+    document.addEventListener('keydown', e => {
+      if (document.body.classList.contains('modal-open')) return;
+      if (e.key === 'ArrowRight' || e.key === 'PageDown') {
+        e.preventDefault();
+        go(this.currentLayer + 1);
       }
-    };
+      if (e.key === 'ArrowLeft' || e.key === 'PageUp') {
+        e.preventDefault();
+        go(this.currentLayer - 1);
+      }
+    });
 
-    unlock?.addEventListener('click', () => closeGate(true));
-    skip?.addEventListener('click', () => closeGate(false));
+    let touchX = 0;
+    stage.addEventListener('touchstart', e => { touchX = e.touches[0].clientX; }, { passive: true });
+    stage.addEventListener('touchend', e => {
+      const dx = e.changedTouches[0].clientX - touchX;
+      if (Math.abs(dx) > 60) go(dx < 0 ? this.currentLayer + 1 : this.currentLayer - 1);
+    }, { passive: true });
+
+    document.querySelectorAll('.layer').forEach((layer, i) => {
+      if (i !== 0) layer.classList.add('layer--future');
+    });
+    this.updateStageUI();
+  }
+
+  goToLayer(index) {
+    if (this.layerAnimating) return;
+    const max = LAYER_IDS.length - 1;
+    index = Math.max(0, Math.min(max, index));
+    if (index === this.currentLayer) return;
+
+    this.layerAnimating = true;
+    const layers = document.querySelectorAll('.layer');
+    const from = this.currentLayer;
+    const dir = index > from ? 1 : -1;
+
+    layers.forEach((layer, i) => {
+      layer.classList.remove('layer--active', 'layer--past', 'layer--future', 'layer--entering', 'layer--leaving');
+      if (i === index) {
+        layer.classList.add('layer--entering');
+        requestAnimationFrame(() => {
+          layer.classList.add('layer--active');
+          layer.classList.remove('layer--entering');
+        });
+      } else if (i === from) {
+        layer.classList.add('layer--leaving');
+        layer.classList.add(dir > 0 ? 'layer--past' : 'layer--future');
+      } else if (i < index) {
+        layer.classList.add('layer--past');
+      } else {
+        layer.classList.add('layer--future');
+      }
+    });
+
+    this.currentLayer = index;
+    document.getElementById('stage')?.setAttribute('data-current-layer', String(index));
+    document.body.classList.toggle('on-home', index === 0);
+    document.body.classList.toggle('stage-body', true);
+
+    const active = document.getElementById(`layer-${LAYER_IDS[index]}`);
+    active?.scrollTo?.(0, 0);
+
+    this.updateStageUI();
+
+    setTimeout(() => {
+      layers.forEach(layer => layer.classList.remove('layer--leaving', 'layer--entering'));
+      this.layerAnimating = false;
+    }, 720);
+  }
+
+  updateStageUI() {
+    const i = this.currentLayer;
+    const max = LAYER_IDS.length - 1;
+    const header = document.getElementById('stage-header');
+    const title = document.getElementById('stage-header-title');
+    const prev = document.getElementById('layer-prev');
+    const next = document.getElementById('layer-next');
+    const nav = document.getElementById('stage-nav');
+
+    header?.toggleAttribute('aria-hidden', i === 0);
+    header?.classList.toggle('visible', i > 0);
+    nav?.classList.toggle('on-home', i === 0);
+
+    if (title) title.textContent = this.i18n.t(LAYER_TITLE_KEYS[i]);
+
+    prev && (prev.disabled = i === 0);
+    next && (next.disabled = i === max);
+    if (next) {
+      const nextLabel = i === max ? this.i18n.t('stage.finish') : this.i18n.t('stage.next');
+      next.querySelector('span') && (next.querySelector('span').textContent = nextLabel);
+    }
+
+    document.querySelectorAll('.stage-dot').forEach((dot, idx) => {
+      dot.classList.toggle('active', idx === i);
+      dot.setAttribute('aria-selected', idx === i ? 'true' : 'false');
+    });
   }
 
   initProjectArchive() {

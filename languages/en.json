@@ -15,13 +15,23 @@
     "home": "Home", "about": "About", "skills": "Skills", "services": "Services",
     "projects": "Projects", "experience": "Experience", "testimonials": "Testimonials", "contact": "Contact"
   },
+  "stage": {
+    "discover": "Discover profile",
+    "next": "Next page",
+    "prev": "Back",
+    "finish": "Contact"
+  },
   "hero": {
-    "eyebrow": "IT Engineer · Full Stack Developer · AI Expert",
-    "description": "I design reliable software solutions, intelligent systems and IT infrastructure tailored to my clients' business goals.",
+    "eyebrow": "Engineer · IS Specialist",
+    "description": "Information systems, software and infrastructure — versatile profile with a core focus on IS.",
     "country": "Democratic Republic of Congo",
-    "ctaContact": "Contact me", "ctaCv": "Download CV", "ctaProjects": "Explore the archive",
-    "badge": "Available for projects",
-    "pill1": "Artificial intelligence", "pill2": "Web & mobile development", "pill3": "Networking & cybersecurity"
+    "ctaContact": "Contact me",
+    "ctaCv": "Download CV",
+    "ctaProjects": "View work",
+    "badge": "Available",
+    "pill1": "Information systems",
+    "pill2": "Software development",
+    "pill3": "Networks & cloud"
   },
   "typing": {
     "titles": ["IT Engineer", "Full Stack Developer", "AI Expert", "Software Architect", "Network & System Administrator", "Digital Transformation Consultant"]
@@ -107,12 +117,10 @@
   },
   "experience": { "tag": "Journey", "title": "Professional experience" },
   "experienceItems": {
-    "projects": { "title": "Multiple IT Projects", "desc": "Delivery of 50+ technology projects spanning web, AI, IoT and networking." },
-    "software": { "title": "Software Engineering", "desc": "Design and development of professional full stack applications across sectors." },
-    "ai": { "title": "AI Development", "desc": "Creation of intelligent systems with machine learning, computer vision and automation." },
-    "network": { "title": "Network Administration", "desc": "Installation, configuration and maintenance of secure network infrastructures." },
-    "teaching": { "title": "Training & Teaching", "desc": "Professional training in computing, programming and emerging technologies." },
-    "freelance": { "title": "Freelance Development", "desc": "Freelance services for local and international clients with professional quality delivery." }
+    "si": { "title": "Information Systems (IS)", "desc": "Requirements, architecture, integration and maintenance of IS solutions for SMEs and institutions." },
+    "dev": { "title": "Software development", "desc": "Web and mobile apps, APIs and business tools supporting the IS foundation." },
+    "infra": { "title": "Networks & infrastructure", "desc": "Network administration, cloud deployment, databases and monitoring." },
+    "freelance": { "title": "Freelance & training", "desc": "Contract work, technical support and IT training." }
   },
   "testimonials": { "tag": "Testimonials", "title": "Client feedback" },
   "testimonialItems": {

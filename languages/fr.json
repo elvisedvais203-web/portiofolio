@@ -1,7 +1,7 @@
 {
   "meta": {
-    "title": "KADIEBWE MAKINA EDVAIS | Ingénieur IT & Développeur Full Stack",
-    "description": "Portfolio professionnel de KADIEBWE MAKINA EDVAIS — Ingénieur IT, expert IA et développeur Full Stack à Lubumbashi, RDC.",
+    "title": "KADIEBWE MAKINA EDVAIS | Ingénieur SI",
+    "description": "KADIEBWE MAKINA EDVAIS — Spécialiste Systèmes Informatiques, développement & infrastructures. Lubumbashi, RDC.",
     "keywords": "Ingénieur IT, développeur, IA, Full Stack, Lubumbashi, Congo, cybersécurité",
     "ogTitle": "KADIEBWE MAKINA EDVAIS | Ingénieur IT International",
     "ogDescription": "Développement logiciel, intelligence artificielle et solutions digitales pour entreprises."
@@ -21,9 +21,15 @@
     "testimonials": "Témoignages",
     "contact": "Contact"
   },
+  "stage": {
+    "discover": "Découvrir le profil",
+    "next": "Page suivante",
+    "prev": "Retour",
+    "finish": "Contact"
+  },
   "hero": {
-    "eyebrow": "Ingénieur IT · Développeur Full Stack · Expert IA",
-    "description": "Je conçois des solutions logicielles fiables, des systèmes intelligents et des infrastructures IT adaptées aux enjeux métier de mes clients.",
+    "eyebrow": "Ingénieur · Spécialiste SI",
+    "description": "Systèmes informatiques, logiciel et infrastructures — profil polyvalent, cœur métier en SI.",
     "country": "République Démocratique du Congo",
     "ctaContact": "Me contacter",
     "ctaCv": "Télécharger le CV",
@@ -35,12 +41,11 @@
   },
   "typing": {
     "titles": [
-      "Ingénieur IT",
+      "Spécialiste Systèmes Informatiques",
+      "Ingénieur SI",
       "Développeur Full Stack",
-      "Expert Intelligence Artificielle",
-      "Architecte logiciel",
-      "Administrateur réseau & système",
-      "Consultant transformation digitale"
+      "Administration réseau & système",
+      "Solutions cloud & déploiement"
     ]
   },
   "stats": {
@@ -53,9 +58,9 @@
     "tag": "À propos",
     "title": "Profil professionnel",
     "lead": "Profil technique concis, orienté livrables.",
-    "subtitle": "Ingénieur IT, développeur logiciel & formateur",
-    "p1": "Ingénieur IT et développeur Full Stack (UPL — SI, Génie Logiciel & IA). Applications web, mobiles et systèmes intelligents pour entreprises et institutions.",
-    "p2": "Transformation digitale : conception, développement, déploiement cloud et formation.",
+    "subtitle": "Spécialiste Systèmes Informatiques (SI)",
+    "p1": "Diplômé UPL (SI, Génie Logiciel & IA). Je touche au développement, aux réseaux, à l’IA et au déploiement — avec une spécialisation réaliste en systèmes informatiques et architecture des solutions.",
+    "p2": "Polyvalent sur le terrain, exigeant sur la fiabilité des systèmes livrés.",
     "university": "Formation",
     "phone": "Téléphone",
     "ai1": "Ingénieur IT",
@@ -67,7 +72,7 @@
   "skills": {
     "tag": "Compétences",
     "title": "Domaines d'expertise",
-    "lead": "Compétences regroupées par spécialité pour une lecture claire du profil technique.",
+    "lead": "Pratique répartie — focus SI.",
     "levelLabel": "Niveau de maîtrise"
   },
   "skillItems": {
@@ -175,12 +180,10 @@
     "title": "Expérience professionnelle"
   },
   "experienceItems": {
-    "projects": { "title": "Projets IT Multiples", "desc": "Réalisation de plus de 50 projets technologiques couvrant le web, l'IA, l'IoT et les réseaux." },
-    "software": { "title": "Ingénierie Logicielle", "desc": "Conception et développement d'applications professionnelles full stack pour divers secteurs." },
-    "ai": { "title": "Développement IA", "desc": "Création de systèmes intelligents intégrant machine learning, vision par ordinateur et automatisation." },
-    "network": { "title": "Administration Réseau", "desc": "Installation, configuration et maintenance d'infrastructures réseau sécurisées." },
-    "teaching": { "title": "Formation & Enseignement", "desc": "Formation professionnelle en informatique, programmation et technologies émergentes." },
-    "freelance": { "title": "Développement Freelance", "desc": "Prestations freelance pour clients locaux et internationaux avec livraison de qualité professionnelle." }
+    "si": { "title": "Systèmes Informatiques (SI)", "desc": "Analyse des besoins, architecture, intégration et maintenance de solutions SI pour PME et institutions." },
+    "dev": { "title": "Développement logiciel", "desc": "Applications web et mobiles, APIs et outils métiers — en appui au socle SI." },
+    "infra": { "title": "Réseaux & infrastructure", "desc": "Administration réseau, déploiement cloud (Railway, Render), bases de données et supervision." },
+    "freelance": { "title": "Missions & formation", "desc": "Freelance, accompagnement technique et formation en informatique." }
   },
   "testimonials": {
     "tag": "Témoignages",
