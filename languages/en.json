@@ -11,7 +11,10 @@
   },
   "a11y": {
     "skip": "Skip to main content",
-    "backTop": "Back to top"
+    "backTop": "Back to top",
+    "themeToggle": "Light or dark mode",
+    "themeLight": "Switch to light mode",
+    "themeDark": "Switch to dark mode"
   },
   "nav": {
     "home": "Home",
@@ -128,7 +131,11 @@
     "sealedLabel": "Preview",
     "revealCta": "Open dossier",
     "demo": "Live demo",
-    "repo": "Source repository"
+    "repo": "Source repository",
+    "zoomHint": "Click the image to zoom · use +/− or scroll wheel",
+    "zoomReset": "100%",
+    "zoomIn": "Zoom in",
+    "zoomOut": "Zoom out"
   },
   "projectItems": {
     "nextalk": {

@@ -353,6 +353,8 @@ class PortfolioApp {
     this.initContactForm();
     this.initCvDownload();
     this.initProjectModal();
+    this.initProjectModalZoom();
+    this.modalZoom = 1;
   }
 
   initLoader() {
@@ -514,6 +516,78 @@ class PortfolioApp {
     });
   }
 
+  initProjectModalZoom() {
+    const ZOOM_STEPS = [0.75, 1, 1.25, 1.5, 2, 2.5];
+    const viewport = document.getElementById('project-modal-viewport');
+    const img = document.getElementById('project-modal-img');
+    const resetBtn = document.getElementById('zoom-reset');
+    const zoomInBtn = document.getElementById('zoom-in');
+    const zoomOutBtn = document.getElementById('zoom-out');
+
+    const applyZoom = () => {
+      if (!img) return;
+      img.style.transform = `scale(${this.modalZoom})`;
+      if (resetBtn) resetBtn.textContent = `${Math.round(this.modalZoom * 100)}%`;
+      viewport?.classList.toggle('is-zoomed', this.modalZoom > 1.02);
+      if (zoomInBtn) {
+        zoomInBtn.setAttribute('aria-label', this.i18n.t('projects.zoomIn'));
+      }
+      if (zoomOutBtn) {
+        zoomOutBtn.setAttribute('aria-label', this.i18n.t('projects.zoomOut'));
+      }
+    };
+
+    const setZoom = (z) => {
+      this.modalZoom = Math.min(2.5, Math.max(0.75, Math.round(z * 100) / 100));
+      applyZoom();
+    };
+
+    const nearestStepIndex = () => {
+      let best = 0;
+      let diff = Math.abs(ZOOM_STEPS[0] - this.modalZoom);
+      for (let i = 1; i < ZOOM_STEPS.length; i++) {
+        const d = Math.abs(ZOOM_STEPS[i] - this.modalZoom);
+        if (d < diff) {
+          diff = d;
+          best = i;
+        }
+      }
+      return best;
+    };
+
+    zoomInBtn?.addEventListener('click', (e) => {
+      e.stopPropagation();
+      const i = nearestStepIndex();
+      setZoom(ZOOM_STEPS[Math.min(ZOOM_STEPS.length - 1, i + 1)]);
+    });
+    zoomOutBtn?.addEventListener('click', (e) => {
+      e.stopPropagation();
+      const i = nearestStepIndex();
+      setZoom(ZOOM_STEPS[Math.max(0, i - 1)]);
+    });
+    resetBtn?.addEventListener('click', (e) => {
+      e.stopPropagation();
+      setZoom(1);
+    });
+
+    img?.addEventListener('click', () => {
+      if (this.modalZoom < 1.4) setZoom(1.5);
+      else if (this.modalZoom < 1.9) setZoom(2);
+      else setZoom(1);
+    });
+
+    viewport?.addEventListener('wheel', (e) => {
+      const modal = document.getElementById('project-modal');
+      if (!modal?.classList.contains('is-open')) return;
+      e.preventDefault();
+      setZoom(this.modalZoom + (e.deltaY < 0 ? 0.12 : -0.12));
+    }, { passive: false });
+
+    this.resetModalZoom = () => setZoom(1);
+    this.applyModalZoom = applyZoom;
+    setZoom(1);
+  }
+
   openProjectModal(key) {
     const project = PROJECT_CONFIG.find(p => p.key === key);
     const modal = document.getElementById('project-modal');
@@ -550,6 +624,7 @@ class PortfolioApp {
         const src = btn.dataset.src;
         img.src = src;
         img.loading = 'eager';
+        this.resetModalZoom?.();
       });
     });
     PROJECT_CONFIG.find(p => p.key === key)?.gallery?.slice(1).forEach(src => {
@@ -568,6 +643,8 @@ class PortfolioApp {
       project.repo ? `<a href="${project.repo}" class="btn btn-secondary" target="_blank" rel="noopener noreferrer">${repoLabel}</a>` : ''
     ].filter(Boolean).join('');
 
+    this.resetModalZoom?.();
+
     modal.classList.add('is-open');
     modal.setAttribute('aria-hidden', 'false');
     document.body.classList.add('modal-open');
@@ -576,6 +653,7 @@ class PortfolioApp {
   closeProjectModal() {
     const modal = document.getElementById('project-modal');
     if (!modal) return;
+    this.resetModalZoom?.();
     modal.classList.remove('is-open');
     modal.setAttribute('aria-hidden', 'true');
     document.body.classList.remove('modal-open');
@@ -665,6 +743,10 @@ class PortfolioApp {
     const icon = document.querySelector('#theme-toggle i');
     if (icon) {
       icon.className = theme === 'dark' ? 'fas fa-moon' : 'fas fa-sun';
+    }
+    const btn = document.getElementById('theme-toggle');
+    if (btn && this.i18n?.translations) {
+      btn.setAttribute('aria-label', this.i18n.t(theme === 'dark' ? 'a11y.themeLight' : 'a11y.themeDark'));
     }
   }
 

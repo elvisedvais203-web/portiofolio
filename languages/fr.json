@@ -11,7 +11,10 @@
   },
   "a11y": {
     "skip": "Aller au contenu principal",
-    "backTop": "Retour en haut de page"
+    "backTop": "Retour en haut de page",
+    "themeToggle": "Mode clair ou nuit",
+    "themeLight": "Activer le mode clair",
+    "themeDark": "Activer le mode nuit"
   },
   "nav": {
     "home": "Accueil",
@@ -144,7 +147,11 @@
     "sealedLabel": "Aperçu",
     "revealCta": "Ouvrir le dossier",
     "demo": "Démonstration",
-    "repo": "Dépôt source"
+    "repo": "Dépôt source",
+    "zoomHint": "Cliquez sur l'image pour agrandir · boutons +/− ou molette",
+    "zoomReset": "100%",
+    "zoomIn": "Agrandir l'image",
+    "zoomOut": "Réduire l'image"
   },
   "projectItems": {
     "nextalk": {
