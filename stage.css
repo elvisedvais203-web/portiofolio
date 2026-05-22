@@ -638,33 +638,155 @@ body.stage-body {
 }
 
 /* —— Contact —— */
-.contact-compact { max-width: 500px; }
-.contact-links {
+.contact-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.15fr);
+  gap: 1.15rem;
+  max-width: 720px;
+  align-items: start;
+}
+.contact-channels {
   display: flex;
-  flex-wrap: wrap;
-  gap: 0.45rem;
-  margin-bottom: 1.15rem;
+  flex-direction: column;
+  gap: 0.55rem;
 }
-.contact-pill {
-  display: inline-flex;
+.contact-channel {
+  display: flex;
   align-items: center;
-  gap: 0.35rem;
-  padding: 0.4rem 0.8rem;
-  font-size: 0.75rem;
-  font-weight: 500;
+  gap: 0.75rem;
+  padding: 0.85rem 0.95rem;
+  background: var(--slate-raised);
   border: 1px solid var(--line);
-  border-radius: 2px;
+  border-radius: 4px;
   color: var(--paper);
-  transition: border-color 0.25s ease, color 0.25s ease;
+  text-decoration: none;
+  transition: border-color 0.25s ease, transform 0.2s ease, box-shadow 0.25s ease;
 }
-.contact-pill:hover {
+.contact-channel:hover {
   border-color: var(--steel);
+  transform: translateY(-1px);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.12);
+}
+.contact-channel--wa {
+  border-color: rgba(37, 211, 102, 0.35);
+  background: rgba(37, 211, 102, 0.08);
+}
+.contact-channel--wa:hover {
+  border-color: rgba(37, 211, 102, 0.55);
+}
+.contact-channel-icon {
+  width: 40px;
+  height: 40px;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: var(--steel-soft);
   color: var(--steel);
+  font-size: 1rem;
+}
+.contact-channel--wa .contact-channel-icon {
+  background: rgba(37, 211, 102, 0.18);
+  color: #3ddc84;
+}
+.contact-channel-body {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+}
+.contact-channel-label {
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+.contact-channel-value {
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: var(--paper);
+  word-break: break-word;
+}
+.contact-channel-arrow {
+  font-size: 0.7rem;
+  color: var(--muted);
+  flex-shrink: 0;
+}
+.contact-form-panel {
+  padding: 1.15rem 1.2rem;
+  background: var(--slate-raised);
+  border: 1px solid var(--line);
+  border-radius: 4px;
+  border-top: 2px solid var(--bronze);
+}
+.contact-form-title {
+  font-family: var(--font-display);
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: var(--paper);
+  margin-bottom: 0.35rem;
+}
+.contact-form-lead {
+  font-size: 0.8rem;
+  color: var(--muted);
+  line-height: 1.5;
+  margin-bottom: 1rem;
+}
+#layer-contact .contact-form .form-group {
+  margin-bottom: 0.85rem;
+}
+#layer-contact .contact-form label {
+  display: block;
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 0.35rem;
+}
+#layer-contact .contact-form input,
+#layer-contact .contact-form textarea {
+  width: 100%;
+  padding: 0.65rem 0.75rem;
+  font-size: 0.9rem;
+  font-family: inherit;
+  color: var(--paper);
+  background: rgba(12, 14, 18, 0.45);
+  border: 1px solid var(--line);
+  border-radius: 3px;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+[data-theme="light"] #layer-contact .contact-form input,
+[data-theme="light"] #layer-contact .contact-form textarea {
+  background: rgba(255, 255, 255, 0.85);
+}
+#layer-contact .contact-form input:focus,
+#layer-contact .contact-form textarea:focus {
+  outline: none;
+  border-color: var(--steel);
+  box-shadow: 0 0 0 3px var(--steel-soft);
+}
+#layer-contact .contact-form textarea {
+  resize: vertical;
+  min-height: 100px;
 }
 .contact-form .form-row {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 0.65rem;
+}
+.contact-submit {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  margin-top: 0.25rem;
+}
+#layer-contact .layer-panel {
+  padding-bottom: calc(6.5rem + env(safe-area-inset-bottom));
 }
 
 /* —— Navigation —— */
@@ -884,7 +1006,12 @@ body.modal-open .stage-nav { opacity: 0; pointer-events: none; }
 }
 
 @media (max-width: 520px) {
+  .contact-layout {
+    grid-template-columns: 1fr;
+    max-width: 100%;
+  }
   .contact-form .form-row { grid-template-columns: 1fr; }
+  .contact-form-panel { padding: 1rem; }
   .about-compact { grid-template-columns: 1fr; }
   .photo-frame--small { margin: 0 auto; }
   .about-compact > div { text-align: center; }

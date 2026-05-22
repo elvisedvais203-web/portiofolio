@@ -49,7 +49,7 @@
   },
   "about": {
     "tag": "Acerca de",
-    "title": "Perfil profesional",
+    "title": "Presentación",
     "subtitle": "Especialista en Sistemas de Información (SI)",
     "p1": "Graduado de la UPL (SI, Ingeniería de Software e IA). Intervengo en desarrollo, redes, IA y despliegue, con enfoque en arquitectura y mantenimiento de sistemas de información.",
     "p2": "Perfil versátil, con exigencia en la fiabilidad de los sistemas entregados.",
@@ -277,9 +277,14 @@
     "tag": "Contacto",
     "title": "Contacto",
     "whatsapp": "WhatsApp",
+    "whatsappHint": "Respuesta rápida",
     "whatsappCta": "Enviar mensaje",
+    "phone": "Teléfono",
     "call": "Llamar",
     "email": "Email",
+    "github": "GitHub",
+    "formTitle": "Enviar mensaje",
+    "formLead": "El formulario abre su cliente de correo con el mensaje preparado.",
     "location": "Ubicación",
     "map": "Mapa — Lubumbashi, RD Congo",
     "formName": "Nombre completo",
@@ -287,7 +292,7 @@
     "formSubject": "Asunto",
     "formMessage": "Mensaje",
     "formSubmit": "Enviar mensaje",
-    "lead": "Para una solicitud formal, utilice el formulario."
+    "lead": "Elija un canal directo o envíe un mensaje con el formulario."
   },
   "footer": {
     "desc": "Ingeniero de TI · Desarrollador de IA · Soluciones digitales premium",

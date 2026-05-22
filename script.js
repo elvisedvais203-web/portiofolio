@@ -995,7 +995,7 @@ class PortfolioApp {
       e.preventDefault();
       try {
         await this.loadJsPdf();
-        this.generateCVPdf();
+        await this.generateCVPdf();
         this.showToast(this.i18n.t('notifications.cvDownloaded'));
       } catch (err) {
         console.error(err);
@@ -1004,10 +1004,34 @@ class PortfolioApp {
     });
   }
 
+  loadProfileImageData() {
+    return new Promise((resolve, reject) => {
+      const img = new Image();
+      img.onload = () => {
+        const size = 280;
+        const canvas = document.createElement('canvas');
+        canvas.width = size;
+        canvas.height = size;
+        const ctx = canvas.getContext('2d');
+        const sw = img.naturalWidth || img.width;
+        const sh = img.naturalHeight || img.height;
+        const crop = Math.min(sw, sh) * 0.88;
+        const sx = (sw - crop) / 2;
+        const sy = Math.max(0, (sh - crop) * 0.18);
+        ctx.fillStyle = '#1a2030';
+        ctx.fillRect(0, 0, size, size);
+        ctx.drawImage(img, sx, sy, crop, crop, 0, 0, size, size);
+        resolve(canvas.toDataURL('image/jpeg', 0.92));
+      };
+      img.onerror = () => reject(new Error('profile image'));
+      img.src = 'images/profile.png';
+    });
+  }
+
   /**
-   * CV en PDF — police « times » (Times Roman PDF, équivalent professionnel à Times New Roman).
+   * CV en PDF — police « times » + photo de profil.
    */
-  generateCVPdf() {
+  async generateCVPdf() {
     const jspdf = window.jspdf;
     if (!jspdf?.jsPDF) {
       throw new Error('jsPDF indisponible');
@@ -1015,9 +1039,26 @@ class PortfolioApp {
     const { jsPDF } = jspdf;
     const doc = new jsPDF({ unit: 'mm', format: 'a4', compress: true });
     const margin = 20;
-    const maxW = 170;
+    const pageW = 210;
+    let photoData = null;
+    try {
+      photoData = await this.loadProfileImageData();
+    } catch {
+      photoData = null;
+    }
+    const photoSize = 36;
+    const photoX = pageW - margin - photoSize;
+    const photoY = 14;
+    const textMaxW = photoData ? pageW - margin * 2 - photoSize - 8 : pageW - margin * 2;
     const lineH = (size) => size * 0.52;
     let y = 22;
+
+    if (photoData) {
+      doc.addImage(photoData, 'JPEG', photoX, photoY, photoSize, photoSize);
+      doc.setDrawColor(166, 139, 91);
+      doc.setLineWidth(0.4);
+      doc.rect(photoX, photoY, photoSize, photoSize);
+    }
 
     const newPageIfNeeded = (extra) => {
       if (y + extra > 285) {
@@ -1026,10 +1067,10 @@ class PortfolioApp {
       }
     };
 
-    const writeParagraph = (text, size, style) => {
+    const writeParagraph = (text, size, style, width = textMaxW) => {
       doc.setFont('times', style);
       doc.setFontSize(size);
-      const lines = doc.splitTextToSize(String(text), maxW);
+      const lines = doc.splitTextToSize(String(text), width);
       const h = lines.length * lineH(size) + 4;
       newPageIfNeeded(h);
       doc.text(lines, margin, y);
@@ -1045,14 +1086,16 @@ class PortfolioApp {
     };
 
     doc.setFont('times', 'bold');
-    doc.setFontSize(20);
-    doc.text('KADIEBWE MAKINA EDVAIS', margin, y);
-    y += 9;
+    doc.setFontSize(photoData ? 17 : 20);
+    const nameLines = doc.splitTextToSize('KADIEBWE MAKINA EDVAIS', textMaxW);
+    doc.text(nameLines, margin, y);
+    y += nameLines.length * 7 + 2;
 
     doc.setFont('times', 'italic');
     doc.setFontSize(11);
-    doc.text(this.i18n.t('cv.title'), margin, y);
-    y += 7;
+    const titleLines = doc.splitTextToSize(this.i18n.t('cv.title'), textMaxW);
+    doc.text(titleLines, margin, y);
+    y += titleLines.length * 5.5 + 2;
 
     doc.setFont('times', 'normal');
     doc.setFontSize(10);

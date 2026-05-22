@@ -56,7 +56,7 @@
     "domains": "Areas of expertise"
   },
   "about": {
-    "title": "Professional presentation",
+    "title": "Presentation",
     "subtitle": "Information systems (IS) specialist",
     "p1": "Graduate of Université Protestante de Lubumbashi (UPL) in information systems, software engineering and artificial intelligence. I work across the solution lifecycle: analysis, design, implementation, deployment and maintenance.",
     "p2": "My approach is deliberately realistic: broad exposure to complementary technologies, with proven expertise in information systems and service quality.",
@@ -213,12 +213,19 @@
   },
   "contact": {
     "title": "Contact",
-    "lead": "For professional inquiries, please use the form below.",
+    "lead": "Choose a direct channel or send a message using the form.",
+    "whatsapp": "WhatsApp",
+    "whatsappHint": "Quick reply — chat",
+    "phone": "Phone",
+    "email": "Email",
+    "github": "GitHub",
+    "formTitle": "Send a message",
+    "formLead": "The form opens your email client with a pre-filled message.",
     "formName": "Full name",
     "formEmail": "Email address",
     "formSubject": "Subject",
     "formMessage": "Your message",
-    "formSubmit": "Submit message"
+    "formSubmit": "Send message"
   },
   "footer": {
     "desc": "Information systems engineer — digital solutions",

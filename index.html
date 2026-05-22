@@ -95,7 +95,7 @@
         <div class="layer-panel container">
           <header class="layer-head">
             <span class="layer-num">01</span>
-            <h2 data-i18n="about.title">Présentation professionnelle</h2>
+            <h2 data-i18n="about.title">Présentation</h2>
           </header>
           <div class="about-compact">
             <div class="photo-frame photo-frame--small">
@@ -161,36 +161,70 @@
         <div class="layer-panel container">
           <header class="layer-head">
             <span class="layer-num">05</span>
-            <h2 data-i18n="contact.title">Prise de contact</h2>
-            <p class="layer-sub" data-i18n="contact.lead">Pour toute demande professionnelle.</p>
+            <h2 data-i18n="contact.title">Contact</h2>
+            <p class="layer-sub" data-i18n="contact.lead">Choisissez un canal direct ou envoyez un message via le formulaire.</p>
           </header>
-          <div class="contact-compact">
-            <div class="contact-links">
-              <a href="https://wa.me/message/U5VBQ5ZPUAS6A1" class="contact-pill" target="_blank" rel="noopener noreferrer"><i class="fab fa-whatsapp"></i> WhatsApp</a>
-              <a href="tel:+243895966288" class="contact-pill"><i class="fas fa-phone"></i> +243 895 966 288</a>
-              <a href="mailto:elvisedvais203@gmail.com" class="contact-pill"><i class="fas fa-envelope"></i> Email</a>
+          <div class="contact-layout">
+            <div class="contact-channels" role="list">
+              <a href="https://wa.me/message/U5VBQ5ZPUAS6A1" class="contact-channel contact-channel--wa" target="_blank" rel="noopener noreferrer" role="listitem">
+                <span class="contact-channel-icon" aria-hidden="true"><i class="fab fa-whatsapp"></i></span>
+                <span class="contact-channel-body">
+                  <span class="contact-channel-label" data-i18n="contact.whatsapp">WhatsApp</span>
+                  <span class="contact-channel-value" data-i18n="contact.whatsappHint">Réponse rapide</span>
+                </span>
+                <i class="fas fa-arrow-up-right-from-square contact-channel-arrow" aria-hidden="true"></i>
+              </a>
+              <a href="tel:+243895966288" class="contact-channel" role="listitem">
+                <span class="contact-channel-icon" aria-hidden="true"><i class="fas fa-phone"></i></span>
+                <span class="contact-channel-body">
+                  <span class="contact-channel-label" data-i18n="contact.phone">Téléphone</span>
+                  <span class="contact-channel-value">+243 895 966 288</span>
+                </span>
+              </a>
+              <a href="mailto:elvisedvais203@gmail.com" class="contact-channel" role="listitem">
+                <span class="contact-channel-icon" aria-hidden="true"><i class="fas fa-envelope"></i></span>
+                <span class="contact-channel-body">
+                  <span class="contact-channel-label" data-i18n="contact.email">Courriel</span>
+                  <span class="contact-channel-value">elvisedvais203@gmail.com</span>
+                </span>
+              </a>
+              <a href="https://github.com/elvisedvais203-web" class="contact-channel" target="_blank" rel="noopener noreferrer" role="listitem">
+                <span class="contact-channel-icon" aria-hidden="true"><i class="fab fa-github"></i></span>
+                <span class="contact-channel-body">
+                  <span class="contact-channel-label" data-i18n="contact.github">GitHub</span>
+                  <span class="contact-channel-value">elvisedvais203-web</span>
+                </span>
+                <i class="fas fa-arrow-up-right-from-square contact-channel-arrow" aria-hidden="true"></i>
+              </a>
             </div>
-            <form class="contact-form" id="contact-form">
-              <div class="form-row">
-                <div class="form-group">
-                  <label for="name" data-i18n="contact.formName">Nom et prénom</label>
-                  <input type="text" id="name" name="name" required autocomplete="name">
+            <div class="contact-form-panel">
+              <h3 class="contact-form-title" data-i18n="contact.formTitle">Envoyer un message</h3>
+              <p class="contact-form-lead" data-i18n="contact.formLead">Le formulaire ouvre votre messagerie avec le message prérempli.</p>
+              <form class="contact-form" id="contact-form" novalidate>
+                <div class="form-row">
+                  <div class="form-group">
+                    <label for="name" data-i18n="contact.formName">Nom et prénom</label>
+                    <input type="text" id="name" name="name" required autocomplete="name" placeholder=" ">
+                  </div>
+                  <div class="form-group">
+                    <label for="email" data-i18n="contact.formEmail">Adresse électronique</label>
+                    <input type="email" id="email" name="email" required autocomplete="email" placeholder=" ">
+                  </div>
                 </div>
                 <div class="form-group">
-                  <label for="email" data-i18n="contact.formEmail">Adresse électronique</label>
-                  <input type="email" id="email" name="email" required autocomplete="email">
+                  <label for="subject" data-i18n="contact.formSubject">Objet du message</label>
+                  <input type="text" id="subject" name="subject" required placeholder=" ">
                 </div>
-              </div>
-              <div class="form-group">
-                <label for="subject" data-i18n="contact.formSubject">Objet</label>
-                <input type="text" id="subject" name="subject" required>
-              </div>
-              <div class="form-group">
-                <label for="message" data-i18n="contact.formMessage">Message</label>
-                <textarea id="message" name="message" rows="3" required></textarea>
-              </div>
-              <button type="submit" class="btn btn-accent btn-full" data-i18n="contact.formSubmit">Transmettre le message</button>
-            </form>
+                <div class="form-group">
+                  <label for="message" data-i18n="contact.formMessage">Votre message</label>
+                  <textarea id="message" name="message" rows="4" required placeholder=" "></textarea>
+                </div>
+                <button type="submit" class="btn btn-accent btn-full contact-submit">
+                  <i class="fas fa-paper-plane" aria-hidden="true"></i>
+                  <span data-i18n="contact.formSubmit">Transmettre le message</span>
+                </button>
+              </form>
+            </div>
           </div>
           <p class="layer-footer-copy">© 2026 <span data-i18n="brand.line1">Kadièbwe Makina</span> <span data-i18n="brand.line2">Edvais</span></p>
         </div>
