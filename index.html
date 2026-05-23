@@ -16,6 +16,7 @@
   <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="stage.css">
   <link rel="stylesheet" href="futuristic.css">
+  <link rel="stylesheet" href="animations.css">
 </head>
 <body class="stage-body on-home fx-mode">
   <a href="#layer-home" class="skip-link" data-i18n="a11y.skip">Aller au contenu</a>
@@ -90,10 +91,9 @@
           <p class="welcome-loc"><i class="fas fa-location-dot" aria-hidden="true"></i> Lubumbashi · <span data-i18n="hero.country">République démocratique du Congo</span></p>
           <div class="welcome-actions">
             <button type="button" class="btn btn-accent" id="welcome-discover" data-i18n="stage.discover">Parcourir le dossier professionnel</button>
-            <a href="#" class="btn btn-glass" id="cv-download" data-i18n="hero.ctaCv">Curriculum vitæ</a>
+            <button type="button" class="btn btn-glass" data-layer-jump="5" data-i18n="hero.ctaContact">Prendre contact</button>
           </div>
           <div class="welcome-social">
-            <a href="https://github.com/elvisedvais203-web" target="_blank" rel="noopener noreferrer" aria-label="GitHub"><i class="fab fa-github"></i></a>
             <a href="https://x.com/ELVISEDVAIS" target="_blank" rel="noopener noreferrer" aria-label="X"><i class="fab fa-x-twitter"></i></a>
             <a href="https://www.facebook.com/profile.php?id=61589667917467" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
           </div>
@@ -110,12 +110,20 @@
               <span class="portal-desc" data-i18n="hero.ctaSkillsDesc">Domaines SI, dev, réseaux & IA</span>
               <span class="portal-arrow"><i class="fas fa-arrow-right" aria-hidden="true"></i></span>
             </button>
-            <button type="button" class="portal-card portal-card--projects" data-layer-jump="3">
+            <button type="button" class="portal-card portal-card--projects" data-layer-jump="3" data-project-tab="done">
               <span class="portal-scan" aria-hidden="true"></span>
               <span class="portal-glow" aria-hidden="true"></span>
               <span class="portal-icon"><i class="fas fa-rocket" aria-hidden="true"></i></span>
               <span class="portal-label" data-i18n="hero.ctaProjects">Mes projets réalisés</span>
               <span class="portal-desc" data-i18n="hero.ctaProjectsDesc">Applications déployées & dossiers</span>
+              <span class="portal-arrow"><i class="fas fa-arrow-right" aria-hidden="true"></i></span>
+            </button>
+            <button type="button" class="portal-card portal-card--ongoing" data-layer-jump="3" data-project-tab="ongoing">
+              <span class="portal-scan" aria-hidden="true"></span>
+              <span class="portal-glow" aria-hidden="true"></span>
+              <span class="portal-icon"><i class="fas fa-satellite-dish" aria-hidden="true"></i></span>
+              <span class="portal-label" data-i18n="hero.ctaOngoing">Projets en cours</span>
+              <span class="portal-desc" data-i18n="hero.ctaOngoingDesc">Développements actifs & déploiements</span>
               <span class="portal-arrow"><i class="fas fa-arrow-right" aria-hidden="true"></i></span>
             </button>
           </div>
@@ -138,7 +146,7 @@
             <span class="layer-num">01</span>
             <h2 data-i18n="about.title">Présentation</h2>
           </header>
-          <div class="about-compact">
+          <div class="about-compact fx-animate-block">
             <div class="photo-frame photo-frame--small">
               <img src="images/profile.png" alt="" class="about-mini" width="72" height="72" loading="lazy" decoding="async">
             </div>
@@ -163,7 +171,7 @@
             <h2 data-i18n="skills.title">Domaines de compétence</h2>
             <p class="layer-sub" data-i18n="skills.lead">Compétences transversales — spécialisation en SI.</p>
           </header>
-          <div class="skills-chips" id="skills-grid"></div>
+          <div class="skills-orbs" id="skills-grid"></div>
         </div>
       </section>
 
@@ -172,16 +180,31 @@
         <div class="layer-panel container">
           <header class="layer-head">
             <span class="layer-num">03</span>
-            <h2 data-i18n="projects.title">Réalisations</h2>
-            <p class="layer-sub" data-i18n="projects.lead">Sélection de projets déployés.</p>
+            <h2 data-i18n="projects.title">Projets</h2>
+            <p class="layer-sub" data-i18n="projects.lead">Réalisations, chantiers en cours et horizon d'innovation.</p>
           </header>
-          <div class="filter-bar">
-            <button type="button" class="btn btn-filter active" data-filter="all" data-i18n="projects.filterAll">Tous</button>
-            <button type="button" class="btn btn-filter" data-filter="web" data-i18n="projects.filterWeb">Web & mobile</button>
-            <button type="button" class="btn btn-filter" data-filter="network" data-i18n="projects.filterNetwork">Réseau</button>
-            <button type="button" class="btn btn-filter" data-filter="devops" data-i18n="projects.filterDevops">Infrastructure</button>
+          <div class="project-tabs" role="tablist">
+            <button type="button" class="project-tab active" data-project-tab="done" role="tab" aria-selected="true" data-i18n="projects.tabDone">Réalisés</button>
+            <button type="button" class="project-tab project-tab--ongoing" data-project-tab="ongoing" role="tab" data-i18n="projects.tabOngoing">En cours</button>
+            <button type="button" class="project-tab" data-project-tab="future" role="tab" data-i18n="projects.tabFuture">Horizon</button>
           </div>
-          <div class="projects-grid" id="projects-grid"></div>
+          <div class="project-pane is-active" id="project-pane-done" role="tabpanel">
+            <div class="filter-bar">
+              <button type="button" class="btn btn-filter active" data-filter="all" data-i18n="projects.filterAll">Tous</button>
+              <button type="button" class="btn btn-filter" data-filter="web" data-i18n="projects.filterWeb">Web & mobile</button>
+              <button type="button" class="btn btn-filter" data-filter="network" data-i18n="projects.filterNetwork">Réseau</button>
+              <button type="button" class="btn btn-filter" data-filter="devops" data-i18n="projects.filterDevops">Infrastructure</button>
+            </div>
+            <div class="projects-grid" id="projects-grid-done"></div>
+          </div>
+          <div class="project-pane" id="project-pane-ongoing" role="tabpanel" hidden>
+            <p class="layer-sub project-pane-lead" data-i18n="projects.ongoingLead">Solutions en développement ou en déploiement actif.</p>
+            <div class="projects-grid" id="projects-grid-ongoing"></div>
+          </div>
+          <div class="project-pane" id="project-pane-future" role="tabpanel" hidden>
+            <p class="layer-sub project-pane-lead" data-i18n="future.lead">Laboratoire d'innovation — prototypes et visions en préparation.</p>
+            <div class="future-grid future-grid--layer" id="future-grid-projects"></div>
+          </div>
         </div>
       </section>
 
@@ -203,11 +226,11 @@
           <header class="layer-head">
             <span class="layer-num">05</span>
             <h2 data-i18n="contact.title">Contact</h2>
-            <p class="layer-sub" data-i18n="contact.lead">Choisissez un canal direct ou envoyez un message via le formulaire.</p>
+            <p class="layer-sub" data-i18n="contact.lead">Personne physique ou morale — formulaire professionnel pour toute demande.</p>
           </header>
           <div class="contact-layout">
             <div class="contact-channels" role="list">
-              <a href="https://wa.me/message/U5VBQ5ZPUAS6A1" class="contact-channel contact-channel--wa" target="_blank" rel="noopener noreferrer" role="listitem">
+              <a href="https://wa.me/message/U5VBQ5ZPUAS6A1" class="contact-channel contact-channel--wa fx-animate" style="--fx-delay: 0ms" target="_blank" rel="noopener noreferrer" role="listitem">
                 <span class="contact-channel-icon" aria-hidden="true"><i class="fab fa-whatsapp"></i></span>
                 <span class="contact-channel-body">
                   <span class="contact-channel-label" data-i18n="contact.whatsapp">WhatsApp</span>
@@ -215,54 +238,149 @@
                 </span>
                 <i class="fas fa-arrow-up-right-from-square contact-channel-arrow" aria-hidden="true"></i>
               </a>
-              <a href="tel:+243895966288" class="contact-channel" role="listitem">
+              <a href="tel:+243895966288" class="contact-channel fx-animate" style="--fx-delay: 60ms" role="listitem">
                 <span class="contact-channel-icon" aria-hidden="true"><i class="fas fa-phone"></i></span>
                 <span class="contact-channel-body">
                   <span class="contact-channel-label" data-i18n="contact.phone">Téléphone</span>
                   <span class="contact-channel-value">+243 895 966 288</span>
                 </span>
               </a>
-              <a href="mailto:elvisedvais203@gmail.com" class="contact-channel" role="listitem">
+              <a href="mailto:elvisedvais203@gmail.com" class="contact-channel fx-animate" style="--fx-delay: 120ms" role="listitem">
                 <span class="contact-channel-icon" aria-hidden="true"><i class="fas fa-envelope"></i></span>
                 <span class="contact-channel-body">
                   <span class="contact-channel-label" data-i18n="contact.email">Courriel</span>
                   <span class="contact-channel-value">elvisedvais203@gmail.com</span>
                 </span>
               </a>
-              <a href="https://github.com/elvisedvais203-web" class="contact-channel" target="_blank" rel="noopener noreferrer" role="listitem">
-                <span class="contact-channel-icon" aria-hidden="true"><i class="fab fa-github"></i></span>
-                <span class="contact-channel-body">
-                  <span class="contact-channel-label" data-i18n="contact.github">GitHub</span>
-                  <span class="contact-channel-value">elvisedvais203-web</span>
-                </span>
-                <i class="fas fa-arrow-up-right-from-square contact-channel-arrow" aria-hidden="true"></i>
-              </a>
             </div>
-            <div class="contact-form-panel">
-              <h3 class="contact-form-title" data-i18n="contact.formTitle">Envoyer un message</h3>
-              <p class="contact-form-lead" data-i18n="contact.formLead">Le formulaire ouvre votre messagerie avec le message prérempli.</p>
+            <div class="contact-form-panel contact-dossier fx-animate" style="--fx-delay: 180ms">
+              <h3 class="contact-form-title" data-i18n="contact.formTitle">Dossier de contact</h3>
+              <p class="contact-form-lead" data-i18n="contact.formLead">Renseignez le formulaire adapté à votre statut. Les champs marqués * sont obligatoires.</p>
               <form class="contact-form" id="contact-form" novalidate>
+                <div class="contact-type-switch" role="group" aria-label="Type de contacteur">
+                  <button type="button" class="contact-type-btn active" data-contact-type="physical" aria-pressed="true">
+                    <i class="fas fa-user" aria-hidden="true"></i>
+                    <strong data-i18n="contact.typePhysical">Personne physique</strong>
+                    <span data-i18n="contact.typePhysicalDesc">Particulier, entrepreneur individuel</span>
+                  </button>
+                  <button type="button" class="contact-type-btn" data-contact-type="moral" aria-pressed="false">
+                    <i class="fas fa-building" aria-hidden="true"></i>
+                    <strong data-i18n="contact.typeMoral">Personne morale</strong>
+                    <span data-i18n="contact.typeMoralDesc">Société, ONG, administration, établissement</span>
+                  </button>
+                </div>
+
+                <div class="contact-panel is-active" id="contact-panel-physical" data-panel="physical">
+                  <p class="form-section-title" data-i18n="contact.sectionIdentity">Identité</p>
+                  <div class="form-row">
+                    <div class="form-group">
+                      <label for="phys-firstname" data-i18n="contact.firstName">Prénom *</label>
+                      <input type="text" id="phys-firstname" name="physFirstname" autocomplete="given-name" required>
+                      <span class="form-error" data-i18n="contact.errorRequired">Champ obligatoire</span>
+                    </div>
+                    <div class="form-group">
+                      <label for="phys-lastname" data-i18n="contact.lastName">Nom *</label>
+                      <input type="text" id="phys-lastname" name="physLastname" autocomplete="family-name" required>
+                      <span class="form-error" data-i18n="contact.errorRequired">Champ obligatoire</span>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="contact-panel" id="contact-panel-moral" data-panel="moral" hidden>
+                  <p class="form-section-title" data-i18n="contact.sectionOrganization">Organisation</p>
+                  <div class="form-group">
+                    <label for="moral-company" data-i18n="contact.companyName">Raison sociale *</label>
+                    <input type="text" id="moral-company" name="companyName" autocomplete="organization">
+                    <span class="form-error" data-i18n="contact.errorRequired">Champ obligatoire</span>
+                  </div>
+                  <div class="form-row">
+                    <div class="form-group">
+                      <label for="moral-form" data-i18n="contact.legalForm">Forme juridique</label>
+                      <select id="moral-form" name="legalForm">
+                        <option value="" data-i18n="contact.legalFormPlaceholder">— Sélectionner —</option>
+                        <option value="sarl" data-i18n="contact.legalSarl">SARL / SARLU</option>
+                        <option value="sa" data-i18n="contact.legalSa">SA</option>
+                        <option value="asbl" data-i18n="contact.legalAsbl">ASBL / ONG</option>
+                        <option value="public" data-i18n="contact.legalPublic">Établissement public</option>
+                        <option value="other" data-i18n="contact.legalOther">Autre</option>
+                      </select>
+                    </div>
+                    <div class="form-group">
+                      <label for="moral-id" data-i18n="contact.companyId">N° RCCM / ID (si connu)</label>
+                      <input type="text" id="moral-id" name="companyId" autocomplete="off">
+                    </div>
+                  </div>
+                  <p class="form-section-title" data-i18n="contact.sectionRepresentative">Représentant</p>
+                  <div class="form-row">
+                    <div class="form-group">
+                      <label for="moral-rep" data-i18n="contact.repName">Nom du représentant *</label>
+                      <input type="text" id="moral-rep" name="repName" autocomplete="name">
+                      <span class="form-error" data-i18n="contact.errorRequired">Champ obligatoire</span>
+                    </div>
+                    <div class="form-group">
+                      <label for="moral-role" data-i18n="contact.repRole">Fonction *</label>
+                      <input type="text" id="moral-role" name="repRole" placeholder="Directeur, Responsable SI…">
+                      <span class="form-error" data-i18n="contact.errorRequired">Champ obligatoire</span>
+                    </div>
+                  </div>
+                </div>
+
+                <p class="form-section-title" data-i18n="contact.sectionRequest">Demande</p>
                 <div class="form-row">
                   <div class="form-group">
-                    <label for="name" data-i18n="contact.formName">Nom et prénom</label>
-                    <input type="text" id="name" name="name" required autocomplete="name" placeholder=" ">
+                    <label for="contact-email" data-i18n="contact.formEmail">Courriel *</label>
+                    <input type="email" id="contact-email" name="email" required autocomplete="email">
+                    <span class="form-error" data-i18n="contact.errorEmail">Courriel invalide</span>
                   </div>
                   <div class="form-group">
-                    <label for="email" data-i18n="contact.formEmail">Adresse électronique</label>
-                    <input type="email" id="email" name="email" required autocomplete="email" placeholder=" ">
+                    <label for="contact-phone" data-i18n="contact.formPhone">Téléphone *</label>
+                    <input type="tel" id="contact-phone" name="phone" required autocomplete="tel" placeholder="+243 …">
+                    <span class="form-error" data-i18n="contact.errorRequired">Champ obligatoire</span>
                   </div>
                 </div>
                 <div class="form-group">
-                  <label for="subject" data-i18n="contact.formSubject">Objet du message</label>
-                  <input type="text" id="subject" name="subject" required placeholder=" ">
+                  <label for="request-type" data-i18n="contact.requestType">Nature de la demande *</label>
+                  <select id="request-type" name="requestType" required>
+                    <option value="" data-i18n="contact.requestPlaceholder">— Sélectionner —</option>
+                    <option value="mission" data-i18n="contact.requestMission">Mission / prestation SI</option>
+                    <option value="quote" data-i18n="contact.requestQuote">Demande de devis</option>
+                    <option value="partnership" data-i18n="contact.requestPartnership">Partenariat</option>
+                    <option value="training" data-i18n="contact.requestTraining">Formation</option>
+                    <option value="support" data-i18n="contact.requestSupport">Support technique</option>
+                    <option value="other" data-i18n="contact.requestOther">Autre</option>
+                  </select>
+                  <span class="form-error" data-i18n="contact.errorRequired">Champ obligatoire</span>
                 </div>
                 <div class="form-group">
-                  <label for="message" data-i18n="contact.formMessage">Votre message</label>
-                  <textarea id="message" name="message" rows="4" required placeholder=" "></textarea>
+                  <label for="contact-subject" data-i18n="contact.formSubject">Objet *</label>
+                  <input type="text" id="contact-subject" name="subject" required>
+                  <span class="form-error" data-i18n="contact.errorRequired">Champ obligatoire</span>
                 </div>
+                <div class="form-group">
+                  <label for="contact-message" data-i18n="contact.formMessage">Message détaillé *</label>
+                  <textarea id="contact-message" name="message" rows="5" required></textarea>
+                  <span class="form-error" data-i18n="contact.errorRequired">Champ obligatoire</span>
+                </div>
+
+                <fieldset class="contact-assertions">
+                  <legend data-i18n="contact.assertionsTitle">Déclarations</legend>
+                  <label class="assertion-item">
+                    <input type="checkbox" name="assertAccuracy" required>
+                    <span data-i18n="contact.assertAccuracy">Je certifie que les informations fournies sont exactes et complètes à ma connaissance.</span>
+                  </label>
+                  <label class="assertion-item">
+                    <input type="checkbox" name="assertPrivacy" required>
+                    <span data-i18n="contact.assertPrivacy">J'accepte que mes données soient traitées uniquement pour répondre à ma demande, conformément à une utilisation professionnelle et confidentielle.</span>
+                  </label>
+                  <label class="assertion-item">
+                    <input type="checkbox" name="assertFollowup">
+                    <span data-i18n="contact.assertFollowup">J'autorise un recontact par courriel ou téléphone pour le suivi de cette demande.</span>
+                  </label>
+                </fieldset>
+
                 <button type="submit" class="btn btn-accent btn-full contact-submit">
                   <i class="fas fa-paper-plane" aria-hidden="true"></i>
-                  <span data-i18n="contact.formSubmit">Transmettre le message</span>
+                  <span data-i18n="contact.formSubmit">Transmettre la demande</span>
                 </button>
               </form>
             </div>

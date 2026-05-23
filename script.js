@@ -53,12 +53,13 @@ const PROJECT_CONFIG = [
     full: full('nextalk'),
     gallery: [full('nextalk')],
     stack: ['React Native', 'Node.js', 'Messagerie temps réel'],
-    demo: '',
-    repo: 'https://github.com/elvisedvais203-web'
+    status: 'ongoing',
+    demo: ''
   },
   {
     key: 'congolove',
     category: 'web',
+    status: 'ongoing',
     image: thumb('congolove-home'),
     full: full('congolove-home'),
     gallery: [
@@ -69,48 +70,52 @@ const PROJECT_CONFIG = [
       full('congolove-infra')
     ],
     stack: ['Node.js', 'PostgreSQL', 'Redis', 'IA Match', 'Vérification identité'],
-    demo: '',
-    repo: 'https://github.com/elvisedvais203-web'
+    status: 'ongoing',
+    demo: ''
   },
   {
     key: 'netcontrol',
     category: 'network',
+    status: 'done',
     image: thumb('netcontrol'),
     full: full('netcontrol'),
     gallery: [full('netcontrol')],
     stack: ['Dashboard', 'Monitoring réseau', 'Contrôle à distance', 'Sécurité'],
-    demo: '',
-    repo: 'https://github.com/elvisedvais203-web'
+    status: 'done',
+    demo: ''
   },
   {
     key: 'edvaselve',
     category: 'web',
+    status: 'done',
     image: thumb('edvaselve'),
     full: full('edvaselve'),
     gallery: [full('edvaselve')],
     stack: ['E-commerce', 'Multivendeur', 'Lubumbashi RDC', 'WhatsApp Commerce'],
-    demo: '',
-    repo: 'https://github.com/elvisedvais203-web'
+    status: 'done',
+    demo: ''
   },
   {
     key: 'solola',
     category: 'web',
+    status: 'done',
     image: thumb('solola-brand'),
     full: full('solola-brand'),
     gallery: [full('solola-brand'), full('solola-deploy')],
     stack: ['Node.js', 'Render', 'Web Service'],
     demo: 'https://solola.onrender.com',
-    repo: 'https://github.com/elvisedvais203-web/SOLOLA'
+    status: 'done'
   },
   {
     key: 'congoloveStack',
     category: 'devops',
+    status: 'done',
     image: thumb('congolove-deploy'),
     full: full('congolove-deploy'),
     gallery: [full('congolove-deploy'), full('congolove-infra')],
     stack: ['Railway', 'PostgreSQL', 'Valkey', 'Resend', 'Node.js'],
-    demo: '',
-    repo: 'https://github.com/elvisedvais203-web'
+    status: 'done',
+    demo: ''
   }
 ];
 
@@ -260,10 +265,12 @@ class I18n {
     this.renderProjects();
     this.renderExperience();
     this.renderFutureProjects();
+    this.renderFutureProjects('future-grid');
+    this.renderFutureProjects('future-grid-projects');
   }
 
-  renderFutureProjects() {
-    const grid = document.getElementById('future-grid');
+  renderFutureProjects(gridId = 'future-grid') {
+    const grid = document.getElementById(gridId);
     if (!grid) return;
     grid.innerHTML = FUTURE_PROJECTS_CONFIG.map((p, i) => `
       <article class="future-card" style="--fi: ${i}">
@@ -275,17 +282,22 @@ class I18n {
         <span class="future-card-status">${this.t(`future.items.${p.key}.status`)}</span>
       </article>
     `).join('');
+    if (window.portfolioApp) window.portfolioApp.observeAnimated(grid.querySelectorAll('.future-card'));
   }
 
   renderSkills() {
     const grid = document.getElementById('skills-grid');
     if (!grid) return;
     grid.innerHTML = SKILL_CONFIG.map((s, i) => `
-      <article class="skill-chip" style="--delay: ${i * 40}ms">
-        <span class="skill-chip-icon"><i class="${s.icon}" aria-hidden="true"></i></span>
-        <span class="skill-chip-name">${this.t(`skillItems.${s.key}`)}</span>
+      <article class="skill-orb" style="--delay: ${i * 55}ms; --level: ${s.level}%">
+        <span class="skill-orb-ring" aria-hidden="true"></span>
+        <span class="skill-orb-core"><i class="${s.icon}" aria-hidden="true"></i></span>
+        <span class="skill-orb-name">${this.t(`skillItems.${s.key}`)}</span>
+        <div class="skill-meter"><span style="width: ${s.level}%"></span></div>
+        <span class="skill-orb-pct">${s.level}%</span>
       </article>
     `).join('');
+    if (window.portfolioApp) window.portfolioApp.observeAnimated(grid.querySelectorAll('.skill-orb'));
   }
 
   renderServices() {
@@ -301,18 +313,21 @@ class I18n {
     if (window.portfolioApp) window.portfolioApp.observeReveals();
   }
 
-  renderProjects() {
-    const grid = document.getElementById('projects-grid');
-    if (!grid) return;
-    grid.innerHTML = PROJECT_CONFIG.map((p, i) => `
-      <article class="project-card project-card--sealed" style="--delay: ${i * 50}ms"
-        data-category="${p.category}" data-project-key="${p.key}" tabindex="0" role="button"
+  projectCardHtml(p, i) {
+    const status = p.status || 'done';
+    const statusLabel = status === 'ongoing'
+      ? this.t('projects.statusOngoing')
+      : this.t('projects.statusDone');
+    return `
+      <article class="project-card project-card--sealed project-card--animated" style="--delay: ${i * 55}ms"
+        data-category="${p.category}" data-project-key="${p.key}" data-status="${status}" tabindex="0" role="button"
         aria-label="${this.t(`projectItems.${p.key}.title`)} — ${this.t('projects.revealCta')}">
+        <span class="project-status project-status--${status}">${statusLabel}</span>
         <div class="project-img">
           <img class="project-thumb" src="${p.image}" alt="" loading="lazy" decoding="async" width="480" height="300">
           <div class="project-seal" aria-hidden="true">
-            <span class="project-seal-icon"><i class="fas fa-lock"></i></span>
-            <span class="project-seal-text" data-i18n="projects.sealedLabel">Dossier classifié</span>
+            <span class="project-seal-icon"><i class="fas fa-folder-open"></i></span>
+            <span class="project-seal-text" data-i18n="projects.sealedLabel">Aperçu</span>
           </div>
           <div class="project-overlay">
             <span class="project-tag">${this.t(PROJECT_CATEGORY_KEYS[p.category] || 'projects.catWeb')}</span>
@@ -324,11 +339,28 @@ class I18n {
           <p class="project-desc-clamp">${this.t(`projectItems.${p.key}.desc`)}</p>
           <ul class="project-stack-preview">${p.stack.slice(0, 3).map(s => `<li>${s}</li>`).join('')}</ul>
         </div>
-      </article>
-    `).join('');
+      </article>`;
+  }
+
+  renderProjects() {
+    const done = PROJECT_CONFIG.filter(p => (p.status || 'done') === 'done');
+    const ongoing = PROJECT_CONFIG.filter(p => p.status === 'ongoing');
+    const gridDone = document.getElementById('projects-grid-done');
+    const gridOngoing = document.getElementById('projects-grid-ongoing');
+    if (gridDone) {
+      gridDone.innerHTML = done.map((p, i) => this.projectCardHtml(p, i)).join('');
+    }
+    if (gridOngoing) {
+      gridOngoing.innerHTML = ongoing.map((p, i) => this.projectCardHtml(p, i)).join('');
+    }
     if (window.portfolioApp) {
       window.portfolioApp.initProjectFilters();
       window.portfolioApp.initProjectArchive();
+      window.portfolioApp.initProjectTabs();
+      window.portfolioApp.observeAnimated([
+        ...(gridDone?.querySelectorAll('.project-card') || []),
+        ...(gridOngoing?.querySelectorAll('.project-card') || [])
+      ]);
     }
   }
 
@@ -391,12 +423,12 @@ class PortfolioApp {
     this.initLangSwitcher();
     this.initTyping();
     this.initContactForm();
-    this.initCvDownload();
     this.initProjectModal();
     this.initProjectModalZoom();
     this.initHomePortals();
     this.initFuturisticFx();
     this.modalZoom = 1;
+    setTimeout(() => this.refreshLayerAnimations(0), 400);
   }
 
   initFuturisticFx() {
@@ -510,7 +542,10 @@ class PortfolioApp {
     document.querySelectorAll('[data-layer-jump]').forEach(el => {
       el.addEventListener('click', e => {
         e.preventDefault();
-        go(+el.dataset.layerJump);
+        const idx = +el.dataset.layerJump;
+        const tab = el.dataset.projectTab;
+        go(idx);
+        if (tab) setTimeout(() => this.setProjectTab(tab), 720);
       });
     });
 
@@ -592,6 +627,7 @@ class PortfolioApp {
     if (active) active.scrollTop = 0;
 
     this.updateStageUI();
+    this.refreshLayerAnimations(index);
 
     setTimeout(() => {
       layers.forEach(layer => layer.classList.remove('layer--leaving', 'layer--entering'));
@@ -782,11 +818,9 @@ class PortfolioApp {
 
     const actions = document.getElementById('project-modal-actions');
     const demoLabel = this.i18n.t('projects.demo');
-    const repoLabel = this.i18n.t('projects.repo');
-    actions.innerHTML = [
-      project.demo ? `<a href="${project.demo}" class="btn btn-primary" target="_blank" rel="noopener noreferrer">${demoLabel}</a>` : '',
-      project.repo ? `<a href="${project.repo}" class="btn btn-secondary" target="_blank" rel="noopener noreferrer">${repoLabel}</a>` : ''
-    ].filter(Boolean).join('');
+    actions.innerHTML = project.demo
+      ? `<a href="${project.demo}" class="btn btn-primary" target="_blank" rel="noopener noreferrer">${demoLabel}</a>`
+      : '';
 
     this.resetModalZoom?.();
 
@@ -1024,23 +1058,94 @@ class PortfolioApp {
   }
 
   initProjectFilters() {
-    const buttons = document.querySelectorAll('.btn-filter');
-    const cards = document.querySelectorAll('.project-card');
-    buttons.forEach(btn => {
-      btn.replaceWith(btn.cloneNode(true));
-    });
-    document.querySelectorAll('.btn-filter').forEach(btn => {
+    const pane = document.getElementById('project-pane-done');
+    if (!pane || pane.dataset.filtersBound) return;
+    pane.dataset.filtersBound = '1';
+    pane.querySelectorAll('.btn-filter').forEach(btn => {
       btn.addEventListener('click', () => {
-        document.querySelectorAll('.btn-filter').forEach(b => b.classList.remove('active'));
+        pane.querySelectorAll('.btn-filter').forEach(b => b.classList.remove('active'));
         btn.classList.add('active');
         const filter = btn.dataset.filter;
-        document.querySelectorAll('.project-card').forEach(card => {
+        pane.querySelectorAll('.project-card').forEach(card => {
           const visible = filter === 'all' || card.dataset.category === filter;
           card.classList.toggle('hidden', !visible);
-          if (visible) card.classList.add('reveal', 'visible');
+          if (visible) {
+            card.classList.remove('is-visible');
+            this.observeAnimated(card);
+          }
         });
       });
     });
+  }
+
+  initProjectTabs() {
+    if (this._projectTabsBound) return;
+    this._projectTabsBound = true;
+    const tabs = document.querySelectorAll('.project-tab');
+    const panes = {
+      done: document.getElementById('project-pane-done'),
+      ongoing: document.getElementById('project-pane-ongoing'),
+      future: document.getElementById('project-pane-future')
+    };
+    const activate = (key) => {
+      tabs.forEach(t => {
+        const on = t.dataset.projectTab === key;
+        t.classList.toggle('active', on);
+        t.setAttribute('aria-selected', on ? 'true' : 'false');
+      });
+      Object.entries(panes).forEach(([k, pane]) => {
+        if (!pane) return;
+        const on = k === key;
+        pane.classList.toggle('is-active', on);
+        pane.hidden = !on;
+      });
+      const pane = panes[key];
+      if (pane) {
+        this.observeAnimated(pane.querySelectorAll('.project-card--animated, .future-card, .skill-orb'));
+      }
+    };
+    tabs.forEach(tab => {
+      tab.addEventListener('click', () => activate(tab.dataset.projectTab));
+    });
+    activate('done');
+  }
+
+  setProjectTab(key) {
+    const tab = document.querySelector(`.project-tab[data-project-tab="${key}"]`);
+    if (tab) tab.click();
+  }
+
+  observeAnimated(elements) {
+    if (typeof IntersectionObserver === 'undefined') return;
+    const list = elements ? (elements.length !== undefined && !elements.nodeName ? [...elements] : [elements]) : [];
+    if (!this._animObserver) {
+      this._animObserver = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('is-visible');
+          }
+        });
+      }, { threshold: 0.12, rootMargin: '0px 0px -8% 0px' });
+    }
+    list.forEach(el => {
+      if (el) this._animObserver.observe(el);
+    });
+  }
+
+  refreshLayerAnimations(layerIndex) {
+    const layer = document.getElementById(`layer-${LAYER_IDS[layerIndex]}`);
+    if (!layer) return;
+    const selectors = '.skill-orb, .project-card--animated, .future-card, .xp-card, .contact-channel, .contact-dossier, .portal-card';
+    layer.querySelectorAll(selectors).forEach(el => {
+      el.classList.remove('is-visible');
+      this.observeAnimated(el);
+    });
+    if (layerIndex === 4) {
+      document.querySelectorAll('#timeline .xp-card').forEach((el, i) => {
+        el.style.setProperty('--xp-i', i);
+        this.observeAnimated(el);
+      });
+    }
   }
 
   initTestimonials() {
@@ -1069,242 +1174,126 @@ class PortfolioApp {
 
   initContactForm() {
     const form = document.getElementById('contact-form');
-    form?.addEventListener('submit', (e) => {
+    if (!form || form.dataset.bound) return;
+    form.dataset.bound = '1';
+
+    const typeBtns = form.querySelectorAll('.contact-type-btn');
+    const panelPhys = document.getElementById('contact-panel-physical');
+    const panelMoral = document.getElementById('contact-panel-moral');
+    let contactType = 'physical';
+
+    const setType = (type) => {
+      contactType = type;
+      typeBtns.forEach(btn => {
+        const on = btn.dataset.contactType === type;
+        btn.classList.toggle('active', on);
+        btn.setAttribute('aria-pressed', on ? 'true' : 'false');
+      });
+      panelPhys?.classList.toggle('is-active', type === 'physical');
+      panelPhys?.toggleAttribute('hidden', type !== 'physical');
+      panelMoral?.classList.toggle('is-active', type === 'moral');
+      panelMoral?.toggleAttribute('hidden', type !== 'moral');
+    };
+    typeBtns.forEach(btn => btn.addEventListener('click', () => setType(btn.dataset.contactType)));
+
+    const clearInvalid = (group) => group?.classList.remove('is-invalid');
+
+    form.querySelectorAll('input, textarea, select').forEach(field => {
+      field.addEventListener('input', () => clearInvalid(field.closest('.form-group')));
+    });
+
+    const validate = () => {
+      let ok = true;
+      form.querySelectorAll('.form-group').forEach(g => g.classList.remove('is-invalid'));
+
+      const req = (selector, condition = true) => {
+        const el = form.querySelector(selector);
+        const group = el?.closest('.form-group');
+        if (!el || !condition) return;
+        const empty = el.type === 'checkbox' ? !el.checked : !String(el.value || '').trim();
+        if (empty) {
+          group?.classList.add('is-invalid');
+          ok = false;
+        }
+      };
+
+      if (contactType === 'physical') {
+        req('[name="physFirstname"]', true);
+        req('[name="physLastname"]', true);
+      } else {
+        req('[name="companyName"]', true);
+        req('[name="repName"]', true);
+        req('[name="repRole"]', true);
+      }
+
+      const emailEl = form.querySelector('[name="email"]');
+      const emailGroup = emailEl?.closest('.form-group');
+      if (!emailEl?.value.trim() || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(emailEl.value.trim())) {
+        emailGroup?.classList.add('is-invalid');
+        ok = false;
+      }
+
+      req('[name="phone"]');
+      req('[name="requestType"]');
+      req('[name="subject"]');
+      req('[name="message"]');
+      req('[name="assertAccuracy"]');
+      req('[name="assertPrivacy"]');
+
+      return ok;
+    };
+
+    form.addEventListener('submit', (e) => {
       e.preventDefault();
-      const name = form.name.value;
-      const email = form.email.value;
-      const subject = form.subject.value;
-      const message = form.message.value;
-      const mailto = `mailto:${EMAIL_PRIMARY}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(`Nom: ${name}\nEmail: ${email}\n\n${message}`)}`;
+      if (!validate()) {
+        this.showToast(this.i18n.t('notifications.formInvalid'));
+        return;
+      }
+
+      const t = (k) => this.i18n.t(k);
+      const lines = [
+        `=== ${t('contact.mailHeader')} ===`,
+        `${t('contact.mailType')}: ${contactType === 'physical' ? t('contact.typePhysical') : t('contact.typeMoral')}`,
+        ''
+      ];
+
+      if (contactType === 'physical') {
+        lines.push(
+          `${t('contact.firstName')}: ${form.physFirstname.value.trim()}`,
+          `${t('contact.lastName')}: ${form.physLastname.value.trim()}`
+        );
+      } else {
+        lines.push(
+          `${t('contact.companyName')}: ${form.companyName.value.trim()}`,
+          `${t('contact.legalForm')}: ${form.legalForm.value || '—'}`,
+          `${t('contact.companyId')}: ${form.companyId.value.trim() || '—'}`,
+          `${t('contact.repName')}: ${form.repName.value.trim()}`,
+          `${t('contact.repRole')}: ${form.repRole.value.trim()}`
+        );
+      }
+
+      const requestLabel = form.requestType.selectedOptions[0]?.textContent || form.requestType.value;
+      lines.push(
+        '',
+        `${t('contact.formEmail')}: ${form.email.value.trim()}`,
+        `${t('contact.formPhone')}: ${form.phone.value.trim()}`,
+        `${t('contact.requestType')}: ${requestLabel}`,
+        `${t('contact.formSubject')}: ${form.subject.value.trim()}`,
+        '',
+        `${t('contact.formMessage')}:`,
+        form.message.value.trim(),
+        '',
+        `— ${t('contact.mailFooter')}`
+      );
+
+      const subjectPrefix = contactType === 'moral' ? '[PM]' : '[PP]';
+      const mailSubject = `${subjectPrefix} ${form.subject.value.trim()}`;
+      const mailto = `mailto:${EMAIL_PRIMARY}?subject=${encodeURIComponent(mailSubject)}&body=${encodeURIComponent(lines.join('\n'))}`;
       window.location.href = mailto;
       this.showToast(this.i18n.t('notifications.formSent'));
       form.reset();
+      setType('physical');
     });
-  }
-
-  loadJsPdf() {
-    if (window.jspdf?.jsPDF) return Promise.resolve();
-    return new Promise((resolve, reject) => {
-      const s = document.createElement('script');
-      s.src = 'https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js';
-      s.crossOrigin = 'anonymous';
-      s.async = true;
-      s.onload = () => resolve();
-      s.onerror = () => reject(new Error('jsPDF load failed'));
-      document.head.appendChild(s);
-    });
-  }
-
-  initCvDownload() {
-    document.getElementById('cv-download')?.addEventListener('click', async (e) => {
-      e.preventDefault();
-      try {
-        await this.loadJsPdf();
-        await this.generateCVPdf();
-        this.showToast(this.i18n.t('notifications.cvDownloaded'));
-      } catch (err) {
-        console.error(err);
-        this.showToast(this.i18n.t('notifications.cvPdfError'));
-      }
-    });
-  }
-
-  imageToDataUrl(img) {
-    const size = 320;
-    const canvas = document.createElement('canvas');
-    canvas.width = size;
-    canvas.height = size;
-    const ctx = canvas.getContext('2d');
-    const sw = img.naturalWidth || img.width;
-    const sh = img.naturalHeight || img.height;
-    const crop = Math.min(sw, sh) * 0.88;
-    const sx = (sw - crop) / 2;
-    const sy = Math.max(0, (sh - crop) * 0.18);
-    ctx.fillStyle = '#1a2030';
-    ctx.fillRect(0, 0, size, size);
-    ctx.drawImage(img, sx, sy, crop, crop, 0, 0, size, size);
-    return canvas.toDataURL('image/png');
-  }
-
-  loadProfileImageData() {
-    const imgEl = document.getElementById('profile-photo') || document.querySelector('.welcome-photo');
-    if (imgEl?.complete && imgEl.naturalWidth > 0) {
-      return Promise.resolve(this.imageToDataUrl(imgEl));
-    }
-    const src = imgEl?.src || new URL('images/profile.png', document.baseURI).href;
-    return new Promise((resolve, reject) => {
-      const img = new Image();
-      img.onload = () => resolve(this.imageToDataUrl(img));
-      img.onerror = () => {
-        fetch(src)
-          .then((r) => {
-            if (!r.ok) throw new Error('fetch');
-            return r.blob();
-          })
-          .then((blob) => {
-            const url = URL.createObjectURL(blob);
-            const img2 = new Image();
-            img2.onload = () => {
-              URL.revokeObjectURL(url);
-              resolve(this.imageToDataUrl(img2));
-            };
-            img2.onerror = () => {
-              URL.revokeObjectURL(url);
-              reject(new Error('profile image'));
-            };
-            img2.src = url;
-          })
-          .catch(() => {
-            const alt = new URL('images/profile-alt.png', document.baseURI).href;
-            if (alt !== src) {
-              fetch(alt)
-                .then((r) => r.blob())
-                .then((blob) => {
-                  const url = URL.createObjectURL(blob);
-                  const img3 = new Image();
-                  img3.onload = () => {
-                    URL.revokeObjectURL(url);
-                    resolve(this.imageToDataUrl(img3));
-                  };
-                  img3.onerror = () => reject(new Error('profile image'));
-                  img3.src = url;
-                })
-                .catch(() => reject(new Error('profile image')));
-            } else reject(new Error('profile image'));
-          });
-      };
-      img.src = src;
-    });
-  }
-
-  /**
-   * CV en PDF — police « times » + photo de profil.
-   */
-  async generateCVPdf() {
-    const jspdf = window.jspdf;
-    if (!jspdf?.jsPDF) {
-      throw new Error('jsPDF indisponible');
-    }
-    const { jsPDF } = jspdf;
-    const doc = new jsPDF({ unit: 'mm', format: 'a4', compress: true });
-    const margin = 20;
-    const pageW = 210;
-    let photoData = null;
-    try {
-      photoData = await this.loadProfileImageData();
-    } catch {
-      photoData = null;
-    }
-    const photoSize = 36;
-    const photoX = pageW - margin - photoSize;
-    const photoY = 14;
-    const textMaxW = photoData ? pageW - margin * 2 - photoSize - 8 : pageW - margin * 2;
-    const lineH = (size) => size * 0.52;
-    let y = 22;
-
-    if (photoData) {
-      const format = photoData.startsWith('data:image/png') ? 'PNG' : 'JPEG';
-      doc.addImage(photoData, format, photoX, photoY, photoSize, photoSize, undefined, 'FAST');
-      doc.setDrawColor(166, 139, 91);
-      doc.setLineWidth(0.4);
-      doc.rect(photoX, photoY, photoSize, photoSize);
-    }
-
-    const newPageIfNeeded = (extra) => {
-      if (y + extra > 285) {
-        doc.addPage();
-        y = 20;
-      }
-    };
-
-    const writeParagraph = (text, size, style, width = textMaxW) => {
-      doc.setFont('times', style);
-      doc.setFontSize(size);
-      const lines = doc.splitTextToSize(String(text), width);
-      const h = lines.length * lineH(size) + 4;
-      newPageIfNeeded(h);
-      doc.text(lines, margin, y);
-      y += h;
-    };
-
-    const writeLine = (text, size, style) => {
-      doc.setFont('times', style);
-      doc.setFontSize(size);
-      newPageIfNeeded(lineH(size) + 3);
-      doc.text(String(text), margin, y);
-      y += lineH(size) + 2;
-    };
-
-    doc.setFont('times', 'bold');
-    doc.setFontSize(photoData ? 17 : 20);
-    const nameLines = doc.splitTextToSize('KADIEBWE MAKINA EDVAIS', textMaxW);
-    doc.text(nameLines, margin, y);
-    y += nameLines.length * 7 + 2;
-
-    doc.setFont('times', 'italic');
-    doc.setFontSize(11);
-    const titleLines = doc.splitTextToSize(this.i18n.t('cv.title'), textMaxW);
-    doc.text(titleLines, margin, y);
-    y += titleLines.length * 5.5 + 2;
-
-    doc.setFont('times', 'normal');
-    doc.setFontSize(10);
-    const contact = [
-      'Lubumbashi, République Démocratique du Congo',
-      `${EMAIL_PRIMARY} · ${EMAIL_ICLOUD}`,
-      'Tél: +243 895 966 288 · +243 976 088 812',
-      'WhatsApp: https://wa.me/message/U5VBQ5ZPUAS6A1',
-      'GitHub: https://github.com/elvisedvais203-web'
-    ];
-    contact.forEach((line) => {
-      newPageIfNeeded(6);
-      doc.text(line, margin, y);
-      y += 5.5;
-    });
-    y += 4;
-
-    doc.setFont('times', 'bold');
-    doc.setFontSize(12);
-    newPageIfNeeded(8);
-    doc.text(this.i18n.t('cv.education').toUpperCase(), margin, y);
-    y += 7;
-    doc.setFont('times', 'normal');
-    doc.setFontSize(10);
-    writeParagraph(
-      'Université Protestante de Lubumbashi (UPL) — Systèmes Informatiques, Génie Logiciel et Intelligence Artificielle.',
-      10,
-      'normal'
-    );
-
-    doc.setFont('times', 'bold');
-    doc.setFontSize(12);
-    newPageIfNeeded(8);
-    doc.text(this.i18n.t('cv.profile').toUpperCase(), margin, y);
-    y += 7;
-    writeParagraph(this.i18n.t('about.p1'), 10, 'normal');
-    writeParagraph(this.i18n.t('about.p2'), 10, 'normal');
-
-    doc.setFont('times', 'bold');
-    doc.setFontSize(12);
-    newPageIfNeeded(8);
-    doc.text(this.i18n.t('cv.skills').toUpperCase(), margin, y);
-    y += 7;
-    doc.setFont('times', 'normal');
-    doc.setFontSize(9.5);
-    SKILL_CONFIG.forEach((s) => {
-      writeLine(`• ${this.i18n.t(`skillItems.${s.key}`)}`, 9.5, 'normal');
-    });
-
-    doc.setFont('times', 'italic');
-    doc.setFontSize(9);
-    newPageIfNeeded(8);
-    writeParagraph(
-      'Portfolio : https://elvisedvais203-web.github.io/portiofolio/ — GitHub : https://github.com/elvisedvais203-web/portiofolio',
-      9,
-      'italic'
-    );
-
-    doc.save('CV_KADIEBWE_MAKINA_EDVAIS.pdf');
   }
 
   showToast(message) {

@@ -142,9 +142,19 @@ body.stage-body {
 }
 .portal-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
   gap: 1rem;
   margin-bottom: 2rem;
+}
+.portal-card--ongoing {
+  border-color: rgba(201, 168, 108, 0.35) !important;
+}
+.portal-card--ongoing .portal-icon {
+  background: var(--bronze-soft);
+  color: var(--bronze);
+}
+.portal-card--ongoing:hover {
+  border-color: var(--bronze) !important;
 }
 .portal-card {
   position: relative;
