@@ -213,8 +213,8 @@ class I18n {
     this.updateMeta();
     this.updateDirection();
     this.updateLangUI();
-    this.renderDynamicContent();
-    if (window.portfolioApp) window.portfolioApp.mountAllCarousels();
+    this.renderEssentialContent();
+    if (window.portfolioApp) window.portfolioApp.onLanguageReady();
     document.documentElement.lang = LANG_CONFIG[lang].htmlLang;
     setTimeout(() => document.body.classList.remove('lang-transition'), 300);
     if (window.portfolioApp) {
@@ -277,14 +277,20 @@ class I18n {
     });
   }
 
+  renderEssentialContent() {
+    this.renderExperience();
+    this.renderContactRequestTypes();
+  }
+
   renderDynamicContent() {
+    this.renderEssentialContent();
     this.renderSkills();
     this.renderProjects();
-    this.renderExperience();
-    this.renderFutureProjects();
-    this.renderFutureProjects('future-grid');
     this.renderFutureProjects('future-grid-projects');
-    this.renderContactRequestTypes();
+  }
+
+  renderHomeFuture() {
+    this.renderFutureProjects('future-grid');
   }
 
   renderContactRequestTypes() {
@@ -396,11 +402,7 @@ class I18n {
       gridOngoing.innerHTML = ongoing.map((p, i) => this.projectCardHtml(p, i)).join('');
     }
     if (window.portfolioApp) {
-      window.portfolioApp.initProjectFilters();
       window.portfolioApp.initProjectArchive();
-      window.portfolioApp.initProjectTabs();
-      window.portfolioApp.mountCarousel('projects-grid-done');
-      window.portfolioApp.mountCarousel('projects-grid-ongoing');
     }
   }
 
@@ -458,8 +460,12 @@ class PortfolioApp {
 
   async init() {
     window.portfolioApp = this;
-    await this.i18n.init();
+    this.carousels = {};
+    this._layerReady = { skills: false, projects: false };
+    this.modalZoom = 1;
     this.initLoader();
+    await this.i18n.init();
+    document.body.classList.add('is-ready');
     this.initStage();
     this.initTheme();
     this.initLangSwitcher();
@@ -467,12 +473,115 @@ class PortfolioApp {
     this.initContactForm();
     this.initProjectModal();
     this.initProjectModalZoom();
-    this.initHomePortals();
-    this.initFuturisticFx();
     this.initHomeReveal();
-    this.carousels = {};
-    this.modalZoom = 1;
-    setTimeout(() => this.refreshLayerAnimations(0), 400);
+    this.scheduleDeferredWork();
+  }
+
+  onLanguageReady() {
+    if (this._layerReady.skills) {
+      this.i18n.renderSkills();
+      this.mountCarousel('skills-grid');
+    }
+    if (this._layerReady.projects) {
+      this.i18n.renderProjects();
+      this.initProjectArchive();
+      this.mountCarousel('projects-grid-done');
+      this.mountCarousel('projects-grid-ongoing');
+      this.mountCarousel('future-grid-projects');
+    }
+    if (document.getElementById('future-grid')?.querySelector('.future-card')) {
+      this.i18n.renderHomeFuture();
+      this.mountCarousel('future-grid');
+    }
+  }
+
+  scheduleDeferredWork() {
+    const run = (fn) => {
+      if ('requestIdleCallback' in window) {
+        requestIdleCallback(fn, { timeout: 4000 });
+      } else {
+        setTimeout(fn, 1200);
+      }
+    };
+    run(() => this.loadWebFonts());
+    run(() => this.loadFontAwesome());
+    run(() => this.loadCarouselScript());
+    run(() => this.initFuturisticFx());
+  }
+
+  loadWebFonts() {
+    if (document.getElementById('font-inter')) return;
+    const link = document.createElement('link');
+    link.id = 'font-inter';
+    link.rel = 'stylesheet';
+    link.href = 'https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap';
+    link.onload = () => document.body.classList.add('fonts-ready');
+    document.head.appendChild(link);
+  }
+
+  loadFontAwesome() {
+    if (document.getElementById('fa-css')) return;
+    const link = document.createElement('link');
+    link.id = 'fa-css';
+    link.rel = 'stylesheet';
+    link.href = 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css';
+    document.head.appendChild(link);
+  }
+
+  loadCarouselScript() {
+    if (window.PremiumCarousel) return Promise.resolve();
+    const existing = document.getElementById('carousel-js');
+    if (existing) {
+      return existing.dataset.loaded === '1'
+        ? Promise.resolve()
+        : new Promise((resolve) => {
+            existing.addEventListener('load', () => resolve(), { once: true });
+            existing.addEventListener('error', () => resolve(), { once: true });
+          });
+    }
+    return new Promise((resolve) => {
+      const s = document.createElement('script');
+      s.id = 'carousel-js';
+      s.src = 'carousel.js';
+      s.defer = true;
+      s.onload = () => { s.dataset.loaded = '1'; resolve(); };
+      s.onerror = resolve;
+      document.body.appendChild(s);
+    });
+  }
+
+  async loadLenisScript() {
+    if (window.Lenis || document.getElementById('lenis-js')) return;
+    return new Promise((resolve) => {
+      const s = document.createElement('script');
+      s.id = 'lenis-js';
+      s.src = 'https://unpkg.com/lenis@1.1.18/dist/lenis.min.js';
+      s.defer = true;
+      s.onload = resolve;
+      s.onerror = resolve;
+      document.body.appendChild(s);
+    });
+  }
+
+  ensureLayerContent(index) {
+    if (index === 2 && !this._layerReady.skills) {
+      this._layerReady.skills = true;
+      this.i18n.renderSkills();
+      this.loadCarouselScript().then(() => this.mountCarousel('skills-grid'));
+    }
+    if (index === 3 && !this._layerReady.projects) {
+      this._layerReady.projects = true;
+      this.i18n.renderProjects();
+      this.loadCarouselScript().then(() => {
+        this.initProjectFilters();
+        this.initProjectArchive();
+        this.initProjectTabs();
+        this.mountCarousel('projects-grid-done');
+        this.mountCarousel('projects-grid-ongoing');
+        this.i18n.renderFutureProjects('future-grid-projects');
+        this.mountCarousel('future-grid-projects');
+      });
+    }
   }
 
   initHomeReveal() {
@@ -480,7 +589,7 @@ class PortfolioApp {
     if (sessionStorage.getItem(KEY)) {
       document.body.classList.remove('home-locked');
       document.getElementById('home-scroll')?.classList.add('home-scroll--revealed');
-      this.initLenis();
+      void this.initLenis();
     }
   }
 
@@ -489,19 +598,23 @@ class PortfolioApp {
     sessionStorage.setItem('portfolio_unlocked', '1');
     const scroll = document.getElementById('home-scroll');
     scroll?.classList.add('home-scroll--revealed');
-    this.initLenis();
-    this.i18n.renderFutureProjects('future-grid');
-    this.mountCarousel('future-grid');
-    this.initHomePortals();
+    void this.initLenis();
+    this.i18n.renderHomeFuture();
+    this.loadCarouselScript().then(() => {
+      this.mountCarousel('future-grid');
+      this.initHomePortals();
+    });
     setTimeout(() => this.refreshLayerAnimations(0), 200);
   }
 
-  initLenis() {
-    if (this.lenis || !window.Lenis) return;
+  async initLenis() {
+    if (this.lenis) return;
     if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    await this.loadLenisScript();
+    if (!window.Lenis) return;
     const home = document.getElementById('layer-home');
     if (!home) return;
-    this.lenis = new Lenis({ wrapper: home, content: home, smoothWheel: true, lerp: 0.088 });
+    this.lenis = new Lenis({ wrapper: home, content: home, smoothWheel: true, lerp: 0.1 });
     const loop = (time) => {
       this.lenis.raf(time);
       requestAnimationFrame(loop);
@@ -510,7 +623,10 @@ class PortfolioApp {
   }
 
   mountCarousel(trackId) {
-    if (!window.PremiumCarousel) return;
+    if (!window.PremiumCarousel) {
+      this.loadCarouselScript().then(() => this.mountCarousel(trackId));
+      return;
+    }
     const track = document.getElementById(trackId);
     if (!track) return;
     const carouselEl = track.closest('.premium-carousel');
@@ -524,48 +640,55 @@ class PortfolioApp {
     this.carousels[trackId].mountFromHtml(html);
   }
 
-  mountAllCarousels() {
-    [
-      'skills-grid',
-      'projects-grid-done',
-      'projects-grid-ongoing',
-      'future-grid',
-      'future-grid-projects'
-    ].forEach((id) => this.mountCarousel(id));
-  }
-
   initFuturisticFx() {
+    if (this._fxStarted) return;
     if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    if (window.matchMedia('(max-width: 768px)').matches) return;
     const canvas = document.getElementById('fx-particles');
     if (!canvas) return;
-    const ctx = canvas.getContext('2d');
+    this._fxStarted = true;
+    canvas.hidden = false;
+    document.body.classList.add('fx-active');
+    const ctx = canvas.getContext('2d', { alpha: true });
     if (!ctx) return;
 
     let w = 0;
     let h = 0;
     let particles = [];
-    const count = 48;
+    let running = true;
+    const count = 16;
 
     const resize = () => {
-      w = canvas.width = window.innerWidth;
-      h = canvas.height = window.innerHeight;
+      const dpr = Math.min(window.devicePixelRatio || 1, 1.5);
+      w = window.innerWidth;
+      h = window.innerHeight;
+      canvas.width = Math.floor(w * dpr);
+      canvas.height = Math.floor(h * dpr);
+      canvas.style.width = `${w}px`;
+      canvas.style.height = `${h}px`;
+      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
     };
 
     const initParticles = () => {
       particles = Array.from({ length: count }, () => ({
         x: Math.random() * w,
         y: Math.random() * h,
-        r: Math.random() * 1.2 + 0.3,
-        vx: (Math.random() - 0.5) * 0.25,
-        vy: (Math.random() - 0.5) * 0.25,
-        a: Math.random() * 0.35 + 0.15
+        r: Math.random() * 1 + 0.4,
+        vx: (Math.random() - 0.5) * 0.18,
+        vy: (Math.random() - 0.5) * 0.18,
+        a: Math.random() * 0.25 + 0.12
       }));
     };
 
     const draw = () => {
+      if (!running) return;
+      if (document.hidden) {
+        requestAnimationFrame(draw);
+        return;
+      }
       ctx.clearRect(0, 0, w, h);
-      const cyan = getComputedStyle(document.documentElement).getPropertyValue('--neon-cyan').trim() || '#00e8ff';
-      particles.forEach((p, i) => {
+      const cyan = '#5eb8ff';
+      particles.forEach((p) => {
         p.x += p.vx;
         p.y += p.vy;
         if (p.x < 0) p.x = w;
@@ -577,18 +700,6 @@ class PortfolioApp {
         ctx.fillStyle = cyan;
         ctx.globalAlpha = p.a;
         ctx.fill();
-        for (let j = i + 1; j < particles.length; j++) {
-          const p2 = particles[j];
-          const dist = Math.hypot(p.x - p2.x, p.y - p2.y);
-          if (dist < 100) {
-            ctx.beginPath();
-            ctx.moveTo(p.x, p.y);
-            ctx.lineTo(p2.x, p2.y);
-            ctx.strokeStyle = cyan;
-            ctx.globalAlpha = (1 - dist / 100) * 0.08;
-            ctx.stroke();
-          }
-        }
       });
       ctx.globalAlpha = 1;
       requestAnimationFrame(draw);
@@ -597,9 +708,10 @@ class PortfolioApp {
     resize();
     initParticles();
     draw();
-    window.addEventListener('resize', () => {
-      resize();
-      initParticles();
+    window.addEventListener('resize', () => { resize(); initParticles(); }, { passive: true });
+    document.addEventListener('visibilitychange', () => {
+      running = !document.hidden;
+      if (running) requestAnimationFrame(draw);
     });
   }
 
@@ -615,9 +727,13 @@ class PortfolioApp {
   }
 
   initLoader() {
-    const hide = () => document.getElementById('loader')?.classList.add('hidden');
-    if (document.readyState === 'complete') hide();
-    else window.addEventListener('load', hide, { once: true });
+    const hide = () => {
+      document.getElementById('loader')?.classList.add('hidden');
+      document.body.classList.add('is-ready');
+    };
+    if (document.readyState !== 'loading') hide();
+    else document.addEventListener('DOMContentLoaded', hide, { once: true });
+    setTimeout(hide, 900);
   }
 
   initStage() {
@@ -743,14 +859,9 @@ class PortfolioApp {
     const active = document.getElementById(`layer-${LAYER_IDS[index]}`);
     if (active) active.scrollTop = 0;
 
+    this.ensureLayerContent(index);
     this.updateStageUI();
     this.refreshLayerAnimations(index);
-    if (index === 2) this.mountCarousel('skills-grid');
-    if (index === 3) {
-      this.mountCarousel('projects-grid-done');
-      this.mountCarousel('projects-grid-ongoing');
-      this.mountCarousel('future-grid-projects');
-    }
 
     setTimeout(() => {
       layers.forEach(layer => layer.classList.remove('layer--leaving', 'layer--entering'));

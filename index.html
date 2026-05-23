@@ -10,16 +10,21 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="preload" href="style.css" as="style">
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500&family=Inter:wght@400;500;600&family=Orbitron:wght@500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" media="print" onload="this.media='all'">
-  <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"></noscript>
+  <link rel="preload" href="stage.css" as="style">
+  <link rel="preload" href="images/profile.png" as="image">
   <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="stage.css">
-  <link rel="stylesheet" href="futuristic.css">
-  <link rel="stylesheet" href="animations.css">
-  <link rel="stylesheet" href="premium.css">
+  <link rel="stylesheet" href="perf.css">
+  <link rel="stylesheet" href="futuristic.css" media="print" onload="this.media='all'">
+  <link rel="stylesheet" href="animations.css" media="print" onload="this.media='all'">
+  <link rel="stylesheet" href="premium.css" media="print" onload="this.media='all'">
+  <noscript>
+    <link rel="stylesheet" href="futuristic.css">
+    <link rel="stylesheet" href="animations.css">
+    <link rel="stylesheet" href="premium.css">
+  </noscript>
 </head>
-<body class="stage-body on-home fx-mode home-locked">
+<body class="stage-body on-home fx-mode home-locked perf-lite">
   <a href="#layer-home" class="skip-link" data-i18n="a11y.skip">Aller au contenu</a>
 
   <div id="loader" class="loader" aria-hidden="true">
@@ -68,7 +73,7 @@
       <div class="fx-aurora fx-aurora--1"></div>
       <div class="fx-aurora fx-aurora--2"></div>
       <div class="fx-grid"></div>
-      <canvas id="fx-particles" class="fx-particles"></canvas>
+      <canvas id="fx-particles" class="fx-particles" hidden aria-hidden="true"></canvas>
       <div class="fx-scanlines"></div>
       <div class="fx-vignette"></div>
     </div>
@@ -447,8 +452,6 @@
 
   <a href="https://wa.me/message/U5VBQ5ZPUAS6A1" class="fab-whatsapp" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
   <div class="toast" id="toast" role="status"></div>
-  <script src="https://unpkg.com/lenis@1.1.18/dist/lenis.min.js" defer></script>
-  <script src="carousel.js" defer></script>
   <script src="script.js" defer></script>
 </body>
 </html>

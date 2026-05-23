@@ -1,0 +1,78 @@
+/* Performance — affichage rapide, effets allégés */
+
+:root {
+  --font-display: Georgia, 'Times New Roman', serif;
+  --font-tech: var(--font, 'Inter', system-ui, sans-serif);
+}
+
+/* Polices système par défaut ; Inter chargée en async via JS */
+body.stage-body {
+  font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+}
+
+body.fonts-ready {
+  font-family: var(--font, 'Inter', system-ui, sans-serif);
+}
+
+/* Loader minimal — disparaît vite */
+.loader {
+  transition: opacity 0.25s ease, visibility 0.25s ease;
+}
+
+body.is-ready .loader {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+/* Couches inactives : pas de rendu coûteux */
+.layer:not(.layer--active) {
+  content-visibility: hidden;
+  contain: layout style paint;
+}
+
+.layer--active {
+  content-visibility: visible;
+}
+
+/* Mode perf : moins de blur (GPU) */
+body.perf-lite .glass-panel,
+body.perf-lite .portal-card,
+body.perf-lite .xp-entry-body,
+body.perf-lite .contact-form-panel,
+body.perf-lite .project-card,
+body.perf-lite .skill-slide,
+body.perf-lite .float-dock .btn-glass,
+body.perf-lite .stage-nav {
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+}
+
+@media (max-width: 900px) {
+  body.perf-lite .glass-panel,
+  body.perf-lite .portal-card,
+  body.perf-lite .stage-header.visible {
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+  }
+}
+
+body.perf-lite .fx-scanlines,
+body.perf-lite .fx-aurora--2 {
+  display: none;
+}
+
+body.perf-lite.fx-active .fx-particles {
+  display: block;
+}
+
+body.perf-lite:not(.fx-active) .fx-particles {
+  display: none !important;
+}
+
+/* Carrousels : animation CSS seulement si pas reduced-motion */
+@media (prefers-reduced-motion: reduce) {
+  .premium-carousel-track {
+    animation: none !important;
+  }
+}
