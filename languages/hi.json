@@ -9,6 +9,13 @@
   "loader": {
     "text": "लोड हो रहा है…"
   },
+  "a11y": {
+    "skip": "मुख्य सामग्री पर जाएँ",
+    "backTop": "Back to top",
+    "themeToggle": "Light or dark mode",
+    "themeLight": "Switch to light mode",
+    "themeDark": "Switch to dark mode"
+  },
   "nav": {
     "home": "मुखपृष्ठ",
     "about": "प्रोफ़ाइल",
@@ -19,18 +26,30 @@
     "testimonials": "प्रशंसापत्र",
     "contact": "संपर्क"
   },
+  "stage": {
+    "discover": "प्रोफ़ाइल देखें",
+    "next": "अगला पृष्ठ",
+    "prev": "वापस",
+    "finish": "संपर्क"
+  },
   "hero": {
-    "greeting": "नमस्ते, मैं हूँ",
+    "eyebrow": "सूचना प्रणाली अभियंता",
     "description": "मैं विश्वसनीय डिजिटल समाधान डिज़ाइन, तैनात और बनाए रखता हूँ। विकास, नेटवर्क और AI में अनुभव, SI में विशेषज्ञता।",
     "country": "लोकतांत्रिक गणराज्य कांगो",
-    "ctaContact": "मुझसे संपर्क करें",
+    "ctaContact": "संपर्क",
+    "ctaProjects": "पूर्ण परियोजनाएँ",
+    "ctaProjectsDesc": "लाइव ऐप",
+    "ctaOngoing": "चल रही परियोजनाएँ",
+    "ctaOngoingDesc": "सक्रिय विकास",
+    "ctaSkills": "मेरे कौशल",
+    "ctaSkillsDesc": "SI, विकास, नेटवर्क और AI",
+    "scrollHint": "देखें",
+    "greeting": "नमस्ते, मैं हूँ",
     "ctaCv": "रिज़्यूमे PDF",
-    "ctaProjects": "परियोजनाएँ देखें",
     "badge": "उपलब्ध",
     "floatAi": "AI और ML",
     "floatDev": "फुल स्टैक",
-    "floatSec": "साइबर सुरक्षा",
-    "eyebrow": "सूचना प्रणाली अभियंता"
+    "floatSec": "साइबर सुरक्षा"
   },
   "typing": {
     "titles": [
@@ -45,15 +64,17 @@
     "projects": "पूर्ण परियोजनाएँ",
     "experience": "वर्षों का अनुभव",
     "clients": "संतुष्ट ग्राहक",
+    "domains": "Areas of expertise",
     "tech": "मास्टर की गई तकनीकें"
   },
   "about": {
-    "tag": "परिचय",
     "title": "प्रस्तुति",
     "subtitle": "सूचना प्रणाली (SI) विशेषज्ञ",
     "p1": "UPL स्नातक (SI, सॉफ्टवेयर इंजीनियरिंग और AI)। विकास, नेटवर्क, AI और तैनाती।",
     "p2": "बहु-क्षेत्रीय प्रोफ़ाइल, सिस्टम विश्वसनीयता पर जोर।",
     "university": "शिक्षा",
+    "lead": "A structured technical background focused on reliability and service.",
+    "tag": "परिचय",
     "phone": "फ़ोन:",
     "langTitle": "भाषा कौशल",
     "lang1": "फ्रेंच धाराप्रवाह बोलता है",
@@ -68,11 +89,20 @@
     "ai5": "बुद्धिमान प्रणालियों के विशेषज्ञ"
   },
   "skills": {
-    "tag": "कौशल",
     "title": "क्षेत्रों में दक्षता",
-    "lead": "व्यापक कौशल — SI केंद्र।"
+    "lead": "व्यापक कौशल — SI केंद्र।",
+    "tag": "कौशल",
+    "levelLabel": "प्रवीणता स्तर"
   },
   "skillItems": {
+    "frontend": "User interfaces & UX",
+    "backend": "Servers & APIs",
+    "databases": "Databases",
+    "ai": "Artificial intelligence",
+    "infrastructure": "Networks & systems",
+    "cybersecurity": "Cybersecurity",
+    "iot": "Embedded systems",
+    "devops": "Integration & deployment",
     "html": "HTML",
     "css": "CSS",
     "javascript": "JavaScript",
@@ -83,12 +113,8 @@
     "sql": "SQL",
     "flask": "Flask",
     "unity": "Unity",
-    "ai": "AI विकास",
     "networking": "नेटवर्क",
-    "cybersecurity": "साइबर सुरक्षा",
     "database": "डेटाबेस डिज़ाइन",
-    "frontend": "फ्रंटएंड विकास",
-    "backend": "बैकएंड विकास",
     "uiux": "UI/UX डिज़ाइन",
     "sysadmin": "सिस्टम प्रशासन",
     "linux": "Linux",
@@ -97,11 +123,45 @@
     "sqlite": "SQLite",
     "git": "Git & GitHub"
   },
+  "skillStacks": {
+    "frontend": "HTML · CSS · JavaScript · UI/UX · Responsive design",
+    "backend": "Python · C# · Java · PHP · Flask · REST APIs",
+    "databases": "SQL · SQLite · Database design & optimization",
+    "ai": "Machine learning · Computer vision · Intelligent automation",
+    "infrastructure": "Networking · System administration · Linux",
+    "cybersecurity": "Application security · System protection",
+    "iot": "Arduino · Embedded systems · Unity · Prototyping",
+    "devops": "Git · GitHub · Collaboration & deployment"
+  },
   "services": {
     "tag": "सेवाएँ",
     "title": "प्रीमियम समाधान"
   },
   "serviceItems": {
+    "development": {
+      "title": "Web & mobile development",
+      "desc": "Custom websites and apps: design, development, deployment and maintenance."
+    },
+    "ai": {
+      "title": "AI समाधान",
+      "desc": "बुद्धिमान प्रणालियाँ, मशीन लर्निंग और AI द्वारा स्वचालन।"
+    },
+    "infrastructure": {
+      "title": "IT infrastructure & cybersecurity",
+      "desc": "Networks, security, preventive maintenance and technical support for SMEs and institutions."
+    },
+    "dataSystems": {
+      "title": "Data & connected systems",
+      "desc": "Databases, IoT, smart systems and dashboards for decision-making."
+    },
+    "embedded": {
+      "title": "एम्बेडेड सिस्टम",
+      "desc": "Arduino और माइक्रोकंट्रोलर के साथ एम्बेडेड समाधान विकास।"
+    },
+    "consulting": {
+      "title": "IT परामर्श",
+      "desc": "आपके डिजिटल परिवर्तन के लिए रणनीतिक सहायता।"
+    },
     "web": {
       "title": "वेब विकास",
       "desc": "नवीनतम तकनीकों के साथ आधुनिक, रेस्पॉन्सिव और उच्च-प्रदर्शन वेबसाइटें।"
@@ -109,10 +169,6 @@
     "mobile": {
       "title": "मोबाइल ऐप",
       "desc": "iOS और Android के लिए नेटिव और क्रॉस-प्लेटफ़ॉर्म मोबाइल अनुप्रयोग।"
-    },
-    "ai": {
-      "title": "AI समाधान",
-      "desc": "बुद्धिमान प्रणालियाँ, मशीन लर्निंग और AI द्वारा स्वचालन।"
     },
     "network": {
       "title": "नेटवर्क स्थापना",
@@ -134,43 +190,76 @@
       "title": "सॉफ्टवेयर इंजीनियरिंग",
       "desc": "आपकी व्यावसायिक आवश्यकताओं के अनुसार कस्टम सॉफ्टवेयर विकास।"
     },
-    "consulting": {
-      "title": "IT परामर्श",
-      "desc": "आपके डिजिटल परिवर्तन के लिए रणनीतिक सहायता।"
-    },
     "maintenance": {
       "title": "सिस्टम रखरखाव",
       "desc": "तकनीकी सहायता, निवारक और सुधारात्मक रखरखाव।"
-    },
-    "embedded": {
-      "title": "एम्बेडेड सिस्टम",
-      "desc": "Arduino और माइक्रोकंट्रोलर के साथ एम्बेडेड समाधान विकास।"
     },
     "automation": {
       "title": "स्वचालन प्रणालियाँ",
       "desc": "दक्षता बढ़ाने के लिए औद्योगिक और प्रक्रिया स्वचालन।"
     }
   },
+  "archive": {
+    "code": "ARCHIVE · EM-2026",
+    "title": "Classified dossiers",
+    "lead": "Real production applications. Each project stays hidden until you choose to open it.",
+    "unlock": "Unlock the archive",
+    "skip": "Enter directly",
+    "hint": "Scroll or click a dossier to reveal"
+  },
   "projects": {
-    "tag": "परियोजनाएँ",
     "title": "परियोजनाएँ",
+    "lead": "पूर्ण, चल रही और नवाचार।",
+    "tabDone": "पूर्ण",
+    "tabOngoing": "चल रही",
+    "tabFuture": "क्षितिज",
+    "statusDone": "पूर्ण",
+    "statusOngoing": "चल रही",
+    "ongoingLead": "विकास या तैनाती में।",
+    "sealedLabel": "पूर्वावलोकन",
+    "revealCta": "खोलें",
+    "demo": "डेमो",
+    "zoomHint": "Click the image to zoom · use +/− or scroll wheel",
+    "zoomReset": "100%",
+    "zoomIn": "Zoom in",
+    "zoomOut": "Zoom out",
+    "tag": "परियोजनाएँ",
     "filterAll": "सभी",
     "filterAi": "AI",
-    "filterWeb": "वेब",
+    "filterWeb": "वेब और मोबाइल",
     "filterIot": "IoT",
     "filterNetwork": "नेटवर्क",
     "catAi": "कृत्रिम बुद्धिमत्ता",
     "catWeb": "Web",
     "catIot": "IoT",
     "catNetwork": "नेटवर्क",
-    "lead": "विवरण के लिए क्लिक करें।",
-    "filterDevops": "अवसंरचना",
-    "sealedLabel": "परियोजना",
-    "revealCta": "खोलें",
-    "demo": "डेमो",
-    "repo": "स्रोत"
+    "filterDevops": "इन्फ्रास्ट्रक्चर"
   },
   "projectItems": {
+    "nextalk": {
+      "title": "NexTalk",
+      "desc": "Communication platform: messaging, calls and channels."
+    },
+    "congolove": {
+      "title": "CongoLove",
+      "desc": "Social and dating network — profiles, verification and matching."
+    },
+    "netcontrol": {
+      "title": "NetControl",
+      "desc": "Network supervision and workstation administration."
+    },
+    "edvaselve": {
+      "title": "Edvaselve Marketplace",
+      "desc": "Multi-vendor marketplace — Lubumbashi."
+    },
+    "solola": {
+      "title": "SOLOLA",
+      "desc": "Web communication service — production on Render."
+    },
+    "congoloveStack": {
+      "title": "CongoLove infrastructure",
+      "desc": "PostgreSQL, Valkey, Node.js services, mail domain."
+    },
     "surveillance": {
       "title": "स्मार्ट शहरी निगरानी प्रणाली",
       "desc": "विसंगति पहचान और स्वचालित अलर्ट के साथ वास्तविक समय शहरी निगरानी के लिए AI प्लेटफ़ॉर्म।"
@@ -208,13 +297,60 @@
       "desc": "मीडिया, प्रशिक्षण और दृश्य संचार के लिए AI-सहायता प्राप्त एनिमेशन रचनाएँ।"
     }
   },
+  "future": {
+    "tag": "Horizon",
+    "title": "Future projects",
+    "lead": "Innovation lab — prototypes and visions in progress.",
+    "items": {
+      "siHub": {
+        "title": "IS Analytics Hub",
+        "desc": "Unified dashboard for IS monitoring, metrics and real-time alerts.",
+        "status": "R&D · 2026"
+      },
+      "secureCloud": {
+        "title": "SecureCloud DRC",
+        "desc": "Sovereign hosting platform with hardening and automated backups.",
+        "status": "Design · 2026"
+      },
+      "eduAi": {
+        "title": "EduAI Campus",
+        "desc": "AI teaching assistant for institutions — paths, assessments and tutoring.",
+        "status": "Prototype · 2027"
+      },
+      "iotCity": {
+        "title": "Smart City Lubumbashi",
+        "desc": "IoT sensors & dashboards for connected urban infrastructure.",
+        "status": "Vision · 2027"
+      }
+    }
+  },
   "experience": {
-    "tag": "करियर",
-    "title": "अनुभव",
-    "lead": "2022 से आज तक — परियोजनाएँ, विकास और डिजिटल अवसंरचना।",
-    "present": "आज तक"
+    "title": "व्यावसायिक अनुभव",
+    "lead": "2022 से आज तक।",
+    "present": "वर्तमान",
+    "tag": "करियर"
   },
   "experienceItems": {
+    "si": {
+      "title": "सूचना प्रणाली इंजीनियर",
+      "org": "लुबुम्बाशी · डीआर कांगो",
+      "desc": "विश्लेषण, आर्किटेक्चर, एकीकरण और SI रखरखाव।"
+    },
+    "dev": {
+      "title": "वेब और मोबाइल विकास",
+      "org": "ग्राहक परियोजनाएँ",
+      "desc": "ऐप, REST API, व्यावसायिक उपकरण।"
+    },
+    "infra": {
+      "title": "नेटवर्क और इन्फ्रास्ट्रक्चर",
+      "org": "क्लाउड और सर्वर",
+      "desc": "नेटवर्क प्रशासन, DB, मॉनिटरिंग, होस्टिंग।"
+    },
+    "freelance": {
+      "title": "परामर्श और प्रशिक्षण",
+      "org": "स्वतंत्र",
+      "desc": "तकनीकी सहायता, तैनाती, प्रशिक्षण।"
+    },
     "projects": {
       "title": "कई IT परियोजनाएँ",
       "desc": "वेब, AI, IoT और नेटवर्क को कवर करने वाली 50 से अधिक तकनीकी परियोजनाओं का कार्यान्वयन।"
@@ -234,22 +370,6 @@
     "teaching": {
       "title": "प्रशिक्षण और शिक्षण",
       "desc": "कंप्यूटिंग, प्रोग्रामिंग और उभरती तकनीकों में पेशेवर प्रशिक्षण।"
-    },
-    "freelance": {
-      "title": "सेवाएँ और प्रशिक्षण",
-      "desc": "फ्रीलांस, तकनीकी सहायता, प्रशिक्षण।"
-    },
-    "si": {
-      "title": "सूचना प्रणाली (SI)",
-      "desc": "विश्लेषण, आर्किटेक्चर, एकीकरण, रखरखाव।"
-    },
-    "dev": {
-      "title": "सॉफ्टवेयर विकास",
-      "desc": "वेब/मोबाइल ऐप, API।"
-    },
-    "infra": {
-      "title": "नेटवर्क और अवसंरचना",
-      "desc": "नेटवर्क, क्लाउड, डेटाबेस।"
     }
   },
   "testimonials": {
@@ -274,30 +394,80 @@
     }
   },
   "contact": {
-    "tag": "संपर्क",
     "title": "संपर्क",
+    "lead": "व्यक्ति या संस्था — पेशेवर फ़ॉर्म।",
     "whatsapp": "WhatsApp",
+    "whatsappHint": "त्वरित उत्तर",
+    "phone": "फ़ोन",
+    "email": "ईमेल",
+    "formTitle": "संपर्क दस्तावेज़",
+    "formLead": "स्थिति के अनुसार भरें। * अनिवार्य।",
+    "typePhysical": "प्राकृतिक व्यक्ति",
+    "typePhysicalDesc": "व्यक्ति, फ्रीलांसर",
+    "typeMoral": "कानूनी इकाई",
+    "typeMoralDesc": "कंपनी, NGO, सार्वजनिक",
+    "sectionIdentity": "पहचान",
+    "sectionOrganization": "संगठन",
+    "sectionRepresentative": "प्रतिनिधि",
+    "sectionRequest": "आपका अनुरोध",
+    "firstName": "नाम",
+    "lastName": "उपनाम",
+    "companyName": "कानूनी नाम",
+    "legalForm": "कानूनी रूप",
+    "legalFormPlaceholder": "— चुनें —",
+    "legalSarl": "LLC",
+    "legalSa": "निगम",
+    "legalAsbl": "NGO",
+    "legalPublic": "सार्वजनिक",
+    "legalOther": "अन्य",
+    "companyId": "पंजीकरण",
+    "repName": "प्रतिनिधि",
+    "repRole": "पद",
+    "formEmail": "ईमेल",
+    "formPhone": "फ़ोन",
+    "requestType": "अनुरोध का प्रकार",
+    "requestPlaceholder": "— सेवा चुनें —",
+    "requestDevWeb": "वेब और मोबाइल विकास (साइट, ऐप)",
+    "requestSiEngineer": "सूचना प्रणाली (SI) इंजीनियर / सेवाएँ",
+    "requestSoftwareEng": "सॉफ्टवेयर इंजीनियरिंग — आर्किटेक्चर, API, व्यावसायिक ऐप",
+    "requestAi": "कृत्रिम बुद्धिमत्ता (ML, विज़न, ऑटोमेशन)",
+    "requestInfra": "IT इन्फ्रास्ट्रक्चर, नेटवर्क, सर्वर और डिप्लॉयमेंट",
+    "requestCyber": "साइबर सुरक्षा और सिस्टम हार्डनिंग",
+    "requestAudit": "तकनीकी ऑडिट, परामर्श और SI मार्गदर्शन",
+    "requestMaintenance": "रखरखाव, समर्थन और निगरानी",
+    "requestTraining": "प्रशिक्षण और ज्ञान हस्तांतरण",
+    "requestQuote": "विस्तृत कोटेशन अनुरोध",
+    "requestPartnership": "दीर्घकालिक साझेदारी",
+    "requestOther": "अन्य (संदेश में बताएँ)",
+    "formSubject": "विषय",
+    "formMessage": "विस्तृत संदेश",
+    "formSubmit": "भेजें",
+    "assertionsTitle": "अनिवार्य घोषणाएँ",
+    "assertAccuracy": "मैं जानकारी सही होने की पुष्टि करता/करती हूँ।",
+    "assertPrivacy": "गोपनीय प्रसंस्करण स्वीकार है।",
+    "assertFollowup": "फॉलो-अप संपर्क की अनुमति है।",
+    "errorRequired": "अनिवार्य",
+    "errorEmail": "अमान्य ईमेल",
+    "mailHeader": "संपर्क अनुरोध",
+    "mailType": "प्रकार",
+    "mailFooter": "K. Makina Edvais पोर्टफोलियो से",
+    "tag": "संपर्क",
     "whatsappCta": "संदेश भेजें",
     "call": "कॉल करें",
-    "email": "ईमेल",
     "location": "स्थान",
     "map": "मानचित्र — लुबुम्बाशी, डीआर कांगो",
-    "formName": "पूरा नाम",
-    "formEmail": "ईमेल",
-    "formSubject": "विषय",
-    "formMessage": "संदेश",
-    "formSubmit": "भेजें",
-    "lead": "औपचारिक अनुरोध के लिए फॉर्म का उपयोग करें।"
+    "formName": "पूरा नाम"
   },
   "footer": {
     "desc": "IT इंजीनियर · AI डेवलपर · प्रीमियम डिजिटल समाधान",
+    "rights": "सर्वाधिकार सुरक्षित।",
     "navTitle": "नेविगेशन",
-    "socialTitle": "सोशल",
-    "rights": "सर्वाधिकार सुरक्षित।"
+    "socialTitle": "सोशल"
   },
   "notifications": {
-    "langChanged": "भाषा सफलतापूर्वक अपडेट हो गई",
-    "formSent": "संदेश तैयार — अपना ईमेल क्लाइंट खोलें",
+    "langChanged": "भाषा अपडेट",
+    "formSent": "अनुरोध तैयार — ईमेल खोलें",
+    "formInvalid": "अनिवार्य फ़ील्ड भरें।",
     "cvDownloaded": "PDF CV सफलतापूर्वक डाउनलोड हो गया",
     "cvPdfError": "PDF नहीं बन सका। पृष्ठ को रीफ़्रेश करें।"
   },
@@ -307,18 +477,9 @@
     "profile": "प्रोफ़ाइल",
     "skills": "कौशल"
   },
-  "stage": {
-    "discover": "प्रोफ़ाइल देखें",
-    "next": "अगला पृष्ठ",
-    "prev": "वापस",
-    "finish": "संपर्क"
-  },
   "brand": {
     "short": "K. Makina Edvais",
     "line1": "Kadièbwe Makina",
     "line2": "Edvais"
-  },
-  "a11y": {
-    "skip": "मुख्य सामग्री पर जाएँ"
   }
 }

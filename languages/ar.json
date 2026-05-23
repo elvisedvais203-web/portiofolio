@@ -9,6 +9,13 @@
   "loader": {
     "text": "جارٍ التحميل…"
   },
+  "a11y": {
+    "skip": "انتقل إلى المحتوى",
+    "backTop": "Back to top",
+    "themeToggle": "Light or dark mode",
+    "themeLight": "Switch to light mode",
+    "themeDark": "Switch to dark mode"
+  },
   "nav": {
     "home": "الرئيسية",
     "about": "الملف",
@@ -19,18 +26,30 @@
     "testimonials": "الشهادات",
     "contact": "التواصل"
   },
+  "stage": {
+    "discover": "استعراض الملف المهني",
+    "next": "الصفحة التالية",
+    "prev": "رجوع",
+    "finish": "التواصل"
+  },
   "hero": {
-    "greeting": "مرحباً، أنا",
+    "eyebrow": "مهندس نظم المعلومات",
     "description": "أصمم وأنشر وأصون حلولاً رقمية موثوقة. ممارستي تشمل التطوير والشبكات والذكاء الاصطناعي، مع تخصص في نظم المعلومات (SI).",
     "country": "جمهورية الكونغو الديمقراطية",
-    "ctaContact": "تواصل معي",
+    "ctaContact": "تواصل",
+    "ctaProjects": "المشاريع المنجزة",
+    "ctaProjectsDesc": "تطبيقات منشورة",
+    "ctaOngoing": "مشاريع جارية",
+    "ctaOngoingDesc": "تطوير نشط",
+    "ctaSkills": "كفاءاتي",
+    "ctaSkillsDesc": "SI، تطوير، شبكات وذكاء اصطناعي",
+    "scrollHint": "استكشف",
+    "greeting": "مرحباً، أنا",
     "ctaCv": "السيرة الذاتية PDF",
-    "ctaProjects": "عرض المشاريع",
     "badge": "متاح",
     "floatAi": "الذكاء الاصطناعي والتعلم الآلي",
     "floatDev": "Full Stack",
-    "floatSec": "الأمن السيبراني",
-    "eyebrow": "مهندس نظم المعلومات"
+    "floatSec": "الأمن السيبراني"
   },
   "typing": {
     "titles": [
@@ -45,15 +64,17 @@
     "projects": "مشاريع منجزة",
     "experience": "سنوات الخبرة",
     "clients": "عملاء راضون",
+    "domains": "Areas of expertise",
     "tech": "تقنيات متقنة"
   },
   "about": {
-    "tag": "نبذة عني",
     "title": "عرض",
     "subtitle": "أخصائي نظم المعلومات (SI)",
     "p1": "خريج UPL (نظم المعلومات، هندسة البرمجيات والذكاء الاصطناعي). أعمل في التطوير والشبكات والذكاء الاصطناعي والنشر.",
     "p2": "ملف متعدد التخصصات مع التزام بموثوقية الأنظمة.",
     "university": "التعليم",
+    "lead": "A structured technical background focused on reliability and service.",
+    "tag": "نبذة عني",
     "phone": "الهاتف:",
     "langTitle": "المهارات اللغوية",
     "lang1": "يتحدث الفرنسية بطلاقة",
@@ -68,11 +89,20 @@
     "ai5": "خبير في الأنظمة الذكية"
   },
   "skills": {
-    "tag": "المهارات",
     "title": "مجالات الكفاءة",
-    "lead": "كفاءات متنوعة — تركيز على SI."
+    "lead": "كفاءات متنوعة — تركيز على SI.",
+    "tag": "المهارات",
+    "levelLabel": "مستوى الإتقان"
   },
   "skillItems": {
+    "frontend": "User interfaces & UX",
+    "backend": "Servers & APIs",
+    "databases": "Databases",
+    "ai": "Artificial intelligence",
+    "infrastructure": "Networks & systems",
+    "cybersecurity": "Cybersecurity",
+    "iot": "Embedded systems",
+    "devops": "Integration & deployment",
     "html": "HTML",
     "css": "CSS",
     "javascript": "JavaScript",
@@ -83,12 +113,8 @@
     "sql": "SQL",
     "flask": "Flask",
     "unity": "Unity",
-    "ai": "تطوير الذكاء الاصطناعي",
     "networking": "الشبكات",
-    "cybersecurity": "الأمن السيبراني",
     "database": "تصميم قواعد البيانات",
-    "frontend": "تطوير الواجهة الأمامية",
-    "backend": "تطوير الواجهة الخلفية",
     "uiux": "تصميم UI/UX",
     "sysadmin": "إدارة الأنظمة",
     "linux": "Linux",
@@ -97,11 +123,45 @@
     "sqlite": "SQLite",
     "git": "Git & GitHub"
   },
+  "skillStacks": {
+    "frontend": "HTML · CSS · JavaScript · UI/UX · Responsive design",
+    "backend": "Python · C# · Java · PHP · Flask · REST APIs",
+    "databases": "SQL · SQLite · Database design & optimization",
+    "ai": "Machine learning · Computer vision · Intelligent automation",
+    "infrastructure": "Networking · System administration · Linux",
+    "cybersecurity": "Application security · System protection",
+    "iot": "Arduino · Embedded systems · Unity · Prototyping",
+    "devops": "Git · GitHub · Collaboration & deployment"
+  },
   "services": {
     "tag": "الخدمات",
     "title": "حلول متميزة"
   },
   "serviceItems": {
+    "development": {
+      "title": "Web & mobile development",
+      "desc": "Custom websites and apps: design, development, deployment and maintenance."
+    },
+    "ai": {
+      "title": "حلول الذكاء الاصطناعي",
+      "desc": "أنظمة ذكية وتعلم آلي وأتمتة بالذكاء الاصطناعي."
+    },
+    "infrastructure": {
+      "title": "IT infrastructure & cybersecurity",
+      "desc": "Networks, security, preventive maintenance and technical support for SMEs and institutions."
+    },
+    "dataSystems": {
+      "title": "Data & connected systems",
+      "desc": "Databases, IoT, smart systems and dashboards for decision-making."
+    },
+    "embedded": {
+      "title": "الأنظمة المدمجة",
+      "desc": "تطوير حلول مدمجة باستخدام Arduino والمتحكمات الدقيقة."
+    },
+    "consulting": {
+      "title": "استشارات تقنية المعلومات",
+      "desc": "دعم استراتيجي لتحولك الرقمي."
+    },
     "web": {
       "title": "تطوير الويب",
       "desc": "مواقع ويب حديثة وسريعة الاستجابة وعالية الأداء بأحدث التقنيات."
@@ -109,10 +169,6 @@
     "mobile": {
       "title": "تطبيقات الجوال",
       "desc": "تطبيقات جوال أصلية ومتعددة المنصات لنظامي iOS وAndroid."
-    },
-    "ai": {
-      "title": "حلول الذكاء الاصطناعي",
-      "desc": "أنظمة ذكية وتعلم آلي وأتمتة بالذكاء الاصطناعي."
     },
     "network": {
       "title": "تركيب الشبكات",
@@ -134,43 +190,76 @@
       "title": "هندسة البرمجيات",
       "desc": "تطوير برمجيات مخصصة وفق احتياجات عملك."
     },
-    "consulting": {
-      "title": "استشارات تقنية المعلومات",
-      "desc": "دعم استراتيجي لتحولك الرقمي."
-    },
     "maintenance": {
       "title": "صيانة الأنظمة",
       "desc": "دعم فني وصيانة وقائية وتصحيحية."
-    },
-    "embedded": {
-      "title": "الأنظمة المدمجة",
-      "desc": "تطوير حلول مدمجة باستخدام Arduino والمتحكمات الدقيقة."
     },
     "automation": {
       "title": "أنظمة الأتمتة",
       "desc": "أتمتة صناعية وعمليات لزيادة الكفاءة."
     }
   },
+  "archive": {
+    "code": "ARCHIVE · EM-2026",
+    "title": "Classified dossiers",
+    "lead": "Real production applications. Each project stays hidden until you choose to open it.",
+    "unlock": "Unlock the archive",
+    "skip": "Enter directly",
+    "hint": "Scroll or click a dossier to reveal"
+  },
   "projects": {
+    "title": "المشاريع",
+    "lead": "منجزة، جارية ومستقبلية.",
+    "tabDone": "منجزة",
+    "tabOngoing": "جارية",
+    "tabFuture": "أفق",
+    "statusDone": "منجز",
+    "statusOngoing": "جاري",
+    "ongoingLead": "حلول قيد التطوير أو النشر.",
+    "sealedLabel": "معاينة",
+    "revealCta": "فتح",
+    "demo": "عرض",
+    "zoomHint": "Click the image to zoom · use +/− or scroll wheel",
+    "zoomReset": "100%",
+    "zoomIn": "Zoom in",
+    "zoomOut": "Zoom out",
     "tag": "المشاريع",
-    "title": "الإنجازات",
     "filterAll": "الكل",
     "filterAi": "الذكاء الاصطناعي",
-    "filterWeb": "ويب",
+    "filterWeb": "ويب وجوال",
     "filterIot": "إنترنت الأشياء",
     "filterNetwork": "شبكة",
     "catAi": "الذكاء الاصطناعي",
     "catWeb": "الويب",
     "catIot": "إنترنت الأشياء",
     "catNetwork": "الشبكة",
-    "lead": "انقر على مشروع لعرض التفاصيل.",
-    "filterDevops": "بنية تحتية",
-    "sealedLabel": "مشروع",
-    "revealCta": "فتح",
-    "demo": "عرض",
-    "repo": "المصدر"
+    "filterDevops": "بنية تحتية"
   },
   "projectItems": {
+    "nextalk": {
+      "title": "NexTalk",
+      "desc": "Communication platform: messaging, calls and channels."
+    },
+    "congolove": {
+      "title": "CongoLove",
+      "desc": "Social and dating network — profiles, verification and matching."
+    },
+    "netcontrol": {
+      "title": "NetControl",
+      "desc": "Network supervision and workstation administration."
+    },
+    "edvaselve": {
+      "title": "Edvaselve Marketplace",
+      "desc": "Multi-vendor marketplace — Lubumbashi."
+    },
+    "solola": {
+      "title": "SOLOLA",
+      "desc": "Web communication service — production on Render."
+    },
+    "congoloveStack": {
+      "title": "CongoLove infrastructure",
+      "desc": "PostgreSQL, Valkey, Node.js services, mail domain."
+    },
     "surveillance": {
       "title": "نظام مراقبة حضرية ذكي",
       "desc": "منصة ذكاء اصطناعي للمراقبة الحضرية في الوقت الفعلي مع كشف الشذوذ وتنبيهات تلقائية."
@@ -208,13 +297,60 @@
       "desc": "إبداعات رسوم متحركة بمساعدة الذكاء الاصطناعي للإعلام والتدريب والتواصل البصري."
     }
   },
+  "future": {
+    "tag": "Horizon",
+    "title": "Future projects",
+    "lead": "Innovation lab — prototypes and visions in progress.",
+    "items": {
+      "siHub": {
+        "title": "IS Analytics Hub",
+        "desc": "Unified dashboard for IS monitoring, metrics and real-time alerts.",
+        "status": "R&D · 2026"
+      },
+      "secureCloud": {
+        "title": "SecureCloud DRC",
+        "desc": "Sovereign hosting platform with hardening and automated backups.",
+        "status": "Design · 2026"
+      },
+      "eduAi": {
+        "title": "EduAI Campus",
+        "desc": "AI teaching assistant for institutions — paths, assessments and tutoring.",
+        "status": "Prototype · 2027"
+      },
+      "iotCity": {
+        "title": "Smart City Lubumbashi",
+        "desc": "IoT sensors & dashboards for connected urban infrastructure.",
+        "status": "Vision · 2027"
+      }
+    }
+  },
   "experience": {
-    "tag": "المسار",
     "title": "المسار المهني",
-    "lead": "مسار مهني مستمر منذ 2022 — مشاريع وتطوير وبنى تحتية رقمية.",
-    "present": "حتى اليوم"
+    "lead": "من 2022 حتى اليوم.",
+    "present": "اليوم",
+    "tag": "المسار"
   },
   "experienceItems": {
+    "si": {
+      "title": "مهندس نظم المعلومات",
+      "org": "لوبومباشي · ج.ك.د",
+      "desc": "تحليل، هندسة، تكامل وصيانة حلول SI."
+    },
+    "dev": {
+      "title": "تطوير الويب والجوال",
+      "org": "مشاريع العملاء",
+      "desc": "تطبيقات، REST API وأدوات أعمال."
+    },
+    "infra": {
+      "title": "الشبكات والبنية التحتية",
+      "org": "سحابة وخوادم",
+      "desc": "إدارة الشبكات، قواعد البيانات والاستضافة."
+    },
+    "freelance": {
+      "title": "استشارات وتدريب",
+      "org": "مهام مستقلة",
+      "desc": "دعم تقني، نشر وتدريب."
+    },
     "projects": {
       "title": "مشاريع تقنية متعددة",
       "desc": "تنفيذ أكثر من 50 مشروعاً تقنياً يشمل الويب والذكاء الاصطناعي وإنترنت الأشياء والشبكات."
@@ -234,22 +370,6 @@
     "teaching": {
       "title": "التدريب والتعليم",
       "desc": "تدريب مهني في الحوسبة والبرمجة والتقنيات الناشئة."
-    },
-    "freelance": {
-      "title": "خدمات وتدريب",
-      "desc": "عمل مستقل ودعم تقني وتدريب."
-    },
-    "si": {
-      "title": "نظم المعلومات (SI)",
-      "desc": "تحليل وهندسة وصيانة حلول SI."
-    },
-    "dev": {
-      "title": "تطوير البرمجيات",
-      "desc": "تطبيقات ويب وموبايل وواجهات برمجة."
-    },
-    "infra": {
-      "title": "الشبكات والبنية التحتية",
-      "desc": "إدارة الشبكات والسحابة وقواعد البيانات."
     }
   },
   "testimonials": {
@@ -274,30 +394,80 @@
     }
   },
   "contact": {
-    "tag": "اتصل بي",
     "title": "التواصل",
-    "whatsapp": "WhatsApp",
+    "lead": "شخص طبيعي أو اعتباري — نموذج مهني.",
+    "whatsapp": "واتساب",
+    "whatsappHint": "رد سريع",
+    "phone": "هاتف",
+    "email": "بريد",
+    "formTitle": "ملف التواصل",
+    "formLead": "نموذج حسب صفتكم. * إلزامي.",
+    "typePhysical": "شخص طبيعي",
+    "typePhysicalDesc": "فرد، مستقل",
+    "typeMoral": "شخص اعتباري",
+    "typeMoralDesc": "شركة، منظمة، جهة عامة",
+    "sectionIdentity": "الهوية",
+    "sectionOrganization": "المؤسسة",
+    "sectionRepresentative": "الممثل",
+    "sectionRequest": "طلبكم",
+    "firstName": "الاسم",
+    "lastName": "اللقب",
+    "companyName": "الاسم القانوني",
+    "legalForm": "الشكل القانوني",
+    "legalFormPlaceholder": "— اختر —",
+    "legalSarl": "شركة ذات مسؤولية",
+    "legalSa": "مساهمة",
+    "legalAsbl": "منظمة",
+    "legalPublic": "عامة",
+    "legalOther": "أخرى",
+    "companyId": "رقم التسجيل",
+    "repName": "الممثل",
+    "repRole": "الوظيفة",
+    "formEmail": "البريد",
+    "formPhone": "الهاتف",
+    "requestType": "طبيعة الطلب",
+    "requestPlaceholder": "— اختر خدمة —",
+    "requestDevWeb": "تطوير الويب والجوال (موقع، تطبيق)",
+    "requestSiEngineer": "مهندس / خدمات نظم المعلومات (SI)",
+    "requestSoftwareEng": "هندسة البرمجيات — هندسة، واجهات برمجة، تطبيقات أعمال",
+    "requestAi": "الذكاء الاصطناعي (تعلم آلي، رؤية، أتمتة)",
+    "requestInfra": "بنية تحتية IT، شبكات، خوادم ونشر",
+    "requestCyber": "الأمن السيبراني وتقوية الأنظمة",
+    "requestAudit": "تدقيق تقني، استشارات ومرافقة SI",
+    "requestMaintenance": "صيانة، دعم ومراقبة",
+    "requestTraining": "تدريب ونقل المعرفة",
+    "requestQuote": "طلب عرض سعر مفصل",
+    "requestPartnership": "شراكة أو تعاون طويل الأمد",
+    "requestOther": "طلب آخر (يُحدد في الرسالة)",
+    "formSubject": "الموضوع",
+    "formMessage": "رسالة مفصلة",
+    "formSubmit": "إرسال",
+    "assertionsTitle": "إقرارات إلزامية",
+    "assertAccuracy": "أقر بصحة المعلومات.",
+    "assertPrivacy": "أوافق على المعالجة السرية لبياناتي.",
+    "assertFollowup": "أسمح بالمتابعة عبر البريد أو الهاتف.",
+    "errorRequired": "حقل إلزامي",
+    "errorEmail": "بريد غير صالح",
+    "mailHeader": "طلب تواصل",
+    "mailType": "النوع",
+    "mailFooter": "من portfolio K. Makina Edvais",
+    "tag": "اتصل بي",
     "whatsappCta": "إرسال رسالة",
     "call": "اتصال",
-    "email": "البريد الإلكتروني",
     "location": "الموقع",
     "map": "الخريطة — لوبومباشي، جمهورية الكونغو الديمقراطية",
-    "formName": "الاسم الكامل",
-    "formEmail": "البريد الإلكتروني",
-    "formSubject": "الموضوع",
-    "formMessage": "الرسالة",
-    "formSubmit": "إرسال الرسالة",
-    "lead": "لطلب رسمي، يرجى استخدام النموذج."
+    "formName": "الاسم الكامل"
   },
   "footer": {
     "desc": "مهندس تقنية معلومات · مطور ذكاء اصطناعي · حلول رقمية متميزة",
+    "rights": "جميع الحقوق محفوظة.",
     "navTitle": "التنقل",
-    "socialTitle": "الشبكات",
-    "rights": "جميع الحقوق محفوظة."
+    "socialTitle": "الشبكات"
   },
   "notifications": {
-    "langChanged": "تم تحديث اللغة بنجاح",
-    "formSent": "تم إعداد الرسالة — افتح عميل البريد الإلكتروني",
+    "langChanged": "تم تحديث اللغة",
+    "formSent": "تم تجهيز الطلب — افتح البريد",
+    "formInvalid": "أكمل الحقول الإلزامية.",
     "cvDownloaded": "تم تنزيل السيرة الذاتية بصيغة PDF بنجاح",
     "cvPdfError": "تعذّر إنشاء ملف PDF. أعد تحميل الصفحة."
   },
@@ -307,18 +477,9 @@
     "profile": "الملف الشخصي",
     "skills": "المهارات"
   },
-  "stage": {
-    "discover": "استعراض الملف المهني",
-    "next": "الصفحة التالية",
-    "prev": "رجوع",
-    "finish": "التواصل"
-  },
   "brand": {
     "short": "K. Makina Edvais",
     "line1": "Kadièbwe Makina",
     "line2": "Edvais"
-  },
-  "a11y": {
-    "skip": "انتقل إلى المحتوى"
   }
 }

@@ -9,6 +9,13 @@
   "loader": {
     "text": "Inapakia…"
   },
+  "a11y": {
+    "skip": "Nenda kwenye maudhui",
+    "backTop": "Back to top",
+    "themeToggle": "Light or dark mode",
+    "themeLight": "Switch to light mode",
+    "themeDark": "Switch to dark mode"
+  },
   "nav": {
     "home": "Nyumbani",
     "about": "Wasifu",
@@ -19,18 +26,30 @@
     "testimonials": "Ushuhuda",
     "contact": "Wasiliana"
   },
+  "stage": {
+    "discover": "Angalia wasifu",
+    "next": "Ukurasa unaofuata",
+    "prev": "Rudi",
+    "finish": "Wasiliana"
+  },
   "hero": {
-    "greeting": "Habari, mimi ni",
+    "eyebrow": "Mhandisi wa mifumo ya habari",
     "description": "Nabuni, kutengeneza na kudumisha suluhisho za kidijitali za kuaminika. Nina uzoefu wa maendeleo, mitandao na AI, na utaalamu katika mifumo ya habari (SI).",
     "country": "Jamhuri ya Kidemokrasia ya Kongo",
-    "ctaContact": "Wasiliana nami",
+    "ctaContact": "Wasiliana",
+    "ctaProjects": "Miradi yaliyokamilika",
+    "ctaProjectsDesc": "Programu zilizowekwa",
+    "ctaOngoing": "Miradi inayoendelea",
+    "ctaOngoingDesc": "Maendeleo hai",
+    "ctaSkills": "Ujuzi wangu",
+    "ctaSkillsDesc": "SI, maendeleo, mitandao na AI",
+    "scrollHint": "Chunguza",
+    "greeting": "Habari, mimi ni",
     "ctaCv": "PDF CV",
-    "ctaProjects": "Tazama miradi",
     "badge": "Inapatikana",
     "floatAi": "AI na ML",
     "floatDev": "Full Stack",
-    "floatSec": "Usalama wa mtandao",
-    "eyebrow": "Mhandisi wa mifumo ya habari"
+    "floatSec": "Usalama wa mtandao"
   },
   "typing": {
     "titles": [
@@ -45,15 +64,17 @@
     "projects": "Miradi iliyokamilika",
     "experience": "Miaka ya uzoefu",
     "clients": "Wateja walioridhika",
+    "domains": "Areas of expertise",
     "tech": "Teknolojia zilizomasterishwa"
   },
   "about": {
-    "tag": "Kuhusu",
     "title": "Wasilisho",
     "subtitle": "Mtaalamu wa Mifumo ya Habari (SI)",
     "p1": "Shahada kutoka UPL (SI, Uhandisi wa Programu na AI). Ninafanya kazi katika maendeleo, mitandao, AI na usambazaji.",
     "p2": "Wasifu anuwai, kwa msisitizo wa uaminifu wa mifumo.",
     "university": "Elimu",
+    "lead": "A structured technical background focused on reliability and service.",
+    "tag": "Kuhusu",
     "phone": "Simu:",
     "langTitle": "Ujuzi wa lugha",
     "lang1": "Anazungumza Kifaransa kwa ufasaha",
@@ -68,11 +89,20 @@
     "ai5": "Mtaalamu wa mifumo yenye akili"
   },
   "skills": {
-    "tag": "Ujuzi",
     "title": "Maeneo ya utaalamu",
-    "lead": "Ujuzi mpana — lengo SI."
+    "lead": "Ujuzi mpana — lengo SI.",
+    "tag": "Ujuzi",
+    "levelLabel": "Kiwango cha ujuzi"
   },
   "skillItems": {
+    "frontend": "User interfaces & UX",
+    "backend": "Servers & APIs",
+    "databases": "Databases",
+    "ai": "Artificial intelligence",
+    "infrastructure": "Networks & systems",
+    "cybersecurity": "Cybersecurity",
+    "iot": "Embedded systems",
+    "devops": "Integration & deployment",
     "html": "HTML",
     "css": "CSS",
     "javascript": "JavaScript",
@@ -83,12 +113,8 @@
     "sql": "SQL",
     "flask": "Flask",
     "unity": "Unity",
-    "ai": "Maendeleo ya AI",
     "networking": "Mitandao",
-    "cybersecurity": "Usalama wa mtandao",
     "database": "Ubunifu wa hifadhidata",
-    "frontend": "Maendeleo ya Frontend",
-    "backend": "Maendeleo ya Backend",
     "uiux": "Ubunifu wa UI/UX",
     "sysadmin": "Usimamizi wa Mfumo",
     "linux": "Linux",
@@ -97,11 +123,45 @@
     "sqlite": "SQLite",
     "git": "Git & GitHub"
   },
+  "skillStacks": {
+    "frontend": "HTML · CSS · JavaScript · UI/UX · Responsive design",
+    "backend": "Python · C# · Java · PHP · Flask · REST APIs",
+    "databases": "SQL · SQLite · Database design & optimization",
+    "ai": "Machine learning · Computer vision · Intelligent automation",
+    "infrastructure": "Networking · System administration · Linux",
+    "cybersecurity": "Application security · System protection",
+    "iot": "Arduino · Embedded systems · Unity · Prototyping",
+    "devops": "Git · GitHub · Collaboration & deployment"
+  },
   "services": {
     "tag": "Huduma",
     "title": "Suluhisho za kiwango cha juu"
   },
   "serviceItems": {
+    "development": {
+      "title": "Web & mobile development",
+      "desc": "Custom websites and apps: design, development, deployment and maintenance."
+    },
+    "ai": {
+      "title": "Suluhisho za AI",
+      "desc": "Mifumo yenye akili, machine learning na uotomatishaji kupitia AI."
+    },
+    "infrastructure": {
+      "title": "IT infrastructure & cybersecurity",
+      "desc": "Networks, security, preventive maintenance and technical support for SMEs and institutions."
+    },
+    "dataSystems": {
+      "title": "Data & connected systems",
+      "desc": "Databases, IoT, smart systems and dashboards for decision-making."
+    },
+    "embedded": {
+      "title": "Mifumo Iliyoingizwa",
+      "desc": "Maendeleo ya suluhisho zilizoingizwa kwa Arduino na microcontrollers."
+    },
+    "consulting": {
+      "title": "Ushauri wa IT",
+      "desc": "Msaada wa kimkakati kwa mabadiliko yako ya kidijitali."
+    },
     "web": {
       "title": "Maendeleo ya Wavuti",
       "desc": "Tovuti za kisasa, zinazojibu na zenye utendaji bora kwa teknolojia za hivi karibuni."
@@ -109,10 +169,6 @@
     "mobile": {
       "title": "Programu za Simu",
       "desc": "Programu za simu za asili na cross-platform kwa iOS na Android."
-    },
-    "ai": {
-      "title": "Suluhisho za AI",
-      "desc": "Mifumo yenye akili, machine learning na uotomatishaji kupitia AI."
     },
     "network": {
       "title": "Usakinishaji wa Mtandao",
@@ -134,43 +190,76 @@
       "title": "Uhandisi wa Programu",
       "desc": "Maendeleo ya programu maalum kulingana na mahitaji ya biashara yako."
     },
-    "consulting": {
-      "title": "Ushauri wa IT",
-      "desc": "Msaada wa kimkakati kwa mabadiliko yako ya kidijitali."
-    },
     "maintenance": {
       "title": "Matengenezo ya Mfumo",
       "desc": "Msaada wa kiufundi, matengenezo ya kuzuia na ya kurekebisha."
-    },
-    "embedded": {
-      "title": "Mifumo Iliyoingizwa",
-      "desc": "Maendeleo ya suluhisho zilizoingizwa kwa Arduino na microcontrollers."
     },
     "automation": {
       "title": "Mifumo ya Uotomatishaji",
       "desc": "Uotomatishaji wa viwanda na michakato ili kuongeza ufanisi."
     }
   },
+  "archive": {
+    "code": "ARCHIVE · EM-2026",
+    "title": "Classified dossiers",
+    "lead": "Real production applications. Each project stays hidden until you choose to open it.",
+    "unlock": "Unlock the archive",
+    "skip": "Enter directly",
+    "hint": "Scroll or click a dossier to reveal"
+  },
   "projects": {
-    "tag": "Miradi",
     "title": "Miradi",
+    "lead": "Yaliyokamilika, yanayoendelea na maono.",
+    "tabDone": "Yaliyokamilika",
+    "tabOngoing": "Inaendelea",
+    "tabFuture": "Horizon",
+    "statusDone": "Imekamilika",
+    "statusOngoing": "Inaendelea",
+    "ongoingLead": "Suluhisho zinazoendelea.",
+    "sealedLabel": "Hakiki",
+    "revealCta": "Fungua",
+    "demo": "Onyesho",
+    "zoomHint": "Click the image to zoom · use +/− or scroll wheel",
+    "zoomReset": "100%",
+    "zoomIn": "Zoom in",
+    "zoomOut": "Zoom out",
+    "tag": "Miradi",
     "filterAll": "Yote",
     "filterAi": "AI",
-    "filterWeb": "Wavuti",
+    "filterWeb": "Wavuti na simu",
     "filterIot": "IoT",
     "filterNetwork": "Mtandao",
     "catAi": "Akili Bandia",
     "catWeb": "Wavuti",
     "catIot": "IoT",
     "catNetwork": "Mtandao",
-    "lead": "Bofya mradi kuona maelezo.",
-    "filterDevops": "Miundombinu",
-    "sealedLabel": "Mradi",
-    "revealCta": "Fungua",
-    "demo": "Onyesho",
-    "repo": "Chanzo"
+    "filterDevops": "Miundombinu"
   },
   "projectItems": {
+    "nextalk": {
+      "title": "NexTalk",
+      "desc": "Communication platform: messaging, calls and channels."
+    },
+    "congolove": {
+      "title": "CongoLove",
+      "desc": "Social and dating network — profiles, verification and matching."
+    },
+    "netcontrol": {
+      "title": "NetControl",
+      "desc": "Network supervision and workstation administration."
+    },
+    "edvaselve": {
+      "title": "Edvaselve Marketplace",
+      "desc": "Multi-vendor marketplace — Lubumbashi."
+    },
+    "solola": {
+      "title": "SOLOLA",
+      "desc": "Web communication service — production on Render."
+    },
+    "congoloveStack": {
+      "title": "CongoLove infrastructure",
+      "desc": "PostgreSQL, Valkey, Node.js services, mail domain."
+    },
     "surveillance": {
       "title": "Mfumo wa Ufuatiliaji wa Mijini wenye Akili",
       "desc": "Jukwaa la AI kwa ufuatiliaji wa mijini kwa wakati halisi na ugunduzi wa kasoro na arifa za kiotomatiki."
@@ -208,13 +297,60 @@
       "desc": "Ubunifu wa uhuishaji unaosaidiwa na AI kwa vyombo vya habari, mafunzo na mawasiliano ya kuona."
     }
   },
+  "future": {
+    "tag": "Horizon",
+    "title": "Future projects",
+    "lead": "Innovation lab — prototypes and visions in progress.",
+    "items": {
+      "siHub": {
+        "title": "IS Analytics Hub",
+        "desc": "Unified dashboard for IS monitoring, metrics and real-time alerts.",
+        "status": "R&D · 2026"
+      },
+      "secureCloud": {
+        "title": "SecureCloud DRC",
+        "desc": "Sovereign hosting platform with hardening and automated backups.",
+        "status": "Design · 2026"
+      },
+      "eduAi": {
+        "title": "EduAI Campus",
+        "desc": "AI teaching assistant for institutions — paths, assessments and tutoring.",
+        "status": "Prototype · 2027"
+      },
+      "iotCity": {
+        "title": "Smart City Lubumbashi",
+        "desc": "IoT sensors & dashboards for connected urban infrastructure.",
+        "status": "Vision · 2027"
+      }
+    }
+  },
   "experience": {
-    "tag": "Safari",
-    "title": "Uzoefu",
-    "lead": "Safari ya kitaalamu tangu 2022 — miradi, maendeleo na miundombinu ya kidijitali.",
-    "present": "Leo"
+    "title": "Uzoefu wa kitaaluma",
+    "lead": "Tangu 2022 hadi leo.",
+    "present": "Leo",
+    "tag": "Safari"
   },
   "experienceItems": {
+    "si": {
+      "title": "Mhandisi wa mifumo ya habari",
+      "org": "Lubumbashi · DRC",
+      "desc": "Uchambuzi, usanifu na matengenezo ya suluhisho SI."
+    },
+    "dev": {
+      "title": "Maendeleo ya wavuti na simu",
+      "org": "Miradi ya wateja",
+      "desc": "Programu za wavuti, API na zana za SI."
+    },
+    "infra": {
+      "title": "Mitandao na miundombinu",
+      "org": "Wingu na seva",
+      "desc": "Usimamizi wa mtandao, hifadhidata na hosting."
+    },
+    "freelance": {
+      "title": "Ushauri na mafunzo",
+      "org": "Kazi huru",
+      "desc": "Msaada wa kiufundi na mafunzo."
+    },
     "projects": {
       "title": "Miradi Mingi ya IT",
       "desc": "Utekelezaji wa zaidi ya miradi 50 ya teknolojia zinazohusisha wavuti, AI, IoT na mitandao."
@@ -234,22 +370,6 @@
     "teaching": {
       "title": "Mafunzo na Elimu",
       "desc": "Mafunzo ya kitaalamu katika kompyuta, programu na teknolojia zinazochipuka."
-    },
-    "freelance": {
-      "title": "Huduma na mafunzo",
-      "desc": "Kazi huru na mafunzo ya TEHAMA."
-    },
-    "si": {
-      "title": "Mifumo ya Habari (SI)",
-      "desc": "Uchambuzi, usanifu na matengenezo ya suluhisho SI."
-    },
-    "dev": {
-      "title": "Maendeleo ya programu",
-      "desc": "Programu za wavuti na simu, API."
-    },
-    "infra": {
-      "title": "Mitandao na miundombinu",
-      "desc": "Usimamizi wa mtandao, wingu, hifadhidata."
     }
   },
   "testimonials": {
@@ -274,30 +394,80 @@
     }
   },
   "contact": {
-    "tag": "Wasiliana",
     "title": "Wasiliana",
+    "lead": "Mtu binafsi au shirika — fomu ya kitaaluma.",
     "whatsapp": "WhatsApp",
+    "whatsappHint": "Jibu la haraka",
+    "phone": "Simu",
+    "email": "Barua pepe",
+    "formTitle": "Dossier ya mawasiliano",
+    "formLead": "Fomu kulingana na hali yako.",
+    "typePhysical": "Mtu binafsi",
+    "typePhysicalDesc": "Mtu binafsi, mfanyakazi huru",
+    "typeMoral": "Shirika",
+    "typeMoralDesc": "Kampuni, NGO, serikali",
+    "sectionIdentity": "Utambulisho",
+    "sectionOrganization": "Shirika",
+    "sectionRepresentative": "Mwakilishi",
+    "sectionRequest": "Ombi lako",
+    "firstName": "Jina",
+    "lastName": "Jina la ukoo",
+    "companyName": "Jina la shirika",
+    "legalForm": "Aina ya shirika",
+    "legalFormPlaceholder": "— Chagua —",
+    "legalSarl": "Kampuni ndogo",
+    "legalSa": "Kampuni kubwa",
+    "legalAsbl": "NGO",
+    "legalPublic": "Taasisi ya umma",
+    "legalOther": "Nyingine",
+    "companyId": "Nambari ya usajili",
+    "repName": "Mwakilishi",
+    "repRole": "Wajibu",
+    "formEmail": "Barua pepe",
+    "formPhone": "Simu",
+    "requestType": "Aina ya ombi",
+    "requestPlaceholder": "— Chagua huduma —",
+    "requestDevWeb": "Maendeleo ya wavuti na simu (tovuti, programu)",
+    "requestSiEngineer": "Mhandisi / huduma za mifumo ya habari (SI)",
+    "requestSoftwareEng": "Uhandisi wa programu — usanifu, API, programu za biashara",
+    "requestAi": "Akili bandia (ML, maono, uotomatishaji)",
+    "requestInfra": "Miundombinu ya IT, mitandao, seva na usambazaji",
+    "requestCyber": "Usalama wa mtandao na uimarishaji wa mifumo",
+    "requestAudit": "Ukaguzi wa kiufundi, ushauri na mwongozo wa SI",
+    "requestMaintenance": "Matengenezo, msaada na ufuatiliaji",
+    "requestTraining": "Mafunzo na uhamisho wa ujuzi",
+    "requestQuote": "Ombi la bei ya kina",
+    "requestPartnership": "Ushirikiano wa muda mrefu",
+    "requestOther": "Ombi lingine (eleza katika ujumbe)",
+    "formSubject": "Mada",
+    "formMessage": "Ujumbe wa kina",
+    "formSubmit": "Tuma ombi",
+    "assertionsTitle": "Tamko lazima",
+    "assertAccuracy": "Nathibitisha taarifa ni sahihi.",
+    "assertPrivacy": "Nakubali matumizi ya data kwa siri.",
+    "assertFollowup": "Ninaruhusu mawasiliano ya ufuatiliaji.",
+    "errorRequired": "Sehemu inahitajika",
+    "errorEmail": "Barua pepe si sahihi",
+    "mailHeader": "OMBI LA MAWASILIANO",
+    "mailType": "Aina",
+    "mailFooter": "Kutoka portfolio K. Makina Edvais",
+    "tag": "Wasiliana",
     "whatsappCta": "Tuma ujumbe",
     "call": "Piga simu",
-    "email": "Barua pepe",
     "location": "Mahali",
     "map": "Ramani — Lubumbashi, RD Kongo",
-    "formName": "Jina kamili",
-    "formEmail": "Barua pepe",
-    "formSubject": "Mada",
-    "formMessage": "Ujumbe",
-    "formSubmit": "Tuma ujumbe",
-    "lead": "Tumia fomu kwa ombi la rasmi."
+    "formName": "Jina kamili"
   },
   "footer": {
     "desc": "Mhandisi wa IT · Msanidi wa AI · Suluhisho za kidijitali za kiwango cha juu",
+    "rights": "Haki zote zimehifadhiwa.",
     "navTitle": "Urambazaji",
-    "socialTitle": "Mitandao",
-    "rights": "Haki zote zimehifadhiwa."
+    "socialTitle": "Mitandao"
   },
   "notifications": {
-    "langChanged": "Lugha imesasishwa kwa mafanikio",
-    "formSent": "Ujumbe umeandaliwa — fungua programu yako ya barua pepe",
+    "langChanged": "Lugha imesasishwa",
+    "formSent": "Ombi limeandaliwa",
+    "formInvalid": "Kamilisha sehemu zinazohitajika.",
     "cvDownloaded": "CV PDF imepakuliwa kwa mafanikio",
     "cvPdfError": "Imeshindwa kutengeneza PDF. Onyesha upya ukurasa."
   },
@@ -307,18 +477,9 @@
     "profile": "WASIFU",
     "skills": "UJUZI"
   },
-  "stage": {
-    "discover": "Angalia wasifu",
-    "next": "Ukurasa unaofuata",
-    "prev": "Rudi",
-    "finish": "Wasiliana"
-  },
   "brand": {
     "short": "K. Makina Edvais",
     "line1": "Kadièbwe Makina",
     "line2": "Edvais"
-  },
-  "a11y": {
-    "skip": "Nenda kwenye maudhui"
   }
 }

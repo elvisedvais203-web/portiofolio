@@ -9,6 +9,13 @@
   "loader": {
     "text": "A carregar…"
   },
+  "a11y": {
+    "skip": "Ir para o conteúdo principal",
+    "backTop": "Back to top",
+    "themeToggle": "Light or dark mode",
+    "themeLight": "Switch to light mode",
+    "themeDark": "Switch to dark mode"
+  },
   "nav": {
     "home": "Início",
     "about": "Perfil",
@@ -19,18 +26,30 @@
     "testimonials": "Depoimentos",
     "contact": "Contacto"
   },
+  "stage": {
+    "discover": "Consultar o perfil",
+    "next": "Página seguinte",
+    "prev": "Voltar",
+    "finish": "Contacto"
+  },
   "hero": {
-    "greeting": "Olá, sou",
+    "eyebrow": "Engenheiro de sistemas de informação",
     "description": "Concebo, implemento e mantenho soluções digitais fiáveis. A minha prática abrange desenvolvimento, redes e inteligência artificial, com especialização em sistemas de informação (SI).",
     "country": "República Democrática do Congo",
-    "ctaContact": "Contactar-me",
+    "ctaContact": "Contactar",
+    "ctaProjects": "Projetos realizados",
+    "ctaProjectsDesc": "Apps em produção",
+    "ctaOngoing": "Projetos em curso",
+    "ctaOngoingDesc": "Desenvolvimentos ativos",
+    "ctaSkills": "As minhas competências",
+    "ctaSkillsDesc": "SI, desenvolvimento, redes e IA",
+    "scrollHint": "Explorar",
+    "greeting": "Olá, sou",
     "ctaCv": "Currículo PDF",
-    "ctaProjects": "Ver projetos",
     "badge": "Disponível",
     "floatAi": "IA e ML",
     "floatDev": "Full Stack",
-    "floatSec": "Cibersegurança",
-    "eyebrow": "Engenheiro de sistemas de informação"
+    "floatSec": "Cibersegurança"
   },
   "typing": {
     "titles": [
@@ -45,15 +64,17 @@
     "projects": "Projetos concluídos",
     "experience": "Anos de experiência",
     "clients": "Clientes satisfeitos",
+    "domains": "Areas of expertise",
     "tech": "Tecnologias dominadas"
   },
   "about": {
-    "tag": "Sobre",
     "title": "Apresentação",
     "subtitle": "Especialista em Sistemas de Informação (SI)",
     "p1": "Licenciado pela UPL (SI, Engenharia de Software e IA). Atuo em desenvolvimento, redes, IA e implementação, com foco na arquitetura e manutenção de sistemas de informação.",
     "p2": "Perfil versátil, com exigência na estabilidade e qualidade dos sistemas entregues.",
     "university": "Formação",
+    "lead": "A structured technical background focused on reliability and service.",
+    "tag": "Sobre",
     "phone": "Telefone:",
     "langTitle": "Competências linguísticas",
     "lang1": "Fala fluentemente francês",
@@ -68,11 +89,20 @@
     "ai5": "Especialista em sistemas inteligentes"
   },
   "skills": {
-    "tag": "Competências",
     "title": "Domínios de competência",
-    "lead": "Competências transversais — especialização em SI."
+    "lead": "Competências transversais — especialização em SI.",
+    "tag": "Competências",
+    "levelLabel": "Nível de domínio"
   },
   "skillItems": {
+    "frontend": "User interfaces & UX",
+    "backend": "Servers & APIs",
+    "databases": "Databases",
+    "ai": "Artificial intelligence",
+    "infrastructure": "Networks & systems",
+    "cybersecurity": "Cybersecurity",
+    "iot": "Embedded systems",
+    "devops": "Integration & deployment",
     "html": "HTML",
     "css": "CSS",
     "javascript": "JavaScript",
@@ -83,12 +113,8 @@
     "sql": "SQL",
     "flask": "Flask",
     "unity": "Unity",
-    "ai": "Desenvolvimento de IA",
     "networking": "Redes",
-    "cybersecurity": "Cibersegurança",
     "database": "Conceção de BDD",
-    "frontend": "Desenvolvimento Frontend",
-    "backend": "Desenvolvimento Backend",
     "uiux": "Design UI/UX",
     "sysadmin": "Administração de Sistemas",
     "linux": "Linux",
@@ -97,11 +123,45 @@
     "sqlite": "SQLite",
     "git": "Git & GitHub"
   },
+  "skillStacks": {
+    "frontend": "HTML · CSS · JavaScript · UI/UX · Responsive design",
+    "backend": "Python · C# · Java · PHP · Flask · REST APIs",
+    "databases": "SQL · SQLite · Database design & optimization",
+    "ai": "Machine learning · Computer vision · Intelligent automation",
+    "infrastructure": "Networking · System administration · Linux",
+    "cybersecurity": "Application security · System protection",
+    "iot": "Arduino · Embedded systems · Unity · Prototyping",
+    "devops": "Git · GitHub · Collaboration & deployment"
+  },
   "services": {
     "tag": "Serviços",
     "title": "Soluções premium"
   },
   "serviceItems": {
+    "development": {
+      "title": "Web & mobile development",
+      "desc": "Custom websites and apps: design, development, deployment and maintenance."
+    },
+    "ai": {
+      "title": "Soluções de IA",
+      "desc": "Sistemas inteligentes, machine learning e automatização por IA."
+    },
+    "infrastructure": {
+      "title": "IT infrastructure & cybersecurity",
+      "desc": "Networks, security, preventive maintenance and technical support for SMEs and institutions."
+    },
+    "dataSystems": {
+      "title": "Data & connected systems",
+      "desc": "Databases, IoT, smart systems and dashboards for decision-making."
+    },
+    "embedded": {
+      "title": "Sistemas Embarcados",
+      "desc": "Desenvolvimento de soluções embarcadas com Arduino e microcontroladores."
+    },
+    "consulting": {
+      "title": "Consultoria de TI",
+      "desc": "Acompanhamento estratégico para a sua transformação digital."
+    },
     "web": {
       "title": "Desenvolvimento Web",
       "desc": "Sites web modernos, responsivos e de alto desempenho com as tecnologias mais recentes."
@@ -109,10 +169,6 @@
     "mobile": {
       "title": "Aplicações Móveis",
       "desc": "Aplicações móveis nativas e multiplataforma para iOS e Android."
-    },
-    "ai": {
-      "title": "Soluções de IA",
-      "desc": "Sistemas inteligentes, machine learning e automatização por IA."
     },
     "network": {
       "title": "Instalação de Redes",
@@ -134,43 +190,76 @@
       "title": "Engenharia de Software",
       "desc": "Desenvolvimento de software à medida conforme as suas necessidades de negócio."
     },
-    "consulting": {
-      "title": "Consultoria de TI",
-      "desc": "Acompanhamento estratégico para a sua transformação digital."
-    },
     "maintenance": {
       "title": "Manutenção de Sistemas",
       "desc": "Suporte técnico, manutenção preventiva e corretiva."
-    },
-    "embedded": {
-      "title": "Sistemas Embarcados",
-      "desc": "Desenvolvimento de soluções embarcadas com Arduino e microcontroladores."
     },
     "automation": {
       "title": "Sistemas de Automação",
       "desc": "Automação industrial e de processos para maior eficiência."
     }
   },
+  "archive": {
+    "code": "ARCHIVE · EM-2026",
+    "title": "Classified dossiers",
+    "lead": "Real production applications. Each project stays hidden until you choose to open it.",
+    "unlock": "Unlock the archive",
+    "skip": "Enter directly",
+    "hint": "Scroll or click a dossier to reveal"
+  },
   "projects": {
+    "title": "Projetos",
+    "lead": "Realizações, obras em curso e inovação.",
+    "tabDone": "Realizados",
+    "tabOngoing": "Em curso",
+    "tabFuture": "Horizonte",
+    "statusDone": "Concluído",
+    "statusOngoing": "Em curso",
+    "ongoingLead": "Soluções em desenvolvimento ou implantação.",
+    "sealedLabel": "Pré-visualização",
+    "revealCta": "Abrir dossier",
+    "demo": "Demonstração",
+    "zoomHint": "Click the image to zoom · use +/− or scroll wheel",
+    "zoomReset": "100%",
+    "zoomIn": "Zoom in",
+    "zoomOut": "Zoom out",
     "tag": "Projetos",
-    "title": "Realizações",
     "filterAll": "Todos",
     "filterAi": "IA",
-    "filterWeb": "Web",
+    "filterWeb": "Web e móvel",
     "filterIot": "IoT",
     "filterNetwork": "Rede",
     "catAi": "Inteligência Artificial",
     "catWeb": "Web",
     "catIot": "IoT",
     "catNetwork": "Rede",
-    "lead": "Seleção de projetos em produção. Clique para consultar o detalhe.",
-    "filterDevops": "Infraestrutura",
-    "sealedLabel": "Projeto",
-    "revealCta": "Abrir",
-    "demo": "Demonstração",
-    "repo": "Repositório"
+    "filterDevops": "Infraestrutura"
   },
   "projectItems": {
+    "nextalk": {
+      "title": "NexTalk",
+      "desc": "Communication platform: messaging, calls and channels."
+    },
+    "congolove": {
+      "title": "CongoLove",
+      "desc": "Social and dating network — profiles, verification and matching."
+    },
+    "netcontrol": {
+      "title": "NetControl",
+      "desc": "Network supervision and workstation administration."
+    },
+    "edvaselve": {
+      "title": "Edvaselve Marketplace",
+      "desc": "Multi-vendor marketplace — Lubumbashi."
+    },
+    "solola": {
+      "title": "SOLOLA",
+      "desc": "Web communication service — production on Render."
+    },
+    "congoloveStack": {
+      "title": "CongoLove infrastructure",
+      "desc": "PostgreSQL, Valkey, Node.js services, mail domain."
+    },
     "surveillance": {
       "title": "Sistema de Vigilância Urbana Inteligente",
       "desc": "Plataforma de IA para vigilância urbana em tempo real com deteção de anomalias e alertas automáticos."
@@ -208,13 +297,60 @@
       "desc": "Criações animadas assistidas por IA para media, formação e comunicação visual."
     }
   },
+  "future": {
+    "tag": "Horizon",
+    "title": "Future projects",
+    "lead": "Innovation lab — prototypes and visions in progress.",
+    "items": {
+      "siHub": {
+        "title": "IS Analytics Hub",
+        "desc": "Unified dashboard for IS monitoring, metrics and real-time alerts.",
+        "status": "R&D · 2026"
+      },
+      "secureCloud": {
+        "title": "SecureCloud DRC",
+        "desc": "Sovereign hosting platform with hardening and automated backups.",
+        "status": "Design · 2026"
+      },
+      "eduAi": {
+        "title": "EduAI Campus",
+        "desc": "AI teaching assistant for institutions — paths, assessments and tutoring.",
+        "status": "Prototype · 2027"
+      },
+      "iotCity": {
+        "title": "Smart City Lubumbashi",
+        "desc": "IoT sensors & dashboards for connected urban infrastructure.",
+        "status": "Vision · 2027"
+      }
+    }
+  },
   "experience": {
-    "tag": "Percurso",
-    "title": "Percurso profissional",
-    "lead": "Percurso contínuo desde 2022 — missões, desenvolvimento e infraestruturas digitais.",
-    "present": "Hoje"
+    "title": "Experiência profissional",
+    "lead": "Percurso desde 2022 até hoje.",
+    "present": "Hoje",
+    "tag": "Percurso"
   },
   "experienceItems": {
+    "si": {
+      "title": "Engenheiro de sistemas de informação",
+      "org": "Lubumbashi · RDC",
+      "desc": "Análise, arquitetura, integração e manutenção de soluções SI."
+    },
+    "dev": {
+      "title": "Desenvolvimento web e móvel",
+      "org": "Projetos de clientes",
+      "desc": "Apps web e móveis, APIs REST e ferramentas SI."
+    },
+    "infra": {
+      "title": "Redes e infraestrutura",
+      "org": "Cloud e servidores",
+      "desc": "Administração de rede, bases de dados e hosting."
+    },
+    "freelance": {
+      "title": "Consultoria e formação",
+      "org": "Missões independentes",
+      "desc": "Suporte técnico, implantação e formação."
+    },
     "projects": {
       "title": "Múltiplos Projetos de TI",
       "desc": "Realização de mais de 50 projetos tecnológicos abrangendo web, IA, IoT e redes."
@@ -234,22 +370,6 @@
     "teaching": {
       "title": "Formação e Ensino",
       "desc": "Formação profissional em informática, programação e tecnologias emergentes."
-    },
-    "freelance": {
-      "title": "Prestação de serviços e formação",
-      "desc": "Missões, acompanhamento técnico e formação em informática."
-    },
-    "si": {
-      "title": "Sistemas de Informação (SI)",
-      "desc": "Análise, arquitetura, integração e manutenção de soluções SI."
-    },
-    "dev": {
-      "title": "Desenvolvimento de software",
-      "desc": "Aplicações web e móveis, APIs e ferramentas de apoio ao SI."
-    },
-    "infra": {
-      "title": "Redes e infraestrutura",
-      "desc": "Administração de rede, cloud, bases de dados e supervisão."
     }
   },
   "testimonials": {
@@ -274,30 +394,80 @@
     }
   },
   "contact": {
-    "tag": "Contacto",
     "title": "Contacto",
+    "lead": "Pessoa singular ou coletiva — formulário profissional.",
     "whatsapp": "WhatsApp",
+    "whatsappHint": "Resposta rápida",
+    "phone": "Telefone",
+    "email": "E-mail",
+    "formTitle": "Dossier de contacto",
+    "formLead": "Formulário conforme o seu estatuto.",
+    "typePhysical": "Pessoa singular",
+    "typePhysicalDesc": "Particular, freelancer",
+    "typeMoral": "Pessoa coletiva",
+    "typeMoralDesc": "Empresa, ONG, administração",
+    "sectionIdentity": "Identidade",
+    "sectionOrganization": "Organização",
+    "sectionRepresentative": "Representante",
+    "sectionRequest": "O seu pedido",
+    "firstName": "Nome",
+    "lastName": "Apelido",
+    "companyName": "Denominação social",
+    "legalForm": "Forma jurídica",
+    "legalFormPlaceholder": "— Selecionar —",
+    "legalSarl": "Lda",
+    "legalSa": "SA",
+    "legalAsbl": "ONG",
+    "legalPublic": "Entidade pública",
+    "legalOther": "Outra",
+    "companyId": "N° registo",
+    "repName": "Representante",
+    "repRole": "Função",
+    "formEmail": "E-mail",
+    "formPhone": "Telefone",
+    "requestType": "Natureza do pedido",
+    "requestPlaceholder": "— Selecione um serviço —",
+    "requestDevWeb": "Desenvolvimento web e móvel (site, aplicação)",
+    "requestSiEngineer": "Engenheiro / prestação em sistemas de informação (SI)",
+    "requestSoftwareEng": "Engenharia de software — arquitetura, APIs, apps de negócio",
+    "requestAi": "Inteligência artificial (ML, visão, automatização)",
+    "requestInfra": "Infraestrutura IT, redes, servidores e implantação",
+    "requestCyber": "Cibersegurança e reforço de sistemas",
+    "requestAudit": "Auditoria técnica, consultoria e acompanhamento SI",
+    "requestMaintenance": "Manutenção, suporte e supervisão",
+    "requestTraining": "Formação e transferência de competências",
+    "requestQuote": "Pedido de orçamento detalhado",
+    "requestPartnership": "Parceria ou colaboração de longo prazo",
+    "requestOther": "Outro pedido (especificar na mensagem)",
+    "formSubject": "Assunto",
+    "formMessage": "Mensagem detalhada",
+    "formSubmit": "Enviar pedido",
+    "assertionsTitle": "Declarações obrigatórias",
+    "assertAccuracy": "Certifico que a informação é exata e completa.",
+    "assertPrivacy": "Aceito o tratamento confidencial dos meus dados.",
+    "assertFollowup": "Autorizo recontacto por e-mail ou telefone.",
+    "errorRequired": "Campo obrigatório",
+    "errorEmail": "E-mail inválido",
+    "mailHeader": "PEDIDO DE CONTACTO",
+    "mailType": "Tipo",
+    "mailFooter": "Enviado do portfolio K. Makina Edvais",
+    "tag": "Contacto",
     "whatsappCta": "Enviar mensagem",
     "call": "Ligar",
-    "email": "Email",
     "location": "Localização",
     "map": "Mapa — Lubumbashi, RD Congo",
-    "formName": "Nome completo",
-    "formEmail": "Email",
-    "formSubject": "Assunto",
-    "formMessage": "Mensagem",
-    "formSubmit": "Enviar mensagem",
-    "lead": "Para uma solicitação formal, utilize o formulário abaixo."
+    "formName": "Nome completo"
   },
   "footer": {
     "desc": "Engenheiro de TI · Desenvolvedor de IA · Soluções digitais premium",
+    "rights": "Todos os direitos reservados.",
     "navTitle": "Navegação",
-    "socialTitle": "Redes",
-    "rights": "Todos os direitos reservados."
+    "socialTitle": "Redes"
   },
   "notifications": {
-    "langChanged": "Idioma atualizado com sucesso",
-    "formSent": "Mensagem preparada — abra o seu cliente de email",
+    "langChanged": "Idioma atualizado",
+    "formSent": "Pedido preparado — abra o seu e-mail",
+    "formInvalid": "Preencha os campos obrigatórios.",
     "cvDownloaded": "CV PDF descarregado com sucesso",
     "cvPdfError": "Não foi possível gerar o PDF. Atualize a página."
   },
@@ -307,18 +477,9 @@
     "profile": "PERFIL",
     "skills": "COMPETÊNCIAS"
   },
-  "stage": {
-    "discover": "Consultar o perfil",
-    "next": "Página seguinte",
-    "prev": "Voltar",
-    "finish": "Contacto"
-  },
   "brand": {
     "short": "K. Makina Edvais",
     "line1": "Kadièbwe Makina",
     "line2": "Edvais"
-  },
-  "a11y": {
-    "skip": "Ir para o conteúdo principal"
   }
 }

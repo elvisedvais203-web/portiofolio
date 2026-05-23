@@ -9,6 +9,13 @@
   "loader": {
     "text": "読み込み中…"
   },
+  "a11y": {
+    "skip": "コンテンツへ",
+    "backTop": "Back to top",
+    "themeToggle": "Light or dark mode",
+    "themeLight": "Switch to light mode",
+    "themeDark": "Switch to dark mode"
+  },
   "nav": {
     "home": "ホーム",
     "about": "プロフィール",
@@ -19,18 +26,30 @@
     "testimonials": "お客様の声",
     "contact": "連絡"
   },
+  "stage": {
+    "discover": "プロフィールを見る",
+    "next": "次のページ",
+    "prev": "戻る",
+    "finish": "連絡"
+  },
   "hero": {
-    "greeting": "こんにちは、私は",
+    "eyebrow": "情報システムエンジニア",
     "description": "信頼性の高いデジタルソリューションを設計・導入・保守します。開発、ネットワーク、AIを幅広く扱い、情報システム（SI）を専門としています。",
     "country": "コンゴ民主共和国",
     "ctaContact": "お問い合わせ",
+    "ctaProjects": "完了プロジェクト",
+    "ctaProjectsDesc": "本番アプリ",
+    "ctaOngoing": "進行中プロジェクト",
+    "ctaOngoingDesc": "開発・展開中",
+    "ctaSkills": "スキル",
+    "ctaSkillsDesc": "SI、開発、ネットワーク、AI",
+    "scrollHint": "探索",
+    "greeting": "こんにちは、私は",
     "ctaCv": "履歴書 PDF",
-    "ctaProjects": "プロジェクトを見る",
     "badge": "対応可能",
     "floatAi": "AI・ML",
     "floatDev": "フルスタック",
-    "floatSec": "サイバーセキュリティ",
-    "eyebrow": "情報システムエンジニア"
+    "floatSec": "サイバーセキュリティ"
   },
   "typing": {
     "titles": [
@@ -45,15 +64,17 @@
     "projects": "完了プロジェクト",
     "experience": "経験年数",
     "clients": "満足したクライアント",
+    "domains": "Areas of expertise",
     "tech": "習得技術"
   },
   "about": {
-    "tag": "概要",
     "title": "プロフィール",
     "subtitle": "情報システム（SI）専門家",
     "p1": "UPL卒（情報システム、ソフトウェア工学、AI）。開発・ネットワーク・AI・導入に従事。",
     "p2": "多能なプロフィールで、システムの信頼性を重視。",
     "university": "学歴",
+    "lead": "A structured technical background focused on reliability and service.",
+    "tag": "概要",
     "phone": "電話：",
     "langTitle": "言語スキル",
     "lang1": "フランス語を流暢に話す",
@@ -68,11 +89,20 @@
     "ai5": "インテリジェントシステムの専門家"
   },
   "skills": {
-    "tag": "スキル",
     "title": "専門領域",
-    "lead": "横断的スキル — SIが中心。"
+    "lead": "横断的スキル — SI が中心。",
+    "tag": "スキル",
+    "levelLabel": "習熟度"
   },
   "skillItems": {
+    "frontend": "User interfaces & UX",
+    "backend": "Servers & APIs",
+    "databases": "Databases",
+    "ai": "Artificial intelligence",
+    "infrastructure": "Networks & systems",
+    "cybersecurity": "Cybersecurity",
+    "iot": "Embedded systems",
+    "devops": "Integration & deployment",
     "html": "HTML",
     "css": "CSS",
     "javascript": "JavaScript",
@@ -83,12 +113,8 @@
     "sql": "SQL",
     "flask": "Flask",
     "unity": "Unity",
-    "ai": "AI開発",
     "networking": "ネットワーク",
-    "cybersecurity": "サイバーセキュリティ",
     "database": "DB設計",
-    "frontend": "フロントエンド開発",
-    "backend": "バックエンド開発",
     "uiux": "UI/UXデザイン",
     "sysadmin": "システム管理",
     "linux": "Linux",
@@ -97,11 +123,45 @@
     "sqlite": "SQLite",
     "git": "Git & GitHub"
   },
+  "skillStacks": {
+    "frontend": "HTML · CSS · JavaScript · UI/UX · Responsive design",
+    "backend": "Python · C# · Java · PHP · Flask · REST APIs",
+    "databases": "SQL · SQLite · Database design & optimization",
+    "ai": "Machine learning · Computer vision · Intelligent automation",
+    "infrastructure": "Networking · System administration · Linux",
+    "cybersecurity": "Application security · System protection",
+    "iot": "Arduino · Embedded systems · Unity · Prototyping",
+    "devops": "Git · GitHub · Collaboration & deployment"
+  },
   "services": {
     "tag": "サービス",
     "title": "プレミアムソリューション"
   },
   "serviceItems": {
+    "development": {
+      "title": "Web & mobile development",
+      "desc": "Custom websites and apps: design, development, deployment and maintenance."
+    },
+    "ai": {
+      "title": "AIソリューション",
+      "desc": "インテリジェントシステム、機械学習、AIによる自動化。"
+    },
+    "infrastructure": {
+      "title": "IT infrastructure & cybersecurity",
+      "desc": "Networks, security, preventive maintenance and technical support for SMEs and institutions."
+    },
+    "dataSystems": {
+      "title": "Data & connected systems",
+      "desc": "Databases, IoT, smart systems and dashboards for decision-making."
+    },
+    "embedded": {
+      "title": "組み込みシステム",
+      "desc": "Arduinoとマイコンによる組み込みソリューション開発。"
+    },
+    "consulting": {
+      "title": "ITコンサルティング",
+      "desc": "デジタル変革のための戦略的サポート。"
+    },
     "web": {
       "title": "Web開発",
       "desc": "最新技術によるモダンでレスポンシブ、高性能なWebサイト。"
@@ -109,10 +169,6 @@
     "mobile": {
       "title": "モバイルアプリ",
       "desc": "iOS・Android向けのネイティブおよびクロスプラットフォームアプリ。"
-    },
-    "ai": {
-      "title": "AIソリューション",
-      "desc": "インテリジェントシステム、機械学習、AIによる自動化。"
     },
     "network": {
       "title": "ネットワーク構築",
@@ -134,43 +190,76 @@
       "title": "ソフトウェアエンジニアリング",
       "desc": "ビジネスニーズに合わせたカスタムソフトウェア開発。"
     },
-    "consulting": {
-      "title": "ITコンサルティング",
-      "desc": "デジタル変革のための戦略的サポート。"
-    },
     "maintenance": {
       "title": "システムメンテナンス",
       "desc": "技術サポート、予防保守、是正保守。"
-    },
-    "embedded": {
-      "title": "組み込みシステム",
-      "desc": "Arduinoとマイコンによる組み込みソリューション開発。"
     },
     "automation": {
       "title": "自動化システム",
       "desc": "産業・プロセス自動化による効率向上。"
     }
   },
+  "archive": {
+    "code": "ARCHIVE · EM-2026",
+    "title": "Classified dossiers",
+    "lead": "Real production applications. Each project stays hidden until you choose to open it.",
+    "unlock": "Unlock the archive",
+    "skip": "Enter directly",
+    "hint": "Scroll or click a dossier to reveal"
+  },
   "projects": {
+    "title": "プロジェクト",
+    "lead": "完了・進行中・将来構想。",
+    "tabDone": "完了",
+    "tabOngoing": "進行中",
+    "tabFuture": "Horizon",
+    "statusDone": "完了",
+    "statusOngoing": "進行中",
+    "ongoingLead": "開発または展開中のソリューション。",
+    "sealedLabel": "プレビュー",
+    "revealCta": "開く",
+    "demo": "デモ",
+    "zoomHint": "Click the image to zoom · use +/− or scroll wheel",
+    "zoomReset": "100%",
+    "zoomIn": "Zoom in",
+    "zoomOut": "Zoom out",
     "tag": "プロジェクト",
-    "title": "実績",
     "filterAll": "すべて",
     "filterAi": "AI",
-    "filterWeb": "Web",
+    "filterWeb": "Web・モバイル",
     "filterIot": "IoT",
     "filterNetwork": "ネットワーク",
     "catAi": "人工知能",
     "catWeb": "Web",
     "catIot": "IoT",
     "catNetwork": "ネットワーク",
-    "lead": "クリックして詳細を表示。",
-    "filterDevops": "インフラ",
-    "sealedLabel": "プロジェクト",
-    "revealCta": "開く",
-    "demo": "デモ",
-    "repo": "ソース"
+    "filterDevops": "インフラ"
   },
   "projectItems": {
+    "nextalk": {
+      "title": "NexTalk",
+      "desc": "Communication platform: messaging, calls and channels."
+    },
+    "congolove": {
+      "title": "CongoLove",
+      "desc": "Social and dating network — profiles, verification and matching."
+    },
+    "netcontrol": {
+      "title": "NetControl",
+      "desc": "Network supervision and workstation administration."
+    },
+    "edvaselve": {
+      "title": "Edvaselve Marketplace",
+      "desc": "Multi-vendor marketplace — Lubumbashi."
+    },
+    "solola": {
+      "title": "SOLOLA",
+      "desc": "Web communication service — production on Render."
+    },
+    "congoloveStack": {
+      "title": "CongoLove infrastructure",
+      "desc": "PostgreSQL, Valkey, Node.js services, mail domain."
+    },
     "surveillance": {
       "title": "スマート都市監視システム",
       "desc": "異常検知と自動アラートによるリアルタイム都市監視のAIプラットフォーム。"
@@ -208,13 +297,60 @@
       "desc": "メディア、研修、ビジュアルコミュニケーション向けのAI支援アニメーション制作。"
     }
   },
+  "future": {
+    "tag": "Horizon",
+    "title": "Future projects",
+    "lead": "Innovation lab — prototypes and visions in progress.",
+    "items": {
+      "siHub": {
+        "title": "IS Analytics Hub",
+        "desc": "Unified dashboard for IS monitoring, metrics and real-time alerts.",
+        "status": "R&D · 2026"
+      },
+      "secureCloud": {
+        "title": "SecureCloud DRC",
+        "desc": "Sovereign hosting platform with hardening and automated backups.",
+        "status": "Design · 2026"
+      },
+      "eduAi": {
+        "title": "EduAI Campus",
+        "desc": "AI teaching assistant for institutions — paths, assessments and tutoring.",
+        "status": "Prototype · 2027"
+      },
+      "iotCity": {
+        "title": "Smart City Lubumbashi",
+        "desc": "IoT sensors & dashboards for connected urban infrastructure.",
+        "status": "Vision · 2027"
+      }
+    }
+  },
   "experience": {
-    "tag": "キャリア",
-    "title": "経歴",
-    "lead": "2022年からの継続的な実務 — 案件、開発、デジタルインフラ。",
-    "present": "現在"
+    "title": "職務経歴",
+    "lead": "2022年から現在まで。",
+    "present": "現在",
+    "tag": "キャリア"
   },
   "experienceItems": {
+    "si": {
+      "title": "情報システムエンジニア",
+      "org": "ルブンバシ · DRC",
+      "desc": "要件分析、設計、統合、SIソリューションの保守。"
+    },
+    "dev": {
+      "title": "Web・モバイル開発",
+      "org": "クライアント・自社",
+      "desc": "Web/モバイルアプリ、REST API、業務ツール。"
+    },
+    "infra": {
+      "title": "ネットワーク・インフラ",
+      "org": "クラウド・サーバー",
+      "desc": "ネットワーク管理、DB、監視、ホスティング。"
+    },
+    "freelance": {
+      "title": "コンサル・研修",
+      "org": "独立案件",
+      "desc": "技術支援、展開、IT研修。"
+    },
     "projects": {
       "title": "多数のITプロジェクト",
       "desc": "Web、AI、IoT、ネットワークを網羅する50以上の技術プロジェクトを実施。"
@@ -234,22 +370,6 @@
     "teaching": {
       "title": "研修・教育",
       "desc": "コンピュータ、プログラミング、新興技術の専門研修。"
-    },
-    "freelance": {
-      "title": "業務・研修",
-      "desc": "フリーランス、技術支援、教育。"
-    },
-    "si": {
-      "title": "情報システム（SI）",
-      "desc": "要件定義、アーキテクチャ、統合、保守。"
-    },
-    "dev": {
-      "title": "ソフトウェア開発",
-      "desc": "Web/モバイル、API。"
-    },
-    "infra": {
-      "title": "ネットワーク・インフラ",
-      "desc": "ネットワーク、クラウド、DB。"
     }
   },
   "testimonials": {
@@ -274,30 +394,80 @@
     }
   },
   "contact": {
-    "tag": "お問い合わせ",
-    "title": "お問い合わせ",
+    "title": "連絡",
+    "lead": "自然人または法人 — プロ用フォーム。",
     "whatsapp": "WhatsApp",
+    "whatsappHint": "迅速な返信",
+    "phone": "電話",
+    "email": "メール",
+    "formTitle": "連絡フォーム",
+    "formLead": "ステータスに応じて入力。* は必須。",
+    "typePhysical": "自然人",
+    "typePhysicalDesc": "個人・フリーランス",
+    "typeMoral": "法人",
+    "typeMoralDesc": "企業・NGO・公的機関",
+    "sectionIdentity": "身元",
+    "sectionOrganization": "組織",
+    "sectionRepresentative": "代表者",
+    "sectionRequest": "ご依頼",
+    "firstName": "名",
+    "lastName": "姓",
+    "companyName": "法人名",
+    "legalForm": "法人格",
+    "legalFormPlaceholder": "— 選択 —",
+    "legalSarl": "LLC",
+    "legalSa": "株式会社",
+    "legalAsbl": "NPO",
+    "legalPublic": "公的機関",
+    "legalOther": "その他",
+    "companyId": "登録番号",
+    "repName": "代表者名",
+    "repRole": "役職",
+    "formEmail": "メール",
+    "formPhone": "電話",
+    "requestType": "依頼の性質",
+    "requestPlaceholder": "— サービスを選択 —",
+    "requestDevWeb": "Web・モバイル開発（サイト、アプリ）",
+    "requestSiEngineer": "情報システム（SI）エンジニア／サービス",
+    "requestSoftwareEng": "ソフトウェア工学 — 設計、API、業務アプリ",
+    "requestAi": "人工知能（ML、画像認識、自動化）",
+    "requestInfra": "ITインフラ、ネットワーク、サーバー、デプロイ",
+    "requestCyber": "サイバーセキュリティとシステム強化",
+    "requestAudit": "技術監査、コンサルティング、SI支援",
+    "requestMaintenance": "保守、サポート、監視",
+    "requestTraining": "研修・スキル移転",
+    "requestQuote": "詳細見積依頼",
+    "requestPartnership": "長期パートナーシップ",
+    "requestOther": "その他（メッセージに記載）",
+    "formSubject": "件名",
+    "formMessage": "詳細",
+    "formSubmit": "送信",
+    "assertionsTitle": "必須宣言",
+    "assertAccuracy": "情報が正確であることを証明します。",
+    "assertPrivacy": "回答目的での秘密処理に同意します。",
+    "assertFollowup": "フォローアップ連絡を許可します。",
+    "errorRequired": "必須項目",
+    "errorEmail": "メールが無効",
+    "mailHeader": "お問い合わせ",
+    "mailType": "種別",
+    "mailFooter": "K. Makina Edvais ポートフォリオより",
+    "tag": "お問い合わせ",
     "whatsappCta": "メッセージを送る",
     "call": "電話する",
-    "email": "メール",
     "location": "所在地",
     "map": "地図 — ルブンバシ、コンゴ民主共和国",
-    "formName": "氏名",
-    "formEmail": "メール",
-    "formSubject": "件名",
-    "formMessage": "メッセージ",
-    "formSubmit": "送信",
-    "lead": "正式なご依頼はフォームをご利用ください。"
+    "formName": "氏名"
   },
   "footer": {
     "desc": "ITエンジニア · AI開発者 · プレミアムデジタルソリューション",
+    "rights": "All rights reserved.",
     "navTitle": "ナビゲーション",
-    "socialTitle": "ソーシャル",
-    "rights": "All rights reserved."
+    "socialTitle": "ソーシャル"
   },
   "notifications": {
-    "langChanged": "言語が正常に更新されました",
-    "formSent": "メッセージを準備しました — メールクライアントを開いてください",
+    "langChanged": "言語を更新しました",
+    "formSent": "送信準備完了 — メールを開いてください",
+    "formInvalid": "必須項目を入力してください。",
     "cvDownloaded": "PDF履歴書のダウンロードに成功しました",
     "cvPdfError": "PDFを生成できませんでした。ページを再読み込みしてください。"
   },
@@ -307,18 +477,9 @@
     "profile": "プロフィール",
     "skills": "スキル"
   },
-  "stage": {
-    "discover": "プロフィールを見る",
-    "next": "次のページ",
-    "prev": "戻る",
-    "finish": "連絡"
-  },
   "brand": {
     "short": "K. Makina Edvais",
     "line1": "Kadièbwe Makina",
     "line2": "Edvais"
-  },
-  "a11y": {
-    "skip": "コンテンツへ"
   }
 }

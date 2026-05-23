@@ -9,6 +9,13 @@
   "loader": {
     "text": "加载中…"
   },
+  "a11y": {
+    "skip": "跳到主要内容",
+    "backTop": "Back to top",
+    "themeToggle": "Light or dark mode",
+    "themeLight": "Switch to light mode",
+    "themeDark": "Switch to dark mode"
+  },
   "nav": {
     "home": "首页",
     "about": "简介",
@@ -19,18 +26,30 @@
     "testimonials": "客户评价",
     "contact": "联系"
   },
+  "stage": {
+    "discover": "查阅简介",
+    "next": "下一页",
+    "prev": "返回",
+    "finish": "联系"
+  },
   "hero": {
-    "greeting": "您好，我是",
+    "eyebrow": "信息系统工程师",
     "description": "我设计、部署并维护可靠的数字解决方案。实践涵盖开发、网络与人工智能，专业方向为信息系统（SI）。",
     "country": "刚果民主共和国",
-    "ctaContact": "联系我",
+    "ctaContact": "联系",
+    "ctaProjects": "已完成项目",
+    "ctaProjectsDesc": "已部署应用",
+    "ctaOngoing": "进行中项目",
+    "ctaOngoingDesc": "活跃开发",
+    "ctaSkills": "我的能力",
+    "ctaSkillsDesc": "信息系统、开发、网络与 AI",
+    "scrollHint": "浏览",
+    "greeting": "您好，我是",
     "ctaCv": "下载简历 PDF",
-    "ctaProjects": "查看项目",
     "badge": "可接单",
     "floatAi": "AI与ML",
     "floatDev": "全栈",
-    "floatSec": "网络安全",
-    "eyebrow": "信息系统工程师"
+    "floatSec": "网络安全"
   },
   "typing": {
     "titles": [
@@ -45,15 +64,17 @@
     "projects": "已完成项目",
     "experience": "从业年限",
     "clients": "满意客户",
+    "domains": "Areas of expertise",
     "tech": "掌握技术"
   },
   "about": {
-    "tag": "关于",
     "title": "简介",
     "subtitle": "信息系统（SI）专家",
     "p1": "毕业于 UPL（信息系统、软件工程与人工智能）。从事开发、网络、人工智能与部署，专注于信息系统架构与维护。",
     "p2": "能力全面，注重系统可靠性与交付质量。",
     "university": "教育背景",
+    "lead": "A structured technical background focused on reliability and service.",
+    "tag": "关于",
     "phone": "电话：",
     "langTitle": "语言能力",
     "lang1": "流利使用法语",
@@ -68,11 +89,20 @@
     "ai5": "智能系统专家"
   },
   "skills": {
-    "tag": "技能",
     "title": "专业领域",
-    "lead": "综合能力 — 专注信息系统。"
+    "lead": "综合能力 — 专注信息系统。",
+    "tag": "技能",
+    "levelLabel": "掌握程度"
   },
   "skillItems": {
+    "frontend": "User interfaces & UX",
+    "backend": "Servers & APIs",
+    "databases": "Databases",
+    "ai": "Artificial intelligence",
+    "infrastructure": "Networks & systems",
+    "cybersecurity": "Cybersecurity",
+    "iot": "Embedded systems",
+    "devops": "Integration & deployment",
     "html": "HTML",
     "css": "CSS",
     "javascript": "JavaScript",
@@ -83,12 +113,8 @@
     "sql": "SQL",
     "flask": "Flask",
     "unity": "Unity",
-    "ai": "人工智能开发",
     "networking": "网络",
-    "cybersecurity": "网络安全",
     "database": "数据库设计",
-    "frontend": "前端开发",
-    "backend": "后端开发",
     "uiux": "UI/UX设计",
     "sysadmin": "系统管理",
     "linux": "Linux",
@@ -97,11 +123,45 @@
     "sqlite": "SQLite",
     "git": "Git & GitHub"
   },
+  "skillStacks": {
+    "frontend": "HTML · CSS · JavaScript · UI/UX · Responsive design",
+    "backend": "Python · C# · Java · PHP · Flask · REST APIs",
+    "databases": "SQL · SQLite · Database design & optimization",
+    "ai": "Machine learning · Computer vision · Intelligent automation",
+    "infrastructure": "Networking · System administration · Linux",
+    "cybersecurity": "Application security · System protection",
+    "iot": "Arduino · Embedded systems · Unity · Prototyping",
+    "devops": "Git · GitHub · Collaboration & deployment"
+  },
   "services": {
     "tag": "服务",
     "title": "高端解决方案"
   },
   "serviceItems": {
+    "development": {
+      "title": "Web & mobile development",
+      "desc": "Custom websites and apps: design, development, deployment and maintenance."
+    },
+    "ai": {
+      "title": "人工智能解决方案",
+      "desc": "智能系统、机器学习与人工智能自动化。"
+    },
+    "infrastructure": {
+      "title": "IT infrastructure & cybersecurity",
+      "desc": "Networks, security, preventive maintenance and technical support for SMEs and institutions."
+    },
+    "dataSystems": {
+      "title": "Data & connected systems",
+      "desc": "Databases, IoT, smart systems and dashboards for decision-making."
+    },
+    "embedded": {
+      "title": "嵌入式系统",
+      "desc": "基于Arduino和微控制器的嵌入式解决方案开发。"
+    },
+    "consulting": {
+      "title": "IT咨询",
+      "desc": "为您的数字化转型提供战略支持。"
+    },
     "web": {
       "title": "网站开发",
       "desc": "采用最新技术打造现代、响应式、高性能网站。"
@@ -109,10 +169,6 @@
     "mobile": {
       "title": "移动应用",
       "desc": "面向iOS和Android的原生及跨平台移动应用。"
-    },
-    "ai": {
-      "title": "人工智能解决方案",
-      "desc": "智能系统、机器学习与人工智能自动化。"
     },
     "network": {
       "title": "网络安装",
@@ -134,43 +190,76 @@
       "title": "软件工程",
       "desc": "根据您的业务需求定制软件开发。"
     },
-    "consulting": {
-      "title": "IT咨询",
-      "desc": "为您的数字化转型提供战略支持。"
-    },
     "maintenance": {
       "title": "系统维护",
       "desc": "技术支持、预防性维护与纠正性维护。"
-    },
-    "embedded": {
-      "title": "嵌入式系统",
-      "desc": "基于Arduino和微控制器的嵌入式解决方案开发。"
     },
     "automation": {
       "title": "自动化系统",
       "desc": "工业与流程自动化，提升效率。"
     }
   },
+  "archive": {
+    "code": "ARCHIVE · EM-2026",
+    "title": "Classified dossiers",
+    "lead": "Real production applications. Each project stays hidden until you choose to open it.",
+    "unlock": "Unlock the archive",
+    "skip": "Enter directly",
+    "hint": "Scroll or click a dossier to reveal"
+  },
   "projects": {
+    "title": "项目",
+    "lead": "已完成、进行中与创新路线。",
+    "tabDone": "已完成",
+    "tabOngoing": "进行中",
+    "tabFuture": "展望",
+    "statusDone": "已完成",
+    "statusOngoing": "进行中",
+    "ongoingLead": "正在开发或部署的解决方案。",
+    "sealedLabel": "预览",
+    "revealCta": "打开",
+    "demo": "演示",
+    "zoomHint": "Click the image to zoom · use +/− or scroll wheel",
+    "zoomReset": "100%",
+    "zoomIn": "Zoom in",
+    "zoomOut": "Zoom out",
     "tag": "项目",
-    "title": "项目成果",
     "filterAll": "全部",
     "filterAi": "AI",
-    "filterWeb": "Web",
+    "filterWeb": "Web 与移动",
     "filterIot": "IoT",
     "filterNetwork": "网络",
     "catAi": "人工智能",
     "catWeb": "Web",
     "catIot": "IoT",
     "catNetwork": "网络",
-    "lead": "点击查看项目详情。",
-    "filterDevops": "基础设施",
-    "sealedLabel": "项目",
-    "revealCta": "打开",
-    "demo": "演示",
-    "repo": "源码"
+    "filterDevops": "基础设施"
   },
   "projectItems": {
+    "nextalk": {
+      "title": "NexTalk",
+      "desc": "Communication platform: messaging, calls and channels."
+    },
+    "congolove": {
+      "title": "CongoLove",
+      "desc": "Social and dating network — profiles, verification and matching."
+    },
+    "netcontrol": {
+      "title": "NetControl",
+      "desc": "Network supervision and workstation administration."
+    },
+    "edvaselve": {
+      "title": "Edvaselve Marketplace",
+      "desc": "Multi-vendor marketplace — Lubumbashi."
+    },
+    "solola": {
+      "title": "SOLOLA",
+      "desc": "Web communication service — production on Render."
+    },
+    "congoloveStack": {
+      "title": "CongoLove infrastructure",
+      "desc": "PostgreSQL, Valkey, Node.js services, mail domain."
+    },
     "surveillance": {
       "title": "智能城市监控系统",
       "desc": "用于实时城市监控的人工智能平台，具备异常检测与自动警报功能。"
@@ -208,13 +297,60 @@
       "desc": "面向媒体、培训与视觉传播的人工智能辅助动画创作。"
     }
   },
+  "future": {
+    "tag": "Horizon",
+    "title": "Future projects",
+    "lead": "Innovation lab — prototypes and visions in progress.",
+    "items": {
+      "siHub": {
+        "title": "IS Analytics Hub",
+        "desc": "Unified dashboard for IS monitoring, metrics and real-time alerts.",
+        "status": "R&D · 2026"
+      },
+      "secureCloud": {
+        "title": "SecureCloud DRC",
+        "desc": "Sovereign hosting platform with hardening and automated backups.",
+        "status": "Design · 2026"
+      },
+      "eduAi": {
+        "title": "EduAI Campus",
+        "desc": "AI teaching assistant for institutions — paths, assessments and tutoring.",
+        "status": "Prototype · 2027"
+      },
+      "iotCity": {
+        "title": "Smart City Lubumbashi",
+        "desc": "IoT sensors & dashboards for connected urban infrastructure.",
+        "status": "Vision · 2027"
+      }
+    }
+  },
   "experience": {
-    "tag": "历程",
     "title": "职业经历",
-    "lead": "自2022年至今的专业历程——项目、开发与数字基础设施。",
-    "present": "至今"
+    "lead": "自 2022 年至今。",
+    "present": "至今",
+    "tag": "历程"
   },
   "experienceItems": {
+    "si": {
+      "title": "信息系统工程师",
+      "org": "卢本巴希 · 刚果（金）",
+      "desc": "需求分析、架构、集成与信息系统维护。"
+    },
+    "dev": {
+      "title": "Web 与移动开发",
+      "org": "客户与自有项目",
+      "desc": "Web/移动应用、REST API 与业务工具。"
+    },
+    "infra": {
+      "title": "网络与基础设施",
+      "org": "云与服务器",
+      "desc": "网络管理、数据库、监控与托管。"
+    },
+    "freelance": {
+      "title": "咨询与培训",
+      "org": "独立任务",
+      "desc": "技术支持、部署与 IT 培训。"
+    },
     "projects": {
       "title": "多项IT项目",
       "desc": "完成50多个涵盖Web、人工智能、物联网与网络的技术项目。"
@@ -234,22 +370,6 @@
     "teaching": {
       "title": "培训与教学",
       "desc": "计算机、编程与新兴技术的专业培训。"
-    },
-    "freelance": {
-      "title": "服务与培训",
-      "desc": "自由职业、技术支持与 IT 培训。"
-    },
-    "si": {
-      "title": "信息系统（SI）",
-      "desc": "需求分析、架构、集成与维护。"
-    },
-    "dev": {
-      "title": "软件开发",
-      "desc": "Web/移动应用、API 与业务工具。"
-    },
-    "infra": {
-      "title": "网络与基础设施",
-      "desc": "网络管理、云部署、数据库与监控。"
     }
   },
   "testimonials": {
@@ -274,30 +394,80 @@
     }
   },
   "contact": {
-    "tag": "联系",
     "title": "联系",
+    "lead": "自然人或法人 — 专业联系表。",
     "whatsapp": "WhatsApp",
+    "whatsappHint": "快速回复",
+    "phone": "电话",
+    "email": "电子邮件",
+    "formTitle": "联系档案",
+    "formLead": "请按身份填写，标 * 为必填。",
+    "typePhysical": "自然人",
+    "typePhysicalDesc": "个人、自由职业者",
+    "typeMoral": "法人",
+    "typeMoralDesc": "企业、NGO、机构",
+    "sectionIdentity": "身份",
+    "sectionOrganization": "组织",
+    "sectionRepresentative": "代表",
+    "sectionRequest": "您的需求",
+    "firstName": "名",
+    "lastName": "姓",
+    "companyName": "法人名称",
+    "legalForm": "法律形式",
+    "legalFormPlaceholder": "— 选择 —",
+    "legalSarl": "有限责任公司",
+    "legalSa": "股份公司",
+    "legalAsbl": "非营利",
+    "legalPublic": "公共机构",
+    "legalOther": "其他",
+    "companyId": "注册号",
+    "repName": "代表姓名",
+    "repRole": "职务",
+    "formEmail": "邮箱",
+    "formPhone": "电话",
+    "requestType": "需求性质",
+    "requestPlaceholder": "— 选择服务类型 —",
+    "requestDevWeb": "Web 与移动开发（网站、应用）",
+    "requestSiEngineer": "信息系统（SI）工程师 / 服务",
+    "requestSoftwareEng": "软件工程 — 架构、API、业务应用",
+    "requestAi": "人工智能（机器学习、视觉、自动化）",
+    "requestInfra": "IT 基础设施、网络、服务器与部署",
+    "requestCyber": "网络安全与系统加固",
+    "requestAudit": "技术审计、咨询与 SI 指导",
+    "requestMaintenance": "维护、支持与监控",
+    "requestTraining": "培训与知识转移",
+    "requestQuote": "详细报价请求",
+    "requestPartnership": "长期合作或伙伴关系",
+    "requestOther": "其他需求（请在留言中说明）",
+    "formSubject": "主题",
+    "formMessage": "详细留言",
+    "formSubmit": "提交",
+    "assertionsTitle": "必填声明",
+    "assertAccuracy": "本人确认信息真实完整。",
+    "assertPrivacy": "同意为回复本请求而保密处理数据。",
+    "assertFollowup": "同意通过邮件或电话跟进。",
+    "errorRequired": "必填",
+    "errorEmail": "邮箱无效",
+    "mailHeader": "联系请求",
+    "mailType": "类型",
+    "mailFooter": "来自 K. Makina Edvais 作品集",
+    "tag": "联系",
     "whatsappCta": "发送消息",
     "call": "拨打电话",
-    "email": "电子邮件",
     "location": "位置",
     "map": "地图 — 卢本巴希，刚果民主共和国",
-    "formName": "全名",
-    "formEmail": "电子邮件",
-    "formSubject": "主题",
-    "formMessage": "消息",
-    "formSubmit": "发送",
-    "lead": "正式事宜请使用下方表单。"
+    "formName": "全名"
   },
   "footer": {
     "desc": "IT工程师 · 人工智能开发工程师 · 高端数字解决方案",
+    "rights": "版权所有。",
     "navTitle": "导航",
-    "socialTitle": "社交",
-    "rights": "版权所有。"
+    "socialTitle": "社交"
   },
   "notifications": {
-    "langChanged": "语言已成功更新",
-    "formSent": "消息已准备就绪 — 请打开您的邮件客户端",
+    "langChanged": "语言已更新",
+    "formSent": "请求已准备 — 请打开邮件客户端",
+    "formInvalid": "请填写必填项。",
     "cvDownloaded": "PDF 简历已成功下载",
     "cvPdfError": "无法生成 PDF。请刷新页面。"
   },
@@ -307,18 +477,9 @@
     "profile": "个人简介",
     "skills": "技能"
   },
-  "stage": {
-    "discover": "查阅简介",
-    "next": "下一页",
-    "prev": "返回",
-    "finish": "联系"
-  },
   "brand": {
     "short": "K. Makina Edvais",
     "line1": "Kadièbwe Makina",
     "line2": "Edvais"
-  },
-  "a11y": {
-    "skip": "跳到主要内容"
   }
 }

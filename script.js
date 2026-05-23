@@ -32,6 +32,22 @@ const SKILL_CONFIG = [
 ];
 
 /** Services fusionnés par offre */
+/** Options « Nature de la demande » — prestations proposées */
+const REQUEST_TYPE_KEYS = [
+  'devWeb',
+  'siEngineer',
+  'softwareEng',
+  'ai',
+  'infra',
+  'cyber',
+  'audit',
+  'maintenance',
+  'training',
+  'quote',
+  'partnership',
+  'other'
+];
+
 const SERVICE_CONFIG = [
   { key: 'development', icon: 'fas fa-laptop-code' },
   { key: 'ai', icon: 'fas fa-robot' },
@@ -267,6 +283,21 @@ class I18n {
     this.renderFutureProjects();
     this.renderFutureProjects('future-grid');
     this.renderFutureProjects('future-grid-projects');
+    this.renderContactRequestTypes();
+  }
+
+  renderContactRequestTypes() {
+    const select = document.getElementById('request-type');
+    if (!select) return;
+    const current = select.value;
+    const placeholder = this.t('contact.requestPlaceholder');
+    select.innerHTML = `<option value="">${placeholder.startsWith('contact.') ? '—' : placeholder}</option>` +
+      REQUEST_TYPE_KEYS.map(key => {
+        const label = this.t(`contact.request${key.charAt(0).toUpperCase()}${key.slice(1)}`);
+        const text = label.startsWith('contact.') ? key : label;
+        return `<option value="${key}">${text}</option>`;
+      }).join('');
+    if (current && REQUEST_TYPE_KEYS.includes(current)) select.value = current;
   }
 
   renderFutureProjects(gridId = 'future-grid') {
@@ -282,22 +313,33 @@ class I18n {
         <span class="future-card-status">${this.t(`future.items.${p.key}.status`)}</span>
       </article>
     `).join('');
-    if (window.portfolioApp) window.portfolioApp.observeAnimated(grid.querySelectorAll('.future-card'));
+    const layer = grid.closest('.layer');
+    if (window.portfolioApp) window.portfolioApp.observeAnimated(grid.querySelectorAll('.future-card'), layer);
   }
 
   renderSkills() {
     const grid = document.getElementById('skills-grid');
     if (!grid) return;
-    grid.innerHTML = SKILL_CONFIG.map((s, i) => `
-      <article class="skill-orb" style="--delay: ${i * 55}ms; --level: ${s.level}%">
-        <span class="skill-orb-ring" aria-hidden="true"></span>
-        <span class="skill-orb-core"><i class="${s.icon}" aria-hidden="true"></i></span>
-        <span class="skill-orb-name">${this.t(`skillItems.${s.key}`)}</span>
-        <div class="skill-meter"><span style="width: ${s.level}%"></span></div>
-        <span class="skill-orb-pct">${s.level}%</span>
-      </article>
-    `).join('');
-    if (window.portfolioApp) window.portfolioApp.observeAnimated(grid.querySelectorAll('.skill-orb'));
+    const levelLbl = this.t('skills.levelLabel');
+    grid.innerHTML = SKILL_CONFIG.map((s, i) => {
+      const title = this.t(`skillItems.${s.key}`);
+      const stack = this.t(`skillStacks.${s.key}`);
+      const name = title.startsWith('skillItems.') ? s.key : title;
+      const tools = stack.startsWith('skillStacks.') ? '' : stack;
+      return `
+      <article class="skill-card" role="listitem" style="--delay: ${i * 45}ms; --level: ${s.level}" data-skill="${s.key}">
+        <header class="skill-card-head">
+          <span class="skill-card-icon" aria-hidden="true"><i class="${s.icon}"></i></span>
+          <div class="skill-card-meta">
+            <h3 class="skill-card-title">${name}</h3>
+            ${tools ? `<p class="skill-card-stack">${tools}</p>` : ''}
+          </div>
+          <span class="skill-card-level" aria-label="${levelLbl}">${s.level}%</span>
+        </header>
+        <div class="skill-card-bar" role="presentation"><span style="width: ${s.level}%"></span></div>
+      </article>`;
+    }).join('');
+    if (window.portfolioApp) window.portfolioApp.revealInLayer(grid);
   }
 
   renderServices() {
@@ -357,10 +399,11 @@ class I18n {
       window.portfolioApp.initProjectFilters();
       window.portfolioApp.initProjectArchive();
       window.portfolioApp.initProjectTabs();
+      const layer = document.getElementById('layer-projects');
       window.portfolioApp.observeAnimated([
         ...(gridDone?.querySelectorAll('.project-card') || []),
         ...(gridOngoing?.querySelectorAll('.project-card') || [])
-      ]);
+      ], layer);
     }
   }
 
@@ -379,20 +422,22 @@ class I18n {
       const orgHtml = org && !org.startsWith('experienceItems.')
         ? `<p class="xp-org">${org}</p>`
         : '';
+      const title = this.t(`experienceItems.${e.key}.title`);
+      const desc = this.t(`experienceItems.${e.key}.desc`);
       return `
-      <article class="xp-card" role="listitem" style="--xp-i: ${i}">
-        <div class="xp-marker" aria-hidden="true"><span class="xp-dot"></span></div>
-        <div class="xp-card-inner">
-          <div class="xp-card-head">
-            <span class="xp-icon"><i class="${e.icon}" aria-hidden="true"></i></span>
-            <time class="xp-period" datetime="${e.from}">${this.formatExperiencePeriod(e.from, e.to)}</time>
-          </div>
-          <h3>${this.t(`experienceItems.${e.key}.title`)}</h3>
+      <article class="xp-entry" role="listitem" style="--xp-i: ${i}">
+        <time class="xp-entry-period" datetime="${e.from}">${this.formatExperiencePeriod(e.from, e.to)}</time>
+        <div class="xp-entry-body">
+          <header class="xp-entry-head">
+            <span class="xp-entry-icon" aria-hidden="true"><i class="${e.icon}"></i></span>
+            <h3>${title.startsWith('experienceItems.') ? e.key : title}</h3>
+          </header>
           ${orgHtml}
-          <p class="xp-desc">${this.t(`experienceItems.${e.key}.desc`)}</p>
+          <p class="xp-entry-desc">${desc.startsWith('experienceItems.') ? '' : desc}</p>
         </div>
       </article>`;
     }).join('');
+    if (window.portfolioApp) window.portfolioApp.revealInLayer(timeline);
   }
 
   async init() {
@@ -1101,7 +1146,7 @@ class PortfolioApp {
       });
       const pane = panes[key];
       if (pane) {
-        this.observeAnimated(pane.querySelectorAll('.project-card--animated, .future-card, .skill-orb'));
+        this.observeAnimated(pane.querySelectorAll('.project-card--animated, .future-card, .skill-card'), pane.closest('.layer'));
       }
     };
     tabs.forEach(tab => {
@@ -1115,37 +1160,67 @@ class PortfolioApp {
     if (tab) tab.click();
   }
 
-  observeAnimated(elements) {
-    if (typeof IntersectionObserver === 'undefined') return;
-    const list = elements ? (elements.length !== undefined && !elements.nodeName ? [...elements] : [elements]) : [];
-    if (!this._animObserver) {
-      this._animObserver = new IntersectionObserver((entries) => {
+  observeAnimated(elements, rootEl) {
+    const list = elements
+      ? (elements.length !== undefined && !elements.nodeName ? [...elements] : [elements])
+      : [];
+    list.forEach(el => {
+      if (!el) return;
+      el.classList.remove('is-visible');
+      if (typeof IntersectionObserver === 'undefined') {
+        el.classList.add('is-visible');
+        return;
+      }
+      const root = rootEl && rootEl.scrollHeight > rootEl.clientHeight + 8 ? rootEl : null;
+      const obs = new IntersectionObserver((entries, observer) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
             entry.target.classList.add('is-visible');
+            observer.unobserve(entry.target);
           }
         });
-      }, { threshold: 0.12, rootMargin: '0px 0px -8% 0px' });
+      }, { threshold: 0.08, root, rootMargin: '0px 0px -4% 0px' });
+      obs.observe(el);
+    });
+  }
+
+  revealInLayer(container) {
+    if (!container) return;
+    const layer = container.closest('.layer') || container;
+    const items = container.querySelectorAll
+      ? container.querySelectorAll('.skill-card, .xp-entry, .project-card--animated, .future-card')
+      : [];
+    const nodes = container.classList?.contains('skill-card') || container.classList?.contains('xp-entry')
+      ? [container]
+      : [...items];
+    if (!nodes.length && container.id) {
+      nodes.push(...container.querySelectorAll('.skill-card, .xp-entry'));
     }
-    list.forEach(el => {
-      if (el) this._animObserver.observe(el);
+    this.observeAnimated(nodes, layer.classList?.contains('layer') ? layer : layer.closest('.layer'));
+    requestAnimationFrame(() => {
+      requestAnimationFrame(() => {
+        nodes.forEach(el => {
+          const r = el.getBoundingClientRect();
+          if (r.width > 0 && r.height > 0 && r.top < window.innerHeight * 0.92) {
+            el.classList.add('is-visible');
+          }
+        });
+      });
     });
   }
 
   refreshLayerAnimations(layerIndex) {
     const layer = document.getElementById(`layer-${LAYER_IDS[layerIndex]}`);
     if (!layer) return;
-    const selectors = '.skill-orb, .project-card--animated, .future-card, .xp-card, .contact-channel, .contact-dossier, .portal-card';
-    layer.querySelectorAll(selectors).forEach(el => {
-      el.classList.remove('is-visible');
-      this.observeAnimated(el);
-    });
-    if (layerIndex === 4) {
-      document.querySelectorAll('#timeline .xp-card').forEach((el, i) => {
-        el.style.setProperty('--xp-i', i);
-        this.observeAnimated(el);
+    const selectors = '.skill-card, .project-card--animated, .future-card, .xp-entry, .contact-channel, .contact-dossier, .portal-card';
+    const nodes = layer.querySelectorAll(selectors);
+    this.observeAnimated(nodes, layer);
+    setTimeout(() => {
+      nodes.forEach(el => {
+        const r = el.getBoundingClientRect();
+        if (r.width > 0 && r.height > 0) el.classList.add('is-visible');
       });
-    }
+    }, layerIndex === 0 ? 200 : 780);
   }
 
   initTestimonials() {

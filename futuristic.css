@@ -145,7 +145,8 @@
 .welcome-line,
 .portal-label,
 .future-lab-head h2,
-.xp-card-inner h3,
+.xp-entry-head h3,
+.skill-card-title,
 .about-compact h3 {
   text-shadow: 0 0 40px var(--steel-glow);
 }
@@ -278,7 +279,8 @@
 /* —— Cartes universelles (profil, skills, xp, contact) —— */
 .about-compact,
 .skill-chip,
-.xp-card-inner,
+.skill-card,
+.xp-entry-body,
 .contact-channel,
 .contact-form-panel,
 .stage-nav-btn {
@@ -290,14 +292,16 @@
 }
 
 .skill-chip:hover,
-.xp-card-inner:hover,
+.skill-card:hover,
+.xp-entry-body:hover,
 .contact-channel:hover {
   border-color: rgba(0, 232, 255, 0.45) !important;
   box-shadow: 0 0 24px var(--neon-cyan-soft) !important;
 }
 
 .skill-chip-icon,
-.xp-icon,
+.xp-entry-icon,
+.skill-card-icon,
 .portal-icon {
   box-shadow: 0 0 16px var(--steel-soft);
   border: 1px solid rgba(94, 184, 255, 0.2);
@@ -308,14 +312,6 @@
   text-shadow: 0 0 16px var(--neon-cyan-soft);
 }
 
-.xp-timeline::before {
-  background: linear-gradient(180deg, var(--neon-cyan), var(--neon-violet), transparent) !important;
-  box-shadow: 0 0 12px var(--neon-cyan-soft);
-}
-.xp-dot {
-  background: var(--neon-cyan) !important;
-  box-shadow: 0 0 0 3px var(--ink), 0 0 20px var(--neon-cyan) !important;
-}
 
 /* —— Projets (style.css) —— */
 .project-card {

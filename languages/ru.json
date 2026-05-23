@@ -9,6 +9,13 @@
   "loader": {
     "text": "Загрузка…"
   },
+  "a11y": {
+    "skip": "К содержанию",
+    "backTop": "Back to top",
+    "themeToggle": "Light or dark mode",
+    "themeLight": "Switch to light mode",
+    "themeDark": "Switch to dark mode"
+  },
   "nav": {
     "home": "Главная",
     "about": "Профиль",
@@ -19,18 +26,30 @@
     "testimonials": "Отзывы",
     "contact": "Контакты"
   },
+  "stage": {
+    "discover": "Открыть профиль",
+    "next": "Далее",
+    "prev": "Назад",
+    "finish": "Контакты"
+  },
   "hero": {
-    "greeting": "Здравствуйте, я",
+    "eyebrow": "Инженер информационных систем",
     "description": "Проектирую, внедряю и сопровождаю надёжные цифровые решения. Практика включает разработку, сети и ИИ, со специализацией в информационных системах (ИС).",
     "country": "Демократическая Республика Конго",
-    "ctaContact": "Связаться со мной",
+    "ctaContact": "Связаться",
+    "ctaProjects": "Реализованные проекты",
+    "ctaProjectsDesc": "Развёрнутые приложения",
+    "ctaOngoing": "Текущие проекты",
+    "ctaOngoingDesc": "Активная разработка",
+    "ctaSkills": "Мои компетенции",
+    "ctaSkillsDesc": "ИС, разработка, сети и ИИ",
+    "scrollHint": "Обзор",
+    "greeting": "Здравствуйте, я",
     "ctaCv": "Резюме PDF",
-    "ctaProjects": "Смотреть проекты",
     "badge": "Доступен",
     "floatAi": "ИИ и ML",
     "floatDev": "Full Stack",
-    "floatSec": "Кибербезопасность",
-    "eyebrow": "Инженер информационных систем"
+    "floatSec": "Кибербезопасность"
   },
   "typing": {
     "titles": [
@@ -45,15 +64,17 @@
     "projects": "Выполненных проектов",
     "experience": "Лет опыта",
     "clients": "Довольных клиентов",
+    "domains": "Areas of expertise",
     "tech": "Освоенных технологий"
   },
   "about": {
-    "tag": "Обо мне",
     "title": "Презентация",
     "subtitle": "Специалист по информационным системам (ИС)",
     "p1": "Выпускник UPL (ИС, программная инженерия и ИИ). Разработка, сети, ИИ и внедрение.",
     "p2": "Универсальный профиль с акцентом на надёжность систем.",
     "university": "Образование",
+    "lead": "A structured technical background focused on reliability and service.",
+    "tag": "Обо мне",
     "phone": "Телефон:",
     "langTitle": "Языковые навыки",
     "lang1": "Свободно говорит по-французски",
@@ -68,11 +89,20 @@
     "ai5": "Эксперт по интеллектуальным системам"
   },
   "skills": {
-    "tag": "Навыки",
     "title": "Области компетенций",
-    "lead": "Широкий профиль — фокус на ИС."
+    "lead": "Широкий профиль — фокус на ИС.",
+    "tag": "Навыки",
+    "levelLabel": "Уровень владения"
   },
   "skillItems": {
+    "frontend": "User interfaces & UX",
+    "backend": "Servers & APIs",
+    "databases": "Databases",
+    "ai": "Artificial intelligence",
+    "infrastructure": "Networks & systems",
+    "cybersecurity": "Cybersecurity",
+    "iot": "Embedded systems",
+    "devops": "Integration & deployment",
     "html": "HTML",
     "css": "CSS",
     "javascript": "JavaScript",
@@ -83,12 +113,8 @@
     "sql": "SQL",
     "flask": "Flask",
     "unity": "Unity",
-    "ai": "Разработка ИИ",
     "networking": "Сети",
-    "cybersecurity": "Кибербезопасность",
     "database": "Проектирование БД",
-    "frontend": "Frontend-разработка",
-    "backend": "Backend-разработка",
     "uiux": "UI/UX-дизайн",
     "sysadmin": "Системное администрирование",
     "linux": "Linux",
@@ -97,11 +123,45 @@
     "sqlite": "SQLite",
     "git": "Git & GitHub"
   },
+  "skillStacks": {
+    "frontend": "HTML · CSS · JavaScript · UI/UX · Responsive design",
+    "backend": "Python · C# · Java · PHP · Flask · REST APIs",
+    "databases": "SQL · SQLite · Database design & optimization",
+    "ai": "Machine learning · Computer vision · Intelligent automation",
+    "infrastructure": "Networking · System administration · Linux",
+    "cybersecurity": "Application security · System protection",
+    "iot": "Arduino · Embedded systems · Unity · Prototyping",
+    "devops": "Git · GitHub · Collaboration & deployment"
+  },
   "services": {
     "tag": "Услуги",
     "title": "Премиальные решения"
   },
   "serviceItems": {
+    "development": {
+      "title": "Web & mobile development",
+      "desc": "Custom websites and apps: design, development, deployment and maintenance."
+    },
+    "ai": {
+      "title": "Решения на базе ИИ",
+      "desc": "Интеллектуальные системы, машинное обучение и автоматизация с помощью ИИ."
+    },
+    "infrastructure": {
+      "title": "IT infrastructure & cybersecurity",
+      "desc": "Networks, security, preventive maintenance and technical support for SMEs and institutions."
+    },
+    "dataSystems": {
+      "title": "Data & connected systems",
+      "desc": "Databases, IoT, smart systems and dashboards for decision-making."
+    },
+    "embedded": {
+      "title": "Встраиваемые системы",
+      "desc": "Разработка встраиваемых решений на Arduino и микроконтроллерах."
+    },
+    "consulting": {
+      "title": "IT-консалтинг",
+      "desc": "Стратегическое сопровождение вашей цифровой трансформации."
+    },
     "web": {
       "title": "Веб-разработка",
       "desc": "Современные, адаптивные и высокопроизводительные сайты на новейших технологиях."
@@ -109,10 +169,6 @@
     "mobile": {
       "title": "Мобильные приложения",
       "desc": "Нативные и кроссплатформенные мобильные приложения для iOS и Android."
-    },
-    "ai": {
-      "title": "Решения на базе ИИ",
-      "desc": "Интеллектуальные системы, машинное обучение и автоматизация с помощью ИИ."
     },
     "network": {
       "title": "Установка сетей",
@@ -134,43 +190,76 @@
       "title": "Программная инженерия",
       "desc": "Разработка ПО на заказ в соответствии с вашими бизнес-потребностями."
     },
-    "consulting": {
-      "title": "IT-консалтинг",
-      "desc": "Стратегическое сопровождение вашей цифровой трансформации."
-    },
     "maintenance": {
       "title": "Обслуживание систем",
       "desc": "Техническая поддержка, профилактическое и корректирующее обслуживание."
-    },
-    "embedded": {
-      "title": "Встраиваемые системы",
-      "desc": "Разработка встраиваемых решений на Arduino и микроконтроллерах."
     },
     "automation": {
       "title": "Системы автоматизации",
       "desc": "Промышленная и процессная автоматизация для повышения эффективности."
     }
   },
+  "archive": {
+    "code": "ARCHIVE · EM-2026",
+    "title": "Classified dossiers",
+    "lead": "Real production applications. Each project stays hidden until you choose to open it.",
+    "unlock": "Unlock the archive",
+    "skip": "Enter directly",
+    "hint": "Scroll or click a dossier to reveal"
+  },
   "projects": {
+    "title": "Проекты",
+    "lead": "Завершённые, текущие и планы.",
+    "tabDone": "Реализованные",
+    "tabOngoing": "В работе",
+    "tabFuture": "Горизонт",
+    "statusDone": "Готово",
+    "statusOngoing": "В работе",
+    "ongoingLead": "Решения в разработке или внедрении.",
+    "sealedLabel": "Просмотр",
+    "revealCta": "Открыть",
+    "demo": "Демо",
+    "zoomHint": "Click the image to zoom · use +/− or scroll wheel",
+    "zoomReset": "100%",
+    "zoomIn": "Zoom in",
+    "zoomOut": "Zoom out",
     "tag": "Проекты",
-    "title": "Реализованные проекты",
     "filterAll": "Все",
     "filterAi": "ИИ",
-    "filterWeb": "Web",
+    "filterWeb": "Web и мобильные",
     "filterIot": "IoT",
     "filterNetwork": "Сеть",
     "catAi": "Искусственный интеллект",
     "catWeb": "Web",
     "catIot": "IoT",
     "catNetwork": "Сеть",
-    "lead": "Нажмите, чтобы открыть детали.",
-    "filterDevops": "Инфраструктура",
-    "sealedLabel": "Проект",
-    "revealCta": "Открыть",
-    "demo": "Демо",
-    "repo": "Исходники"
+    "filterDevops": "Инфраструктура"
   },
   "projectItems": {
+    "nextalk": {
+      "title": "NexTalk",
+      "desc": "Communication platform: messaging, calls and channels."
+    },
+    "congolove": {
+      "title": "CongoLove",
+      "desc": "Social and dating network — profiles, verification and matching."
+    },
+    "netcontrol": {
+      "title": "NetControl",
+      "desc": "Network supervision and workstation administration."
+    },
+    "edvaselve": {
+      "title": "Edvaselve Marketplace",
+      "desc": "Multi-vendor marketplace — Lubumbashi."
+    },
+    "solola": {
+      "title": "SOLOLA",
+      "desc": "Web communication service — production on Render."
+    },
+    "congoloveStack": {
+      "title": "CongoLove infrastructure",
+      "desc": "PostgreSQL, Valkey, Node.js services, mail domain."
+    },
     "surveillance": {
       "title": "Интеллектуальная система городского видеонаблюдения",
       "desc": "AI-платформа для мониторинга города в реальном времени с обнаружением аномалий и автоматическими оповещениями."
@@ -208,13 +297,60 @@
       "desc": "Анимационные работы с поддержкой ИИ для медиа, обучения и визуальных коммуникаций."
     }
   },
+  "future": {
+    "tag": "Horizon",
+    "title": "Future projects",
+    "lead": "Innovation lab — prototypes and visions in progress.",
+    "items": {
+      "siHub": {
+        "title": "IS Analytics Hub",
+        "desc": "Unified dashboard for IS monitoring, metrics and real-time alerts.",
+        "status": "R&D · 2026"
+      },
+      "secureCloud": {
+        "title": "SecureCloud DRC",
+        "desc": "Sovereign hosting platform with hardening and automated backups.",
+        "status": "Design · 2026"
+      },
+      "eduAi": {
+        "title": "EduAI Campus",
+        "desc": "AI teaching assistant for institutions — paths, assessments and tutoring.",
+        "status": "Prototype · 2027"
+      },
+      "iotCity": {
+        "title": "Smart City Lubumbashi",
+        "desc": "IoT sensors & dashboards for connected urban infrastructure.",
+        "status": "Vision · 2027"
+      }
+    }
+  },
   "experience": {
-    "tag": "Карьера",
-    "title": "Опыт",
-    "lead": "Профессиональный путь с 2022 года — проекты, разработка и цифровая инфраструктура.",
-    "present": "Настоящее время"
+    "title": "Профессиональный опыт",
+    "lead": "С 2022 года по настоящее время.",
+    "present": "Настоящее время",
+    "tag": "Карьера"
   },
   "experienceItems": {
+    "si": {
+      "title": "Инженер информационных систем",
+      "org": "Лубумбаши · ДР Конго",
+      "desc": "Анализ, архитектура, интеграция и сопровождение ИС."
+    },
+    "dev": {
+      "title": "Web и мобильная разработка",
+      "org": "Проекты заказчиков",
+      "desc": "Приложения, REST API, интерфейсы для ИС."
+    },
+    "infra": {
+      "title": "Сети и инфраструктура",
+      "org": "Облако и серверы",
+      "desc": "Администрирование сетей, БД, мониторинг, хостинг."
+    },
+    "freelance": {
+      "title": "Консалтинг и обучение",
+      "org": "Самостоятельные заказы",
+      "desc": "Техподдержка, внедрение, обучение."
+    },
     "projects": {
       "title": "Множество IT-проектов",
       "desc": "Реализация более 50 технологических проектов в области web, ИИ, IoT и сетей."
@@ -234,22 +370,6 @@
     "teaching": {
       "title": "Обучение и преподавание",
       "desc": "Профессиональное обучение информатике, программированию и новым технологиям."
-    },
-    "freelance": {
-      "title": "Услуги и обучение",
-      "desc": "Фриланс, поддержка, обучение."
-    },
-    "si": {
-      "title": "Информационные системы (ИС)",
-      "desc": "Анализ, архитектура, интеграция и сопровождение."
-    },
-    "dev": {
-      "title": "Разработка ПО",
-      "desc": "Web/мобильные приложения, API."
-    },
-    "infra": {
-      "title": "Сети и инфраструктура",
-      "desc": "Сети, облако, базы данных."
     }
   },
   "testimonials": {
@@ -274,30 +394,80 @@
     }
   },
   "contact": {
-    "tag": "Контакты",
     "title": "Контакты",
+    "lead": "Физическое или юридическое лицо — профессиональная форма.",
     "whatsapp": "WhatsApp",
+    "whatsappHint": "Быстрый ответ",
+    "phone": "Телефон",
+    "email": "Эл. почта",
+    "formTitle": "Контактное досье",
+    "formLead": "Форма по вашему статусу. * — обязательно.",
+    "typePhysical": "Физическое лицо",
+    "typePhysicalDesc": "Частное лицо, фрилансер",
+    "typeMoral": "Юридическое лицо",
+    "typeMoralDesc": "Компания, НКО, госорган",
+    "sectionIdentity": "Личные данные",
+    "sectionOrganization": "Организация",
+    "sectionRepresentative": "Представитель",
+    "sectionRequest": "Запрос",
+    "firstName": "Имя",
+    "lastName": "Фамилия",
+    "companyName": "Наименование",
+    "legalForm": "Орг.-правовая форма",
+    "legalFormPlaceholder": "— Выбрать —",
+    "legalSarl": "ООО",
+    "legalSa": "АО",
+    "legalAsbl": "НКО",
+    "legalPublic": "Госучреждение",
+    "legalOther": "Другое",
+    "companyId": "Рег. номер",
+    "repName": "Представитель",
+    "repRole": "Должность",
+    "formEmail": "Email",
+    "formPhone": "Телефон",
+    "requestType": "Характер запроса",
+    "requestPlaceholder": "— Выберите услугу —",
+    "requestDevWeb": "Веб и мобильная разработка (сайт, приложение)",
+    "requestSiEngineer": "Инженер / услуги информационных систем (ИС)",
+    "requestSoftwareEng": "Программная инженерия — архитектура, API, бизнес-приложения",
+    "requestAi": "Искусственный интеллект (ML, зрение, автоматизация)",
+    "requestInfra": "IT-инфраструктура, сети, серверы и развёртывание",
+    "requestCyber": "Кибербезопасность и усиление систем",
+    "requestAudit": "Технический аудит, консалтинг и сопровождение ИС",
+    "requestMaintenance": "Сопровождение, поддержка и мониторинг",
+    "requestTraining": "Обучение и передача знаний",
+    "requestQuote": "Запрос детальной сметы",
+    "requestPartnership": "Партнёрство или долгосрочное сотрудничество",
+    "requestOther": "Другое (уточните в сообщении)",
+    "formSubject": "Тема",
+    "formMessage": "Подробное сообщение",
+    "formSubmit": "Отправить",
+    "assertionsTitle": "Обязательные заявления",
+    "assertAccuracy": "Подтверждаю точность данных.",
+    "assertPrivacy": "Согласен на конфиденциальную обработку данных.",
+    "assertFollowup": "Разрешаю связь для уточнений.",
+    "errorRequired": "Обязательное поле",
+    "errorEmail": "Неверный email",
+    "mailHeader": "ЗАПРОС КОНТАКТА",
+    "mailType": "Тип",
+    "mailFooter": "С портфолио K. Makina Edvais",
+    "tag": "Контакты",
     "whatsappCta": "Отправить сообщение",
     "call": "Позвонить",
-    "email": "Email",
     "location": "Местоположение",
     "map": "Карта — Лубумбаши, ДР Конго",
-    "formName": "Полное имя",
-    "formEmail": "Email",
-    "formSubject": "Тема",
-    "formMessage": "Сообщение",
-    "formSubmit": "Отправить",
-    "lead": "Для официального запроса используйте форму."
+    "formName": "Полное имя"
   },
   "footer": {
     "desc": "IT-инженер · Разработчик ИИ · Премиальные цифровые решения",
+    "rights": "Все права защищены.",
     "navTitle": "Навигация",
-    "socialTitle": "Соцсети",
-    "rights": "Все права защищены."
+    "socialTitle": "Соцсети"
   },
   "notifications": {
-    "langChanged": "Язык успешно обновлён",
-    "formSent": "Сообщение подготовлено — откройте почтовый клиент",
+    "langChanged": "Язык обновлён",
+    "formSent": "Запрос подготовлен — откройте почту",
+    "formInvalid": "Заполните обязательные поля.",
     "cvDownloaded": "PDF-резюме успешно загружено",
     "cvPdfError": "Не удалось создать PDF. Обновите страницу."
   },
@@ -307,18 +477,9 @@
     "profile": "ПРОФИЛЬ",
     "skills": "НАВЫКИ"
   },
-  "stage": {
-    "discover": "Открыть профиль",
-    "next": "Далее",
-    "prev": "Назад",
-    "finish": "Контакты"
-  },
   "brand": {
     "short": "K. Makina Edvais",
     "line1": "Kadièbwe Makina",
     "line2": "Edvais"
-  },
-  "a11y": {
-    "skip": "К содержанию"
   }
 }
