@@ -29,6 +29,7 @@
   "stage": {
     "discover": "Parcourir le dossier professionnel",
     "discoverNow": "Découvrir maintenant",
+    "hubTitle": "Choisissez une galerie immersive",
     "next": "Page suivante",
     "prev": "Retour",
     "finish": "Prendre contact"
@@ -44,6 +45,8 @@
     "ctaProjectsDesc": "Applications déployées & dossiers techniques",
     "ctaSkills": "Mes compétences",
     "ctaSkillsDesc": "SI, développement, réseaux & intelligence artificielle",
+    "ctaFuture": "Projets futurs",
+    "ctaFutureDesc": "Horizon IA, innovation & prototypes",
     "scrollHint": "Explorer",
     "badge": "Disponible pour mission",
     "pill1": "Systèmes informatiques",

@@ -28,6 +28,8 @@
   },
   "stage": {
     "discover": "Открыть профиль",
+    "discoverNow": "Discover now",
+    "hubTitle": "Choose an immersive gallery",
     "next": "Далее",
     "prev": "Назад",
     "finish": "Контакты"
@@ -43,6 +45,8 @@
     "ctaOngoingDesc": "Активная разработка",
     "ctaSkills": "Мои компетенции",
     "ctaSkillsDesc": "ИС, разработка, сети и ИИ",
+    "ctaFuture": "Future projects",
+    "ctaFutureDesc": "AI horizon, innovation & prototypes",
     "scrollHint": "Обзор",
     "greeting": "Здравствуйте, я",
     "ctaCv": "Резюме PDF",

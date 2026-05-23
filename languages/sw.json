@@ -28,6 +28,8 @@
   },
   "stage": {
     "discover": "Angalia wasifu",
+    "discoverNow": "Discover now",
+    "hubTitle": "Choose an immersive gallery",
     "next": "Ukurasa unaofuata",
     "prev": "Rudi",
     "finish": "Wasiliana"
@@ -43,6 +45,8 @@
     "ctaOngoingDesc": "Maendeleo hai",
     "ctaSkills": "Ujuzi wangu",
     "ctaSkillsDesc": "SI, maendeleo, mitandao na AI",
+    "ctaFuture": "Future projects",
+    "ctaFutureDesc": "AI horizon, innovation & prototypes",
     "scrollHint": "Chunguza",
     "greeting": "Habari, mimi ni",
     "ctaCv": "PDF CV",

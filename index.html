@@ -9,22 +9,18 @@
   <title data-i18n="meta.title">Kadièbwe Makina Edvais</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="preload" href="style.css" as="style">
-  <link rel="preload" href="stage.css" as="style">
   <link rel="preload" href="images/profile.png" as="image">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@400;500;600&family=Orbitron:wght@500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
   <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="stage.css">
-  <link rel="stylesheet" href="perf.css">
-  <link rel="stylesheet" href="futuristic.css" media="print" onload="this.media='all'">
-  <link rel="stylesheet" href="animations.css" media="print" onload="this.media='all'">
-  <link rel="stylesheet" href="premium.css" media="print" onload="this.media='all'">
-  <noscript>
-    <link rel="stylesheet" href="futuristic.css">
-    <link rel="stylesheet" href="animations.css">
-    <link rel="stylesheet" href="premium.css">
-  </noscript>
+  <link rel="stylesheet" href="futuristic.css">
+  <link rel="stylesheet" href="animations.css">
+  <link rel="stylesheet" href="premium.css">
+  <link rel="stylesheet" href="immersive.css">
 </head>
-<body class="stage-body on-home fx-mode home-locked perf-lite">
+<body class="stage-body on-home fx-mode" data-phase="intro">
   <a href="#layer-home" class="skip-link" data-i18n="a11y.skip">Aller au contenu</a>
 
   <div id="loader" class="loader" aria-hidden="true">
@@ -65,6 +61,9 @@
         <span class="stage-logo-text" data-i18n="brand.short">K. Makina Edvais</span>
       </a>
       <p class="stage-header-title" id="stage-header-title" data-i18n="nav.home">Accueil</p>
+      <button type="button" class="imm-mobile-toggle" id="imm-mobile-toggle" aria-label="Menu" aria-expanded="false">
+        <i class="fas fa-bars" aria-hidden="true"></i>
+      </button>
     </div>
   </header>
 
@@ -73,7 +72,7 @@
       <div class="fx-aurora fx-aurora--1"></div>
       <div class="fx-aurora fx-aurora--2"></div>
       <div class="fx-grid"></div>
-      <canvas id="fx-particles" class="fx-particles" hidden aria-hidden="true"></canvas>
+      <canvas id="fx-particles" class="fx-particles" aria-hidden="true"></canvas>
       <div class="fx-scanlines"></div>
       <div class="fx-vignette"></div>
     </div>
@@ -106,7 +105,8 @@
           <p class="home-scroll-cue" aria-hidden="true"><i class="fas fa-chevron-down"></i><span data-i18n="hero.scrollHint">Explorer</span></p>
         </div>
 
-        <div class="home-scroll container" id="home-scroll">
+        <div class="home-scroll container" id="home-scroll" hidden>
+          <p class="hub-reveal-title" data-i18n="stage.hubTitle">Choisissez une galerie immersive</p>
           <div class="portal-grid" id="portal-grid">
             <button type="button" class="portal-card portal-card--skills" data-layer-jump="2">
               <span class="portal-scan" aria-hidden="true"></span>
@@ -132,20 +132,15 @@
               <span class="portal-desc" data-i18n="hero.ctaOngoingDesc">Développements actifs & déploiements</span>
               <span class="portal-arrow"><i class="fas fa-arrow-right" aria-hidden="true"></i></span>
             </button>
+            <button type="button" class="portal-card portal-card--future" data-layer-jump="3" data-project-tab="future">
+              <span class="portal-scan" aria-hidden="true"></span>
+              <span class="portal-glow" aria-hidden="true"></span>
+              <span class="portal-icon"><i class="fas fa-atom" aria-hidden="true"></i></span>
+              <span class="portal-label" data-i18n="hero.ctaFuture">Projets futurs</span>
+              <span class="portal-desc" data-i18n="hero.ctaFutureDesc">Horizon IA & innovation</span>
+              <span class="portal-arrow"><i class="fas fa-arrow-right" aria-hidden="true"></i></span>
+            </button>
           </div>
-
-          <section class="future-lab" id="future-lab" aria-labelledby="future-lab-title">
-            <header class="future-lab-head">
-              <span class="future-lab-tag" data-i18n="future.tag">Horizon</span>
-              <h2 id="future-lab-title" data-i18n="future.title">Projets futurs</h2>
-              <p class="future-lab-lead" data-i18n="future.lead">Laboratoire d'innovation — prototypes et visions en préparation.</p>
-            </header>
-            <div class="premium-carousel premium-carousel--future" id="carousel-future-home" data-speed="56">
-              <div class="premium-carousel-viewport">
-                <div class="premium-carousel-track" id="future-grid"></div>
-              </div>
-            </div>
-          </section>
         </div>
       </section>
 
@@ -181,10 +176,9 @@
             <h2 data-i18n="skills.title">Domaines de compétence</h2>
             <p class="layer-sub" data-i18n="skills.lead">Compétences transversales — spécialisation en SI.</p>
           </header>
-          <div class="premium-carousel premium-carousel--skills" id="carousel-skills" data-speed="52">
-            <div class="premium-carousel-viewport">
-              <div class="premium-carousel-track" id="skills-grid" role="list"></div>
-            </div>
+          <div class="swiper immersive-swiper immersive-swiper--skills" id="swiper-skills">
+            <div class="swiper-wrapper" id="skills-grid" role="list"></div>
+            <div class="swiper-pagination"></div>
           </div>
         </div>
       </section>
@@ -209,26 +203,23 @@
               <button type="button" class="btn btn-filter" data-filter="network" data-i18n="projects.filterNetwork">Réseau</button>
               <button type="button" class="btn btn-filter" data-filter="devops" data-i18n="projects.filterDevops">Infrastructure</button>
             </div>
-            <div class="premium-carousel premium-carousel--projects" id="carousel-projects-done" data-speed="44">
-              <div class="premium-carousel-viewport">
-                <div class="premium-carousel-track" id="projects-grid-done"></div>
-              </div>
+            <div class="swiper immersive-swiper immersive-swiper--projects" id="swiper-projects-done">
+              <div class="swiper-wrapper" id="projects-grid-done"></div>
+              <div class="swiper-pagination"></div>
             </div>
           </div>
           <div class="project-pane" id="project-pane-ongoing" role="tabpanel" hidden>
             <p class="layer-sub project-pane-lead" data-i18n="projects.ongoingLead">Solutions en développement ou en déploiement actif.</p>
-            <div class="premium-carousel premium-carousel--projects" id="carousel-projects-ongoing" data-speed="40">
-              <div class="premium-carousel-viewport">
-                <div class="premium-carousel-track" id="projects-grid-ongoing"></div>
-              </div>
+            <div class="swiper immersive-swiper immersive-swiper--projects" id="swiper-projects-ongoing">
+              <div class="swiper-wrapper" id="projects-grid-ongoing"></div>
+              <div class="swiper-pagination"></div>
             </div>
           </div>
           <div class="project-pane" id="project-pane-future" role="tabpanel" hidden>
             <p class="layer-sub project-pane-lead" data-i18n="future.lead">Laboratoire d'innovation — prototypes et visions en préparation.</p>
-            <div class="premium-carousel premium-carousel--future" id="carousel-future-layer" data-speed="58">
-              <div class="premium-carousel-viewport">
-                <div class="premium-carousel-track future-grid--layer" id="future-grid-projects"></div>
-              </div>
+            <div class="swiper immersive-swiper immersive-swiper--future" id="swiper-future">
+              <div class="swiper-wrapper" id="future-grid-projects"></div>
+              <div class="swiper-pagination"></div>
             </div>
           </div>
         </div>
@@ -450,8 +441,22 @@
     </div>
   </div>
 
+  <div class="imm-mobile-drawer" id="imm-mobile-drawer" aria-hidden="true">
+    <div class="imm-mobile-drawer-inner" role="navigation">
+      <button type="button" data-layer-jump="0" data-i18n="nav.home">Accueil</button>
+      <button type="button" data-layer-jump="1" data-i18n="nav.about">Profil</button>
+      <button type="button" data-layer-jump="2" data-i18n="nav.skills">Compétences</button>
+      <button type="button" data-layer-jump="3" data-i18n="nav.projects">Projets</button>
+      <button type="button" data-layer-jump="4" data-i18n="nav.experience">Parcours</button>
+      <button type="button" data-layer-jump="5" data-i18n="nav.contact">Contact</button>
+    </div>
+  </div>
+
   <a href="https://wa.me/message/U5VBQ5ZPUAS6A1" class="fab-whatsapp" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
   <div class="toast" id="toast" role="status"></div>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js" defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/lenis@1.1.18/dist/lenis.min.js" defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js" defer></script>
   <script src="script.js" defer></script>
 </body>
 </html>

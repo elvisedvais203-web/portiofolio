@@ -28,6 +28,8 @@
   },
   "stage": {
     "discover": "Consultar el perfil",
+    "discoverNow": "Discover now",
+    "hubTitle": "Choose an immersive gallery",
     "next": "Página siguiente",
     "prev": "Volver",
     "finish": "Contacto"
@@ -43,6 +45,8 @@
     "ctaOngoingDesc": "Desarrollos activos",
     "ctaSkills": "Mis competencias",
     "ctaSkillsDesc": "SI, desarrollo, redes e IA",
+    "ctaFuture": "Future projects",
+    "ctaFutureDesc": "AI horizon, innovation & prototypes",
     "scrollHint": "Explorar",
     "greeting": "Hola, soy",
     "ctaCv": "Currículum PDF",

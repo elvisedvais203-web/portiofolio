@@ -28,6 +28,8 @@
   },
   "stage": {
     "discover": "استعراض الملف المهني",
+    "discoverNow": "Discover now",
+    "hubTitle": "Choose an immersive gallery",
     "next": "الصفحة التالية",
     "prev": "رجوع",
     "finish": "التواصل"
@@ -43,6 +45,8 @@
     "ctaOngoingDesc": "تطوير نشط",
     "ctaSkills": "كفاءاتي",
     "ctaSkillsDesc": "SI، تطوير، شبكات وذكاء اصطناعي",
+    "ctaFuture": "Future projects",
+    "ctaFutureDesc": "AI horizon, innovation & prototypes",
     "scrollHint": "استكشف",
     "greeting": "مرحباً، أنا",
     "ctaCv": "السيرة الذاتية PDF",

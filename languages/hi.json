@@ -28,6 +28,8 @@
   },
   "stage": {
     "discover": "प्रोफ़ाइल देखें",
+    "discoverNow": "Discover now",
+    "hubTitle": "Choose an immersive gallery",
     "next": "अगला पृष्ठ",
     "prev": "वापस",
     "finish": "संपर्क"
@@ -43,6 +45,8 @@
     "ctaOngoingDesc": "सक्रिय विकास",
     "ctaSkills": "मेरे कौशल",
     "ctaSkillsDesc": "SI, विकास, नेटवर्क और AI",
+    "ctaFuture": "Future projects",
+    "ctaFutureDesc": "AI horizon, innovation & prototypes",
     "scrollHint": "देखें",
     "greeting": "नमस्ते, मैं हूँ",
     "ctaCv": "रिज़्यूमे PDF",

@@ -92,27 +92,12 @@ body.stage-body {
   filter: none;
 }
 
-/* Accueil verrouillé — fullscreen cinéma */
-body.home-locked #layer-home {
-  overflow: hidden !important;
+/* Phase intro — cinéma plein écran (voir immersive.css) */
+body[data-phase="intro"] #home-scroll.home-scroll--revealed {
+  animation: none;
 }
 
-body.home-locked #home-scroll,
-body.home-locked .home-scroll-cue {
-  opacity: 0;
-  visibility: hidden;
-  max-height: 0;
-  overflow: hidden;
-  pointer-events: none;
-  transform: translateY(24px);
-}
-
-body.home-locked .stage-nav {
-  opacity: 0.35;
-  pointer-events: none;
-}
-
-body:not(.home-locked) #home-scroll.home-scroll--revealed {
+body[data-phase="explore"] #home-scroll:not([hidden]) {
   animation: homeReveal 1.1s cubic-bezier(0.22, 1, 0.36, 1) both;
 }
 

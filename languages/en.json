@@ -29,6 +29,7 @@
   "stage": {
     "discover": "View professional profile",
     "discoverNow": "Discover now",
+    "hubTitle": "Choose an immersive gallery",
     "next": "Next section",
     "prev": "Previous",
     "finish": "Contact"
@@ -44,6 +45,8 @@
     "ctaOngoingDesc": "Active development & deployments",
     "ctaSkills": "My skills",
     "ctaSkillsDesc": "IS, development, networks & AI",
+    "ctaFuture": "Future projects",
+    "ctaFutureDesc": "AI horizon, innovation & prototypes",
     "scrollHint": "Explore"
   },
   "typing": {

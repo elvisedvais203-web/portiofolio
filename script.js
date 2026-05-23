@@ -213,8 +213,8 @@ class I18n {
     this.updateMeta();
     this.updateDirection();
     this.updateLangUI();
-    this.renderEssentialContent();
-    if (window.portfolioApp) window.portfolioApp.onLanguageReady();
+    this.renderDynamicContent();
+    if (window.portfolioApp) window.portfolioApp.refreshAllSwipers();
     document.documentElement.lang = LANG_CONFIG[lang].htmlLang;
     setTimeout(() => document.body.classList.remove('lang-transition'), 300);
     if (window.portfolioApp) {
@@ -289,10 +289,6 @@ class I18n {
     this.renderFutureProjects('future-grid-projects');
   }
 
-  renderHomeFuture() {
-    this.renderFutureProjects('future-grid');
-  }
-
   renderContactRequestTypes() {
     const select = document.getElementById('request-type');
     if (!select) return;
@@ -311,16 +307,17 @@ class I18n {
     const grid = document.getElementById(gridId);
     if (!grid) return;
     grid.innerHTML = FUTURE_PROJECTS_CONFIG.map((p, i) => `
-      <article class="future-card future-card--holo" style="--fi: ${i}">
-        <div class="future-card-orbit" aria-hidden="true"></div>
-        <span class="future-card-year">${p.year}</span>
-        <span class="future-card-icon"><i class="${p.icon}" aria-hidden="true"></i></span>
-        <h3>${this.t(`future.items.${p.key}.title`)}</h3>
-        <p>${this.t(`future.items.${p.key}.desc`)}</p>
-        <span class="future-card-status">${this.t(`future.items.${p.key}.status`)}</span>
-      </article>
+      <div class="swiper-slide">
+        <article class="future-card future-card--holo" style="--fi: ${i}">
+          <div class="future-card-orbit" aria-hidden="true"></div>
+          <span class="future-card-year">${p.year}</span>
+          <span class="future-card-icon"><i class="${p.icon}" aria-hidden="true"></i></span>
+          <h3>${this.t(`future.items.${p.key}.title`)}</h3>
+          <p>${this.t(`future.items.${p.key}.desc`)}</p>
+          <span class="future-card-status">${this.t(`future.items.${p.key}.status`)}</span>
+        </article>
+      </div>
     `).join('');
-    if (window.portfolioApp) window.portfolioApp.mountCarousel(grid.id);
   }
 
   skillSlideHtml(s) {
@@ -344,8 +341,9 @@ class I18n {
   renderSkills() {
     const grid = document.getElementById('skills-grid');
     if (!grid) return;
-    grid.innerHTML = SKILL_CONFIG.map((s) => this.skillSlideHtml(s)).join('');
-    if (window.portfolioApp) window.portfolioApp.mountCarousel('skills-grid');
+    grid.innerHTML = SKILL_CONFIG.map((s) =>
+      `<div class="swiper-slide">${this.skillSlideHtml(s)}</div>`
+    ).join('');
   }
 
   renderServices() {
@@ -396,14 +394,16 @@ class I18n {
     const gridDone = document.getElementById('projects-grid-done');
     const gridOngoing = document.getElementById('projects-grid-ongoing');
     if (gridDone) {
-      gridDone.innerHTML = done.map((p, i) => this.projectCardHtml(p, i)).join('');
+      gridDone.innerHTML = done.map((p, i) =>
+        `<div class="swiper-slide">${this.projectCardHtml(p, i)}</div>`
+      ).join('');
     }
     if (gridOngoing) {
-      gridOngoing.innerHTML = ongoing.map((p, i) => this.projectCardHtml(p, i)).join('');
+      gridOngoing.innerHTML = ongoing.map((p, i) =>
+        `<div class="swiper-slide">${this.projectCardHtml(p, i)}</div>`
+      ).join('');
     }
-    if (window.portfolioApp) {
-      window.portfolioApp.initProjectArchive();
-    }
+    if (window.portfolioApp) window.portfolioApp.initProjectArchive();
   }
 
   formatExperiencePeriod(from, to) {
@@ -460,8 +460,7 @@ class PortfolioApp {
 
   async init() {
     window.portfolioApp = this;
-    this.carousels = {};
-    this._layerReady = { skills: false, projects: false };
+    this.swipers = {};
     this.modalZoom = 1;
     this.initLoader();
     await this.i18n.init();
@@ -473,148 +472,67 @@ class PortfolioApp {
     this.initContactForm();
     this.initProjectModal();
     this.initProjectModalZoom();
-    this.initHomeReveal();
-    this.scheduleDeferredWork();
+    this.initProjectFilters();
+    this.initProjectTabs();
+    this.initMobileNav();
+    this.initIntroPhase();
+    this.initHeroCinema();
+    this.initFuturisticFx();
+    requestAnimationFrame(() => this.refreshAllSwipers());
   }
 
-  onLanguageReady() {
-    if (this._layerReady.skills) {
-      this.i18n.renderSkills();
-      this.mountCarousel('skills-grid');
-    }
-    if (this._layerReady.projects) {
-      this.i18n.renderProjects();
-      this.initProjectArchive();
-      this.mountCarousel('projects-grid-done');
-      this.mountCarousel('projects-grid-ongoing');
-      this.mountCarousel('future-grid-projects');
-    }
-    if (document.getElementById('future-grid')?.querySelector('.future-card')) {
-      this.i18n.renderHomeFuture();
-      this.mountCarousel('future-grid');
-    }
-  }
-
-  scheduleDeferredWork() {
-    const run = (fn) => {
-      if ('requestIdleCallback' in window) {
-        requestIdleCallback(fn, { timeout: 4000 });
-      } else {
-        setTimeout(fn, 1200);
-      }
-    };
-    run(() => this.loadWebFonts());
-    run(() => this.loadFontAwesome());
-    run(() => this.loadCarouselScript());
-    run(() => this.initFuturisticFx());
-  }
-
-  loadWebFonts() {
-    if (document.getElementById('font-inter')) return;
-    const link = document.createElement('link');
-    link.id = 'font-inter';
-    link.rel = 'stylesheet';
-    link.href = 'https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap';
-    link.onload = () => document.body.classList.add('fonts-ready');
-    document.head.appendChild(link);
-  }
-
-  loadFontAwesome() {
-    if (document.getElementById('fa-css')) return;
-    const link = document.createElement('link');
-    link.id = 'fa-css';
-    link.rel = 'stylesheet';
-    link.href = 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css';
-    document.head.appendChild(link);
-  }
-
-  loadCarouselScript() {
-    if (window.PremiumCarousel) return Promise.resolve();
-    const existing = document.getElementById('carousel-js');
-    if (existing) {
-      return existing.dataset.loaded === '1'
-        ? Promise.resolve()
-        : new Promise((resolve) => {
-            existing.addEventListener('load', () => resolve(), { once: true });
-            existing.addEventListener('error', () => resolve(), { once: true });
-          });
-    }
-    return new Promise((resolve) => {
-      const s = document.createElement('script');
-      s.id = 'carousel-js';
-      s.src = 'carousel.js';
-      s.defer = true;
-      s.onload = () => { s.dataset.loaded = '1'; resolve(); };
-      s.onerror = resolve;
-      document.body.appendChild(s);
+  initHeroCinema() {
+    if (!window.gsap || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    const targets = ['.photo-frame--hero', '.welcome-eyebrow', '.welcome-name', '.welcome-typing', '.welcome-desc', '.welcome-actions'];
+    gsap.set(targets, { opacity: 0, y: 22 });
+    gsap.to(targets, {
+      opacity: 1,
+      y: 0,
+      duration: 0.85,
+      stagger: 0.08,
+      ease: 'power2.out',
+      delay: 0.15
     });
   }
 
-  async loadLenisScript() {
-    if (window.Lenis || document.getElementById('lenis-js')) return;
-    return new Promise((resolve) => {
-      const s = document.createElement('script');
-      s.id = 'lenis-js';
-      s.src = 'https://unpkg.com/lenis@1.1.18/dist/lenis.min.js';
-      s.defer = true;
-      s.onload = resolve;
-      s.onerror = resolve;
-      document.body.appendChild(s);
-    });
-  }
-
-  ensureLayerContent(index) {
-    if (index === 2 && !this._layerReady.skills) {
-      this._layerReady.skills = true;
-      this.i18n.renderSkills();
-      this.loadCarouselScript().then(() => this.mountCarousel('skills-grid'));
-    }
-    if (index === 3 && !this._layerReady.projects) {
-      this._layerReady.projects = true;
-      this.i18n.renderProjects();
-      this.loadCarouselScript().then(() => {
-        this.initProjectFilters();
-        this.initProjectArchive();
-        this.initProjectTabs();
-        this.mountCarousel('projects-grid-done');
-        this.mountCarousel('projects-grid-ongoing');
-        this.i18n.renderFutureProjects('future-grid-projects');
-        this.mountCarousel('future-grid-projects');
-      });
+  initIntroPhase() {
+    if (sessionStorage.getItem('portfolio_unlocked')) {
+      this.setExplorePhase(false);
+    } else {
+      document.body.dataset.phase = 'intro';
     }
   }
 
-  initHomeReveal() {
-    const KEY = 'portfolio_unlocked';
-    if (sessionStorage.getItem(KEY)) {
-      document.body.classList.remove('home-locked');
-      document.getElementById('home-scroll')?.classList.add('home-scroll--revealed');
-      void this.initLenis();
-    }
-  }
-
-  unlockHome() {
+  setExplorePhase(animate = true) {
+    document.body.dataset.phase = 'explore';
     document.body.classList.remove('home-locked');
     sessionStorage.setItem('portfolio_unlocked', '1');
     const scroll = document.getElementById('home-scroll');
+    scroll?.removeAttribute('hidden');
     scroll?.classList.add('home-scroll--revealed');
-    void this.initLenis();
-    this.i18n.renderHomeFuture();
-    this.loadCarouselScript().then(() => {
-      this.mountCarousel('future-grid');
-      this.initHomePortals();
-    });
-    setTimeout(() => this.refreshLayerAnimations(0), 200);
+    if (animate && window.gsap) {
+      gsap.fromTo('#home-scroll', { opacity: 0, y: 48 }, { opacity: 1, y: 0, duration: 1.1, ease: 'power3.out' });
+      gsap.fromTo('.portal-card', { opacity: 0, y: 36 }, {
+        opacity: 1, y: 0, duration: 0.75, stagger: 0.1, delay: 0.2, ease: 'power2.out'
+      });
+      gsap.fromTo('.hub-reveal-title', { opacity: 0 }, { opacity: 1, duration: 0.6, delay: 0.1 });
+    }
+    this.initLenis();
+    this.refreshAllSwipers();
+    this.initHomePortals();
+    setTimeout(() => this.refreshLayerAnimations(0), 300);
   }
 
-  async initLenis() {
-    if (this.lenis) return;
+  unlockHome() {
+    this.setExplorePhase(true);
+  }
+
+  initLenis() {
+    if (this.lenis || !window.Lenis) return;
     if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
-    await this.loadLenisScript();
-    if (!window.Lenis) return;
     const home = document.getElementById('layer-home');
-    if (!home) return;
-    this.lenis = new Lenis({ wrapper: home, content: home, smoothWheel: true, lerp: 0.1 });
+    if (!home || document.body.dataset.phase !== 'explore') return;
+    this.lenis = new Lenis({ wrapper: home, content: home, smoothWheel: true, lerp: 0.09 });
     const loop = (time) => {
       this.lenis.raf(time);
       requestAnimationFrame(loop);
@@ -622,22 +540,89 @@ class PortfolioApp {
     requestAnimationFrame(loop);
   }
 
-  mountCarousel(trackId) {
-    if (!window.PremiumCarousel) {
-      this.loadCarouselScript().then(() => this.mountCarousel(trackId));
-      return;
+  initSwiper(containerId, variant) {
+    if (!window.Swiper) return null;
+    const el = document.getElementById(containerId);
+    if (!el) return null;
+    const count = el.querySelectorAll('.swiper-slide').length;
+    if (!count) return null;
+
+    if (this.swipers[containerId]) {
+      this.swipers[containerId].destroy(true, true);
+      delete this.swipers[containerId];
     }
-    const track = document.getElementById(trackId);
-    if (!track) return;
-    const carouselEl = track.closest('.premium-carousel');
-    if (!carouselEl) return;
-    const set = track.querySelector('.premium-carousel-set');
-    const html = set ? set.innerHTML : track.innerHTML;
-    if (!html.trim()) return;
-    if (!this.carousels[trackId]) {
-      this.carousels[trackId] = new PremiumCarousel(carouselEl);
+
+    const pagEl = el.querySelector('.swiper-pagination');
+    this.swipers[containerId] = new Swiper(el, {
+      slidesPerView: 'auto',
+      spaceBetween: variant === 'future' ? 18 : 22,
+      loop: count > 2,
+      grabCursor: true,
+      speed: variant === 'future' ? 7200 : variant === 'projects' ? 5200 : 6500,
+      autoplay: count > 1 ? { delay: 1, disableOnInteraction: false, pauseOnMouseEnter: true } : false,
+      pagination: pagEl ? { el: pagEl, clickable: true } : undefined
+    });
+    requestAnimationFrame(() => this.swipers[containerId]?.update());
+    return this.swipers[containerId];
+  }
+
+  refreshAllSwipers() {
+    if (!window.Swiper) return;
+    this.initSwiper('swiper-skills', 'skills');
+    this.initSwiper('swiper-projects-done', 'projects');
+    this.initSwiper('swiper-projects-ongoing', 'projects');
+    this.initSwiper('swiper-future', 'future');
+  }
+
+  refreshSwipersForLayer(index) {
+    if (index === 2) this.initSwiper('swiper-skills', 'skills');
+    if (index === 3) {
+      const tab = document.querySelector('.project-tab.active')?.dataset.projectTab || 'done';
+      if (tab === 'done') this.initSwiper('swiper-projects-done', 'projects');
+      if (tab === 'ongoing') this.initSwiper('swiper-projects-ongoing', 'projects');
+      if (tab === 'future') this.initSwiper('swiper-future', 'future');
     }
-    this.carousels[trackId].mountFromHtml(html);
+  }
+
+  initMobileNav() {
+    const toggle = document.getElementById('imm-mobile-toggle');
+    const drawer = document.getElementById('imm-mobile-drawer');
+    if (!toggle || !drawer) return;
+
+    const close = () => {
+      drawer.classList.remove('is-open');
+      toggle.setAttribute('aria-expanded', 'false');
+      drawer.setAttribute('aria-hidden', 'true');
+    };
+
+    toggle.addEventListener('click', () => {
+      const open = !drawer.classList.contains('is-open');
+      drawer.classList.toggle('is-open', open);
+      toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+      drawer.setAttribute('aria-hidden', open ? 'false' : 'true');
+    });
+
+    drawer.addEventListener('click', (e) => {
+      if (e.target === drawer) close();
+    });
+
+    drawer.querySelectorAll('[data-layer-jump]').forEach((btn) => {
+      btn.addEventListener('click', () => {
+        close();
+        const idx = +btn.dataset.layerJump;
+        const tab = btn.dataset.projectTab;
+        if (document.body.dataset.phase === 'intro' && idx > 0) {
+          this.unlockHome();
+          setTimeout(() => {
+            this.goToLayer(idx);
+            if (tab) this.setProjectTab(tab);
+          }, 850);
+        } else {
+          this.goToLayer(idx);
+          if (tab) setTimeout(() => this.setProjectTab(tab), 720);
+        }
+      });
+    });
   }
 
   initFuturisticFx() {
@@ -753,7 +738,7 @@ class PortfolioApp {
     next?.addEventListener('click', () => go(this.currentLayer + 1));
     prev?.addEventListener('click', () => go(this.currentLayer - 1));
     discover?.addEventListener('click', () => {
-      if (document.body.classList.contains('home-locked')) {
+      if (document.body.dataset.phase === 'intro') {
         this.unlockHome();
         return;
       }
@@ -773,7 +758,7 @@ class PortfolioApp {
           go(idx);
           if (tab) setTimeout(() => this.setProjectTab(tab), 720);
         };
-        if (document.body.classList.contains('home-locked') && idx > 0) {
+        if (document.body.dataset.phase === 'intro' && idx > 0) {
           this.unlockHome();
           setTimeout(run, 850);
           return;
@@ -784,6 +769,13 @@ class PortfolioApp {
 
     document.addEventListener('keydown', e => {
       if (document.body.classList.contains('modal-open')) return;
+      if (document.body.dataset.phase === 'intro') {
+        if (e.key === 'ArrowRight' || e.key === 'PageDown' || e.key === 'Enter') {
+          e.preventDefault();
+          this.unlockHome();
+        }
+        return;
+      }
       if (e.key === 'ArrowRight' || e.key === 'PageDown') {
         e.preventDefault();
         go(this.currentLayer + 1);
@@ -803,6 +795,11 @@ class PortfolioApp {
     stage.addEventListener('touchend', e => {
       if (document.body.classList.contains('modal-open')) return;
       if (document.getElementById('lang-switcher')?.classList.contains('open')) return;
+      if (document.body.dataset.phase === 'intro') {
+        const dx = e.changedTouches[0].clientX - touchX;
+        if (dx < -56) this.unlockHome();
+        return;
+      }
       const dx = e.changedTouches[0].clientX - touchX;
       const dy = e.changedTouches[0].clientY - touchY;
       if (Math.abs(dx) < 56 || Math.abs(dx) < Math.abs(dy) * 1.25) return;
@@ -824,6 +821,11 @@ class PortfolioApp {
 
   goToLayer(index) {
     if (this.layerAnimating) return;
+    if (document.body.dataset.phase === 'intro' && index > 0) {
+      this.unlockHome();
+      setTimeout(() => this.goToLayer(index), 850);
+      return;
+    }
     const max = LAYER_IDS.length - 1;
     index = Math.max(0, Math.min(max, index));
     if (index === this.currentLayer) return;
@@ -859,9 +861,9 @@ class PortfolioApp {
     const active = document.getElementById(`layer-${LAYER_IDS[index]}`);
     if (active) active.scrollTop = 0;
 
-    this.ensureLayerContent(index);
     this.updateStageUI();
     this.refreshLayerAnimations(index);
+    setTimeout(() => this.refreshSwipersForLayer(index), 750);
 
     setTimeout(() => {
       layers.forEach(layer => layer.classList.remove('layer--leaving', 'layer--entering'));
@@ -878,9 +880,11 @@ class PortfolioApp {
     const next = document.getElementById('layer-next');
     const nav = document.getElementById('stage-nav');
 
-    header?.toggleAttribute('aria-hidden', i === 0);
-    header?.classList.toggle('visible', i > 0);
+    const inIntro = document.body.dataset.phase === 'intro';
+    header?.toggleAttribute('aria-hidden', inIntro || i === 0);
+    header?.classList.toggle('visible', !inIntro && i > 0);
     nav?.classList.toggle('on-home', i === 0);
+    nav?.classList.toggle('nav--intro', inIntro);
 
     if (title) title.textContent = this.i18n.t(LAYER_TITLE_KEYS[i]);
 
@@ -907,7 +911,7 @@ class PortfolioApp {
 
   initProjectArchive() {
     document.querySelectorAll('.project-card[data-project-key]').forEach(card => {
-      if (card.closest('.premium-carousel-set[aria-hidden="true"]')) return;
+      if (card.closest('.project-pane[hidden]')) return;
       if (card.dataset.boundArchive) return;
       card.dataset.boundArchive = '1';
       const open = () => this.openProjectModal(card.dataset.projectKey);
@@ -1062,6 +1066,12 @@ class PortfolioApp {
     modal.classList.add('is-open');
     modal.setAttribute('aria-hidden', 'false');
     document.body.classList.add('modal-open');
+    if (window.gsap) {
+      const panel = modal.querySelector('.project-modal-panel');
+      gsap.fromTo(panel, { opacity: 0, y: 28, scale: 0.97 }, {
+        opacity: 1, y: 0, scale: 1, duration: 0.55, ease: 'power3.out'
+      });
+    }
   }
 
   closeProjectModal() {
@@ -1301,14 +1311,18 @@ class PortfolioApp {
         pane.querySelectorAll('.btn-filter').forEach(b => b.classList.remove('active'));
         btn.classList.add('active');
         const filter = btn.dataset.filter;
-        pane.querySelectorAll('.premium-carousel .project-card').forEach(card => {
+        pane.querySelectorAll('#swiper-projects-done .swiper-slide').forEach(slide => {
+          const card = slide.querySelector('.project-card');
+          if (!card) return;
           const visible = filter === 'all' || card.dataset.category === filter;
+          slide.classList.toggle('swiper-slide-hidden', !visible);
           card.classList.toggle('hidden', !visible);
           if (visible) {
             card.classList.remove('is-visible');
             this.observeAnimated(card);
           }
         });
+        this.swipers['swiper-projects-done']?.update();
       });
     });
   }
@@ -1337,9 +1351,14 @@ class PortfolioApp {
       const pane = panes[key];
       if (pane) {
         this.observeAnimated(pane.querySelectorAll('.project-card--animated, .future-card, .skill-slide'), pane.closest('.layer'));
-        if (key === 'future') this.mountCarousel('future-grid-projects');
-        if (key === 'done') this.mountCarousel('projects-grid-done');
-        if (key === 'ongoing') this.mountCarousel('projects-grid-ongoing');
+        setTimeout(() => {
+          const map = { future: 'swiper-future', done: 'swiper-projects-done', ongoing: 'swiper-projects-ongoing' };
+          const id = map[key];
+          if (id) {
+            this.initSwiper(id, key === 'future' ? 'future' : 'projects');
+            requestAnimationFrame(() => this.swipers[id]?.update());
+          }
+        }, 120);
       }
     };
     tabs.forEach(tab => {

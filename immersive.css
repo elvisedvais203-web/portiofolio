@@ -1,0 +1,373 @@
+/* ===== Expérience immersive premium ===== */
+
+:root {
+  --imm-neon: #00e8ff;
+  --imm-neon-soft: rgba(0, 232, 255, 0.15);
+  --imm-violet: #a78bfa;
+  --imm-glass: rgba(10, 16, 28, 0.55);
+  --imm-glass-border: rgba(94, 184, 255, 0.28);
+  --imm-blur: 20px;
+}
+
+[data-theme="light"] {
+  --imm-glass: rgba(255, 255, 255, 0.82);
+  --imm-glass-border: rgba(71, 85, 105, 0.22);
+  --imm-neon: #2563eb;
+  --imm-neon-soft: rgba(37, 99, 235, 0.12);
+}
+
+/* —— Phases : intro = cinéma seul —— */
+body[data-phase="intro"] #home-scroll,
+body[data-phase="intro"] .stage-nav,
+body[data-phase="intro"] .stage-header,
+body[data-phase="intro"] .home-scroll-cue {
+  visibility: hidden !important;
+  opacity: 0 !important;
+  pointer-events: none !important;
+}
+
+body[data-phase="intro"] #layer-home {
+  overflow: hidden !important;
+}
+
+body[data-phase="explore"] #home-scroll {
+  visibility: visible;
+  opacity: 1;
+  pointer-events: auto;
+}
+
+body[data-phase="explore"] .stage-header.visible,
+body[data-phase="explore"] .stage-nav {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+body[data-phase="explore"] .stage-nav:not(.nav--intro) {
+  visibility: visible;
+}
+
+.stage-nav.nav--intro {
+  visibility: hidden !important;
+  opacity: 0 !important;
+  pointer-events: none !important;
+}
+
+/* Hub portails (hors scroll compétences/projets) */
+#home-scroll {
+  padding: 2rem 0 5rem;
+}
+
+#home-scroll .future-lab {
+  display: none !important;
+}
+
+.hub-reveal-title {
+  text-align: center;
+  font-family: var(--font-display);
+  font-size: clamp(1.25rem, 3vw, 1.6rem);
+  color: var(--paper);
+  margin-bottom: 1.5rem;
+  opacity: 0;
+}
+
+body[data-phase="explore"] .hub-reveal-title {
+  opacity: 1;
+}
+
+/* —— Navigation premium —— */
+.stage-header {
+  background: var(--imm-glass) !important;
+  backdrop-filter: blur(var(--imm-blur));
+  -webkit-backdrop-filter: blur(var(--imm-blur));
+  border-bottom: 1px solid var(--imm-glass-border) !important;
+}
+
+.stage-nav {
+  background: var(--imm-glass) !important;
+  backdrop-filter: blur(var(--imm-blur));
+  -webkit-backdrop-filter: blur(var(--imm-blur));
+  border-top: 1px solid var(--imm-glass-border);
+}
+
+/* —— Hero cinéma —— */
+.home-hero {
+  position: relative;
+}
+
+.welcome-actions .btn-accent {
+  box-shadow: 0 0 40px var(--imm-neon-soft), 0 8px 32px rgba(0, 0, 0, 0.35);
+  transition: transform 0.35s ease, box-shadow 0.35s ease;
+}
+
+.welcome-actions .btn-accent:hover {
+  transform: translateY(-3px) scale(1.02);
+  box-shadow: 0 0 56px rgba(0, 232, 255, 0.35);
+}
+
+/* —— Portails —— */
+.portal-card {
+  backdrop-filter: blur(var(--imm-blur));
+  -webkit-backdrop-filter: blur(var(--imm-blur));
+  transform-style: preserve-3d;
+  transition: transform 0.45s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.45s ease;
+}
+
+.portal-card:hover {
+  transform: translateY(-8px) rotateX(4deg) scale(1.02);
+  box-shadow: 0 24px 60px rgba(0, 232, 255, 0.12);
+}
+
+/* —— Swiper immersif —— */
+.immersive-swiper {
+  width: 100%;
+  padding: 1rem 0 2.5rem !important;
+  overflow: visible !important;
+}
+
+.immersive-swiper .swiper-wrapper {
+  transition-timing-function: linear !important;
+}
+
+.immersive-swiper .swiper-slide {
+  width: auto;
+  height: auto;
+}
+
+/* Carte compétence 3D */
+.skill-slide {
+  width: 280px;
+  padding: 1.25rem 1.2rem;
+  border-radius: 12px;
+  background: var(--imm-glass);
+  border: 1px solid var(--imm-glass-border);
+  backdrop-filter: blur(var(--imm-blur));
+  -webkit-backdrop-filter: blur(var(--imm-blur));
+  box-shadow: 0 16px 48px rgba(0, 0, 0, 0.25);
+  transition: transform 0.4s ease, box-shadow 0.4s ease, border-color 0.3s ease;
+}
+
+.skill-slide:hover {
+  transform: translateY(-8px) rotateY(-4deg) scale(1.03);
+  border-color: var(--imm-neon);
+  box-shadow: 0 24px 56px var(--imm-neon-soft);
+}
+
+.skill-slide-icon {
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10px;
+  background: var(--imm-neon-soft);
+  color: var(--imm-neon);
+  font-size: 1.2rem;
+  margin-bottom: 0.85rem;
+  box-shadow: 0 0 24px var(--imm-neon-soft);
+}
+
+.skill-slide-title {
+  font-family: var(--font-display);
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: var(--paper);
+  margin: 0 0 0.4rem;
+}
+
+.skill-slide-stack {
+  font-size: 0.8rem;
+  line-height: 1.5;
+  color: var(--muted);
+  margin: 0 0 0.85rem;
+  min-height: 2.6em;
+}
+
+.skill-slide-foot {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+}
+
+.skill-slide-bar {
+  flex: 1;
+  height: 4px;
+  background: rgba(94, 184, 255, 0.15);
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.skill-slide-bar span {
+  display: block;
+  height: 100%;
+  background: linear-gradient(90deg, var(--steel), var(--bronze));
+  border-radius: 4px;
+}
+
+.skill-slide-pct {
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: var(--bronze);
+  letter-spacing: 0.06em;
+}
+
+/* Projets flottants */
+.immersive-swiper--projects .swiper-slide {
+  width: min(320px, 82vw);
+}
+
+.immersive-swiper--projects .project-card {
+  transform: translateZ(0);
+  transition: transform 0.5s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.5s ease;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.35);
+}
+
+.immersive-swiper--projects .swiper-slide-active .project-card,
+.immersive-swiper--projects .project-card:hover {
+  transform: scale(1.04) translateY(-10px);
+  box-shadow: 0 28px 64px rgba(0, 232, 255, 0.18);
+  z-index: 2;
+}
+
+.immersive-swiper--projects .swiper-slide-hidden {
+  display: none !important;
+}
+
+.immersive-swiper--projects .project-card.hidden {
+  display: none !important;
+}
+
+body[data-phase="explore"] .home-scroll-cue {
+  visibility: visible;
+  opacity: 0.65;
+  pointer-events: none;
+}
+
+/* Futur holographique */
+.immersive-swiper--future .swiper-slide {
+  width: 270px;
+}
+
+.future-card--holo {
+  width: 100%;
+  padding: 1.2rem;
+  border-radius: 12px;
+  background: linear-gradient(145deg, rgba(20, 12, 40, 0.75), rgba(8, 14, 28, 0.9));
+  border: 1px solid rgba(167, 139, 250, 0.35);
+  box-shadow: 0 0 40px rgba(138, 92, 255, 0.15), inset 0 0 60px rgba(0, 232, 255, 0.04);
+  transition: transform 0.45s ease, box-shadow 0.45s ease;
+}
+
+.future-card--holo:hover {
+  transform: translateY(-8px) scale(1.03);
+  box-shadow: 0 0 50px rgba(167, 139, 250, 0.28);
+}
+
+.future-card--holo .future-card-icon {
+  color: var(--imm-violet);
+  text-shadow: 0 0 20px rgba(167, 139, 250, 0.6);
+}
+
+.swiper-pagination-bullet {
+  background: var(--muted);
+  opacity: 0.5;
+}
+
+.swiper-pagination-bullet-active {
+  background: var(--imm-neon);
+  opacity: 1;
+  box-shadow: 0 0 12px var(--imm-neon);
+}
+
+/* Modale projet — entrée cinéma */
+.project-modal.is-open .project-modal-panel {
+  animation: modalCinema 0.55s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+@keyframes modalCinema {
+  from {
+    opacity: 0;
+    transform: scale(0.92) translateY(24px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+/* Menu mobile */
+.imm-mobile-toggle {
+  display: none;
+  width: 44px;
+  height: 44px;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--imm-glass-border);
+  border-radius: 8px;
+  background: var(--imm-glass);
+  color: var(--paper);
+  cursor: pointer;
+}
+
+.imm-mobile-drawer {
+  position: fixed;
+  inset: 0;
+  z-index: 200;
+  background: rgba(4, 8, 16, 0.75);
+  backdrop-filter: blur(8px);
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.35s ease, visibility 0.35s ease;
+}
+
+.imm-mobile-drawer.is-open {
+  opacity: 1;
+  visibility: visible;
+}
+
+.imm-mobile-drawer-inner {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: min(300px, 88vw);
+  height: 100%;
+  padding: 4rem 1.25rem 2rem;
+  background: var(--imm-glass);
+  backdrop-filter: blur(var(--imm-blur));
+  border-left: 1px solid var(--imm-glass-border);
+  transform: translateX(100%);
+  transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.imm-mobile-drawer.is-open .imm-mobile-drawer-inner {
+  transform: translateX(0);
+}
+
+.imm-mobile-drawer a,
+.imm-mobile-drawer button {
+  display: block;
+  width: 100%;
+  text-align: left;
+  padding: 0.85rem 0;
+  border: none;
+  background: none;
+  color: var(--paper);
+  font-size: 1rem;
+  font-weight: 500;
+  border-bottom: 1px solid var(--line);
+  cursor: pointer;
+}
+
+@media (max-width: 768px) {
+  .imm-mobile-toggle {
+    display: flex;
+  }
+  .stage-dots {
+    display: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .immersive-swiper .swiper-wrapper {
+    transform: none !important;
+  }
+}

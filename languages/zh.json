@@ -28,6 +28,8 @@
   },
   "stage": {
     "discover": "查阅简介",
+    "discoverNow": "Discover now",
+    "hubTitle": "Choose an immersive gallery",
     "next": "下一页",
     "prev": "返回",
     "finish": "联系"
@@ -43,6 +45,8 @@
     "ctaOngoingDesc": "活跃开发",
     "ctaSkills": "我的能力",
     "ctaSkillsDesc": "信息系统、开发、网络与 AI",
+    "ctaFuture": "Future projects",
+    "ctaFutureDesc": "AI horizon, innovation & prototypes",
     "scrollHint": "浏览",
     "greeting": "您好，我是",
     "ctaCv": "下载简历 PDF",

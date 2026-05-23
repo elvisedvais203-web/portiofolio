@@ -28,6 +28,8 @@
   },
   "stage": {
     "discover": "プロフィールを見る",
+    "discoverNow": "Discover now",
+    "hubTitle": "Choose an immersive gallery",
     "next": "次のページ",
     "prev": "戻る",
     "finish": "連絡"
@@ -43,6 +45,8 @@
     "ctaOngoingDesc": "開発・展開中",
     "ctaSkills": "スキル",
     "ctaSkillsDesc": "SI、開発、ネットワーク、AI",
+    "ctaFuture": "Future projects",
+    "ctaFutureDesc": "AI horizon, innovation & prototypes",
     "scrollHint": "探索",
     "greeting": "こんにちは、私は",
     "ctaCv": "履歴書 PDF",
