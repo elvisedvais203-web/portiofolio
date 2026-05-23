@@ -28,6 +28,7 @@
   },
   "stage": {
     "discover": "View professional profile",
+    "discoverNow": "Discover now",
     "next": "Next section",
     "prev": "Previous",
     "finish": "Contact"

@@ -21,14 +21,14 @@ const EMAIL_ICLOUD = 'elvisedvais203@icloud.com';
 
 /** Compétences fusionnées par domaine */
 const SKILL_CONFIG = [
-  { key: 'frontend', icon: 'fas fa-code', level: 93 },
-  { key: 'backend', icon: 'fas fa-server', level: 90 },
-  { key: 'databases', icon: 'fas fa-database', level: 90 },
-  { key: 'ai', icon: 'fas fa-brain', level: 88 },
-  { key: 'infrastructure', icon: 'fas fa-network-wired', level: 87 },
-  { key: 'cybersecurity', icon: 'fas fa-shield-halved', level: 85 },
-  { key: 'iot', icon: 'fas fa-microchip', level: 83 },
-  { key: 'devops', icon: 'fab fa-git-alt', level: 90 }
+  { key: 'frontend', icon: 'fas fa-code', level: 78 },
+  { key: 'backend', icon: 'fas fa-server', level: 76 },
+  { key: 'databases', icon: 'fas fa-database', level: 74 },
+  { key: 'ai', icon: 'fas fa-brain', level: 72 },
+  { key: 'infrastructure', icon: 'fas fa-network-wired', level: 75 },
+  { key: 'cybersecurity', icon: 'fas fa-shield-halved', level: 70 },
+  { key: 'iot', icon: 'fas fa-microchip', level: 68 },
+  { key: 'devops', icon: 'fab fa-git-alt', level: 73 }
 ];
 
 /** Services fusionnés par offre */
@@ -214,6 +214,7 @@ class I18n {
     this.updateDirection();
     this.updateLangUI();
     this.renderDynamicContent();
+    if (window.portfolioApp) window.portfolioApp.mountAllCarousels();
     document.documentElement.lang = LANG_CONFIG[lang].htmlLang;
     setTimeout(() => document.body.classList.remove('lang-transition'), 300);
     if (window.portfolioApp) {
@@ -304,7 +305,7 @@ class I18n {
     const grid = document.getElementById(gridId);
     if (!grid) return;
     grid.innerHTML = FUTURE_PROJECTS_CONFIG.map((p, i) => `
-      <article class="future-card" style="--fi: ${i}">
+      <article class="future-card future-card--holo" style="--fi: ${i}">
         <div class="future-card-orbit" aria-hidden="true"></div>
         <span class="future-card-year">${p.year}</span>
         <span class="future-card-icon"><i class="${p.icon}" aria-hidden="true"></i></span>
@@ -313,33 +314,32 @@ class I18n {
         <span class="future-card-status">${this.t(`future.items.${p.key}.status`)}</span>
       </article>
     `).join('');
-    const layer = grid.closest('.layer');
-    if (window.portfolioApp) window.portfolioApp.observeAnimated(grid.querySelectorAll('.future-card'), layer);
+    if (window.portfolioApp) window.portfolioApp.mountCarousel(grid.id);
+  }
+
+  skillSlideHtml(s) {
+    const title = this.t(`skillItems.${s.key}`);
+    const stack = this.t(`skillStacks.${s.key}`);
+    const levelLbl = this.t('skills.levelLabel');
+    const name = title.startsWith('skillItems.') ? s.key : title;
+    const tools = stack.startsWith('skillStacks.') ? '' : stack;
+    return `
+      <article class="skill-slide glass-panel" role="listitem" data-skill="${s.key}">
+        <span class="skill-slide-icon" aria-hidden="true"><i class="${s.icon}"></i></span>
+        <h3 class="skill-slide-title">${name}</h3>
+        <p class="skill-slide-stack">${tools}</p>
+        <div class="skill-slide-foot">
+          <div class="skill-slide-bar" role="presentation" aria-label="${levelLbl}"><span style="width:${s.level}%"></span></div>
+          <span class="skill-slide-pct">${s.level}%</span>
+        </div>
+      </article>`;
   }
 
   renderSkills() {
     const grid = document.getElementById('skills-grid');
     if (!grid) return;
-    const levelLbl = this.t('skills.levelLabel');
-    grid.innerHTML = SKILL_CONFIG.map((s, i) => {
-      const title = this.t(`skillItems.${s.key}`);
-      const stack = this.t(`skillStacks.${s.key}`);
-      const name = title.startsWith('skillItems.') ? s.key : title;
-      const tools = stack.startsWith('skillStacks.') ? '' : stack;
-      return `
-      <article class="skill-card" role="listitem" style="--delay: ${i * 45}ms; --level: ${s.level}" data-skill="${s.key}">
-        <header class="skill-card-head">
-          <span class="skill-card-icon" aria-hidden="true"><i class="${s.icon}"></i></span>
-          <div class="skill-card-meta">
-            <h3 class="skill-card-title">${name}</h3>
-            ${tools ? `<p class="skill-card-stack">${tools}</p>` : ''}
-          </div>
-          <span class="skill-card-level" aria-label="${levelLbl}">${s.level}%</span>
-        </header>
-        <div class="skill-card-bar" role="presentation"><span style="width: ${s.level}%"></span></div>
-      </article>`;
-    }).join('');
-    if (window.portfolioApp) window.portfolioApp.revealInLayer(grid);
+    grid.innerHTML = SKILL_CONFIG.map((s) => this.skillSlideHtml(s)).join('');
+    if (window.portfolioApp) window.portfolioApp.mountCarousel('skills-grid');
   }
 
   renderServices() {
@@ -399,11 +399,8 @@ class I18n {
       window.portfolioApp.initProjectFilters();
       window.portfolioApp.initProjectArchive();
       window.portfolioApp.initProjectTabs();
-      const layer = document.getElementById('layer-projects');
-      window.portfolioApp.observeAnimated([
-        ...(gridDone?.querySelectorAll('.project-card') || []),
-        ...(gridOngoing?.querySelectorAll('.project-card') || [])
-      ], layer);
+      window.portfolioApp.mountCarousel('projects-grid-done');
+      window.portfolioApp.mountCarousel('projects-grid-ongoing');
     }
   }
 
@@ -472,8 +469,69 @@ class PortfolioApp {
     this.initProjectModalZoom();
     this.initHomePortals();
     this.initFuturisticFx();
+    this.initHomeReveal();
+    this.carousels = {};
     this.modalZoom = 1;
     setTimeout(() => this.refreshLayerAnimations(0), 400);
+  }
+
+  initHomeReveal() {
+    const KEY = 'portfolio_unlocked';
+    if (sessionStorage.getItem(KEY)) {
+      document.body.classList.remove('home-locked');
+      document.getElementById('home-scroll')?.classList.add('home-scroll--revealed');
+      this.initLenis();
+    }
+  }
+
+  unlockHome() {
+    document.body.classList.remove('home-locked');
+    sessionStorage.setItem('portfolio_unlocked', '1');
+    const scroll = document.getElementById('home-scroll');
+    scroll?.classList.add('home-scroll--revealed');
+    this.initLenis();
+    this.i18n.renderFutureProjects('future-grid');
+    this.mountCarousel('future-grid');
+    this.initHomePortals();
+    setTimeout(() => this.refreshLayerAnimations(0), 200);
+  }
+
+  initLenis() {
+    if (this.lenis || !window.Lenis) return;
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    const home = document.getElementById('layer-home');
+    if (!home) return;
+    this.lenis = new Lenis({ wrapper: home, content: home, smoothWheel: true, lerp: 0.088 });
+    const loop = (time) => {
+      this.lenis.raf(time);
+      requestAnimationFrame(loop);
+    };
+    requestAnimationFrame(loop);
+  }
+
+  mountCarousel(trackId) {
+    if (!window.PremiumCarousel) return;
+    const track = document.getElementById(trackId);
+    if (!track) return;
+    const carouselEl = track.closest('.premium-carousel');
+    if (!carouselEl) return;
+    const set = track.querySelector('.premium-carousel-set');
+    const html = set ? set.innerHTML : track.innerHTML;
+    if (!html.trim()) return;
+    if (!this.carousels[trackId]) {
+      this.carousels[trackId] = new PremiumCarousel(carouselEl);
+    }
+    this.carousels[trackId].mountFromHtml(html);
+  }
+
+  mountAllCarousels() {
+    [
+      'skills-grid',
+      'projects-grid-done',
+      'projects-grid-ongoing',
+      'future-grid',
+      'future-grid-projects'
+    ].forEach((id) => this.mountCarousel(id));
   }
 
   initFuturisticFx() {
@@ -578,7 +636,13 @@ class PortfolioApp {
 
     next?.addEventListener('click', () => go(this.currentLayer + 1));
     prev?.addEventListener('click', () => go(this.currentLayer - 1));
-    discover?.addEventListener('click', () => go(1));
+    discover?.addEventListener('click', () => {
+      if (document.body.classList.contains('home-locked')) {
+        this.unlockHome();
+        return;
+      }
+      go(1);
+    });
 
     dotsEl.querySelectorAll('.stage-dot').forEach(dot => {
       dot.addEventListener('click', () => go(+dot.dataset.layer));
@@ -589,8 +653,16 @@ class PortfolioApp {
         e.preventDefault();
         const idx = +el.dataset.layerJump;
         const tab = el.dataset.projectTab;
-        go(idx);
-        if (tab) setTimeout(() => this.setProjectTab(tab), 720);
+        const run = () => {
+          go(idx);
+          if (tab) setTimeout(() => this.setProjectTab(tab), 720);
+        };
+        if (document.body.classList.contains('home-locked') && idx > 0) {
+          this.unlockHome();
+          setTimeout(run, 850);
+          return;
+        }
+        run();
       });
     });
 
@@ -673,6 +745,12 @@ class PortfolioApp {
 
     this.updateStageUI();
     this.refreshLayerAnimations(index);
+    if (index === 2) this.mountCarousel('skills-grid');
+    if (index === 3) {
+      this.mountCarousel('projects-grid-done');
+      this.mountCarousel('projects-grid-ongoing');
+      this.mountCarousel('future-grid-projects');
+    }
 
     setTimeout(() => {
       layers.forEach(layer => layer.classList.remove('layer--leaving', 'layer--entering'));
@@ -718,6 +796,7 @@ class PortfolioApp {
 
   initProjectArchive() {
     document.querySelectorAll('.project-card[data-project-key]').forEach(card => {
+      if (card.closest('.premium-carousel-set[aria-hidden="true"]')) return;
       if (card.dataset.boundArchive) return;
       card.dataset.boundArchive = '1';
       const open = () => this.openProjectModal(card.dataset.projectKey);
@@ -1111,7 +1190,7 @@ class PortfolioApp {
         pane.querySelectorAll('.btn-filter').forEach(b => b.classList.remove('active'));
         btn.classList.add('active');
         const filter = btn.dataset.filter;
-        pane.querySelectorAll('.project-card').forEach(card => {
+        pane.querySelectorAll('.premium-carousel .project-card').forEach(card => {
           const visible = filter === 'all' || card.dataset.category === filter;
           card.classList.toggle('hidden', !visible);
           if (visible) {
@@ -1146,7 +1225,10 @@ class PortfolioApp {
       });
       const pane = panes[key];
       if (pane) {
-        this.observeAnimated(pane.querySelectorAll('.project-card--animated, .future-card, .skill-card'), pane.closest('.layer'));
+        this.observeAnimated(pane.querySelectorAll('.project-card--animated, .future-card, .skill-slide'), pane.closest('.layer'));
+        if (key === 'future') this.mountCarousel('future-grid-projects');
+        if (key === 'done') this.mountCarousel('projects-grid-done');
+        if (key === 'ongoing') this.mountCarousel('projects-grid-ongoing');
       }
     };
     tabs.forEach(tab => {
@@ -1188,13 +1270,13 @@ class PortfolioApp {
     if (!container) return;
     const layer = container.closest('.layer') || container;
     const items = container.querySelectorAll
-      ? container.querySelectorAll('.skill-card, .xp-entry, .project-card--animated, .future-card')
+      ? container.querySelectorAll('.skill-slide, .xp-entry, .project-card--animated, .future-card')
       : [];
-    const nodes = container.classList?.contains('skill-card') || container.classList?.contains('xp-entry')
+    const nodes = container.classList?.contains('skill-slide') || container.classList?.contains('xp-entry')
       ? [container]
       : [...items];
     if (!nodes.length && container.id) {
-      nodes.push(...container.querySelectorAll('.skill-card, .xp-entry'));
+      nodes.push(...container.querySelectorAll('.skill-slide, .xp-entry'));
     }
     this.observeAnimated(nodes, layer.classList?.contains('layer') ? layer : layer.closest('.layer'));
     requestAnimationFrame(() => {
@@ -1212,7 +1294,7 @@ class PortfolioApp {
   refreshLayerAnimations(layerIndex) {
     const layer = document.getElementById(`layer-${LAYER_IDS[layerIndex]}`);
     if (!layer) return;
-    const selectors = '.skill-card, .project-card--animated, .future-card, .xp-entry, .contact-channel, .contact-dossier, .portal-card';
+    const selectors = '.skill-slide, .project-card--animated, .future-card, .xp-entry, .contact-channel, .contact-dossier, .portal-card';
     const nodes = layer.querySelectorAll(selectors);
     this.observeAnimated(nodes, layer);
     setTimeout(() => {

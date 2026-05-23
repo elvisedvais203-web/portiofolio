@@ -28,6 +28,7 @@
   },
   "stage": {
     "discover": "Parcourir le dossier professionnel",
+    "discoverNow": "Découvrir maintenant",
     "next": "Page suivante",
     "prev": "Retour",
     "finish": "Prendre contact"
@@ -78,7 +79,8 @@
     "tag": "Compétences",
     "title": "Domaines de compétence",
     "lead": "Compétences transversales — spécialisation en systèmes informatiques.",
-    "levelLabel": "Niveau de maîtrise"
+    "levelLabel": "Niveau estimé",
+    "levelHint": "Évaluation réaliste sur l'usage professionnel"
   },
   "skillItems": {
     "frontend": "Interfaces & expérience utilisateur",
