@@ -395,7 +395,77 @@ class PortfolioApp {
     this.initProjectModal();
     this.initProjectModalZoom();
     this.initHomePortals();
+    this.initFuturisticFx();
     this.modalZoom = 1;
+  }
+
+  initFuturisticFx() {
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    const canvas = document.getElementById('fx-particles');
+    if (!canvas) return;
+    const ctx = canvas.getContext('2d');
+    if (!ctx) return;
+
+    let w = 0;
+    let h = 0;
+    let particles = [];
+    const count = 48;
+
+    const resize = () => {
+      w = canvas.width = window.innerWidth;
+      h = canvas.height = window.innerHeight;
+    };
+
+    const initParticles = () => {
+      particles = Array.from({ length: count }, () => ({
+        x: Math.random() * w,
+        y: Math.random() * h,
+        r: Math.random() * 1.2 + 0.3,
+        vx: (Math.random() - 0.5) * 0.25,
+        vy: (Math.random() - 0.5) * 0.25,
+        a: Math.random() * 0.35 + 0.15
+      }));
+    };
+
+    const draw = () => {
+      ctx.clearRect(0, 0, w, h);
+      const cyan = getComputedStyle(document.documentElement).getPropertyValue('--neon-cyan').trim() || '#00e8ff';
+      particles.forEach((p, i) => {
+        p.x += p.vx;
+        p.y += p.vy;
+        if (p.x < 0) p.x = w;
+        if (p.x > w) p.x = 0;
+        if (p.y < 0) p.y = h;
+        if (p.y > h) p.y = 0;
+        ctx.beginPath();
+        ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+        ctx.fillStyle = cyan;
+        ctx.globalAlpha = p.a;
+        ctx.fill();
+        for (let j = i + 1; j < particles.length; j++) {
+          const p2 = particles[j];
+          const dist = Math.hypot(p.x - p2.x, p.y - p2.y);
+          if (dist < 100) {
+            ctx.beginPath();
+            ctx.moveTo(p.x, p.y);
+            ctx.lineTo(p2.x, p2.y);
+            ctx.strokeStyle = cyan;
+            ctx.globalAlpha = (1 - dist / 100) * 0.08;
+            ctx.stroke();
+          }
+        }
+      });
+      ctx.globalAlpha = 1;
+      requestAnimationFrame(draw);
+    };
+
+    resize();
+    initParticles();
+    draw();
+    window.addEventListener('resize', () => {
+      resize();
+      initParticles();
+    });
   }
 
   initHomePortals() {
@@ -801,7 +871,7 @@ class PortfolioApp {
     document.documentElement.setAttribute('data-theme', saved);
     this.updateThemeIcon(saved);
     const meta = document.querySelector('meta[name="theme-color"]');
-    if (meta) meta.content = saved === 'dark' ? '#0c0e12' : '#f6f5f2';
+    if (meta) meta.content = saved === 'dark' ? '#050810' : '#f6f5f2';
 
     btn?.addEventListener('click', () => {
       const current = document.documentElement.getAttribute('data-theme');
@@ -810,7 +880,7 @@ class PortfolioApp {
       localStorage.setItem('portfolio_theme', next);
       this.updateThemeIcon(next);
       const meta = document.querySelector('meta[name="theme-color"]');
-      if (meta) meta.content = next === 'dark' ? '#0b1120' : '#f8fafc';
+      if (meta) meta.content = next === 'dark' ? '#050810' : '#f8fafc';
     });
   }
 

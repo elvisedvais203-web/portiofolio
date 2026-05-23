@@ -5,18 +5,19 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="Kadièbwe Makina Edvais — Ingénieur des systèmes informatiques. Lubumbashi, RDC." data-i18n-attr="content:meta.description">
   <meta name="author" content="Kadièbwe Makina Edvais">
-  <meta name="theme-color" content="#0c0e12">
+  <meta name="theme-color" content="#050810">
   <title data-i18n="meta.title">Kadièbwe Makina Edvais</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="preload" href="style.css" as="style">
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500&family=Inter:wght@400;500;600&family=Orbitron:wght@500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" media="print" onload="this.media='all'">
   <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"></noscript>
   <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="stage.css">
+  <link rel="stylesheet" href="futuristic.css">
 </head>
-<body class="stage-body on-home">
+<body class="stage-body on-home fx-mode">
   <a href="#layer-home" class="skip-link" data-i18n="a11y.skip">Aller au contenu</a>
 
   <div id="loader" class="loader" aria-hidden="true">
@@ -61,13 +62,22 @@
   </header>
 
   <div id="stage" class="stage" data-current-layer="0">
+    <div class="stage-fx" aria-hidden="true">
+      <div class="fx-aurora fx-aurora--1"></div>
+      <div class="fx-aurora fx-aurora--2"></div>
+      <div class="fx-grid"></div>
+      <canvas id="fx-particles" class="fx-particles"></canvas>
+      <div class="fx-scanlines"></div>
+      <div class="fx-vignette"></div>
+    </div>
     <div class="stage-stack" id="stage-stack">
 
       <section class="layer layer--active" id="layer-home" data-layer="0">
         <div class="layer-bg layer-bg--home" aria-hidden="true"></div>
         <div class="home-hero layer-panel layer-panel--center">
           <div class="welcome-ornament" aria-hidden="true"><span></span></div>
-          <div class="photo-frame photo-frame--hero">
+          <div class="photo-frame photo-frame--hero photo-frame--fx">
+            <span class="photo-ring" aria-hidden="true"></span>
             <img src="images/profile.png" alt="Kadièbwe Makina Edvais" class="welcome-photo" id="profile-photo" width="96" height="96" fetchpriority="high" decoding="async">
           </div>
           <p class="welcome-eyebrow" data-i18n="hero.eyebrow">Ingénieur des systèmes informatiques</p>

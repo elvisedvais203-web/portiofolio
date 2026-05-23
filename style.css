@@ -1,21 +1,21 @@
 /* ===== Portfolio professionnel — KADIEBWE MAKINA EDVAIS ===== */
 :root {
-  --bg: #0c0e12;
-  --bg-elevated: #141820;
-  --bg-alt: #10141c;
-  --surface: #1a2030;
-  --surface-hover: #222a3c;
-  --border: rgba(244, 242, 238, 0.1);
-  --border-light: rgba(244, 242, 238, 0.06);
-  --text: #f4f2ee;
-  --text-secondary: #8b939e;
-  --primary: #6b8cae;
-  --primary-hover: #5a7a9a;
-  --primary-soft: rgba(107, 140, 174, 0.14);
-  --primary-glow: rgba(107, 140, 174, 0.28);
-  --accent: #a68b5b;
-  --accent-soft: rgba(166, 139, 91, 0.12);
-  --accent-glow: rgba(166, 139, 91, 0.22);
+  --bg: #050810;
+  --bg-elevated: #0a0f18;
+  --bg-alt: #0d121c;
+  --surface: #0f1624;
+  --surface-hover: #151e30;
+  --border: rgba(94, 184, 255, 0.14);
+  --border-light: rgba(94, 184, 255, 0.08);
+  --text: #eef6ff;
+  --text-secondary: #7a8fa8;
+  --primary: #5eb8ff;
+  --primary-hover: #3da8f5;
+  --primary-soft: rgba(94, 184, 255, 0.14);
+  --primary-glow: rgba(0, 232, 255, 0.35);
+  --accent: #c9a86c;
+  --accent-soft: rgba(201, 168, 108, 0.14);
+  --accent-glow: rgba(201, 168, 108, 0.3);
   --success: #5a9a7a;
   --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.2);
   --shadow-md: 0 8px 24px rgba(0, 0, 0, 0.25);

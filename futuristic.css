@@ -1,0 +1,447 @@
+/* ===== Design futuriste global — K. Makina Edvais ===== */
+:root {
+  --ink: #050810;
+  --slate: #0a0f18;
+  --slate-raised: #0f1624;
+  --paper: #eef6ff;
+  --muted: #7a8fa8;
+  --steel: #5eb8ff;
+  --steel-soft: rgba(94, 184, 255, 0.12);
+  --steel-glow: rgba(94, 184, 255, 0.45);
+  --bronze: #c9a86c;
+  --bronze-soft: rgba(201, 168, 108, 0.14);
+  --bronze-glow: rgba(201, 168, 108, 0.35);
+  --neon-cyan: #00e8ff;
+  --neon-cyan-soft: rgba(0, 232, 255, 0.15);
+  --neon-violet: #8b5cf6;
+  --neon-violet-soft: rgba(139, 92, 246, 0.12);
+  --line: rgba(94, 184, 255, 0.12);
+  --font-tech: 'Orbitron', 'Inter', system-ui, sans-serif;
+  --fx-border: 1px solid rgba(94, 184, 255, 0.22);
+  --fx-glow: 0 0 24px rgba(0, 232, 255, 0.12), 0 0 48px rgba(139, 92, 246, 0.08);
+}
+
+[data-theme="light"] {
+  --ink: #e8eef6;
+  --slate: #f4f7fb;
+  --slate-raised: #ffffff;
+  --paper: #0a1220;
+  --muted: #4a5f78;
+  --steel: #2563eb;
+  --steel-glow: rgba(37, 99, 235, 0.25);
+  --neon-cyan: #0891b2;
+  --neon-cyan-soft: rgba(8, 145, 178, 0.1);
+  --line: rgba(37, 99, 235, 0.15);
+}
+
+[data-theme="light"] .fx-scanlines { opacity: 0.03; }
+[data-theme="light"] .stage-fx .fx-grid { opacity: 0.35; }
+
+/* —— Ambiance scène —— */
+.stage-fx {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+.fx-aurora {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(80px);
+  opacity: 0.5;
+  animation: auroraDrift 18s ease-in-out infinite alternate;
+}
+.fx-aurora--1 {
+  width: 55vw;
+  height: 45vh;
+  top: -15%;
+  left: -10%;
+  background: radial-gradient(circle, var(--neon-cyan-soft), transparent 70%);
+}
+.fx-aurora--2 {
+  width: 50vw;
+  height: 40vh;
+  bottom: -10%;
+  right: -15%;
+  background: radial-gradient(circle, var(--neon-violet-soft), transparent 70%);
+  animation-delay: -6s;
+}
+@keyframes auroraDrift {
+  0% { transform: translate(0, 0) scale(1); }
+  100% { transform: translate(4%, 6%) scale(1.08); }
+}
+.fx-grid {
+  position: absolute;
+  inset: -50%;
+  background-image:
+    linear-gradient(rgba(94, 184, 255, 0.045) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(94, 184, 255, 0.045) 1px, transparent 1px);
+  background-size: 56px 56px;
+  transform: perspective(500px) rotateX(58deg) translateY(-12%);
+  transform-origin: 50% 0%;
+  animation: gridScroll 24s linear infinite;
+  mask-image: radial-gradient(ellipse 90% 65% at 50% 35%, black 10%, transparent 72%);
+}
+@keyframes gridScroll {
+  0% { background-position: 0 0; }
+  100% { background-position: 0 56px; }
+}
+.fx-particles {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0.55;
+}
+.fx-scanlines {
+  position: absolute;
+  inset: 0;
+  background: repeating-linear-gradient(
+    0deg,
+    transparent,
+    transparent 2px,
+    rgba(0, 0, 0, 0.04) 2px,
+    rgba(0, 0, 0, 0.04) 4px
+  );
+  opacity: 0.06;
+  pointer-events: none;
+}
+.fx-vignette {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse 85% 75% at 50% 45%, transparent 40%, rgba(5, 8, 16, 0.65) 100%);
+}
+
+.stage-stack { z-index: 1; }
+
+/* —— Fonds de couches —— */
+.layer-bg {
+  background:
+    radial-gradient(ellipse 70% 50% at 50% 0%, var(--neon-cyan-soft), transparent 55%),
+    radial-gradient(ellipse 50% 40% at 100% 100%, var(--neon-violet-soft), transparent 50%),
+    var(--ink) !important;
+}
+.layer-bg--home {
+  background:
+    radial-gradient(ellipse 90% 60% at 50% -8%, rgba(201, 168, 108, 0.1), transparent 50%),
+    radial-gradient(ellipse 60% 45% at 80% 95%, var(--neon-cyan-soft), transparent 45%),
+    linear-gradient(180deg, #080d16 0%, var(--ink) 100%) !important;
+}
+
+/* —— Typographie tech —— */
+.layer-num,
+.welcome-eyebrow,
+.future-lab-tag,
+.portal-desc,
+.xp-period,
+.contact-channel-label,
+#layer-contact .contact-form label {
+  font-family: var(--font-tech);
+  letter-spacing: 0.12em;
+}
+
+.layer-head h2,
+.welcome-line,
+.portal-label,
+.future-lab-head h2,
+.xp-card-inner h3,
+.about-compact h3 {
+  text-shadow: 0 0 40px var(--steel-glow);
+}
+
+.welcome-line--accent {
+  background: linear-gradient(135deg, var(--bronze) 0%, var(--neon-cyan) 55%, var(--steel) 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+  filter: drop-shadow(0 0 20px var(--bronze-glow));
+}
+
+.typing-cursor {
+  color: var(--neon-cyan);
+  text-shadow: 0 0 12px var(--neon-cyan);
+}
+
+/* —— Photo holographique —— */
+.photo-frame--hero.photo-frame--fx,
+.photo-frame--fx {
+  overflow: visible !important;
+}
+.photo-ring {
+  position: absolute;
+  inset: -6px;
+  border-radius: 50%;
+  background: conic-gradient(
+    from 0deg,
+    var(--neon-cyan),
+    var(--neon-violet),
+    var(--bronze),
+    var(--steel),
+    var(--neon-cyan)
+  );
+  animation: ringSpin 5s linear infinite;
+  z-index: 0;
+  opacity: 0.9;
+  filter: blur(0.5px);
+}
+.photo-frame--fx img {
+  position: relative;
+  z-index: 1;
+  border-radius: 50%;
+}
+@keyframes ringSpin {
+  to { transform: rotate(360deg); }
+}
+.photo-frame--hero {
+  box-shadow: 0 0 32px var(--steel-glow), 0 0 64px var(--neon-cyan-soft);
+  outline-color: rgba(0, 232, 255, 0.25);
+}
+
+/* —— Boutons —— */
+.btn-accent {
+  background: linear-gradient(135deg, rgba(0, 232, 255, 0.25) 0%, rgba(94, 184, 255, 0.35) 50%, rgba(139, 92, 246, 0.2) 100%) !important;
+  border: 1px solid rgba(0, 232, 255, 0.45) !important;
+  color: var(--paper) !important;
+  box-shadow: 0 0 24px var(--neon-cyan-soft), inset 0 1px 0 rgba(255, 255, 255, 0.12) !important;
+  text-shadow: 0 0 12px rgba(0, 232, 255, 0.4);
+  position: relative;
+  overflow: hidden;
+}
+.btn-accent::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(105deg, transparent 40%, rgba(255, 255, 255, 0.12) 50%, transparent 60%);
+  transform: translateX(-100%);
+  transition: transform 0.55s ease;
+}
+.btn-accent:hover::before { transform: translateX(100%); }
+.btn-accent:hover {
+  box-shadow: 0 0 36px var(--steel-glow), 0 0 60px var(--neon-cyan-soft) !important;
+  transform: translateY(-2px);
+}
+
+.btn-glass {
+  border-color: rgba(94, 184, 255, 0.28) !important;
+  box-shadow: var(--fx-glow) !important;
+}
+.btn-glass:hover {
+  border-color: var(--neon-cyan) !important;
+  box-shadow: 0 0 28px var(--neon-cyan-soft) !important;
+}
+
+/* —— Portails accueil —— */
+.portal-card {
+  border: var(--fx-border) !important;
+  border-radius: 8px !important;
+  background: linear-gradient(145deg, rgba(15, 22, 36, 0.85), rgba(8, 12, 20, 0.92)) !important;
+  box-shadow: var(--fx-glow);
+  clip-path: polygon(0 0, calc(100% - 12px) 0, 100% 12px, 100% 100%, 12px 100%, 0 calc(100% - 12px));
+}
+.portal-card:hover {
+  border-color: var(--neon-cyan) !important;
+  box-shadow: 0 0 40px var(--neon-cyan-soft), 0 12px 32px rgba(0, 0, 0, 0.3) !important;
+}
+.portal-label {
+  font-family: var(--font-tech);
+  font-size: 0.95rem !important;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+.portal-card--projects:hover { border-color: var(--bronze) !important; }
+
+/* —— Projets futurs —— */
+.future-card {
+  border: 1px solid rgba(139, 92, 246, 0.35) !important;
+  border-radius: 8px !important;
+  background: linear-gradient(160deg, rgba(15, 22, 36, 0.9), rgba(5, 8, 16, 0.95)) !important;
+  box-shadow: inset 0 0 30px rgba(139, 92, 246, 0.06);
+}
+.future-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--neon-violet), var(--neon-cyan), transparent);
+  opacity: 0.7;
+}
+.future-card:hover {
+  border-color: var(--neon-cyan) !important;
+  box-shadow: 0 0 28px var(--neon-cyan-soft) !important;
+}
+.future-card-status { color: var(--neon-cyan) !important; }
+
+/* —— Cartes universelles (profil, skills, xp, contact) —— */
+.about-compact,
+.skill-chip,
+.xp-card-inner,
+.contact-channel,
+.contact-form-panel,
+.stage-nav-btn {
+  border: var(--fx-border) !important;
+  border-radius: 6px !important;
+  background: linear-gradient(160deg, rgba(15, 22, 36, 0.75), rgba(8, 12, 20, 0.88)) !important;
+  backdrop-filter: blur(10px);
+  box-shadow: var(--fx-glow);
+}
+
+.skill-chip:hover,
+.xp-card-inner:hover,
+.contact-channel:hover {
+  border-color: rgba(0, 232, 255, 0.45) !important;
+  box-shadow: 0 0 24px var(--neon-cyan-soft) !important;
+}
+
+.skill-chip-icon,
+.xp-icon,
+.portal-icon {
+  box-shadow: 0 0 16px var(--steel-soft);
+  border: 1px solid rgba(94, 184, 255, 0.2);
+}
+
+.layer-num {
+  color: var(--neon-cyan) !important;
+  text-shadow: 0 0 16px var(--neon-cyan-soft);
+}
+
+.xp-timeline::before {
+  background: linear-gradient(180deg, var(--neon-cyan), var(--neon-violet), transparent) !important;
+  box-shadow: 0 0 12px var(--neon-cyan-soft);
+}
+.xp-dot {
+  background: var(--neon-cyan) !important;
+  box-shadow: 0 0 0 3px var(--ink), 0 0 20px var(--neon-cyan) !important;
+}
+
+/* —— Projets (style.css) —— */
+.project-card {
+  border: var(--fx-border) !important;
+  border-radius: 8px !important;
+  background: linear-gradient(160deg, rgba(15, 22, 36, 0.9), rgba(8, 12, 20, 0.95)) !important;
+  box-shadow: var(--fx-glow) !important;
+}
+.project-card:hover {
+  border-color: var(--neon-cyan) !important;
+  box-shadow: 0 0 32px var(--neon-cyan-soft), 0 12px 28px rgba(0, 0, 0, 0.25) !important;
+}
+.project-card--sealed .project-seal-icon {
+  box-shadow: 0 0 24px var(--neon-violet-soft) !important;
+  border: 1px solid rgba(139, 92, 246, 0.4);
+}
+.btn-filter.active {
+  border-color: var(--neon-cyan) !important;
+  box-shadow: 0 0 16px var(--neon-cyan-soft) !important;
+  background: var(--neon-cyan-soft) !important;
+}
+
+/* —— Modale —— */
+.project-modal-panel {
+  border: 1px solid rgba(94, 184, 255, 0.25) !important;
+  box-shadow: 0 0 60px rgba(0, 232, 255, 0.1), var(--shadow-lg) !important;
+}
+.project-modal-viewport {
+  border-color: rgba(0, 232, 255, 0.2) !important;
+  box-shadow: inset 0 0 40px rgba(0, 232, 255, 0.05);
+}
+
+/* —— Navigation —— */
+.stage-nav {
+  background: linear-gradient(transparent, rgba(5, 8, 16, 0.75) 30%, rgba(5, 8, 16, 0.92)) !important;
+}
+.stage-nav-btn--next {
+  border-color: rgba(0, 232, 255, 0.4) !important;
+  color: var(--neon-cyan) !important;
+  background: var(--neon-cyan-soft) !important;
+  box-shadow: 0 0 20px var(--neon-cyan-soft);
+}
+.stage-nav-btn--next:not(:disabled):hover {
+  background: rgba(0, 232, 255, 0.25) !important;
+  color: var(--paper) !important;
+  box-shadow: 0 0 32px var(--neon-cyan-soft);
+}
+.stage-dot.active {
+  background: var(--neon-cyan) !important;
+  box-shadow: 0 0 12px var(--neon-cyan) !important;
+}
+
+.stage-header {
+  border-bottom-color: rgba(94, 184, 255, 0.15) !important;
+  background: rgba(5, 8, 16, 0.88) !important;
+}
+.stage-logo-text {
+  background: linear-gradient(90deg, var(--paper), var(--steel));
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* —— Loader —— */
+.loader {
+  background: var(--ink) !important;
+}
+.loader-line {
+  background: linear-gradient(90deg, transparent, var(--neon-cyan), var(--neon-violet), transparent) !important;
+  height: 2px !important;
+  animation: loaderPulse 1s ease-in-out infinite !important;
+}
+.loader-text {
+  font-family: var(--font-tech);
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  font-size: 0.7rem !important;
+  color: var(--steel) !important;
+}
+
+/* —— Formulaire contact —— */
+#layer-contact .contact-form input:focus,
+#layer-contact .contact-form textarea:focus {
+  border-color: var(--neon-cyan) !important;
+  box-shadow: 0 0 0 3px var(--neon-cyan-soft), 0 0 20px var(--neon-cyan-soft) !important;
+}
+.contact-channel--wa {
+  border-color: rgba(37, 211, 102, 0.35) !important;
+  box-shadow: 0 0 20px rgba(37, 211, 102, 0.08);
+}
+
+.contact-form-panel {
+  border-top: 2px solid var(--neon-cyan) !important;
+}
+
+.home-scroll-cue {
+  color: var(--steel);
+}
+.home-scroll-cue i {
+  color: var(--neon-cyan);
+  filter: drop-shadow(0 0 8px var(--neon-cyan));
+}
+
+.welcome-social a:hover {
+  border-color: var(--neon-cyan) !important;
+  color: var(--neon-cyan) !important;
+  box-shadow: 0 0 16px var(--neon-cyan-soft);
+}
+
+/* —— Transitions couches —— */
+.layer--active {
+  filter: none;
+}
+.layer--past {
+  filter: brightness(0.5) saturate(0.7) blur(1px);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .fx-aurora,
+  .fx-grid,
+  .photo-ring,
+  .photo-frame--fx::after,
+  .portal-scan,
+  .portal-glow,
+  .future-card-orbit {
+    animation: none !important;
+  }
+  .fx-particles { display: none; }
+}
